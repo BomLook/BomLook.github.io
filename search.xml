@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>卢卡斯定理</title>
+      <link href="/2024/03/18/%E5%8D%A2%E5%8D%A1%E6%96%AF%E5%AE%9A%E7%90%86/"/>
+      <url>/2024/03/18/%E5%8D%A2%E5%8D%A1%E6%96%AF%E5%AE%9A%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="卢卡斯定理">卢卡斯定理</h1><p>文章转载自<ahref="https://zhuanlan.zhihu.com/p/116698264">算法学习笔记(25):卢卡斯定理 - 知乎 (zhihu.com)</a>，如有侵权，请联系作者删除</p><hr /><p><strong>卢卡斯定理</strong>是一个与组合数有关的数论定理，在算法竞赛中用于求组合数对某质数的模。</p><p>这里接下来直接介绍卢卡斯定理，原文章的引入和证明不会涉及qwq。如果想看的话可以看看原作者的文章：<ahref="https://zhuanlan.zhihu.com/p/116698264">算法学习笔记(25):卢卡斯定理 - 知乎 (zhihu.com)</a></p><hr /><p>直接根据定义<spanclass="math inline">\(\binom{m}{n}=\frac{m!}{n!(m-n)!}\)</span>计算，很容易溢出，当然我们可以边乘边除，但有点麻烦。于是我们有另外一种思路，利用递推式：<spanclass="math inline">\(\binom{m}{n}=\binom{m-1}{n-1}+\binom{m-1}{n}\)</span>（这个递推式可以从杨辉三角中得到），这种方法相对不容易溢出，时间复杂度为<spanclass="math inline">\(O(n^2)\)</span>。</p><p>但是，然而，实际上，组合数的增长速度是非常快的，如<spanclass="math inline">\(\binom{300}{150}\)</span>则有89位数字，比宇宙中的原子数还多。所谓递推不容易溢出，那如果结果本身就溢出了，你又怎么办呢？</p><p>所幸算法竞赛中的题目常常会要求将结果对某个质数<spanclass="math inline">\(p\)</span>取模，这样一来，溢出的问题就不用太担心了。我们干脆直接回到最原始的方法：<spanclass="math inline">\(\binom{m}{n}=\frac{m!}{n!(m-n)!}\)</span>。只不过，现在我们要把除法变成求<ahref="https://zhuanlan.zhihu.com/p/100587745">逆元</a>，也即：<spanclass="math inline">\(\binom{m}{n}=m!·inv(n!)·inv[(m-n)!](mod\p)\)</span>。</p><p>模<span class="math inline">\(p\)</span> 意义下阶乘和逆元都可以<spanclass="math inline">\(O(n)\)</span>预处理出来，然后直接<spanclass="math inline">\(O(1)\)</span>查询即可（实际上不预处理逆元直接<spanclass="math inline">\(O(log\n)\)</span>求也绰绰有余）。这基本上是<strong>最常用</strong>的求组合数方法。</p><p>绕了一圈，怎么还没提到卢卡斯定理呢？嗯……一般来说，这个方法够用了。偏偏，有时候，<spanclass="math inline">\(p\)</span>可能比<spanclass="math inline">\(m\)</span>小……</p><p>这下麻烦了。如果<span class="math inline">\(p\)</span>比<spanclass="math inline">\(m\)</span>小，就不能保证<spanclass="math inline">\(n\)</span>和<spanclass="math inline">\(m-n\)</span>的逆元存在了（它们可能是<spanclass="math inline">\(p\)</span>的倍数）。当然还是可以用杨辉三角递推，但<spanclass="math inline">\(O(n^2)\)</span>还是太不理想。于是，本文的主角——卢卡斯定理终于要出场了。</p><hr /><h2 id="卢卡斯定理-1">卢卡斯定理</h2><blockquote><p>对于非负整数<span class="math inline">\(m,n\)</span>和质数<spanclass="math inline">\(p\)</span> ，<spanclass="math inline">\(\binom{m}{n}\equiv \prod_{i=0}^k\binom{m_i}{n_i}(mod\ p)\)</span> ，其中<spanclass="math inline">\(m=m_kp^k+······+m_1p+m_0、n=n_kp^k+······+n_1p+n_0\)</span>是<spanclass="math inline">\(m\)</span>和<spanclass="math inline">\(n\)</span>的 <spanclass="math inline">\(p\)</span>进制展开。</p></blockquote><p>但其实，我们一般使用的是这个可以与之互推的式子：</p><blockquote><p><span class="math inline">\(\binom{m}{n}=\binom{m\ mod\ p}{n\ mod\p}·\binom{\lfloor m/p \rfloor}{\lfloor n/p \rfloor}(mod\ p)\)</span></p></blockquote><p>当<span class="math inline">\(m&lt;n\)</span>时，规定<spanclass="math inline">\(\binom{m}{n}=0\)</span>（待会讲这个定义的含义）。</p><p>就像辗转相除法那样，可以利用这个式子递归求解，递归出口是 <spanclass="math inline">\(n=0\)</span>。其实这篇文章只需要这个好记的公式就够了，你甚至可以马上写出卢卡斯定理的板子：</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 需要先预处理出fact[]，即阶乘</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">C</span><span class="params">(ll m, ll n, ll p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> m &lt; n ? <span class="number">0</span> : fact[m] * <span class="built_in">inv</span>(fact[n], p) % p * <span class="built_in">inv</span>(fact[m - n], p) % p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">lucas</span><span class="params">(ll m, ll n, ll p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n == <span class="number">0</span> ? <span class="number">1</span> % p : <span class="built_in">lucas</span>(m / p, n / p, p) * <span class="built_in">C</span>(m % p, n % p, p) % p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度为<span class="math inline">\(O(p+log_p\m)\)</span>，前提是：</p><p>阶乘和逆元都采取递推的方式预处理出来，（只需要预处理<spanclass="math inline">\(p\)</span>以内的即可），每次调用<spanclass="math inline">\(C\)</span>函数都是<spanclass="math inline">\(O(1)\)</span>，一共要调用<spanclass="math inline">\(log_p\ m\)</span>次，总的时间复杂度即为<spanclass="math inline">\(O(p+log_p\ m)\)</span>。</p><hr /><p>没想到吧o(*≧▽≦)ツ，全文只需要这个代码模板即可（ε=ε=ε=┏(゜ロ゜;)┛逃）。</p><p>定理的证明maybe以后会补充？？？因为都是数学符号，看得有点烦了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数论大魔王 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数论 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>欧拉函数</title>
       <link href="/2024/03/18/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/"/>
       <url>/2024/03/18/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</url>
