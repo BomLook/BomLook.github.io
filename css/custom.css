@@ -24,7 +24,7 @@
 
  /* 侧边栏个人信息卡片动态渐变色 */
 #aside-content > .card-widget.card-info {
-background-color: rgba(255, 255, 255, 0.52);
+background-color: rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 5px rgb(66, 68, 68);
   position: relative;
   background-size: 400% 400%;
