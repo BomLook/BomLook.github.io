@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>stack容器</title>
+      <link href="/2024/03/26/stack%E5%AE%B9%E5%99%A8/"/>
+      <url>/2024/03/26/stack%E5%AE%B9%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<p>文章内容转载自黑马程序员C++提高编程讲义，如有侵权，请联系作者删除</p><hr /><h3 id="stack容器">3.5 stack容器</h3><h4 id="stack-基本概念">3.5.1 stack 基本概念</h4><p><strong>概念：</strong>stack是一种<strong>先进后出</strong>(First InLast Out,FILO)的数据结构，它只有一个出口</p><p><img src="https://img2.imgtp.com/2024/03/26/FGuiFdJQ.jpg" /></p><p>栈中只有顶端的元素才可以被外界使用，因此栈不允许有遍历行为</p><p>栈中进入数据称为 --- <strong>入栈</strong> <code>push</code></p><p>栈中弹出数据称为 --- <strong>出栈</strong> <code>pop</code></p><h4 id="stack-常用接口">3.5.2 stack 常用接口</h4><p>功能描述：栈容器常用的对外接口</p><p>构造函数：</p><ul><li><code>stack&lt;T&gt; stk;</code> //stack采用模板类实现，stack对象的默认构造形式</li><li><code>stack(const stack &amp;stk);</code> //拷贝构造函数</li></ul><p>赋值操作：</p><ul><li><code>stack&amp; operator=(const stack &amp;stk);</code>//重载等号操作符</li></ul><p>数据存取：</p><ul><li><code>push(elem);</code> //向栈顶添加元素</li><li><code>pop();</code> //从栈顶移除第一个元素</li><li><code>top();</code> //返回栈顶元素</li></ul><p>大小操作：</p><ul><li><code>empty();</code> //判断堆栈是否为空</li><li><code>size();</code> //返回栈的大小</li></ul><p><strong>示例：</strong></p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//栈容器常用接口</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//创建栈容器 栈容器必须符合先进后出</span></span><br><span class="line">stack&lt;<span class="type">int</span>&gt; s;</span><br><span class="line"></span><br><span class="line"><span class="comment">//向栈中添加元素，叫做 压栈 入栈</span></span><br><span class="line">s.<span class="built_in">push</span>(<span class="number">10</span>);</span><br><span class="line">s.<span class="built_in">push</span>(<span class="number">20</span>);</span><br><span class="line">s.<span class="built_in">push</span>(<span class="number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (!s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line"><span class="comment">//输出栈顶元素</span></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;栈顶元素为： &quot;</span> &lt;&lt; s.<span class="built_in">top</span>() &lt;&lt; endl;</span><br><span class="line"><span class="comment">//弹出栈顶元素</span></span><br><span class="line">s.<span class="built_in">pop</span>();</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;栈的大小为：&quot;</span> &lt;&lt; s.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">test01</span>();</span><br><span class="line"></span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>总结：</p><ul><li>入栈 --- push</li><li>出栈 --- pop</li><li>返回栈顶 --- top</li><li>判断栈是否为空 --- empty</li><li>返回栈大小 --- size</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 想成为C++大神 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>deque容器</title>
       <link href="/2024/03/26/deque%E5%AE%B9%E5%99%A8/"/>
       <url>/2024/03/26/deque%E5%AE%B9%E5%99%A8/</url>
