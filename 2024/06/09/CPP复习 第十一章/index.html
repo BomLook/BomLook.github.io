@@ -1,0 +1,385 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CPP复习 第十一章 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="CPP复习 第十一章 public private protected 继承注意： 以上三种中 基类的private成员都是不可以被它的派生类直接访问的 但是它们仍然被继承下来public继承中 其他类型的成员仍然在作为派生类的成员时保持看其原有的访问权限 如public还是public protected还是protected通过基类继承来的成员函数 派生类可以操作积累的private成员（前">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CPP复习 第十一章">
+<meta property="og:url" content="http://example.com/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/index.html">
+<meta property="og:site_name" content="Heavenhold">
+<meta property="og:description" content="CPP复习 第十一章 public private protected 继承注意： 以上三种中 基类的private成员都是不可以被它的派生类直接访问的 但是它们仍然被继承下来public继承中 其他类型的成员仍然在作为派生类的成员时保持看其原有的访问权限 如public还是public protected还是protected通过基类继承来的成员函数 派生类可以操作积累的private成员（前">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://npm.elemecdn.com/ushio-api-img-moe@5.0.88/img_885_750x1000_96_null_normal.jpg">
+<meta property="article:published_time" content="2024-06-09T11:17:00.000Z">
+<meta property="article:modified_time" content="2024-06-09T11:18:06.712Z">
+<meta property="article:author" content="马洛">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://npm.elemecdn.com/ushio-api-img-moe@5.0.88/img_885_750x1000_96_null_normal.jpg"><link rel="shortcut icon" href="https://img2.imgtp.com/2024/03/12/9tLeWKLK.png"><link rel="canonical" href="http://example.com/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CPP复习 第十一章',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-06-09 19:18:06'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 7 || hour >= 19
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiperstyle.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/94421005_p0_master1200.jpg" data-original="https://img2.imgtp.com/2024/03/10/WBTP13da.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">104</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://npm.elemecdn.com/ushio-api-img-moe@5.0.88/img_885_750x1000_96_null_normal.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Heavenhold"><span class="site-name">Heavenhold</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CPP复习 第十一章</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-09T11:17:00.000Z" title="发表于 2024-06-09 19:17:00">2024-06-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-09T11:18:06.712Z" title="更新于 2024-06-09 19:18:06">2024-06-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>31分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CPP复习 第十一章"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="cpp复习-第十一章">CPP复习 第十一章</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public private protected 继承</span><br><span class="line">注意： 以上三种中 基类的private成员都是不可以被它的派生类直接访问的 但是它们仍然被继承下来</span><br><span class="line">public继承中 其他类型的成员仍然在作为派生类的成员时保持看其原有的访问权限 如public还是public protected还是protected</span><br><span class="line">通过基类继承来的成员函数 派生类可以操作积累的private成员（前提是原来基类有提供这种功能）</span><br><span class="line">注意 友元函数是不被继承的</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">In this section, we use an inheritance hierarchy containing types of employees in a company’s payroll application to discuss the relationship between a base class and a derived class.</span><br><span class="line">Commission employees (who will be represented as objects of a base class) are paid a percentage of their sales, while base-salaried commission employees (who will be represented as objects of a derived class) receive a base salary plus a percentage of their sales.</span><br><span class="line">在本节中，我们将使用包含公司工资单应用程序中雇员类型的继承层次结构来讨论基类和派生类之间的关系。</span><br><span class="line">佣金员工(将表示为基类的对象)获得销售额的一定百分比的报酬，而基本工资佣金员工(将表示为派生类的对象)获得基本工资加上销售额的一定百分比。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CommissionEmployee’s class definition (Figs. 11.4–11.5).</span><br><span class="line">CommissionEmployee’s public services include a constructor and member functions earnings and print.</span><br><span class="line">Also includes public get and set functions that manipulate the class’s data members firstName, lastName, socialSecurityNumber, grossSales and commissionRate.</span><br><span class="line">These data members are private, so objects of other classes cannot directly access this data.</span><br><span class="line">Declaring data members as private and providing non-private get and set functions to manipulate and validate the data members helps enforce good software engineering.</span><br><span class="line">CommissionEmployee的类定义(图11.4-11.5)。</span><br><span class="line">CommissionEmployee的公共服务包括构造函数和成员函数earnings和print。</span><br><span class="line">还包括公共get和set函数，用于操作类的数据成员firstName、lastName、socialSecurityNumber、grossSales和commissionRate。</span><br><span class="line">这些数据成员是私有的，因此其他类的对象不能直接访问这些数据。</span><br><span class="line">将数据成员声明为私有，并提供非私有的get和set函数来操作和验证数据成员，有助于执行良好的软件工程。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CommissionEmployee Constructor</span><br><span class="line">The CommissionEmployee constructor definition purposely does not use member-initializer syntax in the first several examples of this section, so that we can demonstrate how private and protected specifiers affect member access in derived classes.</span><br><span class="line">Later in this section, we’ll return to using member-initializer lists in the constructors.</span><br><span class="line">CommissionEmployee构造函数</span><br><span class="line">在本节的前几个示例中，CommissionEmployee构造函数定义故意不使用成员初始化语法，以便我们可以演示private和protected说明符如何影响派生类中的成员访问。</span><br><span class="line">在本节后面，我们将回到在构造函数中使用成员初始化列表</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CommissionEmployee Member Functions earnings and print</span><br><span class="line">Member function earnings calculates a CommissionEmployee’s earnings.</span><br><span class="line">Member function print displays the values of a CommissionEmployee object’s data members.</span><br><span class="line">Testing Class CommissionEmployee</span><br><span class="line">Figure 11.6 tests class CommissionEmployee.</span><br><span class="line"></span><br><span class="line">佣金雇员成员功能收入和打印</span><br><span class="line">成员函数earnings计算一个CommissionEmployee的收入。</span><br><span class="line">成员函数print显示CommissionEmployee对象数据成员的值。</span><br><span class="line">测试班委员会雇员</span><br><span class="line">图11.6测试类CommissionEmployee。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">We now discuss the second part of our introduction to inheritance by creating and testing (a completely new and independent) class BasePlusCommissionEmployee (Figs. 11.7–11.8), which contains a first name, last name, social security number, gross sales amount, commission rate and base salary.</span><br><span class="line">现在，我们通过创建和测试(一个全新且独立的)类BasePlusCommissionEmployee(图11.7-11.8)来讨论继承介绍的第二部分，该类包含名字、姓氏、社会保险号、销售总额、佣金率和基本工资。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Defining Class BasePlusCommissionEmployee</span><br><span class="line">The BasePlusCommissionEmployee header (Fig. 11.7) specifies class BasePlusCommissionEmployee’s public services, which include the BasePlusCommissionEmployee constructor and member functions earnings and print.</span><br><span class="line">Lines 15–31 declare public get and set functions for the class’s private data members firstName, lastName, socialSecurityNumber, grossSales, commissionRate and baseSalary.</span><br><span class="line">定义类BasePlusCommissionEmployee</span><br><span class="line">BasePlusCommissionEmployee头(图11.7)指定了类BasePlusCommissionEmployee的公共服务，其中包括BasePlusCommissionEmployee构造函数和成员函数earnings和print。</span><br><span class="line">第15-31行声明了类的私有数据成员firstName、lastName、socialSecurityNumber、grossSales、commissionRate和baseSalary的公共get和set函数。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Defining Class BasePlusCommissionEmployee</span><br><span class="line">The BasePlusCommissionEmployee header (Fig. 11.7) specifies class BasePlusCommissionEmployee’s public services, which include the BasePlusCommissionEmployee constructor and member functions earnings and print.</span><br><span class="line">Lines 15–31 declare public get and set functions for the class’s private data members firstName, lastName, socialSecurityNumber, grossSales, commissionRate and baseSalary.</span><br><span class="line">定义类BasePlusCommissionEmployee</span><br><span class="line">BasePlusCommissionEmployee头(图11.7)指定了类BasePlusCommissionEmployee的公共服务，其中包括BasePlusCommissionEmployee构造函数和成员函数earnings和print。</span><br><span class="line">第15-31行声明了类的私有数据成员firstName、lastName、socialSecurityNumber、grossSales、commissionRate和baseSalary的公共get和set函数。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Note the similarity between this class and class Commission-Employee (Figs. 11.4–11.5)—in this example, we won’t yet exploit that similarity.</span><br><span class="line">Class BasePlusCommissionEmployee’s earnings member function computes the earnings of a base-salaried commission employee.</span><br><span class="line"></span><br><span class="line">Testing Class BasePlusCommissionEmployee</span><br><span class="line">Figure 11.9 tests class BasePlusCommissionEmployee.</span><br><span class="line">注意这个类和Commission-Employee类之间的相似性(图11.4-11.5)——在这个例子中，我们还没有利用这种相似性。</span><br><span class="line">类BasePlusCommissionEmployee的收入成员函数计算基本受薪佣金雇员的收入。</span><br><span class="line"></span><br><span class="line">测试类BasePlusCommissionEmployee</span><br><span class="line">图11.9测试类BasePlusCommissionEmployee。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Exploring the Similarities Between Class BasePlusCommissionEmployee and Class CommissionEmployee</span><br><span class="line">Most of the code for class BasePlusCommissionEmployee (Figs. 11.7–11.8) is similar, if not identical, to the code for class CommissionEmployee (Figs. 11.4–11.5).</span><br><span class="line">In class BasePlusCommissionEmployee, private data members firstName and lastName and member functions setFirstName, getFirstName, setLastName and getLastName are identical to those of class CommissionEmployee.</span><br><span class="line">Both classes contain private data members socialSecurityNumber, commissionRate and grossSales, as well as get and set functions to manipulate these members.</span><br><span class="line"></span><br><span class="line">探索类BasePlusCommissionEmployee和类CommissionEmployee的相似之处</span><br><span class="line">类BasePlusCommissionEmployee(图11.7-11.8)的大部分代码与类CommissionEmployee(图11.4-11.5)的代码相似，如果不是完全相同的话。</span><br><span class="line">在BasePlusCommissionEmployee类中，私有数据成员firstName和lastName以及成员函数setFirstName、getFirstName、setLastName和getLastName与CommissionEmployee类中的相同。</span><br><span class="line">这两个类都包含私有数据成员socialSecurityNumber、commissionRate和grossSales，以及用于操作这些成员的get和set函数。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The BasePlusCommissionEmployee constructor is almost identical to that of class CommissionEmployee, except that BasePlusCommissionEmployee’s constructor also sets the baseSalary.</span><br><span class="line">The other additions to class BasePlusCommissionEmployee are private data member baseSalary and member functions setBaseSalary and getBaseSalary.</span><br><span class="line">Class BasePlusCommissionEmployee’s print member function is nearly identical to that of class CommissionEmployee, except that BasePlusCommissionEmployee’s print also outputs the value of data member baseSalary.</span><br><span class="line"></span><br><span class="line">除了BasePlusCommissionEmployee的构造函数也设置baseSalary之外，BasePlusCommissionEmployee的构造函数几乎与CommissionEmployee类的构造函数相同。</span><br><span class="line">其他添加到BasePlusCommissionEmployee类的是私有数据成员baseSalary和成员函数setBaseSalary和getBaseSalary。</span><br><span class="line">类BasePlusCommissionEmployee的print成员函数几乎与类CommissionEmployee的相同，除了BasePlusCommissionEmployee的print也输出数据成员baseSalary的值。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">We literally copied code from class CommissionEmployee and pasted it into class BasePlusCommissionEmployee, then modified class BasePlusCommissionEmployee to include a base salary and member functions that manipulate the base salary.</span><br><span class="line">This copy-and-paste approach is error prone and time consuming.</span><br><span class="line">Worse yet, it can spread many physical copies of the same code throughout a system, creating a code-maintenance nightmare.</span><br><span class="line">我们从类CommissionEmployee中复制代码并将其粘贴到类BasePlusCommissionEmployee中，然后修改类BasePlusCommissionEmployee，使其包含基本工资和操纵基本工资的成员函数。</span><br><span class="line">这种复制-粘贴方法容易出错且耗时。</span><br><span class="line">更糟糕的是，它可以在整个系统中散布相同代码的许多物理副本，从而造成代码维护的噩梦。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Now we create and test a new BasePlusCommissionEmployee class (Figs. 11.10–11.11) that derives from class CommissionEmployee (Figs. 11.4–11.5).</span><br><span class="line">In this example, a BasePlusCommissionEmployee object is a CommissionEmployee (because inheritance passes on the capabilities of class CommissionEmployee), but class BasePlusCommissionEmployee also has data member baseSalary (Fig. 11.10, line 22).</span><br><span class="line">The colon (:) in line 10 of the class definition indicates inheritance.</span><br><span class="line">Keyword public indicates the type of inheritance.</span><br><span class="line">As a derived class (formed with public inheritance), BasePlusCommissionEmployee inherits all the members of class CommissionEmployee, except for the constructor—each class provides its own constructors that are specific to the class.</span><br><span class="line"></span><br><span class="line">现在我们创建并测试一个新的BasePlusCommissionEmployee类(图11.10-11.11)，它派生自类CommissionEmployee(图11.4-11.5)。</span><br><span class="line">在这个例子中，BasePlusCommissionEmployee对象是一个CommissionEmployee(因为继承传递了类CommissionEmployee的能力)，但是类BasePlusCommissionEmployee也有数据成员baseSalary(图11.10，第22行)。</span><br><span class="line">类定义第10行中的冒号(:)表示继承。</span><br><span class="line">关键字public表示继承类型。</span><br><span class="line">作为一个派生类(通过公共继承形成)，BasePlusCommissionEmployee继承了CommissionEmployee类的所有成员，除了构造函数——每个类都提供了自己的特定于该类的构造函数。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">注意 由public继承的派生类 继承了所有基类中处构造函数外的所有成员 每个类都提供了自己的构造函数。析构也是同理。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Now we create and test a new BasePlusCommissionEmployee class (Figs. 11.10–11.11) that derives from class CommissionEmployee (Figs. 11.4–11.5).</span><br><span class="line">In this example, a BasePlusCommissionEmployee object is a CommissionEmployee (because inheritance passes on the capabilities of class CommissionEmployee), but class BasePlusCommissionEmployee also has data member baseSalary (Fig. 11.10, line 22).</span><br><span class="line">The colon (:) in line 10 of the class definition indicates inheritance.</span><br><span class="line">Keyword public indicates the type of inheritance.</span><br><span class="line">As a derived class (formed with public inheritance), BasePlusCommissionEmployee inherits all the members of class CommissionEmployee, except for the constructor—each class provides its own constructors that are specific to the class.</span><br><span class="line">现在我们创建并测试一个新的BasePlusCommissionEmployee类(图11.10-11.11)，它派生自类CommissionEmployee(图11.4-11.5)。</span><br><span class="line">在这个例子中，BasePlusCommissionEmployee对象是一个CommissionEmployee(因为继承传递了类CommissionEmployee的能力)，但是类BasePlusCommissionEmployee也有数据成员baseSalary(图11.10，第22行)。</span><br><span class="line">类定义第10行中的冒号(:)表示继承。</span><br><span class="line">关键字public表示继承类型。</span><br><span class="line">作为一个派生类(通过公共继承形成)，BasePlusCommissionEmployee继承了CommissionEmployee类的所有成员，除了构造函数——每个类都提供了自己的特定于该类的构造函数。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Destructors, too, are not inherited</span><br><span class="line">Thus, the public services of BasePlusCommissionEmployee include its constructor and the public member functions inherited from class CommissionEmployee—although we cannot see these inherited member functions in BasePlusCommissionEmployee’s source code, they’re nevertheless a part of derived class BasePlusCommissionEmployee.</span><br><span class="line">The derived class’s public services also include member functions setBaseSalary, getBaseSalary, earnings and print.</span><br><span class="line">析构函数也不能被继承</span><br><span class="line">因此，BasePlusCommissionEmployee的公共服务包括它的构造函数和继承自类commissionemployee的公共成员函数——尽管我们无法在BasePlusCommissionEmployee的源代码中看到这些继承的成员函数，但它们仍然是派生类BasePlusCommissionEmployee的一部分。</span><br><span class="line">派生类的公共服务还包括成员函数setBaseSalary、getBaseSalary、earnings和print。</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607150422748.png"
+alt="image-20240607150422748" />
+<figcaption aria-hidden="true">image-20240607150422748</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">注意 这里虽然没有继承基类的构造函数 但是可以调用基类的构造函数来实现派生类的构造函数</span><br><span class="line">setBaseSalary是新增的内容</span><br><span class="line">cpp要求派生类构造函数调用其基类的构造函数 来初始化继承到派生类的基类的数据成员 所以使用成员初始化器来初始化基类的数据成员 将参数传递给基类的构造函数 注意参数需要与基类的构造函数定义相符合</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Figure 11.11 shows BasePlusCommissionEmployee’s member-function implementations.</span><br><span class="line">The constructor introduces base-class initializer syntax, which uses a member initializer to pass arguments to the base-class constructor.</span><br><span class="line">C++ requires that a derived-class constructor call its base-class constructor to initialize the base-class data members that are inherited into the derived class.</span><br><span class="line">If BasePlusCommissionEmployee’s constructor did not invoke class CommissionEmployee’s constructor explicitly, C++ would attempt to invoke class CommissionEmployee’s default constructor—but the class does not have such a constructor, so the compiler would issue an error.</span><br><span class="line">图11.11显示了BasePlusCommissionEmployee的成员函数实现。</span><br><span class="line">构造函数引入基类初始化式语法，该语法使用成员初始化式将参数传递给基类构造函数。</span><br><span class="line">c++要求派生类构造函数调用其基类构造函数来初始化继承到派生类中的基类数据成员。</span><br><span class="line">如果BasePlusCommissionEmployee的构造函数没有显式地调用类CommissionEmployee的构造函数，c++将尝试调用类CommissionEmployee的默认构造函数——但是类没有这样的构造函数，因此编译器将发出错误。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Compilation Errors from Accessing Base-Class private Members</span><br><span class="line">The compiler generates errors for line 37 of Fig. 11.11 because base class CommissionEmployee’s data members commissionRate and grossSales are private—derived class BasePlusCommissionEmployee’s member functions are not allowed to access base class CommissionEmployee’s private data.</span><br><span class="line">We used red text in Fig. 11.11 to indicate erroneous code.</span><br><span class="line">The compiler issues additional errors in lines 44–47 of BasePlus-Commission-Employee’s print member function for the same reason.</span><br><span class="line">C++ rigidly enforces restrictions on accessing private data members, so that even a derived class (which is intimately related to its base class) cannot access the base class’s private data.</span><br><span class="line">访问基类私有成员导致的编译错误</span><br><span class="line">编译器在图11.11第37行产生错误，因为基类CommissionEmployee的数据成员commissionRate和grossSales是私有的——派生类BasePlusCommissionEmployee的成员函数不允许访问基类CommissionEmployee的私有数据。</span><br><span class="line">我们在图11.11中使用红色文本表示错误代码。</span><br><span class="line">由于同样的原因，编译器会在BasePlus-Commission-Employee的print成员函数的第44-47行中发出额外的错误。</span><br><span class="line">c++严格执行访问私有数据成员的限制，因此即使是派生类(与其基类密切相关)也不能访问基类的私有数据。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Preventing the Errors in BasePlusCommissionEmployee</span><br><span class="line">We purposely included the erroneous code in Fig. 11.11 to emphasize that a derived class’s member functions cannot access its base class’s private data.</span><br><span class="line">The errors in BasePlusCommissionEmployee could have been prevented by using the get member functions inherited from class CommissionEmployee.</span><br><span class="line">防止BasePlusCommissionEmployee中的错误</span><br><span class="line">我们特意在图11.11中包含了错误的代码，以强调派生类的成员函数不能访问其基类的私有数据。</span><br><span class="line">BasePlusCommissionEmployee中的错误可以通过使用从CommissionEmployee类继承的get成员函数来防止。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">For example, line 37 could have invoked getCommissionRate and getGrossSales to access CommissionEmployee’s private data members commissionRate and grossSales, respectively.</span><br><span class="line">Similarly, lines 44–47 could have used appropriate get member functions to retrieve the values of the base class’s data members.</span><br><span class="line">例如，第37行可以分别调用getCommissionRate和getGrossSales来访问CommissionEmployee的私有数据成员commissionRate和grossSales。</span><br><span class="line">类似地，第44-47行可以使用适当的get成员函数来检索基类的数据成员的值。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Including the Base-Class Header in the Derived-Class Header with #include</span><br><span class="line">We #include the base class’s header in the derived class’s header (line 8 of Fig. 11.10).</span><br><span class="line">This is necessary for three reasons.</span><br><span class="line">The derived class uses the base class’s name in line 10, so we must tell the compiler that the base class exists.</span><br><span class="line">The compiler uses a class definition to determine the size of an object of that class. A client program that creates an object of a class #includes the class definition to enable the compiler to reserve the proper amount of memory for the object.</span><br><span class="line">The compiler must determine whether the derived class uses the base class’s inherited members properly.</span><br><span class="line"></span><br><span class="line">用#include将基类头包含在派生类头中</span><br><span class="line">我们将基类的头文件包含在派生类的头文件中(图11.10的第8行)。</span><br><span class="line">这是必要的，原因有三。</span><br><span class="line">派生类在第10行使用基类的名称，因此必须告诉编译器基类存在。</span><br><span class="line">编译器使用类定义来确定该类对象的大小。创建类的对象的客户端程序包含类定义，以使编译器能够为该对象保留适当数量的内存。</span><br><span class="line">编译器必须确定派生类是否正确地使用基类的继承成员</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Linking Process in an Inheritance Hierarchy</span><br><span class="line">In Section 3.7, we discussed the linking process for creating an executable GradeBook application.</span><br><span class="line">The linking process is similar for a program that uses classes in an inheritance hierarchy.</span><br><span class="line">The process requires the object code for all classes used in the program and the object code for the direct and indirect base classes of any derived classes used by the program.</span><br><span class="line">The code is also linked with the object code for any C++ Standard Library classes used in the classes or the client code.</span><br><span class="line">继承层次结构中的链接过程</span><br><span class="line">在第3.7节中，我们讨论了创建可执行的GradeBook应用程序的链接过程。</span><br><span class="line">链接过程与在继承层次结构中使用类的程序类似。</span><br><span class="line">该过程需要程序中使用的所有类的目标代码，以及程序使用的任何派生类的直接和间接基类的目标代码。</span><br><span class="line">代码还与类或客户端代码中使用的任何c++标准库类的目标代码链接。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">In this section, we introduce the access specifier protected.</span><br><span class="line">To enable class BasePlusCommissionEmployee to directly access CommissionEmployee data members firstName, lastName, socialSecurityNumber, grossSales and commissionRate, we can declare those members as protected in the base class.</span><br><span class="line">A base class’s protected members can be accessed within the body of that base class, by members and friends of that base class, and by members and friends of any classes derived from that base class.</span><br><span class="line">在本节中，我们将介绍访问指定符protected。</span><br><span class="line">为了使类BasePlusCommissionEmployee能够直接访问CommissionEmployee数据成员firstName、lastName、socialSecurityNumber、grossSales和commissionRate，我们可以在基类中将这些成员声明为受保护的。</span><br><span class="line">基类的受保护成员可以在基类的主体内访问，基类的成员和友类，以及从基类派生的任何类的成员和友类都可以访问。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Defining Base Class CommissionEmployee with protected Data</span><br><span class="line">Class CommissionEmployee (Fig. 11.12) now declares data members firstName, lastName, socialSecurityNumber, grossSales and commissionRate as protected (lines 31–36) rather than private.</span><br><span class="line">The member-function implementations are identical to those in Fig. 11.5.</span><br><span class="line">用受保护的数据定义基类CommissionEmployee</span><br><span class="line">类CommissionEmployee(图11.12)现在将数据成员firstName、lastName、socialSecurityNumber、grossSales和commissionRate声明为protected(第31-36行)，而不是private。</span><br><span class="line">成员函数的实现与图11.5中的实现相同。</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607154700559.png"
+alt="image-20240607154700559" />
+<figcaption aria-hidden="true">image-20240607154700559</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BasePlusCommissionEmployee inherits from class CommissionEmployee in Fig. 11.12.</span><br><span class="line">Objects of class BasePlusCommissionEmployee can access inherited data members that are declared protected in class CommissionEmployee (i.e., data members firstName, lastName, socialSecurityNumber, grossSales and commissionRate).</span><br><span class="line">As a result, the compiler does not generate errors when compiling the BasePlusCommissionEmployee earnings and print member-function definitions in Fig. 11.11 (lines 34–38 and 41–49, respectively).</span><br><span class="line">Objects of a derived class also can access protected members in any of that derived class’s indirect base classes.</span><br><span class="line"></span><br><span class="line">BasePlusCommissionEmployee继承自图11.12中的CommissionEmployee类。</span><br><span class="line">类BasePlusCommissionEmployee的对象可以访问在类CommissionEmployee中声明受保护的继承数据成员(即数据成员firstName、lastName、socialSecurityNumber、grossSales和commissionRate)。</span><br><span class="line">因此，编译器在编译BasePlusCommissionEmployee收益和打印成员函数定义时不会产生错误，如图11.11所示(分别为第34-38行和41-49行)。</span><br><span class="line"></span><br><span class="line">派生类的对象也可以访问该派生类的任何间接基类中的受保护成员。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Testing the Modified BasePlusCommissionEmployee Class</span><br><span class="line">To test the updated class hierarchy, we reused the test program from Fig. 11.9.</span><br><span class="line">As shown in Fig. 11.13, the output is identical to that of Fig. 11.9.</span><br><span class="line">The code for class BasePlusCommissionEmployee, which is 74 lines, is considerably shorter than the code for the noninherited version of the class, which is 161 lines, because the inherited version absorbs part of its functionality from CommissionEmployee, whereas the noninherited version does not absorb any functionality.</span><br><span class="line">Also, there is now only one copy of the CommissionEmployee functionality declared and defined in class CommissionEmployee.</span><br><span class="line">Makes the source code easier to maintain, modify and debug.</span><br><span class="line"></span><br><span class="line">测试修改后的BasePlusCommissionEmployee类</span><br><span class="line">为了测试更新后的类层次结构，我们重用图11.9中的测试程序。</span><br><span class="line">如图11.13所示，输出与图11.9相同。</span><br><span class="line">类BasePlusCommissionEmployee的代码为74行，比类的非继承版本(161行)的代码短得多，因为继承版本从CommissionEmployee吸收部分功能，而非继承版本不吸收任何功能。</span><br><span class="line">而且，现在在类CommissionEmployee中声明和定义的CommissionEmployee函数只有一个副本。</span><br><span class="line">使源代码更容易维护、修改和调试。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Notes on Using protected Data</span><br><span class="line">Inheriting protected data members slightly increases performance, because we can directly access the members without incurring the overhead of calls to set or get member functions.</span><br><span class="line">使用受保护资料须知</span><br><span class="line">继承受保护的数据成员会略微提高性能，因为我们可以直接访问成员，而不会产生设置或获取成员函数的调用开销。</span><br><span class="line"></span><br><span class="line">在多数情况下，使用private数据成员是更好的软件工程方法，把代码优化交给编译器就可以了。代码也过冗余维护修改和调试</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Using protected data members creates two serious problems.</span><br><span class="line">The derived-class object does not have to use a member function to set the value of the base class’s protected data member.</span><br><span class="line">Derived-class member functions are more likely to be written so that they depend on the base-class implementation. Derived classes should depend only on the base-class services (i.e., non-private member functions) and not on the base-class implementation.</span><br><span class="line">With protected data members in the base class, if the base-class implementation changes, we may need to modify all derived classes of that base class.</span><br><span class="line">Such software is said to be fragile or brittle, because a small change in the base class can “break” derived-class implementation.</span><br><span class="line"></span><br><span class="line">使用受保护的数据成员会产生两个严重的问题。</span><br><span class="line">派生类对象不必使用成员函数来设置基类受保护的数据成员的值。</span><br><span class="line">派生类成员函数更有可能被编写为依赖于基类实现。派生类应该只依赖于基类服务(即，非私有成员函数)，而不依赖于基类实现。</span><br><span class="line">对于基类中受保护的数据成员，如果基类实现发生变化，我们可能需要修改该基类的所有派生类。</span><br><span class="line">这样的软件被认为是脆弱的，因为基类中的一个小变化就可以“破坏”派生类的实现。</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607160220270.png"
+alt="image-20240607160220270" />
+<figcaption aria-hidden="true">image-20240607160220270</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在基类仅向其派生类或者友元 提供服务时（例如非private成员函数时） 使用protected成员访问标识符是合适的</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将基类的数据成员声明为private 可以在修改基类的实现时 不需要修改派生类的实现</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">We now reexamine our hierarchy once more, this time using the best software engineering practices.</span><br><span class="line">Class CommissionEmployee now declares data members firstName, lastName, socialSecurityNumber, grossSales and commissionRate as private (as shown previously in lines 31–36 of Fig. 11.4). </span><br><span class="line">现在我们再一次重新检查我们的层次结构，这次使用最好的软件工程实践。</span><br><span class="line">类CommissionEmployee现在将数据成员firstName、lastName、socialSecurityNumber、grossSales和commissionRate声明为私有(如前面图11.4的31-36行所示)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Changes to Class CommissionEmployee’s Member Function Definitions</span><br><span class="line">In the CommissionEmployee constructor implementation (Fig. 11.14, lines 9–16), we use member initializers (line 12) to set the values of members firstName, lastName and socialSecurityNumber.</span><br><span class="line">We show how derived-class BasePlusCommissionEmployee (Fig. 11.15) can invoke non-private base-class member functions (setFirstName, getFirstName, setLastName, getLastName, setSocialSecurityNumber and getSocialSecurityNumber) to manipulate these data members.</span><br><span class="line"></span><br><span class="line">更改了类CommissionEmployee的成员函数定义</span><br><span class="line">在CommissionEmployee构造函数实现中(图11.14，第9-16行)，我们使用成员初始化器(第12行)来设置成员firstName、lastName和socialSecurityNumber的值。</span><br><span class="line">我们将展示派生类BasePlusCommissionEmployee(图11.15)如何调用非私有基类成员函数(setFirstName, getFirstName, setLastName, getLastName, setSocialSecurityNumber和getSocialSecurityNumber)来操作这些数据成员。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Changes to Class BasePlusCommissionEmployee’s Member Function Definitions</span><br><span class="line">Class BasePlusCommissionEmployee has several changes to its member-function implementations (Fig. 11.15) that distinguish it from the previous version of the class (Figs. 11.10–11.11).</span><br><span class="line">Member functions earnings (Fig. 11.15, lines 34–37) and print (lines 40–48) each invoke getBaseSalary to obtain the base salary value.</span><br><span class="line">更改了类BasePlusCommissionEmployee的成员函数定义</span><br><span class="line">类BasePlusCommissionEmployee对其成员函数实现(图11.15)进行了一些更改，以区别于类的前一个版本(图11.10-11.11)。</span><br><span class="line">成员函数earnings(图11.15，第34-37行)和print(第40-48行)分别调用getBaseSalary来获取基本工资值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BasePlusCommissionEmployee Member Function earnings</span><br><span class="line">Class BasePlusCommissionEmployee’s earnings function (Fig. 11.15, lines 34–37) redefines class CommissionEmployee’s earnings member function (Fig. 11.14, lines 85–88) to calculate the earnings of a base-salaried commission employee. It also calls CommissionEmployee’s earnings function.</span><br><span class="line">Note the syntax used to invoke a redefined base-class member function from a derived class—place the base-class name and the binary scope resolution operator (::) before the base-class member-function name.</span><br><span class="line">Good software engineering practice: If an object’s member function performs the actions needed by another object, we should call that member function rather than duplicating its code body.</span><br><span class="line">BasePlusCommissionEmployee成员函数收益</span><br><span class="line">类BasePlusCommissionEmployee的收益函数(图11.15，第34-37行)重新定义了类CommissionEmployee的收益成员函数(图11.14，第85-88行)，以计算基本受薪佣金雇员的收益。它还调用了CommissionEmployee的收益函数。</span><br><span class="line"></span><br><span class="line">注意从派生类调用重新定义的基类成员函数时使用的语法——将基类名称和二进制作用域解析操作符(::)放在基类成员函数名称之前。!!!</span><br><span class="line">注意必须加上基类类名和:: 否则会造成无限递归的错误 即自己调用自己</span><br><span class="line"></span><br><span class="line">良好的软件工程实践:如果一个对象的成员函数执行了另一个对象所需的操作，我们应该调用该成员函数，而不是复制它的代码体。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BasePlusCommissionEmployee Member Function print</span><br><span class="line">BasePlusCommissionEmployee’s print function (Fig. 11.15, lines 40–48) redefines class CommissionEmployee’s print function (Fig. 11.14, lines 91–98) to output the appropriate base-salaried commission employee information. </span><br><span class="line">By using inheritance and by calling member functions that hide the data and ensure consistency, we’ve efficiently and effectively constructed a well-engineered class.</span><br><span class="line">BasePlusCommissionEmployee成员函数打印</span><br><span class="line">BasePlusCommissionEmployee的打印函数(图11.15，第40-48行)重新定义了类CommissionEmployee的打印函数(图11.14，第91-98行)，以输出适当的基本工资佣金员工信息。</span><br><span class="line">通过使用继承和调用隐藏数据并确保一致性的成员函数，我们高效且有效地构建了一个设计良好的类。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">子类对象可以直接访问子类中的同名成员</span><br><span class="line">子类对象可以通过加 父类名+::来访问子类中同名成员</span><br><span class="line">当子类和父类具有相同名字的成员时 子类会隐藏从父类中同名的数据成员 加上父类名+::才可以访问</span><br><span class="line">同名的静态成员和非静态成员的处理方式也一样</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Instantiating a derived-class object begins a chain of constructor calls in which the derived-class constructor, before performing its own tasks, invokes its direct base class’s constructor either explicitly (via a base-class member initializer) or implicitly (calling the base class’s default constructor).</span><br><span class="line">If the base class is derived from another class, the base-class constructor is required to invoke the constructor of the next class up in the hierarchy, and so on.</span><br><span class="line">The last constructor called in this chain is the constructor of the class at the base of the hierarchy, whose body actually finishes executing first.</span><br><span class="line">The most derived-class constructor’s body finishes executing last.</span><br><span class="line">Each base-class constructor initializes the base-class data members that the derived-class object inherits.</span><br><span class="line"></span><br><span class="line">派生类对象的实例化开始了构造函数调用链，其中派生类构造函数在执行自己的任务之前，显式(通过基类成员初始化项)或隐式(调用基类的默认构造函数)调用其直接基类的构造函数。</span><br><span class="line">如果基类派生自另一个类，则基类构造函数需要调用层次结构中上一个类的构造函数，依此类推。</span><br><span class="line">在此链中调用的最后一个构造函数是位于层次结构基础的类的构造函数，它的主体实际上首先完成执行。</span><br><span class="line">派生最多的类的构造函数体最后完成执行。</span><br><span class="line">每个基类构造函数初始化派生类对象继承的基类数据成员。</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607163345485.png"
+alt="image-20240607163345485" />
+<figcaption aria-hidden="true">image-20240607163345485</figcaption>
+</figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">先构造父类 在构造子类 析构的顺序相反</span><br><span class="line">派生类对象被创建时 派生类的构造函数先被调用（立即调用父类的构造函数，父类的构造函数被执行） 后调用成员初始化器，最好调用派生类构造函数的函数体执行</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">When a derived-class object is destroyed, the program calls that object’s destructor.</span><br><span class="line">This begins a chain (or cascade) of destructor calls in which the derived-class destructor and the destructors of the direct and indirect base classes and the classes’ members execute in reverse of the order in which the constructors executed.</span><br><span class="line">When a derived-class object’s destructor is called, the destructor performs its task, then invokes the destructor of the next base class up the hierarchy.</span><br><span class="line">This process repeats until the destructor of the final base class at the top of the hierarchy is called.</span><br><span class="line">Then the object is removed from memory.</span><br><span class="line">当一个派生类对象被销毁时，程序调用该对象的析构函数。</span><br><span class="line">这开始了析构函数调用链(或级联)，其中派生类的析构函数、直接基类和间接基类的析构函数以及类成员的执行顺序与构造函数的执行顺序相反。</span><br><span class="line">当调用派生类对象的析构函数时，析构函数执行其任务，然后调用层次结构上的下一个基类的析构函数。</span><br><span class="line">这个过程一直重复，直到调用位于层次结构顶端的最后一个基类的析构函数。</span><br><span class="line">然后从内存中删除对象。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Base-class constructors, destructors and overloaded assignment operators (Chapter 10) are not inherited by derived classes.</span><br><span class="line">Derived-class constructors, destructors and overloaded assignment operators, however, can call base-class versions.</span><br><span class="line">基类的构造函数、析构函数和重载赋值操作符(第10章)不能被派生类继承。</span><br><span class="line">但是，派生类的构造函数、析构函数和重载赋值操作符可以调用基类的版本。</span><br></pre></td></tr></table></figure>
+<p>c++11：继承自基类的构造函数？？？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C++11: Inheriting Base Class Constructors</span><br><span class="line">Sometimes a derived class’s constructors simply mimic the base class’s constructors. </span><br><span class="line">A frequently requested convenience feature for C++11 was the ability to inherit a base class’s constructors. </span><br><span class="line">You can now do this by explicitly including a using declaration of the form </span><br><span class="line">using BaseClass::BaseClass;</span><br><span class="line">anywhere in the derived-class definition. </span><br><span class="line">In the preceding declaration, BaseClass is the base class’s name. </span><br><span class="line">c++ 11:继承基类构造函数</span><br><span class="line">有时，派生类的构造函数只是模仿基类的构造函数。</span><br><span class="line">c++ 11中一个经常被要求的便利特性是能够继承基类的构造函数。</span><br><span class="line">现在可以通过显式地包括表单的using声明来实现这一点</span><br><span class="line">使用BaseClass:: BaseClass;</span><br><span class="line">派生类定义中的任何地方。</span><br><span class="line">在前面的声明中，BaseClass是基类的名称</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">When you inherit constructors:</span><br><span class="line">By default, each inherited constructor has the same access level (public, protected or private) as its corresponding base-class constructor. </span><br><span class="line">The default, copy and move constructors are not inherited. </span><br><span class="line">If a constructor is deleted in the base class by placing = delete in its prototype, the corresponding constructor in the derived class is also deleted.</span><br><span class="line">If the derived class does not explicitly define constructors, the compiler generates a default constructor in the derived class—even if it inherits other constructors from its base class.</span><br><span class="line">If a constructor that you explicitly define in a derived class has the same parameter list as a base-class constructor, then the base-class constructor is not inherited. </span><br><span class="line">A base-class constructor’s default arguments are not inherited. Instead, the compiler generates overloaded constructors in the derived class.</span><br><span class="line">当你继承构造函数时:</span><br><span class="line">默认情况下，每个继承的构造函数与其相应的基类构造函数具有相同的访问级别(public、protected或private)。</span><br><span class="line">默认的、复制的和移动的构造函数是不被继承的。</span><br><span class="line">如果通过在原型中放置= delete来删除基类中的构造函数，则派生类中相应的构造函数也会被删除。</span><br><span class="line">如果派生类没有显式定义构造函数，则编译器在派生类中生成默认构造函数——即使它从基类继承了其他构造函数。</span><br><span class="line">如果在派生类中显式定义的构造函数具有与基类构造函数相同的参数列表，则不继承基类构造函数。</span><br><span class="line">基类构造函数的默认参数不被继承。相反，编译器在派生类中生成重载构造函数。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">When deriving a class from a base class, the base class may be inherited through public, protected or private inheritance.</span><br><span class="line">Use of protected and private inheritance is rare.</span><br><span class="line">Figure 11.16 summarizes for each type of inheritance the accessibility of base-class members in a derived class.</span><br><span class="line">The first column contains the base-class access specifiers.</span><br><span class="line">A base class’s private members are never accessible directly from a derived class, but can be accessed through calls to the public and protected members of the base class.</span><br><span class="line">从基类派生类时，基类可以通过公共继承、保护继承或私有继承继承。</span><br><span class="line">很少使用受保护的私有继承。</span><br><span class="line">图11.16总结了每种继承类型对派生类中基类成员的可访问性。</span><br><span class="line">第一列包含基类访问说明符。</span><br><span class="line">基类的私有成员永远不能从派生类直接访问，但可以通过调用基类的公共成员和受保护成员来访问</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607164759069.png"
+alt="image-20240607164759069" />
+<figcaption aria-hidden="true">image-20240607164759069</figcaption>
+</figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/">http://example.com/2024/06/09/CPP复习 第十一章/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="https://npm.elemecdn.com/ushio-api-img-moe@5.0.88/img_885_750x1000_96_null_normal.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0/" title="CPP复习 第十二章"><img class="cover" src="/img/94421005_p0_master1200.jpg" data-original="https://www.horosama.com/api/image_all/anime/1080p/pc/fb4ddC48481d3eFb8DDdbb310625e308.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CPP复习 第十二章</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E7%AB%A0/" title="CPP复习 第十章"><img class="cover" src="/img/94421005_p0_master1200.jpg" data-original="https://www.horosama.com/api/image_all/anime/1080p/pc/EaE495A7102C3De491e6bEF9909fc56B.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CPP复习 第十章</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cpp%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">CPP复习 第十一章</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script id="canvas_nest" defer="defer" color="255,215,0" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/no-pjax/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && location.pathname =='/'){
+    
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/img/94421005_p0_master1200.jpg" data-original="https://www.horosama.com/api/image_all/anime/1080p/pc/42c08c785C5135E69a77870D477AFAD0.jpg" alt="https://www.horosama.com/api/image_all/anime/1080p/pc/42c08c785C5135E69a77870D477AFAD0.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2024-05-04</span><a class="blog-slider__title" href="2024/05/04/刷题计划/">刷题计划</a><div class="blog-slider__text">不定期更新题单和内容</div><a class="blog-slider__button" href="2024/05/04/刷题计划/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/img/94421005_p0_master1200.jpg" data-original="https://npm.elemecdn.com/ushio-api-img-moe@5.0.56/img_561_849x1200_96_null_normal.jpg" alt="https://npm.elemecdn.com/ushio-api-img-moe@5.0.56/img_561_849x1200_96_null_normal.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2024-04-03</span><a class="blog-slider__title" href="2024/04/03/A Way to Practice Competitive Programming/">A Way to Practice Competitive Programming</a><div class="blog-slider__text">迷茫的时候就看看吧</div><a class="blog-slider__button" href="2024/04/03/A Way to Practice Competitive Programming/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/img/94421005_p0_master1200.jpg" data-original="https://npm.elemecdn.com/ushio-api-img-moe@5.0.16/img_160_1486x897_143.992599487305_null_normal.jpg" alt="https://npm.elemecdn.com/ushio-api-img-moe@5.0.16/img_160_1486x897_143.992599487305_null_normal.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2024-04-02</span><a class="blog-slider__title" href="2024/04/02/Plan/">Plan</a><div class="blog-slider__text">不定期更新</div><a class="blog-slider__button" href="2024/04/02/Plan/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="/img/94421005_p0_master1200.jpg" data-original="https://npm.elemecdn.com/ushio-api-img-moe@5.0.3/img_31_2560x1440_72_null_normal.jpg" alt="https://npm.elemecdn.com/ushio-api-img-moe@5.0.3/img_31_2560x1440_72_null_normal.jpg"/></div><div class="blog-slider__content"><span class="blog-slider__code">2024-04-02</span><a class="blog-slider__title" href="2024/04/02/诸子百家/">诸子百家</a><div class="blog-slider__text">追寻前人的路</div><a class="blog-slider__button" href="2024/04/02/诸子百家/">详情</a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载swiper')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script>
+<script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.js"></script>
+<script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper@0.18/swiper/swiperindex.js"></script>
+<style></style><!-- hexo injector body_end end -->
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
