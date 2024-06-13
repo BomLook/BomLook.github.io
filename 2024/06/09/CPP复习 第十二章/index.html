@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CPP复习 第十二章 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="CPP复习 第十二章 多态的使用条件：父类指针或者引用指向子类对象 With polymorphism, we can design and implement systems that are easily extensible.New classes can be added with little or no modification to the general portions of">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CPP复习 第十二章 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="CPP复习 第十二章 多态的使用条件：父类指针或者引用指向子类对象.  With polymorphism, we can design and implement systems that are easily extensible. New classes can be added with little or no modification to the general porti">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CPP复习 第十二章">
 <meta property="og:url" content="http://example.com/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Heavenhold">
-<meta property="og:description" content="CPP复习 第十二章 多态的使用条件：父类指针或者引用指向子类对象 With polymorphism, we can design and implement systems that are easily extensible.New classes can be added with little or no modification to the general portions of">
+<meta property="og:description" content="CPP复习 第十二章 多态的使用条件：父类指针或者引用指向子类对象.  With polymorphism, we can design and implement systems that are easily extensible. New classes can be added with little or no modification to the general porti">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.horosama.com/api/image_all/anime/1080p/pc/fb4ddC48481d3eFb8DDdbb310625e308.jpg">
 <meta property="article:published_time" content="2024-06-09T11:18:00.000Z">
-<meta property="article:modified_time" content="2024-06-09T11:27:04.190Z">
+<meta property="article:modified_time" content="2024-06-13T08:14:58.634Z">
 <meta property="article:author" content="马洛">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: true,
   isToc: true,
-  postUpdate: '2024-06-09 19:27:04'
+  postUpdate: '2024-06-13 16:14:58'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -175,142 +175,482 @@
     })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiperstyle.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
 <style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
   white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/94421005_p0_master1200.jpg" data-original="https://img2.imgtp.com/2024/03/10/WBTP13da.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">105</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://www.horosama.com/api/image_all/anime/1080p/pc/fb4ddC48481d3eFb8DDdbb310625e308.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Heavenhold"><span class="site-name">Heavenhold</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CPP复习 第十二章</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-09T11:18:00.000Z" title="发表于 2024-06-09 19:18:00">2024-06-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-09T11:27:04.190Z" title="更新于 2024-06-09 19:27:04">2024-06-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">15k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>62分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CPP复习 第十二章"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="cpp复习-第十二章">CPP复习 第十二章</h1>
-<p>多态的使用条件：父类指针或者引用指向子类对象</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">With polymorphism, we can design and implement systems that are easily extensible.</span><br><span class="line">New classes can be added with little or no modification to the general portions of the program, as long as the new classes are part of the inheritance hierarchy that the program processes generally.</span><br><span class="line">The only parts of a program that must be altered to accommodate new classes are those that require direct knowledge of the new classes that you add to the hierarchy.</span><br><span class="line">使用多态性，我们可以设计和实现易于扩展的系统。</span><br><span class="line">只要新类是程序通常处理的继承层次结构的一部分，就可以在对程序的一般部分进行很少或不进行修改的情况下添加新类。</span><br><span class="line">只有那些需要直接了解添加到层次结构中的新类的部分才需要对程序进行修改以适应新类</span><br></pre></td></tr></table></figure>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/94421005_p0_master1200.jpg" data-original="https://img2.imgtp.com/2024/03/10/WBTP13da.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">105</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://www.horosama.com/api/image_all/anime/1080p/pc/fb4ddC48481d3eFb8DDdbb310625e308.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Heavenhold"><span class="site-name">Heavenhold</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CPP复习 第十二章</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-09T11:18:00.000Z" title="发表于 2024-06-09 19:18:00">2024-06-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-13T08:14:58.634Z" title="更新于 2024-06-13 16:14:58">2024-06-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">9.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>37分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CPP复习 第十二章"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="cpp复习-第十二章">CPP复习 第十二章</h1>
+<p>多态的使用条件：父类指针或者引用指向子类对象.</p>
+<blockquote>
+<p>With polymorphism, we can design and implement systems that are
+easily extensible. New classes can be added with little or no
+modification to the general portions of the program, as long as the new
+classes are part of the inheritance hierarchy that the program processes
+generally. The only parts of a program that must be altered to
+accommodate new classes are those that require direct knowledge of the
+new classes that you add to the hierarchy.
+使用多态性，我们可以设计和实现易于扩展的系统。
+只要新类是程序通常处理的继承层次结构的一部分，就可以在对程序的一般部分进行很少或不进行修改的情况下添加新类。
+只有那些需要直接了解添加到层次结构中的新类的部分才需要对程序进行修改以适应新类</p>
+</blockquote>
 <figure>
 <img
 src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607170206131.png"
 alt="image-20240607170206131" />
 <figcaption aria-hidden="true">image-20240607170206131</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">属于同一个层次的派生类 通过一个共同的基类指针或者引用来访问 可以让不同的派生类对象执行与它们相符合的行为</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>属于同一个层次的派生类，通过一个共同的基类指针或者引用来访问，可以让不同的派生类对象执行与它们相符合的行为。</p>
+</blockquote>
 <figure>
 <img
 src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607170221385.png"
 alt="image-20240607170221385" />
 <figcaption aria-hidden="true">image-20240607170221385</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">多态可以程序员不用修改原有的系统 只需要把能够响应现有信息的新类型的对象添加到系统即可</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The next several sections present a series of examples that demonstrate how base-class and derived-class pointers can be aimed at base-class and derived-class objects, and how those pointers can be used to invoke member functions that manipulate those objects.</span><br><span class="line">A key concept in these examples is to demonstrate that an object of a derived class can be treated as an object of its base class.</span><br><span class="line">Despite the fact that the derived-class objects are of different types, the compiler allows this because each derived-class object is an object of its base class.</span><br><span class="line">However, we cannot treat a base-class object as an object of any of its derived classes.</span><br><span class="line">The is-a relationship applies only from a derived class to its direct and indirect base classes.</span><br><span class="line">接下来的几节将提供一系列示例，演示基类和派生类指针如何指向基类和派生类对象，以及如何使用这些指针调用操作这些对象的成员函数。</span><br><span class="line">这些示例中的一个关键概念是演示派生类的对象可以被视为其基类的对象。</span><br><span class="line">尽管派生类对象具有不同的类型，但编译器允许这样做，因为每个派生类对象都是其基类的对象。</span><br><span class="line">但是，不能将基类对象视为其任何派生类的对象。</span><br><span class="line">is-a关系仅适用于派生类的直接和间接基类。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Aiming a Base-Class Pointer at a Base-Class Object</span><br><span class="line">Line 36 assigns the address of base-class object commissionEmployee to base-class pointer commissionEmployeePtr, which line 39 uses to invoke member function print on that CommissionEmployee object.</span><br><span class="line">This invokes the version of print defined in base class CommissionEmployee.</span><br><span class="line">将基类指针指向基类对象</span><br><span class="line">第36行将基类对象commissionEmployee的地址赋值给基类指针commissionEmployeePtr，第39行使用该指针在该commissionEmployee对象上调用成员函数print。</span><br><span class="line">这将调用基类CommissionEmployee中定义的print版本。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Aiming a Derived-Class Pointer at a Derived-Class Object</span><br><span class="line">Line 42 assigns the address of derived-class object basePlusCommissionEmployee to derived-class pointer basePlusCommissionEmployee-Ptr, which line 46 uses to invoke member function print on that BasePlusCommissionEmployee object.</span><br><span class="line">This invokes the version of print defined in derived class BasePlusCommissionEmployee.</span><br><span class="line">将派生类指针指向派生类对象</span><br><span class="line">第42行将派生类对象basePlusCommissionEmployee的地址赋值给派生类指针basePlusCommissionEmployee- ptr，第46行使用该指针在basePlusCommissionEmployee对象上调用成员函数print。</span><br><span class="line">这将调用派生类BasePlusCommissionEmployee中定义的print版本。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Aiming a Base-Class Pointer at a Derived-Class Object</span><br><span class="line">Line 49 assigns the address of derived-class object base-PlusCommissionEmployee to base-class pointer commissionEmployeePtr, which line 53 uses to invoke member function print.</span><br><span class="line">This “crossover” is allowed because an object of a derived class is an object of its base class.</span><br><span class="line">Note that despite the fact that the base class CommissionEmployee pointer points to a derived class BasePlusCommissionEmployee object, the base class CommissionEmployee’s print member function is invoked (rather than BasePlusCommissionEmployee’s print function).</span><br><span class="line">The output of each print member-function invocation in this program reveals that the invoked functionality depends on the type of the pointer (or reference) used to invoke the function, not the type of the object for which the member function is called. </span><br><span class="line">将基类指针指向派生类对象</span><br><span class="line">第49行将派生类对象base-PlusCommissionEmployee的地址赋值给基类指针commissionEmployeePtr，第53行使用该指针调用成员函数print。</span><br><span class="line">这种“交叉”是允许的，因为派生类的对象是其基类的对象。</span><br><span class="line"></span><br><span class="line">注意，尽管基类CommissionEmployee指针指向派生类BasePlusCommissionEmployee对象，</span><br><span class="line">但调用的是基类CommissionEmployee的print成员函数(而不是BasePlusCommissionEmployee的print函数)。</span><br><span class="line"></span><br><span class="line">该程序中每个print成员函数调用的输出表明，被调用的功能取决于用于</span><br><span class="line"></span><br><span class="line">调用该函数的指针(或引用)的类型，！！！</span><br><span class="line"></span><br><span class="line">而不是调用该成员函数的对象的类型。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">In Fig. 12.2, we aim a derived-class pointer at a base-class object.</span><br><span class="line">Line 14 attempts to assign the address of base-class object commissionEmployee to derived-class pointer basePlusCommissionEmployeePtr, but the C++ compiler generates an error. </span><br><span class="line">The compiler prevents this assignment, because a CommissionEmployee is not a BasePlusCommissionEmployee.</span><br><span class="line"></span><br><span class="line">在图12.2中，我们将派生类指针指向基类对象。</span><br><span class="line">第14行试图将基类对象commissionEmployee的地址赋值给派生类指针basePlusCommissionEmployeePtr，但c++编译器会生成一个错误。</span><br><span class="line">编译器会阻止这个赋值，因为CommissionEmployee不是BasePlusCommissionEmployee。</span><br><span class="line"></span><br><span class="line">如果允许 那么该指针可能指向不属于该类的内存地址 这可能导致严重的问题</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Off a base-class pointer, the compiler allows us to invoke only base-class member functions.</span><br><span class="line">If a base-class pointer is aimed at a derived-class object, and an attempt is made to access a derived-class-only member function, a compilation error will occur.</span><br><span class="line">Figure 12.3 shows the consequences of attempting to invoke a derived-class member function off a base-class pointer.</span><br><span class="line">在基类指针之外，编译器只允许调用基类成员函数。</span><br><span class="line">如果基类指针指向派生类对象，并且试图访问仅派生类成员函数，则会发生编译错误。</span><br><span class="line">图12.3显示了试图从基类指针调用派生类成员函数的结果。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Downcasting</span><br><span class="line">The compiler will allow access to derived-class-only members from a base-class pointer that is aimed at a derived-class object if we explicitly cast the base-class pointer to a derived-class pointer—known as downcasting.</span><br><span class="line">Downcasting allows a derived-class-specific operation on a derived-class object pointed to by a base-class pointer.</span><br><span class="line">After a downcast, the program can invoke derived-class functions that are not in the base class.</span><br><span class="line">Section 12.8 demonstrates how to safely use downcasting.</span><br><span class="line">向下类型转换</span><br><span class="line">如果显式地将基类指针转换为派生类指针(称为向下转换)，编译器将允许从指向派生类对象的基类指针访问仅派生类成员。</span><br><span class="line">向下转换允许在基类指针指向的派生类对象上执行特定于派生类的操作。</span><br><span class="line">向下转换后，程序可以调用不在基类中的派生类函数。</span><br><span class="line">第12.8节演示了如何安全地使用向下转换。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将一个基类指针强制类型转换为其直接派生类或者间接派生类是允许的 为了发送那些在基类中不出现的派生类对象的信息 这种转换是必要的</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>多态可以程序员不用修改原有的系统，只需要把能够响应现有信息的新类型的对象添加到系统即可。</p>
+</blockquote>
+<blockquote>
+<p>The next several sections present a series of examples that
+demonstrate how base-class and derived-class pointers can be aimed at
+base-class and derived-class objects, and how those pointers can be used
+to invoke member functions that manipulate those objects. A key concept
+in these examples is to demonstrate that an object of a derived class
+can be treated as an object of its base class. Despite the fact that the
+derived-class objects are of different types, the compiler allows this
+because each derived-class object is an object of its base class.
+However, we cannot treat a base-class object as an object of any of its
+derived classes. The is-a relationship applies only from a derived class
+to its direct and indirect base classes.
+接下来的几节将提供一系列示例，演示基类和派生类指针如何指向基类和派生类对象，以及如何使用这些指针调用操作这些对象的成员函数。
+这些示例中的一个关键概念是演示派生类的对象可以被视为其基类的对象。
+尽管派生类对象具有不同的类型，但编译器允许这样做，因为每个派生类对象都是其基类的对象。
+但是，不能将基类对象视为其任何派生类的对象。
+is-a关系仅适用于派生类的直接和间接基类。</p>
+</blockquote>
+<blockquote>
+<p>Aiming a Base-Class Pointer at a Derived-Class Object Line 49 assigns
+the address of derived-class object base-PlusCommissionEmployee to
+base-class pointer commissionEmployeePtr, which line 53 uses to invoke
+member function print. This “crossover” is allowed because an object of
+a derived class is an object of its base class. Note that despite the
+fact that the base class CommissionEmployee pointer points to a derived
+class BasePlusCommissionEmployee object, the base class
+CommissionEmployee’s print member function is invoked (rather than
+BasePlusCommissionEmployee’s print function). The output of each print
+member-function invocation in this program reveals that the invoked
+functionality depends on the type of the pointer (or reference) used to
+invoke the function, not the type of the object for which the member
+function is called. 将基类指针指向派生类对象
+第49行将派生类对象base-PlusCommissionEmployee的地址赋值给基类指针commissionEmployeePtr，第53行使用该指针调用成员函数print。
+这种“交叉”是允许的，因为派生类的对象是其基类的对象。</p>
+<p>注意，尽管基类CommissionEmployee指针指向派生类BasePlusCommissionEmployee对象，
+但调用的是<strong>基类CommissionEmployee的print成员函数(而不是BasePlusCommissionEmployee的print函数)。</strong></p>
+<p>该程序中每个print成员函数调用的输出表明，被调用的功能取决于<strong>用于调用该函数的指针(或引用)的类型，而不是调用该成员函数的对象的类型。</strong></p>
+</blockquote>
+<blockquote>
+<p>Off a base-class pointer, the compiler allows us to invoke only
+base-class member functions. If a base-class pointer is aimed at a
+derived-class object, and an attempt is made to access a
+derived-class-only member function, a compilation error will occur.
+Figure 12.3 shows the consequences of attempting to invoke a
+derived-class member function off a base-class pointer.
+在基类指针之外，编译器只允许调用基类成员函数。
+如果基类指针指向派生类对象，并且试图访问仅派生类成员函数，则会发生编译错误。
+图12.3显示了试图从基类指针调用派生类成员函数的结果。</p>
+</blockquote>
+<blockquote>
+<p>Downcasting The compiler will allow access to derived-class-only
+members from a base-class pointer that is aimed at a derived-class
+object if we explicitly cast the base-class pointer to a derived-class
+pointer—known as downcasting. Downcasting allows a
+derived-class-specific operation on a derived-class object pointed to by
+a base-class pointer. After a downcast, the program can invoke
+derived-class functions that are not in the base class. Section 12.8
+demonstrates how to safely use downcasting. 向下类型转换：
+如果显式地将基类指针转换为派生类指针(称为向下转换)，编译器将允许从指向派生类对象的基类指针访问仅派生类成员。
+向下转换允许在基类指针指向的派生类对象上执行特定于派生类的操作。向下转换后，程序可以调用不在基类中的派生类函数。
+第12.8节演示了如何安全地使用向下转换。</p>
+</blockquote>
+<p><strong>将一个基类指针强制类型转换为其直接派生类或者间接派生类是允许的
+为了发送那些在基类中不出现的派生类对象的信息
+这种转换是必要的</strong></p>
 <figure>
 <img
 src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607193306336.png"
 alt="image-20240607193306336" />
 <figcaption aria-hidden="true">image-20240607193306336</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Why virtual Functions Are Useful</span><br><span class="line">Consider why virtual functions are useful: Suppose that shape classes such as Circle, Triangle, Rectangle and Square are all derived from base class Shape.</span><br><span class="line">Each of these classes might be endowed with the ability to draw itself via a member function draw, but the function for each shape is quite different.</span><br><span class="line">In a program that draws a set of shapes, it would be useful to be able to treat all the shapes generally as objects of the base class Shape.</span><br><span class="line">To draw any shape, we could simply use a base-class Shape pointer to invoke function draw and let the program determine dynamically (i.e., at runtime) which derived-class draw function to use, based on the type of the object to which the base-class Shape pointer points at any given time.</span><br><span class="line">This is polymorphic behavior.</span><br><span class="line">虚函数为什么有用</span><br><span class="line">考虑一下虚函数有用的原因:假设形状类(如Circle、Triangle、Rectangle和Square)都派生自基类shape。</span><br><span class="line">这些类中的每一个都可以通过成员函数draw来赋予自己绘图的能力，</span><br><span class="line"></span><br><span class="line">但是每个形状的函数是完全不同的。</span><br><span class="line"></span><br><span class="line">在绘制一组形状的程序中，如果能够将所有形状一般视为Shape基类的对象，这将是很有用的。</span><br><span class="line"></span><br><span class="line">要绘制任何形状，我们可以简单地使用一个基类shape指针来调用函数draw，并让程序动态地(即，在运行时)</span><br><span class="line"></span><br><span class="line">根据基类shape指针在任何给定时间所指向的对象的类型来决定要使用哪个派生类的绘制函数。</span><br><span class="line"></span><br><span class="line">这就是多态行为.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Why virtual Functions Are Useful Consider why virtual functions are
+useful: Suppose that shape classes such as Circle, Triangle, Rectangle
+and Square are all derived from base class Shape. Each of these classes
+might be endowed with the ability to draw itself via a member function
+draw, but the function for each shape is quite different. In a program
+that draws a set of shapes, it would be useful to be able to treat all
+the shapes generally as objects of the base class Shape. To draw any
+shape, we could simply use a base-class Shape pointer to invoke function
+draw and let the program determine dynamically (i.e., at runtime) which
+derived-class draw function to use, based on the type of the object to
+which the base-class Shape pointer points at any given time. This is
+polymorphic behavior.
+虚函数为什么有用：考虑一下虚函数有用的原因:假设形状类(如Circle、Triangle、Rectangle和Square)都派生自基类shape。
+这些类中的每一个都可以通过成员函数draw来赋予自己绘图的能力，</p>
+<p>但是每个形状的函数是完全不同的。</p>
+<p>在绘制一组形状的程序中，如果能够将所有形状一般视为Shape基类的对象，这将是很有用的。</p>
+<p>要绘制任何形状，我们可以简单地使用一个基类shape指针来调用函数draw，并让程序动态地(即，在运行时)</p>
+<p>根据基类shape指针在任何给定时间所指向的对象的类型来决定要使用哪个派生类的绘制函数。这就是多态行为.</p>
+</blockquote>
 <figure>
 <img
 src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607194403976.png"
 alt="image-20240607194403976" />
 <figcaption aria-hidden="true">image-20240607194403976</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Declaring virtual Functions</span><br><span class="line">To enable this behavior, we declare draw in the base class as a virtual function, and we override draw in each of the derived classes to draw the appropriate shape.</span><br><span class="line">From an implementation perspective, overriding a function is no different than redefining one.</span><br><span class="line">An overridden function in a derived class has the same signature and return type (i.e., prototype) as the function it overrides in its base class.</span><br><span class="line">If we declare the base-class function as virtual, we can override that function to enable polymorphic behavior.</span><br><span class="line">We declare a virtual function by preceding the function’s prototype with the key-word virtual in the base class.</span><br><span class="line"></span><br><span class="line">声明虚函数</span><br><span class="line">为了启用这种行为，我们在基类中将draw声明为虚函数，并在每个派生类中重写draw以绘制适当的形状。</span><br><span class="line">从实现的角度来看，重写函数与重新定义函数没有什么不同。</span><br><span class="line"></span><br><span class="line">!!!派生类中被重写的函数与它在基类中重写的函数具有相同的签名和返回类型(即原型)。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">!!!如果将基类函数声明为virtual，则可以重写该函数以启用多态行为。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">!!!通过在基类中在函数原型前面加上关键字virtual来声明虚函数。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">一个函数一旦声明为virtual 那么从它开始的所有继承的派生类中 它将始终保持是virtual的</span><br><span class="line"></span><br><span class="line">建议 即使一个函数在层次结构的高层中已经被声明为了virtual（也就是其已经成为了隐式的virtual函数） 仍然建议在其前面添加virtual 在类层次结构的每一级中都把它显式声明为virtual</span><br><span class="line"></span><br><span class="line">override关键词 在每一个重载后的函数后面加上 声明是从父类的成员函数重载下来</span><br><span class="line">会迫使编译器检查基类有没有对应的virtual成员函数 如果没有 则编译器会报错</span><br><span class="line"></span><br><span class="line">如果派生类函数不重载virtual函数 那么它会简单继承其父类的virtual函数</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Invoking a virtual Function Through a Base-Class Pointer or Reference</span><br><span class="line">If a program invokes a virtual function through a base-class pointer to a derived-class object (e.g., shapePtr-&gt;draw()) or a base-class reference to a derived-class object (e.g., shapeRef.draw()), the program will choose the correct derived-class function dynamically (i.e., at execution time) based on the object type—not the pointer or reference type.</span><br><span class="line">Known as dynamic binding or late binding.</span><br><span class="line">通过基类指针或引用调用虚函数</span><br><span class="line"></span><br><span class="line">如果程序通过指向派生类对象的基类指针(例如shapetr -&gt;draw())或指向派生类对象的基类引用(例如shapeRef.draw())调用虚函数，</span><br><span class="line"></span><br><span class="line">！！！程序将根据对象类型(即在执行时)动态地(即在执行时)选择正确的派生类函数，而不是指针或引用类型。</span><br><span class="line"></span><br><span class="line">！！！称为动态绑定或延迟绑定。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Invoking a virtual Function Through an Object’s Name</span><br><span class="line">When a virtual function is called by referencing a specific object by name and using the dot member-selection operator (e.g., squareObject.draw()), the function invocation is re-solved at compile time (this is called static binding) and the virtual function that is called is the one defined for (or inherited by) the class of that particular object—this is not polymorphic behavior.</span><br><span class="line">Dynamic binding with virtual functions occurs only off pointers (and, as we’ll soon see, references).</span><br><span class="line">通过对象的名称调用虚函数</span><br><span class="line"></span><br><span class="line">当通过引用特定对象的名称并使用点成员选择操作符(例如，squareObject.draw())调用虚函数时，函数调用在编译时被重新解析(这称为静态绑定)，并且被调用的虚函数是为该特定对象的类定义的(或由该类继承的)虚函数——这不是多态行为。</span><br><span class="line"></span><br><span class="line">与虚函数的动态绑定只发生在指针之外(我们很快就会看到，还有引用)。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">静态绑定：virtual函数通过 按名引用特定对象 或者 使用圆点成员运算符 来调用 这个是在编译的时候已经被确定了</span><br><span class="line">动态绑定：只能通过指针 或者 引用句柄来完成 </span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">virtual Functions in the CommissionEmployee Hierarchy</span><br><span class="line">Figures 12.4–12.5 are the headers for classes CommissionEmployee and BasePlusCommissionEmployee, respectively.</span><br><span class="line">We modified these to declare each class’s earnings and print member functions as virtual (lines 29–30 of Fig. 12.4 and lines 19–20 of Fig. 12.5).</span><br><span class="line">Because functions earnings and print are virtual in class CommissionEmployee, class BasePlusCommissionEmployee’s earnings and print functions override class CommissionEmployee’s.</span><br><span class="line">In addition, class BasePlusCommissionEmployee’s earnings and print functions are declare override.</span><br><span class="line"></span><br><span class="line">CommissionEmployee层次结构中的虚拟函数</span><br><span class="line">图12.4-12.5分别是类CommissionEmployee和BasePlusCommissionEmployee的头文件。</span><br><span class="line">我们将这些修改为声明每个类的收益并将成员函数打印为虚函数(图12.4的29-30行和图12.5的19-20行)。</span><br><span class="line">因为函数earnings和print在类CommissionEmployee中是虚拟的，类BasePlusCommissionEmployee的earnings和print函数覆盖了类CommissionEmployee的。</span><br><span class="line">此外，类BasePlusCommissionEmployee的收益和打印函数被声明覆盖。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">We modified Fig. 12.1 to create the program of Fig. 12.6.</span><br><span class="line">Lines 40–51 of Fig. 12.6 demonstrate again that a CommissionEmployee pointer aimed at a CommissionEmployee object can be used to invoke CommissionEmployee functionality, and a BasePlusCommissionEmployee pointer aimed at a BasePlusCommissionEmployee object can be used to invoke BasePlusCommissionEmployee functionality.</span><br><span class="line">Line 54 aims base-class pointer commissionEmployeePtr at derived-class object basePlusCommissionEmployee.</span><br><span class="line">Note that when line 61 invokes member function print off the base-class pointer, the derived-class BasePlusCommissionEmployee’s print member function is invoked, so line 61 outputs different text than line 53 does in Fig. 12.1 (when member function print was not declared virtual).</span><br><span class="line">We see that declaring a member function virtual causes the program to dynamically determine which function to invoke based on the type of object to which the handle points, rather than on the type of the handle.</span><br><span class="line"></span><br><span class="line">我们修改了图12.1来创建图12.6的程序。</span><br><span class="line">图12.6的第40-51行再次演示了一个指向CommissionEmployee对象的CommissionEmployee指针可以用来调用CommissionEmployee功能，一个指向BasePlusCommissionEmployee对象的BasePlusCommissionEmployee指针可以用来调用BasePlusCommissionEmployee功能。</span><br><span class="line">第54行将基类指针commissionEmployeePtr指向派生类对象basePlusCommissionEmployee。</span><br><span class="line">注意，当第61行从基类指针调用成员函数print时，派生类BasePlusCommissionEmployee的print成员函数被调用，因此第61行输出的文本与图12.1中第53行输出的文本不同(此时成员函数print没有声明为虚函数)。</span><br><span class="line"></span><br><span class="line">我们看到，声明成员函数virtual会导致程序根据句柄指向的对象类型(而不是句柄的类型)动态地确定调用哪个函数。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">virtual Destructors</span><br><span class="line">A problem can occur when using polymorphism to process dynamically allocated objects of a class hierarchy. </span><br><span class="line">If a derived-class object with a non-virtual destructor is destroyed by applying the delete operator to a base-class pointer to the object, the C++ standard specifies that the behavior is undefined.</span><br><span class="line">The simple solution to this problem is to create a public virtual destructor in the base class. </span><br><span class="line">If a base class destructor is declared virtual, the destructors of any derived classes are also virtual and they override the base class destructor. </span><br><span class="line"></span><br><span class="line">虚拟析构函数</span><br><span class="line">当使用多态性处理类层次结构中动态分配的对象时，可能会出现问题。</span><br><span class="line">如果通过对指向该对象的基类指针应用delete操作符来销毁带有非虚析构函数的派生类对象，则c++标准规定该行为未定义。</span><br><span class="line">这个问题的简单解决方案是在基类中创建一个公共虚析构函数。</span><br><span class="line">如果将基类析构函数声明为虚函数，则任何派生类的析构函数也是虚函数，并且它们覆盖基类析构函数。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在C++中，当我们使用基类指针指向一个派生类对象，并通过这个基类指针调用派生类对象的方法时，</span><br><span class="line">如果这些方法在基类中被声明为虚函数（virtual），那么会发生动态绑定（或称为多态）。</span><br><span class="line">然而，当涉及到析构函数时，如果基类的析构函数不是虚函数，那么就会有问题。</span><br><span class="line">具体来说，当我们通过基类指针删除派生类对象时，</span><br><span class="line">如果基类的析构函数不是虚函数，只会调用基类的析构函数，而不会调用派生类的析构函数。</span><br><span class="line">这会导致派生类中特有的数据成员没有被正确释放，造成内存泄漏。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">For example, in class CommissionEmployee’s definition, we can define the virtual destructor as follows:</span><br><span class="line">virtual ~CommissionEmployee() &#123; &#125;</span><br><span class="line">Now, if an object in the hierarchy is destroyed explicitly by applying the delete operator to a base-class pointer, the destructor for the appropriate class is called based on the object to which the base-class pointer points. </span><br><span class="line">Remember, when a derived-class object is destroyed, the base-class part of the derived-class object is also destroyed, so it’s important for the destructors of both the derived and base classes to execute. </span><br><span class="line">The base-class destructor automatically executes after the derived-class destructor. </span><br><span class="line"></span><br><span class="line">例如，在类CommissionEmployee的定义中，可以这样定义虚析构函数:</span><br><span class="line">虚拟~ commission () &#123;&#125;</span><br><span class="line">现在，如果通过对基类指针应用delete操作符显式地取消层次结构中的对象，则根据基类指针所指向的对象调用相应类的析构函数。</span><br><span class="line">记住，当一个派生类对象被销毁时，派生类对象的基类部分也会被销毁，所以派生类和基类的析构函数都要执行是很重要的。</span><br><span class="line"></span><br><span class="line">！！！基类析构函数在派生类析构函数之后自动执行。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">如果一个类含有一个virtual函数 那么该类就要提供一个virtual析构函数 即使不一定需要</span><br><span class="line">这样可以保证一个派生类对象通过基类指针删除时 这个派生类对象的析构函数能够被调用 </span><br><span class="line"></span><br><span class="line">但是构造函数不能是virtual函数</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C++11: final Member Functions and Classes</span><br><span class="line">In C++11, a base-class virtual function that’s declared final in its prototype, as in </span><br><span class="line">virtual someFunction( parameters ) final;</span><br><span class="line">cannot be overridden in any derived class—this guarantees that the base class’s final member function definition will be used by all base-class objects and by all objects of the base class’s direct and indirect derived classes. </span><br><span class="line">c++ 11: final成员函数和类</span><br><span class="line"></span><br><span class="line">在c++ 11中，在原型中声明为final的基类虚函数，如</span><br><span class="line">虚拟someFunction(参数);</span><br><span class="line"></span><br><span class="line">保证了该函数在任何派生类中都不能被覆盖</span><br><span class="line"></span><br><span class="line">不能在任何派生类中重写——这保证了基类的最终成员函数定义将被所有基类对象以及基类的直接和间接派生类的所有对象使用。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">As of C++11, you can declare a class as final to prevent it from being used as a base class, as in</span><br><span class="line">class MyClass final // this class cannot be a base class</span><br><span class="line">&#123;</span><br><span class="line">   // class body</span><br><span class="line">&#125;; </span><br><span class="line">Attempting to override a final member function or inherit from a final base class results in a compilation error. </span><br><span class="line"></span><br><span class="line">从c++ 11开始，可以将一个类声明为final，以防止它被用作基类，如</span><br><span class="line">class MyClass final //这个类不能是基类</span><br><span class="line">｛</span><br><span class="line">//类主体</span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line">！！！尝试重写final成员函数或从final基类继承将导致编译错误。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">One way to determine the type of an object is to use a switch statement to check the value of a field in the object.</span><br><span class="line">This allows us to distinguish among object types, then invoke an appropriate action for a particular object.</span><br><span class="line">Using switch logic exposes programs to a variety of potential problems.</span><br><span class="line">For example, you might forget to include a type test when one is warranted, or might forget to test all possible cases in a switch statement.</span><br><span class="line">When modifying a switch-based system by adding new types, you might forget to insert the new cases in all relevant switch statements.</span><br><span class="line">Every addition or deletion of a class requires the modification of every switch statement in the system; tracking these statements down can be time consuming and error prone.</span><br><span class="line"></span><br><span class="line">确定对象类型的一种方法是使用switch语句检查对象中字段的值。</span><br><span class="line">这允许我们区分对象类型，然后为特定对象调用适当的操作。</span><br><span class="line"></span><br><span class="line">使用开关逻辑会使程序暴露于各种潜在的问题。</span><br><span class="line"></span><br><span class="line">例如，您可能会在需要时忘记包含类型测试，或者忘记在switch语句中测试所有可能的情况。</span><br><span class="line"></span><br><span class="line">当通过添加新类型修改基于交换机的系统时，您可能会忘记在所有相关的交换机语句中插入新的用例。</span><br><span class="line"></span><br><span class="line">类的每次添加或删除都需要修改系统中的每个switch语句;跟踪这些语句既耗时又容易出错。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Declaring virtual Functions To enable this behavior, we declare draw
+in the base class as a virtual function, and we override draw in each of
+the derived classes to draw the appropriate shape. From an
+implementation perspective, overriding a function is no different than
+redefining one. An overridden function in a derived class has the same
+signature and return type (i.e., prototype) as the function it overrides
+in its base class. If we declare the base-class function as virtual, we
+can override that function to enable polymorphic behavior. We declare a
+virtual function by preceding the function’s prototype with the key-word
+virtual in the base class.</p>
+<p>声明虚函数
+为了启用这种行为，我们在基类中将draw声明为虚函数，并在每个派生类中重写draw以绘制适当的形状。
+从实现的角度来看，重写函数与重新定义函数没有什么不同。</p>
+<p><strong>派生类中被重写的函数与它在基类中重写的函数具有相同的签名和返回类型(即原型)。</strong></p>
+<p><strong>如果将基类函数声明为virtual，则可以重写该函数以启用多态行为。</strong></p>
+<p><strong>通过在基类中在函数原型前面加上关键字virtual来声明虚函数。</strong></p>
+</blockquote>
+<p>一个函数一旦声明为virtual，那么从它开始的所有继承的派生类中，它将始终保持是virtual的。</p>
+<p>建议：即使一个函数在层次结构的高层中已经被声明为了virtual（也就是其已经成为了隐式的virtual函数），仍然建议在其前面添加virtual，在类层次结构的每一级中都把它显式声明为virtual。</p>
+<p>override关键词：在每一个重载后的函数后面加上，声明是从父类的成员函数重载下来，会迫使编译器检查基类有没有对应的virtual成员函数，如果没有，则编译器会报错。</p>
+<p>如果派生类函数不重载virtual函数，那么它会简单继承其父类的virtual函数。</p>
+<blockquote>
+<p>Invoking a virtual Function Through a Base-Class Pointer or Reference
+If a program invokes a virtual function through a base-class pointer to
+a derived-class object (e.g., shapePtr-&gt;draw()) or a base-class
+reference to a derived-class object (e.g., shapeRef.draw()), the program
+will choose the correct derived-class function dynamically (i.e., at
+execution time) based on the object type—not the pointer or reference
+type. Known as dynamic binding or late binding.
+通过基类指针或引用调用虚函数</p>
+<p>如果程序通过指向派生类对象的基类指针(例如shapetr
+-&gt;draw())或指向派生类对象的基类引用(例如shapeRef.draw())调用虚函数，</p>
+<p>程序将根据对象类型(即在执行时)动态地(即在执行时)选择正确的派生类函数，而不是指针或引用类型。</p>
+<p>称为动态绑定或延迟绑定。</p>
+</blockquote>
+<blockquote>
+<p>Invoking a virtual Function Through an Object’s Name When a virtual
+function is called by referencing a specific object by name and using
+the dot member-selection operator (e.g., squareObject.draw()), the
+function invocation is re-solved at compile time (this is called static
+binding) and the virtual function that is called is the one defined for
+(or inherited by) the class of that particular object—this is not
+polymorphic behavior. Dynamic binding with virtual functions occurs only
+off pointers (and, as we’ll soon see, references).
+通过对象的名称调用虚函数</p>
+<p>当通过引用特定对象的名称并使用点成员选择操作符(例如，squareObject.draw())调用虚函数时，函数调用在编译时被重新解析(这称为静态绑定)，并且被调用的虚函数是为该特定对象的类定义的(或由该类继承的)虚函数——这不是多态行为。</p>
+<p>与虚函数的动态绑定只发生在指针之外(我们很快就会看到，还有引用)。</p>
+</blockquote>
+<p>静态绑定：virtual函数通过，按名引用特定对象，或者，使用圆点成员运算符，来调用
+这个是在编译的时候已经被确定了。
+动态绑定：只能通过指针，或者，引用句柄来完成 。</p>
+<p>声明成员函数virtual会导致程序根据句柄指向的对象类型(而不是句柄的类型)动态地确定调用哪个函数。</p>
+<blockquote>
+<p>virtual Destructors A problem can occur when using polymorphism to
+process dynamically allocated objects of a class hierarchy. If a
+derived-class object with a non-virtual destructor is destroyed by
+applying the delete operator to a base-class pointer to the object, the
+C++ standard specifies that the behavior is undefined. The simple
+solution to this problem is to create a public virtual destructor in the
+base class. If a base class destructor is declared virtual, the
+destructors of any derived classes are also virtual and they override
+the base class destructor.</p>
+<p>虚拟析构函数：
+当使用多态性处理类层次结构中动态分配的对象时，可能会出现问题。
+如果通过对指向该对象的基类指针应用delete操作符来销毁带有非虚析构函数的派生类对象，则c++标准规定该行为未定义。
+这个问题的简单解决方案是在基类中创建一个公共虚析构函数。
+如果将基类析构函数声明为虚函数，则任何派生类的析构函数也是虚函数，并且它们覆盖基类析构函数。</p>
+</blockquote>
+<blockquote>
+<p>在C++中，当我们使用基类指针指向一个派生类对象，并通过这个基类指针调用派生类对象的方法时，
+如果这些方法在基类中被声明为虚函数（virtual），那么会发生动态绑定（或称为多态）。
+然而，当涉及到析构函数时，如果基类的析构函数不是虚函数，那么就会有问题。
+具体来说，当我们通过基类指针删除派生类对象时，
+如果基类的析构函数不是虚函数，只会调用基类的析构函数，而不会调用派生类的析构函数。
+这会导致派生类中特有的数据成员没有被正确释放，造成内存泄漏。</p>
+</blockquote>
+<blockquote>
+<p>如果一个类含有一个virtual函数，那么该类就要提供一个virtual析构函数，即使不一定需要。
+这样可以保证一个派生类对象通过基类指针删除时，这个派生类对象的析构函数能够被调用
+。</p>
+<p>但是构造函数不能是virtual函数。</p>
+</blockquote>
+<blockquote>
+<p>C++11: final Member Functions and Classes In C++11, a base-class
+virtual function that’s declared final in its prototype, as in virtual
+someFunction( parameters ) final; cannot be overridden in any derived
+class—this guarantees that the base class’s final member function
+definition will be used by all base-class objects and by all objects of
+the base class’s direct and indirect derived classes. c++ 11:
+final成员函数和类</p>
+<p>在c++ 11中，在原型中声明为final的基类虚函数，如</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="title">someFunction</span><span class="params">( parameters )</span> <span class="keyword">final</span></span>;</span><br></pre></td></tr></table></figure>
+<p>保证了该函数在任何派生类中都不能被覆盖。</p>
+<p>不能在任何派生类中重写——这保证了基类的最终成员函数定义将被所有基类对象以及基类的直接和间接派生类的所有对象使用。</p>
+</blockquote>
+<blockquote>
+<p>As of C++11, you can declare a class as final to prevent it from
+being used as a base class, as in</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> <span class="keyword">final</span> <span class="comment">// this class cannot be a base class</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// class body</span></span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure>
+<p>Attempting to override a final member function or inherit from a
+final base class results in a compilation error.</p>
+<p>从c++ 11开始，可以将一个类声明为final，以防止它被用作基类，如</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> <span class="keyword">final</span> <span class="comment">//这个类不能是基类</span></span><br><span class="line">｛</span><br><span class="line"><span class="comment">//类主体</span></span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+<p>尝试重写final成员函数或从final基类继承将导致编译错误。</p>
+</blockquote>
 <figure>
 <img
 src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607204035143.png"
 alt="image-20240607204035143" />
 <figcaption aria-hidden="true">image-20240607204035143</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">使用多态可以避免上述使用switch语句遇到的问题 并且可以完成同样的功能</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">There are cases in which it’s useful to define classes from which you never intend to instantiate any objects.</span><br><span class="line">Such classes are called abstract classes.</span><br><span class="line">Because these classes normally are used as base classes in inheritance hierarchies, we refer to them as abstract base classes.</span><br><span class="line">These classes cannot be used to instantiate objects, because, as we’ll soon see, abstract classes are incomplete—derived classes must define the “missing pieces.” </span><br><span class="line">An abstract class is a base class from which other classes can inherit.</span><br><span class="line">Classes that can be used to instantiate objects are called concrete classes.</span><br><span class="line">Such classes define every member function they declare.</span><br><span class="line"></span><br><span class="line">在某些情况下，定义您从未打算从中实例化任何对象的类是有用的。</span><br><span class="line">这样的类被称为抽象类。</span><br><span class="line">由于这些类通常用作继承层次结构中的基类，因此我们将它们称为抽象基类。</span><br><span class="line"></span><br><span class="line">！！！这些类不能用于实例化对象，因为我们很快就会看到，抽象类是不完整的——派生类必须定义“缺失的部分”。</span><br><span class="line"></span><br><span class="line">！！！抽象类是其他类可以继承的基类。</span><br><span class="line"></span><br><span class="line">！！！可用于实例化对象的类称为具体类。</span><br><span class="line"></span><br><span class="line">！！！这样的类定义了它们声明的每个成员函数。</span><br><span class="line"></span><br><span class="line">抽象基类的目的是为其他类提供合适的基类</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Abstract base classes are too generic to define real objects; we need to be more specific before we can think of instantiating objects.</span><br><span class="line">For example, if someone tells you to “draw the two-dimensional shape,” what shape would you draw? </span><br><span class="line">Concrete classes provide the specifics that make it possible to instantiate objects.</span><br><span class="line">An inheritance hierarchy does not need to contain any abstract classes, but many object-oriented systems have class hierarchies headed by abstract base classes.</span><br><span class="line">In some cases, abstract classes constitute the top few levels of the hierarchy.</span><br><span class="line">A good example of this is the shape hierarchy in Fig. 12.3, which begins with abstract base class Shape.</span><br><span class="line"></span><br><span class="line">抽象基类过于泛型，无法定义真实对象;在考虑实例化对象之前，我们需要更具体一些。</span><br><span class="line">例如，如果有人告诉你“画一个二维形状”，你会画什么形状?</span><br><span class="line"></span><br><span class="line">具体类提供了使对象实例化成为可能的细节。</span><br><span class="line">继承层次结构不需要包含任何抽象类，但许多面向对象系统都有以抽象基类为首的类层次结构。</span><br><span class="line"></span><br><span class="line">在某些情况下，抽象类构成了层次结构的最上层。</span><br><span class="line">图12.3中的形状层次结构就是一个很好的例子，它从抽象基类shape开始。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Pure Virtual Functions</span><br><span class="line">A class is made abstract by declaring one or more of its virtual functions to be “pure.” A pure virtual function is specified by placing “= 0” in its declaration, as in</span><br><span class="line">virtual void draw() const = 0; // pure virtual function</span><br><span class="line">The “= 0” is a pure specifier.</span><br><span class="line">Pure virtual functions typically do not provide implementations, though they can.</span><br><span class="line"></span><br><span class="line">纯虚函数</span><br><span class="line">通过将类的一个或多个虚函数声明为“纯”，使类成为抽象的。纯虚函数通过在其声明中放置&quot; = 0 &quot;来指定，如</span><br><span class="line">虚拟void draw() const = 0;//纯虚函数</span><br><span class="line">“= 0”是一个纯说明符。</span><br><span class="line"></span><br><span class="line">纯虚函数通常不提供实现，尽管它们可以。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Each concrete derived class must override all base-class pure virtual functions with concrete implementations of those functions; otherwise the derived class is also abstract.</span><br><span class="line">The difference between a virtual function and a pure virtual function is that a virtual function has an implementation and gives the derived class the option of overriding the function.</span><br><span class="line">By contrast, a pure virtual function does not have an implementation and requires the derived class to override the function for that derived class to be concrete; otherwise the derived class remains abstract.</span><br><span class="line">Pure virtual functions are used when it does not make sense for the base class to have an implementation of a function, but you want all concrete derived classes to implement the function.</span><br><span class="line"></span><br><span class="line">每个具体的派生类必须用这些函数的具体实现覆盖所有基类的纯虚函数;否则派生类也是抽象的。</span><br><span class="line"></span><br><span class="line">虚函数和纯虚函数的区别在于虚函数有一个实现，并为派生类提供了重写函数的选项。</span><br><span class="line"></span><br><span class="line">相比之下，纯虚函数没有实现，并且需要派生类重写该函数，以便派生类是具体的;否则派生类仍然是抽象的。</span><br><span class="line"></span><br><span class="line">纯虚函数用于基类没有必要实现某个函数，但希望所有具体派生类都实现该函数的情况。</span><br></pre></td></tr></table></figure>
+<p><strong>使用多态可以避免上述使用switch语句遇到的问题，并且可以完成同样的功能</strong></p>
+<blockquote>
+<p>There are cases in which it’s useful to define classes from which you
+never intend to instantiate any objects. Such classes are called
+abstract classes. Because these classes normally are used as base
+classes in inheritance hierarchies, we refer to them as abstract base
+classes. These classes cannot be used to instantiate objects, because,
+as we’ll soon see, abstract classes are incomplete—derived classes must
+define the “missing pieces.” An abstract class is a base class from
+which other classes can inherit. Classes that can be used to instantiate
+objects are called concrete classes. Such classes define every member
+function they declare.</p>
+<p>在某些情况下，定义您从未打算从中实例化任何对象的类是有用的。
+这样的类被称为抽象类。
+由于这些类通常用作继承层次结构中的基类，因此我们将它们称为抽象基类。</p>
+<p><strong>这些类不能用于实例化对象，因为我们很快就会看到，抽象类是不完整的——派生类必须定义“缺失的部分”。</strong></p>
+<p><strong>抽象类是其他类可以继承的基类。</strong></p>
+<p><strong>可用于实例化对象的类称为具体类。</strong></p>
+<p><strong>这样的类定义了它们声明的每个成员函数。</strong></p>
+<p>抽象基类的目的是为其他类提供合适的基类.</p>
+</blockquote>
+<blockquote>
+<p>Pure Virtual Functions A class is made abstract by declaring one or
+more of its virtual functions to be “pure.” A pure virtual function is
+specified by placing “= 0” in its declaration, as in</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span> <span class="type">const</span> </span>= <span class="number">0</span>; <span class="comment">// pure virtual function</span></span><br></pre></td></tr></table></figure>
+<p>The “= 0” is a pure specifier. Pure virtual functions typically do
+not provide implementations, though they can.</p>
+<p>纯虚函数：
+通过将类的一个或多个虚函数声明为“纯”，使类成为抽象的。纯虚函数通过在其声明中放置"
+= 0 "来指定，如</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span> <span class="type">const</span> </span>= <span class="number">0</span>; <span class="comment">// pure virtual function</span></span><br></pre></td></tr></table></figure>
+<p>“= 0”是一个纯说明符。</p>
+<p>纯虚函数通常不提供实现，尽管它们可以。</p>
+</blockquote>
+<blockquote>
+<p>Each concrete derived class must override all base-class pure virtual
+functions with concrete implementations of those functions; otherwise
+the derived class is also abstract. The difference between a virtual
+function and a pure virtual function is that a virtual function has an
+implementation and gives the derived class the option of overriding the
+function. By contrast, a pure virtual function does not have an
+implementation and requires the derived class to override the function
+for that derived class to be concrete; otherwise the derived class
+remains abstract. Pure virtual functions are used when it does not make
+sense for the base class to have an implementation of a function, but
+you want all concrete derived classes to implement the function.</p>
+<p>每个具体的派生类必须用这些函数的具体实现覆盖所有基类的纯虚函数，否则派生类也是抽象的。</p>
+<p>虚函数和纯虚函数的区别在于虚函数有一个实现，并为派生类提供了重写函数的选项。</p>
+<p>相比之下，纯虚函数没有实现，并且需要派生类重写该函数，以便派生类是具体的，<strong>否则派生类仍然是抽象的。</strong></p>
+<p><strong>纯虚函数用于基类没有必要实现某个函数，但希望所有具体派生类都实现该函数的情况。</strong></p>
+</blockquote>
 <figure>
 <img
 src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607205018334.png"
 alt="image-20240607205018334" />
 <figcaption aria-hidden="true">image-20240607205018334</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">抽象类为各个层次中的类提供了公共的通用函数接口 抽象类包含一个或者多个pure virtual函数 这些函数在具体的派生类中必须被重写</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">如果在派生类没有重写pure virtual函数 那么这个派生类也会变成抽象类</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">抽象类至少有一个pure virtual函数 也可以有自己的数据成员 具体的成员函数（包括构造和析构） 它们被继承时符合继承的一般规则</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">注意 虽然不能实例化抽象基类 但是可以使用抽象基类的指针或者引用 指向实例化的具体的派生类 从而实现多态</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Although we cannot instantiate objects of an abstract base class, we can use the abstract base class to declare pointers and references that can refer to objects of any concrete classes derived from the abstract class.</span><br><span class="line">Programs typically use such pointers and references to manipulate derived-class objects polymorphically.</span><br><span class="line"></span><br><span class="line">虽然不能实例化抽象基类的对象，但可以使用抽象基类声明指针和引用，</span><br><span class="line">这些指针和引用可以引用从抽象类派生的任何具体类的对象。</span><br><span class="line">程序通常使用这样的指针和引用以多态方式操作派生类对象。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">We create an enhanced employee hierarchy to solve the following problem:</span><br><span class="line">A company pays its employees weekly. The employees are of three types: Salaried employees are paid a fixed weekly salary regardless of the number of hours worked, commission employees are paid a percentage of their sales and base-salary-plus-commission employees receive a base salary plus a percentage of their sales. For the current pay period, the company has decided to reward base-salary-plus-commission employees by adding 10 percent to their base salaries. The company wants to implement a C++ program that performs its payroll calculations polymorphically-.</span><br><span class="line">We use abstract class Employee to represent the general concept of an employee.</span><br><span class="line">我们创建了一个强化的员工层级来解决以下问题:</span><br><span class="line">一家公司每周给员工发工资。员工有三种类型:受薪员工的工资是固定的，无论工作多少小时;提成员工的工资是销售额的一定百分比;基本工资加提成员工的工资是基本工资加销售额的一定百分比。在目前的工资期内，公司决定在基本工资的基础上增加10%来奖励基本工资加佣金的员工。该公司希望实现一个c++程序，以多态方式执行工资单计算。</span><br><span class="line">我们使用抽象类Employee来表示雇员的一般概念。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The UML class diagram in Fig. 12.7 shows the inheritance hierarchy for our polymorphic employee payroll application.</span><br><span class="line">The abstract class name Employee is italicized, as per the convention of the UML.</span><br><span class="line">Abstract base class Employee declares the “interface” to the hierarchy—that is, the set of member functions that a program can invoke on all Employee objects.</span><br><span class="line">Each employee, regardless of the way his or her earnings are calculated, has a first name, a last name and a social security number, so private data members firstName, lastName and socialSecurityNumber appear in abstract base class Employee.</span><br><span class="line">图12.7中的UML类图显示了我们多态雇员工资单应用程序的继承层次结构。</span><br><span class="line">根据UML的约定，抽象类名Employee是斜体的。</span><br><span class="line">抽象基类Employee声明了层次结构的“接口”——也就是说，程序可以在所有Employee对象上调用的成员函数集。</span><br><span class="line">每个员工，不管他或她的收入是如何计算的，都有一个名字、一个姓氏和一个社会保险号，因此私有数据成员firstName、lastName和socialSecurityNumber出现在抽象基类employee中。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">实现继承：</span><br><span class="line">是指一个类从另一个类派生，并继承其成员变量和成员函数。在C++中，继承可以是public、protected或private三种访问控制方式。实现继承的关键是派生类能够复用基类的代码，派生类可以增加新的功能或重写基类的方法。</span><br><span class="line"></span><br><span class="line">接口继承：</span><br><span class="line">是指一个类实现一个接口，接口定义了类必须提供的行为，但不包含任何实现。在C++中，接口通常用纯虚函数来实现，一个包含纯虚函数的类称为抽象类。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Class Employee (Figs. 12.9–12.10, discussed in further detail shortly) provides functions earnings and print, in addition to various get and set functions that manipulate Employee’s data members.</span><br><span class="line">An earnings function certainly applies generally to all employees, but each earnings calculation depends on the employee’s class.</span><br><span class="line">So we declare earnings as pure virtual in base class Employee because a default implementation does not make sense for that function—there is not enough information to determine what amount earnings should return.</span><br><span class="line">Each derived class overrides earnings with an appropriate implementation.</span><br><span class="line"></span><br><span class="line">类Employee(图12.9-12.10，稍后详细讨论)提供了函数earnings和print，以及各种get和set函数来操作Employee的数据成员。</span><br><span class="line">收益函数当然一般适用于所有员工，但每个收益计算取决于员工的类别。</span><br><span class="line">因此，我们在基类Employee中将earnings声明为纯虚函数，因为默认实现对该函数没有意义——没有足够的信息来确定earnings应该返回多少。</span><br><span class="line">每个派生类都用适当的实现覆盖收益。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">To calculate an employee’s earnings, the program assigns the address of an employee’s object to a base class Employee pointer, then invokes the earnings function on that object.</span><br><span class="line">We maintain a vector of Employee pointers, each of which points to an Employee object (of course, there cannot be Employee objects, because Employee is an abstract class—because of inheritance, however, all objects of all concrete derived classes of Employee may nevertheless be thought of as Employee objects).</span><br><span class="line">The program iterates through the vector and calls function earnings for each Employee object.</span><br><span class="line">C++ processes these function calls polymorphically.</span><br><span class="line">Including earnings as a pure virtual function in Employee forces every direct derived class of Employee that wishes to be a concrete class to override earnings.</span><br><span class="line">This enables the designer of the class hierarchy to demand that each derived class provide an appropriate pay calculation, if indeed that derived class is to be concrete.</span><br><span class="line"></span><br><span class="line">为了计算雇员的收入，程序将雇员对象的地址分配给一个基类employee指针，然后在该对象上调用earnings函数。</span><br><span class="line">我们维护了一个Employee指针的向量，每个指针都指向一个Employee对象</span><br><span class="line">(当然，不可能有Employee对象，因为Employee是一个抽象类——因为继承，但是，Employee的所有具体派生类的所有对象仍然可以被认为是Employee对象)。</span><br><span class="line"></span><br><span class="line">程序遍历vector并为每个Employee对象调用函数earnings。</span><br><span class="line"></span><br><span class="line">c++以多态方式处理这些函数调用。</span><br><span class="line"></span><br><span class="line">将earnings作为一个纯虚函数包含在Employee中，会强制Employee的每个希望成为具体类的直接派生类重写</span><br><span class="line">earnings。</span><br><span class="line"></span><br><span class="line">这使得类层次结构的设计者可以要求每个派生类提供适当的报酬计算，如果派生类确实是具体的。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Function print in class Employee displays the first name, last name and social security number of the employee.</span><br><span class="line">As we’ll see, each derived class of Employee overrides function print to output the employee’s type (e.g., &quot;salaried employee:&quot;) followed by the rest of the employee’s information.</span><br><span class="line">Function print could also call earnings, even though print is a pure-virtual function in class Employee.</span><br><span class="line">The diagram in Fig. 12.8 shows each of the five classes in the hierarchy down the left side and functions earnings and print across the top.</span><br><span class="line"></span><br><span class="line">Employee类中的函数print显示员工的名、姓和社会保险号。</span><br><span class="line">我们将看到，Employee的每个派生类都覆盖函数print以输出雇员的类型(例如，“salaried Employee:”)，后面跟着雇员的其余信息。</span><br><span class="line"></span><br><span class="line">!!!函数print也可以调用earnings，尽管print是Employee类中的纯虚函数。</span><br><span class="line"></span><br><span class="line">图12.8中的图表显示了左侧层次结构中的五个类中的每一个，并在顶部显示了收入和打印函数。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">For each class, the diagram shows the desired results of each function.</span><br><span class="line">Italic text represents where the values from a particular object are used in the earnings and print functions.</span><br><span class="line">Class Employee specifies “= 0” for function earnings to indicate that this is a pure virtual function.</span><br><span class="line">Each derived class overrides this function to provide an appropriate implementation.</span><br><span class="line"></span><br><span class="line">对于每个类，该图显示了每个函数的期望结果。</span><br><span class="line">斜体文本表示在收益和打印函数中使用特定对象的值的位置。</span><br><span class="line">类Employee为函数收益指定&quot; = 0 &quot;，表明这是一个纯虚函数。</span><br><span class="line">每个派生类重写此函数以提供适当的实现。</span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607211613579.png"
-alt="image-20240607211613579" />
-<figcaption aria-hidden="true">image-20240607211613579</figcaption>
-</figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Employee Class Header</span><br><span class="line">Let’s consider class Employee’s header (Fig. 12.9).</span><br><span class="line">The public member functions include a constructor that takes the first name, last name and social security number as arguments (lines 11-12); a virtual destructor (line 13); set functions that set the first name, last name and social security number (lines 15, 18 and 21, respectively); get functions that return the first name, last name and social security number (lines 16, 19 and 22, respectively); pure virtual function earnings (line 25) and virtual function print (line 26).</span><br><span class="line"></span><br><span class="line">雇员类头</span><br><span class="line">让我们考虑Employee类的头文件(图12.9)。</span><br><span class="line">public成员函数包括一个构造函数，它接受名字、姓氏和社会保险号作为参数(第11-12行);虚析构函数(第13行);设置用于设置名、姓和社会保险号的函数(分别为第15、18和21行);获取返回名、姓和社会保险号的函数(分别为第16、19和22行);纯虚函数收益(第25行)和虚函数打印(第26行)。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Employee Class Member-Function Definitions</span><br><span class="line">Figure 12.10 contains the member-function definitions for class Employee.</span><br><span class="line">No implementation is provided for virtual function earnings.  </span><br><span class="line">雇员类成员函数定义</span><br><span class="line">图12.10包含Employee类的成员函数定义。</span><br><span class="line"></span><br><span class="line">没有为提供虚拟函数收益的实现。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SalariedEmployee Class Member-Function Definitions</span><br><span class="line">Figure 12.12 contains the member-function definitions for SalariedEmployee.</span><br><span class="line">The class’s constructor passes the first name, last name and social security number to the Employee constructor (line 11) to initialize the private data members that are inherited from the base class, but not accessible in the derived class.</span><br><span class="line">Function earnings (line 33–36) overrides pure virtual function earnings in Employee to provide a concrete implementation that returns the SalariedEmployee’s weekly salary.</span><br><span class="line"></span><br><span class="line">类成员函数定义</span><br><span class="line">图12.12包含salarieemployee的成员函数定义。</span><br><span class="line">该类的构造函数将名字、姓氏和社会保险号传递给Employee构造函数(第11行)，以初始化从基类继承但不能在派生类中访问的私有数据成员。</span><br><span class="line"></span><br><span class="line">函数earnings(第33-36行)覆盖了Employee中的纯虚函数earnings，以提供返回salarieemployee的周工资的具体实现。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">If we did not define earnings, class SalariedEmployee would be an abstract class.</span><br><span class="line">In class SalariedEmployee’s header, we declared member functions earnings and print as virtual</span><br><span class="line">This is redundant.</span><br><span class="line">We defined them as virtual in base class Employee, so they remain virtual functions throughout the class hierarchy.</span><br><span class="line">如果我们没有定义收入，类salarieemployee将是一个抽象类。</span><br><span class="line">在类salarieemployee的头文件中，我们将成员函数earnings和print声明为虚函数 这是多余的。</span><br><span class="line">我们在基类Employee中将它们定义为虚函数，因此它们在整个类层次结构中仍然是虚函数。</span><br><span class="line">只是为了使得程序更加清晰易懂 才显式的声明为virtual</span><br><span class="line"></span><br><span class="line">没有将earings函数声明为=0 说明我们是在具体类中给出了实现 这是一个具体的类</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Function print of class SalariedEmployee (lines 39–44 of Fig. 12.12) overrides Employee function print.</span><br><span class="line">If class SalariedEmployee did not override print, SalariedEmployee would inherit the Employee version of print.</span><br><span class="line"></span><br><span class="line">类salarieemployee的print函数(图12.12的第39-44行)覆盖了Employee的print函数。</span><br><span class="line"></span><br><span class="line">如果类salariedemploye没有覆盖print, salariedemploye将继承Employee版本的print。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Class CommissionEmployee (Figs. 12.13–12.14) derives from Employee (Fig. 12.13, line 9).</span><br><span class="line">The constructor passes the first name, last name and social security number to the Employee constructor (line 11) to initialize Employee’s private data members.</span><br><span class="line">Function print calls base-class function print (line 57) to display the Employee-specific information.</span><br><span class="line"></span><br><span class="line">类CommissionEmployee(图12.13 - 12.14)派生自Employee(图12.13，第9行)。</span><br><span class="line">构造函数将名字、姓氏和社会保险号传递给Employee构造函数(第11行)，以初始化Employee的私有数据成员。</span><br><span class="line">函数print调用基类函数print(第57行)来显示特定于employee的信息。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Class BasePlusCommissionEmployee (Figs. 12.15–12.16) directly inherits from class CommissionEmployee (line 9 of Fig. 12.15) and therefore is an indirect derived class of class Employee.</span><br><span class="line">BasePlusCommissionEmployee’s print function (lines 40–45) outputs &quot;base-salaried&quot;, followed by the output of base-class CommissionEmployee’s print function (another example of code reuse), then the base salary.</span><br><span class="line"></span><br><span class="line">类BasePlusCommissionEmployee(图12.15 - 12.16)直接继承自类CommissionEmployee(图12.15第9行)，因此是类Employee的间接派生类。</span><br><span class="line">BasePlusCommissionEmployee的打印函数(第40-45行)输出“基本工资”，然后是基类CommissionEmployee的打印函数的输出(代码重用的另一个示例)，然后是基本工资。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">To test our Employee hierarchy, the program in Fig. 12.17 creates an object of each of the four concrete classes SalariedEmployee, CommissionEmployee and BasePlusCommissionEmployee.</span><br><span class="line">The program manipulates these objects, first with static binding, then polymorphically, using a vector of Employee pointers.</span><br><span class="line">Lines 22–27 create objects of each of the four concrete Employee derived classes.</span><br><span class="line">Lines 32–38 output each Employee’s information and earnings.</span><br><span class="line">Each member-function invocation in lines 32–37 is an example of static binding—at compile time, because we are using name handles (not pointers or references that could be set at execution time), the compiler can identify each object’s type to determine which print and earnings functions are called.</span><br><span class="line"></span><br><span class="line">为了测试Employee层次结构，图12.17中的程序为四个具体类salarieemployee、CommissionEmployee和BasePlusCommissionEmployee分别创建一个对象。</span><br><span class="line">程序首先使用静态绑定操作这些对象，然后使用Employee指针向量进行多态操作。</span><br><span class="line">第22-27行创建了四个具体Employee派生类的对象。</span><br><span class="line">第32-38行输出每个雇员的信息和收入。</span><br><span class="line">32-37行中的每个成员函数调用都是编译时静态绑定的一个例子，因为我们使用的是名称句柄(而不是在执行时可以设置的指针或引用)，编译器可以识别每个对象的类型，以确定调用哪个print和earnings函数。</span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607220201371.png"
-alt="image-20240607220201371" />
-<figcaption aria-hidden="true">image-20240607220201371</figcaption>
-</figure>
-<figure>
-<img
-src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607220210594.png"
-alt="image-20240607220210594" />
-<figcaption aria-hidden="true">image-20240607220210594</figcaption>
-</figure>
-<figure>
-<img
-src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607220223156.png"
-alt="image-20240607220223156" />
-<figcaption aria-hidden="true">image-20240607220223156</figcaption>
-</figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Line 41 creates the vector employees, which contains three Employee pointers.</span><br><span class="line">Line 44 aims employees[ 0 ] at object salariedEmployee.</span><br><span class="line">Line 45 aims employees[ 1 ] at object commissionEmployee.</span><br><span class="line">Line 46 aims employees[ 2 ] at object basePlusCommissionEmployee.</span><br><span class="line">The compiler allows these assignments, because a SalariedEmployee is an Employee, a CommissionEmployee is an Employee and a BasePlusCommissionEmployee is an Employee.</span><br><span class="line"></span><br><span class="line">第41行创建了包含三个Employee指针的vector employees。</span><br><span class="line">第44行将employees[0]瞄准对象salarieemployee。</span><br><span class="line">第45行将employees[1]瞄准对象commissionEmployee。</span><br><span class="line">第46行将employees[2]瞄准对象basePlusCommissionEmployee。</span><br><span class="line">编译器允许这些赋值，因为salarieemployee是一个Employee, CommissionEmployee是一个Employee, BasePlusCommissionEmployee是一个Employee。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Lines 54–55 traverse vector employees and invoke function virtualViaPointer (lines 67–71) for each element in employees.</span><br><span class="line">Function virtualViaPointer receives in parameter baseClassPtr (of type const Employee * const) the address stored in an employees element.</span><br><span class="line">Each call to virtualViaPointer uses baseClassPtr to invoke virtual functions print (line 69) and earnings (line 70).</span><br><span class="line">Note that function virtualViaPointer does not contain any SalariedEmployee, CommissionEmployee or BasePlusCommissionEmployee type information.</span><br><span class="line">The function knows only about base-class type Employee.</span><br><span class="line">The output illustrates that the appropriate functions for each class are indeed invoked and that each object’s proper information is displayed.</span><br><span class="line"></span><br><span class="line">第54-55行遍历vector employees，并为employees中的每个元素调用函数virtualViaPointer(第67-71行)。</span><br><span class="line">virtualViaPointer在参数baseClassPtr(类型为const Employee * const)中接收存储在employees元素中的地址。</span><br><span class="line">每次对virtualViaPointer的调用都使用baseClassPtr来调用虚拟函数print(第69行)和earnings(第70行)。</span><br><span class="line">注意，函数virtualViaPointer不包含任何salarieemployee、CommissionEmployee或BasePlusCommissionEmployee类型信息。</span><br><span class="line"></span><br><span class="line">该函数只知道基类类型Employee。</span><br><span class="line">输出说明确实调用了每个类的适当函数，并且显示了每个对象的适当信息。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Lines 61–62 traverse employees and invoke function virtualViaReference (lines 75–79) for each vector element.</span><br><span class="line">Function virtualViaReference receives in its parameter baseClassRef (of type const Employee &amp;) a reference to the object obtained by dereferencing the pointer stored in each employees element (line 62).</span><br><span class="line">Each call to virtualViaReference invokes virtual functions print (line 77) and earnings (line 78) via baseClassRef to demonstrate that polymorphic processing occurs with base-class references as well.</span><br><span class="line">Each virtual-function invocation calls the function on the object to which baseClassRef refers at runtime.</span><br><span class="line">This is another example of dynamic binding.</span><br><span class="line">The output produced using base-class references is identical to the output produced using base-class pointers.</span><br><span class="line"></span><br><span class="line">第61-62行遍历雇员并为每个向量元素调用函数virtualViaReference(第75-79行)。</span><br><span class="line"></span><br><span class="line">函数virtualViaReference在它的参数baseClassRef(类型为const Employee &amp;)中接收一个对对象的引用，该对象是通过解引用存储在每个employees元素中的指针获得的(第62行)。</span><br><span class="line"></span><br><span class="line">每次对virtualViaReference的调用都会通过baseClassRef调用虚拟函数print(第77行)和earnings(第78行)，以演示多态处理也会在基类引用中发生。</span><br><span class="line"></span><br><span class="line">每个虚拟函数调用都会调用baseClassRef在运行时引用的对象上的函数。</span><br><span class="line">这是动态绑定的另一个例子。</span><br><span class="line">使用基类引用产生的输出与使用基类指针产生的输出相同。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">This section discusses how C++ can implement polymorphism, virtual functions and dynamic binding internally.</span><br><span class="line">This will give you a solid understanding of how these capabilities really work.</span><br><span class="line">More importantly, it will help you appreciate the overhead of polymorphism—in terms of additional memory consumption and processor time.</span><br><span class="line">You’ll see that polymorphism is accomplished through three levels of pointers (i.e., “triple indirection”).</span><br><span class="line">Then we’ll show how an executing program uses these data structures to execute virtual functions and achieve the dynamic binding associated with polymorphism.</span><br><span class="line">Our discussion explains one possible implementation; this is not a language requirement.</span><br><span class="line">本节讨论c++如何在内部实现多态性、虚函数和动态绑定。</span><br><span class="line">这将使您对这些功能的实际工作方式有一个坚实的理解。</span><br><span class="line">更重要的是，它将帮助您了解多态的开销——就额外的内存消耗和处理器时间而言。</span><br><span class="line">您将看到，多态性是通过三层指针实现的(即“三重间接”)。</span><br><span class="line">然后，我们将展示正在执行的程序如何使用这些数据结构来执行虚函数并实现与多态性相关的动态绑定。</span><br><span class="line">我们的讨论解释了一种可能的实现;这不是语言要求。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">When C++ compiles a class that has one or more virtual functions, it builds a virtual function table (vtable) for that class.</span><br><span class="line">The vtable contains pointers to the class’s virtual functions. </span><br><span class="line">Just as the name of a built-in array contains the address in memory of the array’s first element, a pointer to a function contains the starting address in memory of the code that performs the function’s task. </span><br><span class="line">An executing program uses the vtable to select the proper function implementation each time a virtual function of that class is called.</span><br><span class="line">The leftmost column of Fig. 12.18 illustrates the vtables for classes Employee, SalariedEmployee, CommissionEmployee and BasePlusCommissionEmployee.</span><br><span class="line">当c++编译一个具有一个或多个虚函数的类时，它为该类构建一个虚函数表(vtable)。</span><br><span class="line">虚函数表包含指向该类虚函数的指针。</span><br><span class="line">正如内置数组的名称包含该数组第一个元素在内存中的地址一样，</span><br><span class="line"></span><br><span class="line">指向函数的指针包含执行该函数任务的代码在内存中的起始地址。</span><br><span class="line"></span><br><span class="line">正在执行的程序在每次调用该类的虚函数时使用虚函数表选择适当的函数实现。</span><br><span class="line"></span><br><span class="line">图12.18最左边的一列显示了Employee、salarieemployee、CommissionEmployee和BasePlusCommissionEmployee类的变量。</span><br></pre></td></tr></table></figure>
+<p><strong>抽象类为各个层次中的类提供了公共的通用函数接口，抽象类包含一个或者多个pure
+virtual函数，这些函数在具体的派生类中必须被重写。</strong></p>
+<p><strong>如果在派生类没有重写pure
+virtual函数，那么这个派生类也会变成抽象类。</strong></p>
+<p><strong>抽象类至少有一个pure
+virtual函数，也可以有自己的数据成员，具体的成员函数（包括构造和析构），它们被继承时符合继承的一般规则。</strong></p>
+<p><strong>注意：虽然不能实例化抽象基类，但是可以使用抽象基类的指针或者引用，指向实例化的具体的派生类，从而实现多态。</strong></p>
+<blockquote>
+<p>Although we cannot instantiate objects of an abstract base class, we
+can use the abstract base class to declare pointers and references that
+can refer to objects of any concrete classes derived from the abstract
+class. Programs typically use such pointers and references to manipulate
+derived-class objects polymorphically.</p>
+<p>虽然不能实例化抽象基类的对象，但可以使用抽象基类声明指针和引用，这些指针和引用可以引用从抽象类派生的任何具体类的对象。
+程序通常使用这样的指针和引用以多态方式操作派生类对象。</p>
+</blockquote>
+<p><strong>实现继承：
+是指一个类从另一个类派生，并继承其成员变量和成员函数。在C++中，继承可以是public、protected或private三种访问控制方式。实现继承的关键是派生类能够复用基类的代码，派生类可以增加新的功能或重写基类的方法。</strong></p>
+<p><strong>接口继承：
+是指一个类实现一个接口，接口定义了类必须提供的行为，但不包含任何实现。在C++中，接口通常用纯虚函数来实现，一个包含纯虚函数的类称为抽象类。</strong></p>
+<blockquote>
+<p>This section discusses how C++ can implement polymorphism, virtual
+functions and dynamic binding internally. This will give you a solid
+understanding of how these capabilities really work. More importantly,
+it will help you appreciate the overhead of polymorphism—in terms of
+additional memory consumption and processor time. You’ll see that
+polymorphism is accomplished through three levels of pointers (i.e.,
+“triple indirection”). Then we’ll show how an executing program uses
+these data structures to execute virtual functions and achieve the
+dynamic binding associated with polymorphism. Our discussion explains
+one possible implementation; this is not a language requirement.
+本节讨论c++如何在内部实现多态性、虚函数和动态绑定。
+这将使您对这些功能的实际工作方式有一个坚实的理解。
+更重要的是，它将帮助您了解多态的开销——就额外的内存消耗和处理器时间而言。
+您将看到，多态性是通过三层指针实现的(即“三重间接”)。
+然后，我们将展示正在执行的程序如何使用这些数据结构来执行虚函数并实现与多态性相关的动态绑定。
+我们的讨论解释了一种可能的实现;这不是语言要求。</p>
+</blockquote>
+<blockquote>
+<p>When C++ compiles a class that has one or more virtual functions, it
+builds a virtual function table (vtable) for that class. The vtable
+contains pointers to the class’s virtual functions. Just as the name of
+a built-in array contains the address in memory of the array’s first
+element, a pointer to a function contains the starting address in memory
+of the code that performs the function’s task. An executing program uses
+the vtable to select the proper function implementation each time a
+virtual function of that class is called. The leftmost column of Fig.
+12.18 illustrates the vtables for classes Employee, SalariedEmployee,
+CommissionEmployee and BasePlusCommissionEmployee.
+当c++编译一个具有一个或多个虚函数的类时，它为该类构建一个虚函数表(vtable)。
+虚函数表包含指向该类虚函数的指针。
+正如内置数组的名称包含该数组第一个元素在内存中的地址一样，</p>
+<p>指向函数的指针包含执行该函数任务的代码在内存中的起始地址。</p>
+<p>正在执行的程序在每次调用该类的虚函数时使用虚函数表选择适当的函数实现。</p>
+<p>图12.18最左边的一列显示了Employee、salarieemployee、CommissionEmployee和BasePlusCommissionEmployee类的变量。</p>
+</blockquote>
 <figure>
 <img
 src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607222304683.png"
 alt="image-20240607222304683" />
 <figcaption aria-hidden="true">image-20240607222304683</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Employee Class vtable</span><br><span class="line">In the Employee class vtable, the first function pointer is set to 0 (i.e., the nullptr), because function earnings is a pure virtual function and therefore lacks an implementation.</span><br><span class="line">The second function pointer points to function print, which displays the employee’s full name and social security number.</span><br><span class="line">Any class that has one or more null pointers in its vtable is an abstract class.</span><br><span class="line">Classes without any null vtable pointers are concrete classes.</span><br><span class="line"></span><br><span class="line">雇员类虚表</span><br><span class="line">在Employee类虚函数表中，第一个函数指针被设置为0(即nullptr)，因为函数earnings是一个纯虚函数，因此缺乏实现。</span><br><span class="line">第二个函数指针指向函数print，该函数显示员工的全名和社会保险号。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">！！！任何在虚函数表中有一个或多个空指针的类都是抽象类。</span><br><span class="line"></span><br><span class="line">！！！没有空虚参指针的类是具体类。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SalariedEmployee Class vtable</span><br><span class="line">Class SalariedEmployee overrides function earnings to return the employee’s weekly salary, so the function pointer points to the earnings function of class SalariedEmployee.</span><br><span class="line">SalariedEmployee also overrides print, so the corresponding function pointer points to the SalariedEmployee member function that prints &quot;salaried employee: &quot; followed by the employee’s name, social security number and weekly salary.</span><br><span class="line"></span><br><span class="line">salarieemployee类变量表</span><br><span class="line">类salariedemploye重写函数earnings以返回员工的周工资，因此函数指针指向类salariedemploye的收益函数。</span><br><span class="line">SalariedEmployee也覆盖了print，因此对应的函数指针指向SalariedEmployee成员函数，该函数打印“salaried employee:”，后面跟着员工的姓名、社会保险号和周薪。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CommissionEmployee Class vtable</span><br><span class="line">The earnings function pointer in the vtable for class CommissionEmployee points to CommissionEmployee’s earnings function that returns the employee’s gross sales multiplied by the commission rate.</span><br><span class="line">The print function pointer points to the CommissionEmployee version of the function, which prints the employee’s type, name, social security number, commission rate and gross sales.</span><br><span class="line">As in class SalariedEmployee, both functions override the functions in class Employee.</span><br><span class="line"></span><br><span class="line">CommissionEmployee类函数表</span><br><span class="line">类CommissionEmployee的实值表中的收益函数指针指向CommissionEmployee的收益函数，该函数返回雇员的销售总额乘以佣金率。</span><br><span class="line">print函数指针指向该函数的CommissionEmployee版本，后者打印员工的类型、姓名、社会保险号、佣金率和销售总额。</span><br><span class="line">与salarieemployee类一样，这两个函数都覆盖了Employee类中的函数。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BasePlusCommissionEmployee Class vtable</span><br><span class="line">The earnings function pointer in the vtable for class BasePlusCommissionEmployee points to the BasePlusCommissionEmployee’s earnings function, which returns the employee’s base salary plus gross sales multiplied by commission rate.</span><br><span class="line">The print function pointer points to the BasePlusCommissionEmployee version of the function, which prints the employee’s base salary plus the type, name, social security number, commission rate and gross sales.</span><br><span class="line">Both functions override the functions in class CommissionEmployee.</span><br><span class="line">BasePlusCommissionEmployee类虚表</span><br><span class="line"></span><br><span class="line">类BasePlusCommissionEmployee的实值表中的收益函数指针指向BasePlusCommissionEmployee的收益函数，该函数返回员工的基本工资加上总销售额乘以佣金率。</span><br><span class="line">print函数指针指向该函数的BasePlusCommissionEmployee版本，该版本打印员工的基本工资加上类型、姓名、社会保险号、佣金率和总销售额。</span><br><span class="line">这两个函数都覆盖了CommissionEmployee类中的函数。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Three Levels of Pointers to Implement Polymorphism</span><br><span class="line">Polymorphism is accomplished through an elegant data structure involving three levels of pointers.</span><br><span class="line">We’ve discussed one level—the function pointers in the vtable.</span><br><span class="line">These point to the actual functions that execute when a virtual function is invoked.</span><br><span class="line">Now we consider the second level of pointers.</span><br><span class="line">Whenever an object of a class with one or more virtual functions is instantiated, the compiler attaches to the object a pointer to the vtable for that class.</span><br><span class="line">This pointer is normally at the front of the object, but it isn’t required to be implemented that way.</span><br><span class="line">实现多态的三层指针</span><br><span class="line">多态是通过包含三层指针的优雅数据结构实现的。</span><br><span class="line"></span><br><span class="line">！！！我们已经讨论了一个级别——虚函数表中的函数指针。		这些指向在调用虚函数时执行的实际函数。</span><br><span class="line"></span><br><span class="line">现在我们考虑第二级指针。</span><br><span class="line"></span><br><span class="line">！！！每当实例化具有一个或多个虚函数的类的对象时，编译器将指向该类虚函数表的指针附加到该对象上。</span><br><span class="line"></span><br><span class="line">该指针通常位于对象的前面，但并不需要以这种方式实现。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">In Fig. 12.18, these pointers are associated with the objects created in Fig. 12.17.</span><br><span class="line">Notice that the diagram displays each of the object’s data member values.</span><br><span class="line">The third level of pointers simply contains the handles to the objects that receive the virtual function calls.</span><br><span class="line">The handles in this level may also be references.</span><br><span class="line">Fig. 12.18 depicts the vector employees that contains Employee pointers.</span><br><span class="line"></span><br><span class="line">在图12.18中，这些指针与图12.17中创建的对象相关联。</span><br><span class="line">注意，图中显示了对象的每个数据成员值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">！！！第三层指针仅包含接收虚函数调用的对象的句柄。</span><br><span class="line"></span><br><span class="line">这个级别的句柄也可以是引用。</span><br><span class="line">图12.18描述了包含Employee指针的vector employees。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Thus, the compiler compiles an offset or displacement of four bytes (four bytes for each pointer on today’s popular 32-bit machines, and only one pointer needs to be skipped) into the table of machine-language object-code pointers to find the code that will execute the virtual function call.</span><br><span class="line"></span><br><span class="line">因此，编译器将四个字节的偏移量或位移(在当今流行的32位机器上每个指针四个字节，只需要跳过一个指针)</span><br><span class="line">编译到机器语言对象代码指针表中，以查找将执行虚函数调用的代码。</span><br><span class="line"></span><br><span class="line">64位操作系统上是8个字节</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The compiler generates code that performs the following operations. </span><br><span class="line">Select the ith entry of employees, and pass it as an argument to function virtualViaPointer. This sets parameter baseClassPtr to point to commissionEmployee.</span><br><span class="line">Dereference that pointer to get to the commissionEmployee object.</span><br><span class="line">Dereference commissionEmployee’s vtable pointer to get to the CommissionEmployee vtable.</span><br><span class="line">Skip the offset of four bytes to select the print function pointer.</span><br><span class="line">Dereference the print function pointer to form the “name” of the actual function to execute, and use the function call operator () to execute the appropriate print function.</span><br><span class="line"></span><br><span class="line">编译器生成执行以下操作的代码。</span><br><span class="line">选择雇员的第i个条目，并将其作为参数传递给函数virtualViaPointer。这将baseClassPtr参数设置为指向commissionEmployee。</span><br><span class="line">解引用该指针以获得commissionEmployee对象。</span><br><span class="line">解引用commissionEmployee的实参表指针，以获得commissionEmployee实参表。</span><br><span class="line">跳过四个字节的偏移量以选择打印函数指针。</span><br><span class="line"></span><br><span class="line">取消对打印函数指针的引用，形成要执行的实际函数的“名称”，并使用函数调用operator()来执行相应的打印函数。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">优化后的Cpp编译器生成的多态代码执行效率和switch语句的效率是一样的 但是对于性能要求很高的需要实时更新的应用程序 多态性的消耗就太高了</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Recall from the problem statement at the beginning of Section 12.6 that, for the current pay period, our fictitious company has decided to reward BasePlusCommissionEmployees by adding 10 percent to their base salaries.</span><br><span class="line">When processing Employee objects polymorphically in Section 12.6.5, we did not need to worry about the “specifics.”</span><br><span class="line">To adjust the base salaries of BasePlusCommissionEmployees, we have to determine the specific type of each Employee object at execution time, then act appropriately.</span><br><span class="line">回想一下第12.6节开头的问题陈述，对于当前的工资周期，我们虚构的公司决定通过在基本工资的基础上增加10%来奖励BasePlusCommissionEmployees。</span><br><span class="line">在第12.6.5节中以多态方式处理Employee对象时，我们不需要担心“细节”。</span><br><span class="line">要调整BasePlusCommissionEmployees的基本工资，我们必须在执行时确定每个Employee对象的特定类型，然后采取适当的行动。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Employee Class vtable In the Employee class vtable, the first
+function pointer is set to 0 (i.e., the nullptr), because function
+earnings is a pure virtual function and therefore lacks an
+implementation. The second function pointer points to function print,
+which displays the employee’s full name and social security number. Any
+class that has one or more null pointers in its vtable is an abstract
+class. Classes without any null vtable pointers are concrete
+classes.</p>
+<p>雇员类虚表
+在Employee类虚函数表中，第一个函数指针被设置为0(即nullptr)，因为函数earnings是一个纯虚函数，因此缺乏实现。
+第二个函数指针指向函数print，该函数显示员工的全名和社会保险号。</p>
+<p><strong>任何在虚函数表中有一个或多个空指针的类都是抽象类。</strong></p>
+<p><strong>没有空虚参指针的类是具体类。</strong></p>
+</blockquote>
+<blockquote>
+<p>SalariedEmployee Class vtable Class SalariedEmployee overrides
+function earnings to return the employee’s weekly salary, so the
+function pointer points to the earnings function of class
+SalariedEmployee. SalariedEmployee also overrides print, so the
+corresponding function pointer points to the SalariedEmployee member
+function that prints "salaried employee: " followed by the employee’s
+name, social security number and weekly salary.</p>
+<p>salarieemployee类变量表
+类salariedemploye重写函数earnings以返回员工的周工资，因此函数指针指向类salariedemploye的收益函数。
+SalariedEmployee也覆盖了print，因此对应的函数指针指向SalariedEmployee成员函数，该函数打印“salaried
+employee:”，后面跟着员工的姓名、社会保险号和周薪。</p>
+</blockquote>
+<blockquote>
+<p>CommissionEmployee Class vtable The earnings function pointer in the
+vtable for class CommissionEmployee points to CommissionEmployee’s
+earnings function that returns the employee’s gross sales multiplied by
+the commission rate. The print function pointer points to the
+CommissionEmployee version of the function, which prints the employee’s
+type, name, social security number, commission rate and gross sales. As
+in class SalariedEmployee, both functions override the functions in
+class Employee.</p>
+<p>CommissionEmployee类函数表
+类CommissionEmployee的实值表中的收益函数指针指向CommissionEmployee的收益函数，该函数返回雇员的销售总额乘以佣金率。
+print函数指针指向该函数的CommissionEmployee版本，后者打印员工的类型、姓名、社会保险号、佣金率和销售总额。
+与salarieemployee类一样，这两个函数都覆盖了Employee类中的函数。</p>
+</blockquote>
+<blockquote>
+<p>BasePlusCommissionEmployee Class vtable The earnings function pointer
+in the vtable for class BasePlusCommissionEmployee points to the
+BasePlusCommissionEmployee’s earnings function, which returns the
+employee’s base salary plus gross sales multiplied by commission rate.
+The print function pointer points to the BasePlusCommissionEmployee
+version of the function, which prints the employee’s base salary plus
+the type, name, social security number, commission rate and gross sales.
+Both functions override the functions in class CommissionEmployee.
+BasePlusCommissionEmployee类虚表</p>
+<p>类BasePlusCommissionEmployee的实值表中的收益函数指针指向BasePlusCommissionEmployee的收益函数，该函数返回员工的基本工资加上总销售额乘以佣金率。
+print函数指针指向该函数的BasePlusCommissionEmployee版本，该版本打印员工的基本工资加上类型、姓名、社会保险号、佣金率和总销售额。
+这两个函数都覆盖了CommissionEmployee类中的函数。</p>
+</blockquote>
+<blockquote>
+<p>Three Levels of Pointers to Implement Polymorphism Polymorphism is
+accomplished through an elegant data structure involving three levels of
+pointers. We’ve discussed one level—the function pointers in the vtable.
+These point to the actual functions that execute when a virtual function
+is invoked. Now we consider the second level of pointers. Whenever an
+object of a class with one or more virtual functions is instantiated,
+the compiler attaches to the object a pointer to the vtable for that
+class. This pointer is normally at the front of the object, but it isn’t
+required to be implemented that way. 实现多态的三层指针
+多态是通过包含三层指针的优雅数据结构实现的。</p>
+<p>我们已经讨论了一个级别——虚函数表中的函数指针，这些指向在调用虚函数时执行的实际函数。</p>
+<p>现在我们考虑第二级指针：每当实例化具有一个或多个虚函数的类的对象时，编译器将指向该类虚函数表的指针附加到该对象上。</p>
+<p>该指针通常位于对象的前面，但并不需要以这种方式实现。</p>
+</blockquote>
+<blockquote>
+<p>In Fig. 12.18, these pointers are associated with the objects created
+in Fig. 12.17. Notice that the diagram displays each of the object’s
+data member values. The third level of pointers simply contains the
+handles to the objects that receive the virtual function calls. The
+handles in this level may also be references. Fig. 12.18 depicts the
+vector employees that contains Employee pointers.</p>
+<p>在图12.18中，这些指针与图12.17中创建的对象相关联。
+注意，图中显示了对象的每个数据成员值。</p>
+<p><strong>第三层指针仅包含接收虚函数调用的对象的句柄。</strong></p>
+<p>这个级别的句柄也可以是引用。 图12.18描述了包含Employee指针的vector
+employees。</p>
+</blockquote>
+<blockquote>
+<p>Thus, the compiler compiles an offset or displacement of four bytes
+(four bytes for each pointer on today’s popular 32-bit machines, and
+only one pointer needs to be skipped) into the table of machine-language
+object-code pointers to find the code that will execute the virtual
+function call.</p>
+<p>因此，编译器将四个字节的偏移量或位移(在当今流行的32位机器上每个指针四个字节，只需要跳过一个指针)
+编译到机器语言对象代码指针表中，以查找将执行虚函数调用的代码。64位操作系统上是8个字节。</p>
+</blockquote>
+<blockquote>
+<p>The compiler generates code that performs the following operations.
+Select the ith entry of employees, and pass it as an argument to
+function virtualViaPointer. This sets parameter baseClassPtr to point to
+commissionEmployee. Dereference that pointer to get to the
+commissionEmployee object. Dereference commissionEmployee’s vtable
+pointer to get to the CommissionEmployee vtable. Skip the offset of four
+bytes to select the print function pointer. Dereference the print
+function pointer to form the “name” of the actual function to execute,
+and use the function call operator () to execute the appropriate print
+function.</p>
+<p>编译器生成执行以下操作的代码。
+选择雇员的第i个条目，并将其作为参数传递给函数virtualViaPointer。这将baseClassPtr参数设置为指向commissionEmployee。
+解引用该指针以获得commissionEmployee对象。
+解引用commissionEmployee的实参表指针，以获得commissionEmployee实参表。
+跳过四个字节的偏移量以选择打印函数指针。</p>
+<p>取消对打印函数指针的引用，形成要执行的实际函数的“名称”，并使用函数调用operator()来执行相应的打印函数。</p>
+</blockquote>
+<p>优化后的Cpp编译器生成的多态代码执行效率和switch语句的效率是一样的，但是对于性能要求很高的需要实时更新的应用程序，多态性的消耗就太高了。</p>
+<blockquote>
 <p>当我们调用<code>delete</code>时，C++会检查指针是否为空。如果指针为空（即指向<code>nullptr</code>），<code>delete</code>操作符会立即返回，而不会尝试释放任何内存。这种行为的设计是为了简化内存管理，使得程序员不必在调用<code>delete</code>之前检查指针是否为空。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span>* ptr = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 安全地删除空指针</span></span><br><span class="line">    <span class="keyword">delete</span> ptr;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重新分配并删除</span></span><br><span class="line">    ptr = <span class="keyword">new</span> <span class="built_in">int</span>(<span class="number">10</span>);</span><br><span class="line">    <span class="keyword">delete</span> ptr;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 再次删除空指针</span></span><br><span class="line">    ptr = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">delete</span> ptr;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;All delete operations completed successfully.&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="type">int</span>* ptr = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 安全地删除空指针</span></span><br><span class="line"> <span class="keyword">delete</span> ptr;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 重新分配并删除</span></span><br><span class="line"> ptr = <span class="keyword">new</span> <span class="built_in">int</span>(<span class="number">10</span>);</span><br><span class="line"> <span class="keyword">delete</span> ptr;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 再次删除空指针</span></span><br><span class="line"> ptr = <span class="literal">nullptr</span>;</span><br><span class="line"> <span class="keyword">delete</span> ptr;</span><br><span class="line"></span><br><span class="line"> std::cout &lt;&lt; <span class="string">&quot;All delete operations completed successfully.&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="重要注意事项">重要注意事项</h3>
 <ol type="1">
 <li><strong>多次删除同一个指针</strong>：对同一个指针多次调用<code>delete</code>会导致未定义行为。程序员应确保每个指针只调用一次<code>delete</code>，并在删除后将其设置为<code>nullptr</code>以避免重复删除。</li>
@@ -323,7 +663,17 @@ Pointer）</strong>：在删除指针后，继续使用这个指针会导致悬�
 <li>删除指针后，应将指针设置为<code>nullptr</code>以避免悬挂指针和重复删除问题。</li>
 <li>多次删除同一个非空指针会导致未定义行为，程序员应避免这种情况。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">This section demonstrates the powerful capabilities of runtime type information (RTTI) and dynamic casting, which enable a program to determine an object’s type at execution time and act on that object accordingly.</span><br><span class="line">Figure 12.19 uses the Employee hierarchy developed in Section 12.6 and increases by 10 percent the base salary of each BasePlusCommissionEmployee.</span><br><span class="line"></span><br><span class="line">本节演示运行时类型信息(RTTI)和动态类型转换的强大功能，它们使程序能够在执行时确定对象的类型，并相应地对该对象进行操作。</span><br><span class="line">图12.19使用第12.6节中开发的Employee层次结构，并将每个BasePlusCommissionEmployee的基本工资增加10%。</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>This section demonstrates the powerful capabilities of runtime type
+information (RTTI) and dynamic casting, which enable a program to
+determine an object’s type at execution time and act on that object
+accordingly. Figure 12.19 uses the Employee hierarchy developed in
+Section 12.6 and increases by 10 percent the base salary of each
+BasePlusCommissionEmployee.</p>
+<p>本节演示运行时类型信息(RTTI)和动态类型转换的强大功能，它们使程序能够在执行时确定对象的类型，并相应地对该对象进行操作。
+图12.19使用第12.6节中开发的Employee层次结构，并将每个BasePlusCommissionEmployee的基本工资增加10%。</p>
+</blockquote>
 <figure>
 <img
 src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240607233428216.png"
@@ -336,7 +686,25 @@ src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-202406072334
 alt="image-20240607233438656" />
 <figcaption aria-hidden="true">image-20240607233438656</figcaption>
 </figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Since we process the Employees polymorphically, we cannot (with the techniques you’ve learned so far) be certain as to which type of Employee is being manipulated at any given time.</span><br><span class="line">BasePlusCommissionEmployee employees must be identified when we encounter them so they can receive the 10 percent salary increase.</span><br><span class="line">To accomplish this, we use operator dynamic_cast (line 39) to determine whether the current Employee’s type is BasePlusCommissionEmployee.</span><br><span class="line">This is the downcast operation we referred to in Section 12.3.3.</span><br><span class="line">Lines 38–39 dynamically downcast employeePtr from type Employee * to type BasePlusCommissionEmployee *.</span><br><span class="line"></span><br><span class="line">由于我们以多态方式处理Employee，</span><br><span class="line"></span><br><span class="line">因此我们无法(使用到目前为止学到的技术)确定在任何给定时间正在操作哪种类型的Employee。</span><br><span class="line">当我们遇到员工时，必须确认他们的身份，这样他们才能获得10%的加薪。</span><br><span class="line"></span><br><span class="line">为此，我们使用操作符dynamic_cast(第39行)来确定当前Employee的类型是BasePlusCommissionEmployee。</span><br><span class="line"></span><br><span class="line">这是我们在12.3.3节中提到的向下转换操作。</span><br><span class="line">第38-39行动态地将employeePtr从Employee *类型向下转换为BasePlusCommissionEmployee *类型。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Since we process the Employees polymorphically, we cannot (with the
+techniques you’ve learned so far) be certain as to which type of
+Employee is being manipulated at any given time.
+BasePlusCommissionEmployee employees must be identified when we
+encounter them so they can receive the 10 percent salary increase. To
+accomplish this, we use operator dynamic_cast (line 39) to determine
+whether the current Employee’s type is BasePlusCommissionEmployee. This
+is the downcast operation we referred to in Section 12.3.3. Lines 38–39
+dynamically downcast employeePtr from type Employee * to type
+BasePlusCommissionEmployee *.</p>
+<p>由于我们以多态方式处理Employee，</p>
+<p>因此我们无法(使用到目前为止学到的技术)确定在任何给定时间正在操作哪种类型的Employee。
+当我们遇到员工时，必须确认他们的身份，这样他们才能获得10%的加薪。</p>
+<p>为此，我们使用操作符dynamic_cast(第39行)来确定当前Employee的类型是BasePlusCommissionEmployee。</p>
+<p>这是我们在12.3.3节中提到的向下转换操作。
+第38-39行动态地将employeePtr从Employee
+<em>类型向下转换为BasePlusCommissionEmployee </em>类型。</p>
+</blockquote>
 <p><code>dynamic_cast</code> 是 C++
 中用于类型安全的向下转换（downcasting）和横向转换（cross-casting）的运算符。它主要用于带有多态的继承层次中，确保在运行时类型转换的安全性。</p>
 <h3 id="使用场景">使用场景</h3>
@@ -386,12 +754,10 @@ alt="image-20240607233438656" />
 </ul>
 <p>使用 <code>dynamic_cast</code>
 可以显著提高代码的类型安全性，尤其是在复杂的继承层次结构中。</p>
-<p>能够转化成功的条件是：该基类指向的派生类对象 与dynamic_cast<newType>
-中的 newType相同</p>
-<p>否则，如果是指针：则会赋值为nullptr，另外：则是抛出std::bad_cast异常</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">If employeePtr element points to an object that is a BasePlusCommissionEmployee object, then that object’s address is assigned to derived-class pointer derivedPtr; otherwise, nullptr is assigned to derivedPtr.</span><br><span class="line">Note that dynamic_cast rather than static_cast is required here to perform type checking on the underlying object—a static_cast would simply cast the Employee * to a BasePlusCommissionEmployee * regardless of the underlying object’s type. </span><br><span class="line"></span><br><span class="line">如果employeePtr元素指向一个BasePlusCommissionEmployee对象，</span><br><span class="line">那么该对象的地址被赋值给派生类指针derivedPtr;否则，nullptr赋值给derivedPtr。</span><br><span class="line"></span><br><span class="line">!!!注意，这里需要dynamic_cast而不是static_cast来对底层对象执行类型检查—无论底层对象的类型如何，static_cast都会简单地将Employee *转换为BasePlusCommissionEmployee *。</span><br></pre></td></tr></table></figure>
-<p>如果使用的是static_cast 则可能会发生未定义的行为
-给每一个类都加上工资</p>
+<p><strong>能够转化成功的条件是：该基类指向的派生类对象
+与dynamic_cast<newType> 中的 newType相同</strong></p>
+<p><strong>否则，如果是指针：则会赋值为nullptr，另外：则是抛出std::bad_cast异常。</strong></p>
+<blockquote>
 <p><code>typeid</code>
 运算符是C++中的一种运行时类型信息（RTTI）工具，用于获取对象的实际类型。它返回一个
 <code>std::type_info</code>
@@ -404,7 +770,7 @@ alt="image-20240607233438656" />
 <h3 id="示例代码-1">示例代码</h3>
 <p>以下是一些示例，展示了 <code>typeid</code> 运算符的用法：</p>
 <h4 id="获取基本类型的类型信息">获取基本类型的类型信息</h4>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line">    <span class="type">double</span> b = <span class="number">3.14</span>;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Type of a: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(a).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Type of b: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(b).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line"> <span class="type">double</span> b = <span class="number">3.14</span>;</span><br><span class="line"> std::cout &lt;&lt; <span class="string">&quot;Type of a: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(a).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line"> std::cout &lt;&lt; <span class="string">&quot;Type of b: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(b).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Type of a: i</span><br><span class="line">Type of b: d</span><br></pre></td></tr></table></figure>
 <p>注意：<code>typeid().name()</code>
@@ -412,7 +778,7 @@ alt="image-20240607233438656" />
 <h4 id="用于多态对象">用于多态对象</h4>
 <p>在多态对象的情况下，<code>typeid</code>
 可以用来获取对象的实际类型，而不仅仅是基类的类型。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">virtual</span> ~<span class="built_in">Base</span>() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Base* b = <span class="keyword">new</span> <span class="built_in">Derived</span>();</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Type of b: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(b).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Type of *b: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(*b).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> b;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="keyword">virtual</span> ~<span class="built_in">Base</span>() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> Base* b = <span class="keyword">new</span> <span class="built_in">Derived</span>();</span><br><span class="line"> std::cout &lt;&lt; <span class="string">&quot;Type of b: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(b).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line"> std::cout &lt;&lt; <span class="string">&quot;Type of *b: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(*b).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">delete</span> b;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Type of b: P4Base</span><br><span class="line">Type of *b: 7Derived</span><br></pre></td></tr></table></figure>
 <p>在这个例子中，<code>typeid(b)</code> 返回的是指针类型
@@ -421,7 +787,7 @@ alt="image-20240607233438656" />
 <code>Derived</code> 对象。</p>
 <h3 id="比较类型">比较类型</h3>
 <p>可以使用 <code>typeid</code> 运算符来比较两个对象的类型是否相同。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">virtual</span> ~<span class="built_in">Base</span>() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Base* base = <span class="keyword">new</span> <span class="built_in">Base</span>();</span><br><span class="line">    Base* derived = <span class="keyword">new</span> <span class="built_in">Derived</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">typeid</span>(*base) == <span class="built_in">typeid</span>(*derived)) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;base and derived are of the same type.&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;base and derived are of different types.&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> base;</span><br><span class="line">    <span class="keyword">delete</span> derived;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="keyword">virtual</span> ~<span class="built_in">Base</span>() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> Base* base = <span class="keyword">new</span> <span class="built_in">Base</span>();</span><br><span class="line"> Base* derived = <span class="keyword">new</span> <span class="built_in">Derived</span>();</span><br><span class="line"></span><br><span class="line"> <span class="keyword">if</span> (<span class="built_in">typeid</span>(*base) == <span class="built_in">typeid</span>(*derived)) &#123;</span><br><span class="line">     std::cout &lt;&lt; <span class="string">&quot;base and derived are of the same type.&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     std::cout &lt;&lt; <span class="string">&quot;base and derived are of different types.&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">delete</span> base;</span><br><span class="line"> <span class="keyword">delete</span> derived;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">base and derived are of different types.</span><br></pre></td></tr></table></figure>
 <p>在这个例子中，<code>typeid(*base)</code> 和
@@ -453,10 +819,8 @@ alt="image-20240607233438656" />
 <li><code>typeid().name()</code>
 返回的类型名是实现定义的，可能因编译器而异。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">With a static_cast, the program would attempt to increase every Employee’s base salary, resulting in undefined behavior for each object that is not a BasePlusCommissionEmployee.</span><br><span class="line">If the value returned by the dynamic_cast operator in lines 38–39 is not nullptr, the object is the correct type, and the if statement (lines 42–49) performs the special processing required for the BasePlusCommissionEmployee object.</span><br><span class="line"></span><br><span class="line">使用static_cast，程序将尝试增加每个Employee的基本工资，从而导致每个非BasePlusCommissionEmployee对象的未定义行为。</span><br><span class="line">如果第38-39行中dynamic_cast操作符返回的值不是nullptr，则对象是正确的类型，并且If语句(第42-49行)执行BasePlusCommissionEmployee对象所需的特殊处理。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Operator typeid (line 59) returns a reference to an object of class type_info that contains the information about the type of its operand, including the name of that type.</span><br><span class="line">When invoked, type_info member function name (line 59) returns a pointer-based string containing the typeid argument’s type name (e.g., &quot;class BasePlusCommissionEmployee&quot;).</span><br><span class="line">To use typeid, the program must include header &lt;typeinfo&gt; (line 8).</span><br><span class="line">操作符typeid(第59行)返回对type_info类对象的引用，该对象包含有关其操作数类型的信息，包括该类型的名称。</span><br><span class="line">当调用type_info成员函数名(第59行)时，返回一个基于指针的字符串，其中包含typeid参数的类型名(例如，“class BasePlusCommissionEmployee”)。</span><br><span class="line">要使用typeid，程序必须包含头文件&lt;typeinfo&gt;(第8行)。</span><br></pre></td></tr></table></figure>
-<p>试图通过基类指针来调用仅在派生类中实现的函数是不允许的
-只能调用在基类中实现的函数</p>
+</blockquote>
+<p>试图通过基类指针来调用仅在派生类中实现的函数是不允许的，只能调用在基类中实现的函数。</p>
 </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0/">http://example.com/2024/06/09/CPP复习 第十二章/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="https://www.horosama.com/api/image_all/anime/1080p/pc/fb4ddC48481d3eFb8DDdbb310625e308.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0/" title="CPP复习 第十三章"><img class="cover" src="/img/94421005_p0_master1200.jpg" data-original="https://npm.elemecdn.com/ushio-api-img-moe@5.0.16/img_166_1000x619_350.011993408203_null_normal.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CPP复习 第十三章</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0/" title="CPP复习 第十一章"><img class="cover" src="/img/94421005_p0_master1200.jpg" data-original="https://npm.elemecdn.com/ushio-api-img-moe@5.0.88/img_885_750x1000_96_null_normal.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CPP复习 第十一章</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cpp%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">CPP复习 第十二章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.0.1.</span> <span class="toc-text">重要注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.0.2.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.0.3.</span> <span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">1.0.4.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-number">1.0.5.</span> <span class="toc-text">动态类型检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">1.0.6.</span> <span class="toc-text">示例代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">1.0.6.1.</span> <span class="toc-text">基本用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.0.7.</span> <span class="toc-text">注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%B1%E8%B4%A5%E5%A4%84%E7%90%86%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.7.1.</span> <span class="toc-text">失败处理示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">1.0.8.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95-1"><span class="toc-number">1.0.9.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-1"><span class="toc-number">1.0.10.</span> <span class="toc-text">示例代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%B1%BB%E5%9E%8B%E4%BF%A1%E6%81%AF"><span class="toc-number">1.0.10.1.</span> <span class="toc-text">获取基本类型的类型信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E5%A4%9A%E6%80%81%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.0.10.2.</span> <span class="toc-text">用于多态对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.11.</span> <span class="toc-text">比较类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-1"><span class="toc-number">1.0.12.</span> <span class="toc-text">注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E7%A9%BA%E6%8C%87%E9%92%88%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.12.1.</span> <span class="toc-text">处理空指针的示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">1.0.13.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
