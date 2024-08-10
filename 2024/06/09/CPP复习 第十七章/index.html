@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CPP复习 第十七章 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="Cpp复习 第十七章 在浮点运算中，许多c++实现允许除零，在这种情况下，正无穷大或负无穷大分别显示为INF或-INF  C++ 中的异常处理 (Exception Handling) 异常处理是一种控制结构，用于处理程序中的错误和异常情况，使程序能够在遇到错误时采取适当的措施而不是直接崩溃。在 C++ 中，异常处理机制使用 try、throw 和 catch 关键字来实现。 基本语法  try">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CPP复习 第十七章 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="Cpp复习 第十七章 在浮点运算中，许多c++实现允许除零，在这种情况下，正无穷大或负无穷大分别显示为INF或-INF  C++ 中的异常处理 (Exception Handling) 异常处理是一种控制结构，用于处理程序中的错误和异常情况，使程序能够在遇到错误时采取适当的措施而不是直接崩溃。在 C++ 中，异常处理机制使用 try、throw 和 catch 关键字来实现。 基本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CPP复习 第十七章">
 <meta property="og:url" content="http://example.com/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Heavenhold">
-<meta property="og:description" content="Cpp复习 第十七章 在浮点运算中，许多c++实现允许除零，在这种情况下，正无穷大或负无穷大分别显示为INF或-INF  C++ 中的异常处理 (Exception Handling) 异常处理是一种控制结构，用于处理程序中的错误和异常情况，使程序能够在遇到错误时采取适当的措施而不是直接崩溃。在 C++ 中，异常处理机制使用 try、throw 和 catch 关键字来实现。 基本语法  try">
+<meta property="og:description" content="Cpp复习 第十七章 在浮点运算中，许多c++实现允许除零，在这种情况下，正无穷大或负无穷大分别显示为INF或-INF  C++ 中的异常处理 (Exception Handling) 异常处理是一种控制结构，用于处理程序中的错误和异常情况，使程序能够在遇到错误时采取适当的措施而不是直接崩溃。在 C++ 中，异常处理机制使用 try、throw 和 catch 关键字来实现。 基本">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/ushio-api-img-moe@5.0.17/img_175_1000x636_299.999389648438_null_normal.jpg">
 <meta property="article:published_time" content="2024-06-09T11:34:00.000Z">
@@ -175,21 +175,26 @@
     })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiperstyle.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
 <style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
   white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/94421005_p0_master1200.jpg" data-original="https://raw.githubusercontent.com/BomLook/blog-pic/img/img/202407021330085.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://npm.elemecdn.com/ushio-api-img-moe@5.0.17/img_175_1000x636_299.999389648438_null_normal.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Heavenhold"><span class="site-name">Heavenhold</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CPP复习 第十七章</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-09T11:34:00.000Z" title="发表于 2024-06-09 19:34:00">2024-06-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-13T08:17:09.488Z" title="更新于 2024-06-13 16:17:09">2024-06-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">11.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>45分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CPP复习 第十七章"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="cpp复习-第十七章">Cpp复习 第十七章</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/94421005_p0_master1200.jpg" data-original="https://raw.githubusercontent.com/BomLook/blog-pic/img/img/202407021330085.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://npm.elemecdn.com/ushio-api-img-moe@5.0.17/img_175_1000x636_299.999389648438_null_normal.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Heavenhold"><span class="site-name">Heavenhold</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CPP复习 第十七章</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-09T11:34:00.000Z" title="发表于 2024-06-09 19:34:00">2024-06-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-13T08:17:09.488Z" title="更新于 2024-06-13 16:17:09">2024-06-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">11.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>46分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CPP复习 第十七章"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="cpp复习-第十七章">Cpp复习 第十七章</h1>
 <p>在浮点运算中，许多c++实现允许除零，在这种情况下，正无穷大或负无穷大分别显示为INF或-INF</p>
 <blockquote>
-<h3 id="c-中的异常处理-exception-handling">C++ 中的异常处理 (Exception Handling)</h3>
-<p>异常处理是一种控制结构，用于处理程序中的错误和异常情况，使程序能够在遇到错误时采取适当的措施而不是直接崩溃。在 C++ 中，异常处理机制使用 <code>try</code>、<code>throw</code> 和 <code>catch</code> 关键字来实现。</p>
+<h3 id="c-中的异常处理-exception-handling">C++ 中的异常处理 (Exception
+Handling)</h3>
+<p>异常处理是一种控制结构，用于处理程序中的错误和异常情况，使程序能够在遇到错误时采取适当的措施而不是直接崩溃。在
+C++ 中，异常处理机制使用 <code>try</code>、<code>throw</code> 和
+<code>catch</code> 关键字来实现。</p>
 <h4 id="基本语法">基本语法</h4>
-<ol>
-<li><strong><code>try</code> 块</strong>：包含可能会抛出异常的代码。</li>
+<ol type="1">
+<li><strong><code>try</code>
+块</strong>：包含可能会抛出异常的代码。</li>
 <li><strong><code>throw</code> 语句</strong>：用于抛出一个异常。</li>
 <li><strong><code>catch</code> 块</strong>：用于捕获异常并处理。</li>
 </ol>
 <h4 id="示例">示例</h4>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdexcept&gt;</span>  <span class="comment">// 包含标准异常类</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mightGoWrong</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">bool</span> error = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;Something went wrong&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="built_in">mightGoWrong</span>();</span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::runtime_error&amp; e) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Caught an exception: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Program continues...&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="异常类">异常类</h3>
-<p>C++ 标准库提供了一些常用的异常类，这些类都继承自 <code>std::exception</code>：</p>
+<p>C++ 标准库提供了一些常用的异常类，这些类都继承自
+<code>std::exception</code>：</p>
 <ul>
 <li><code>std::logic_error</code></li>
 <li><code>std::runtime_error</code></li>
@@ -198,205 +203,330 @@
 <li><code>std::invalid_argument</code></li>
 </ul>
 <h4 id="自定义异常类">自定义异常类</h4>
-<p>你可以定义自己的异常类，继承自 <code>std::exception</code> 或其他标准异常类：</p>
+<p>你可以定义自己的异常类，继承自 <code>std::exception</code>
+或其他标准异常类：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;exception&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyException</span> : <span class="keyword">public</span> std::exception &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">const</span> <span class="type">char</span>* <span class="title">what</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">noexcept</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;My custom exception&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mightGoWrong</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="built_in">MyException</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="built_in">mightGoWrong</span>();</span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> MyException&amp; e) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Caught my exception: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Program continues...&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="栈展开-stack-unwinding">栈展开 (Stack Unwinding)</h3>
-<p>当一个异常被抛出时，C++ 运行时系统会进行栈展开，即逐层退出函数调用栈直到找到一个匹配的 <code>catch</code> 块。如果在栈展开过程中需要执行清理操作（如释放资源），应该在类的析构函数中进行，因为析构函数会在对象离开作用域时自动调用。</p>
-<h4 id="示例">示例</h4>
+<p>当一个异常被抛出时，C++
+运行时系统会进行栈展开，即逐层退出函数调用栈直到找到一个匹配的
+<code>catch</code>
+块。如果在栈展开过程中需要执行清理操作（如释放资源），应该在类的析构函数中进行，因为析构函数会在对象离开作用域时自动调用。</p>
+<h4 id="示例-1">示例</h4>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdexcept&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Resource</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Resource</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Resource acquired\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Resource</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Resource released\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mightGoWrong</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Resource res;</span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;Error occurred&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="built_in">mightGoWrong</span>();</span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::runtime_error&amp; e) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Caught an exception: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Program continues...&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Resource acquired</span><br><span class="line">Resource released</span><br><span class="line">Caught an exception: Error occurred</span><br><span class="line">Program continues...</span><br></pre></td></tr></table></figure>
 <h3 id="总结">总结</h3>
-<ol>
-<li><strong>异常处理</strong>：使用 <code>try</code>、<code>throw</code> 和 <code>catch</code> 进行。</li>
-<li><strong>标准异常类</strong>：C++ 标准库提供了一些常用的异常类，便于错误处理。</li>
+<ol type="1">
+<li><strong>异常处理</strong>：使用 <code>try</code>、<code>throw</code>
+和 <code>catch</code> 进行。</li>
+<li><strong>标准异常类</strong>：C++
+标准库提供了一些常用的异常类，便于错误处理。</li>
 <li><strong>自定义异常类</strong>：可以继承标准异常类来创建自定义异常。</li>
 <li><strong>栈展开</strong>：异常抛出后，系统会进行栈展开，析构函数会在此过程中被调用，确保资源被释放。</li>
 </ol>
 <p>异常处理机制使得程序可以在遇到错误时采取适当的措施，而不是直接崩溃，从而提高程序的健壮性和可维护性。</p>
 </blockquote>
 <blockquote>
-<p>A typical exception class that derives from the runtime_error class defines only a constructor (e.g., lines 11–12) that passes an error-message string to the base-class runtime_error constructor.<br>
-Every exception class that derives directly or indirectly from exception contains the virtual function what, which returns an exception object’s error message.<br>
-You are not required to derive a custom exception class, such as DivideByZeroException, from the standard exception classes provided by C++.<br>
-Doing so allows you to use the virtual function what to obtain an appropriate error message.<br>
-We use an object of this DivideByZeroException class in Fig. 17.2 to indicate when an attempt is made to divide by zero.<br>
-从runtime_error类派生的典型异常类只定义一个构造函数(例如，第11-12行)，该构造函数将错误消息字符串传递给基类runtime_error构造函数。<br>
-每个直接或间接从exception派生的异常类都包含虚函数what，它返回异常对象的错误消息。<br>
-您不需要从c++提供的标准异常类派生自定义异常类，例如DivideByZeroException。<br>
-但是，这样做允许您使用虚函数what来获得适当的错误消息。<br>
+<p>A typical exception class that derives from the runtime_error class
+defines only a constructor (e.g., lines 11–12) that passes an
+error-message string to the base-class runtime_error constructor. Every
+exception class that derives directly or indirectly from exception
+contains the virtual function what, which returns an exception object’s
+error message. You are not required to derive a custom exception class,
+such as DivideByZeroException, from the standard exception classes
+provided by C++. Doing so allows you to use the virtual function what to
+obtain an appropriate error message. We use an object of this
+DivideByZeroException class in Fig. 17.2 to indicate when an attempt is
+made to divide by zero.
+从runtime_error类派生的典型异常类只定义一个构造函数(例如，第11-12行)，该构造函数将错误消息字符串传递给基类runtime_error构造函数。
+每个直接或间接从exception派生的异常类都包含虚函数what，它返回异常对象的错误消息。
+您不需要从c++提供的标准异常类派生自定义异常类，例如DivideByZeroException。
+但是，这样做允许您使用虚函数what来获得适当的错误消息。
 在图17.2中，我们使用DivideByZeroException类的一个对象来指示何时尝试除零。</p>
 </blockquote>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608155155834.png" alt="image-20240608155155834"></p>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608155155834.png"
+alt="image-20240608155155834" />
+<figcaption aria-hidden="true">image-20240608155155834</figcaption>
+</figure>
 <blockquote>
-<p>Demonstrating Exception Handling<br>
-Fig. 17.2 uses exception handling to wrap code that might throw a DivideByZeroException and to handle that exception, should one occur.<br>
-Function quotient divides its first parameter (numerator) by its second parameter (denominator).<br>
-Assuming that the user does not specify 0 as the denominator for the division, quotient returns the division result.<br>
-However, if the user inputs 0 for the denominator, function quotient throws an exception.<br>
-演示异常处理<br>
-图17.2使用异常处理来包装可能抛出DivideByZeroException的代码，并在出现异常时处理该异常。<br>
-函数商将它的第一个参数(分子)除以它的第二个参数(分母)。<br>
-假设用户没有指定0作为除法的分母，那么quotient将返回除法结果。<br>
+<p>Demonstrating Exception Handling Fig. 17.2 uses exception handling to
+wrap code that might throw a DivideByZeroException and to handle that
+exception, should one occur. Function quotient divides its first
+parameter (numerator) by its second parameter (denominator). Assuming
+that the user does not specify 0 as the denominator for the division,
+quotient returns the division result. However, if the user inputs 0 for
+the denominator, function quotient throws an exception. 演示异常处理
+图17.2使用异常处理来包装可能抛出DivideByZeroException的代码，并在出现异常时处理该异常。
+函数商将它的第一个参数(分子)除以它的第二个参数(分母)。
+假设用户没有指定0作为除法的分母，那么quotient将返回除法结果。
 但是，如果用户为分母输入0，则函数quotient抛出异常。</p>
 </blockquote>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608155348998.png" alt="image-20240608155348998"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608155355435.png" alt="image-20240608155355435"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608155402213.png" alt="image-20240608155402213"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608155416381.png" alt="image-20240608155416381"></p>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608155348998.png"
+alt="image-20240608155348998" />
+<figcaption aria-hidden="true">image-20240608155348998</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608155355435.png"
+alt="image-20240608155355435" />
+<figcaption aria-hidden="true">image-20240608155355435</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608155402213.png"
+alt="image-20240608155402213" />
+<figcaption aria-hidden="true">image-20240608155402213</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608155416381.png"
+alt="image-20240608155416381" />
+<figcaption aria-hidden="true">image-20240608155416381</figcaption>
+</figure>
 <blockquote>
-<p>Enclosing Code in a try Block<br>
-Exception handling is geared to situations in which the function that detects an error is unable to handle it.<br>
-try blocks enable exception handling.<br>
-The try block encloses statements that might cause exceptions and statements that should be skipped if an exception occurs.<br>
-In this example, because the invocation of function quotient (line 34) can throw an exception, we enclose this function invocation in a try block.<br>
-Enclosing the output statement (line 35) in the try block ensures that the output will occur only if function quotient returns a result.</p>
-<p>在try块中封装代码<br>
-异常处理适用于检测到错误的函数无法处理错误的情况。<br>
-Try块启用异常处理。<br>
-try块包含可能导致异常的语句和在发生异常时应该跳过的语句。<br>
-在本例中，由于调用函数quotient(第34行)会抛出异常，因此我们将该函数调用包含在try块中。<br>
+<p>Enclosing Code in a try Block Exception handling is geared to
+situations in which the function that detects an error is unable to
+handle it. try blocks enable exception handling. The try block encloses
+statements that might cause exceptions and statements that should be
+skipped if an exception occurs. In this example, because the invocation
+of function quotient (line 34) can throw an exception, we enclose this
+function invocation in a try block. Enclosing the output statement (line
+35) in the try block ensures that the output will occur only if function
+quotient returns a result.</p>
+<p>在try块中封装代码 异常处理适用于检测到错误的函数无法处理错误的情况。
+Try块启用异常处理。
+try块包含可能导致异常的语句和在发生异常时应该跳过的语句。
+在本例中，由于调用函数quotient(第34行)会抛出异常，因此我们将该函数调用包含在try块中。
 在try块中封装输出语句(第35行)确保只有当函数quotient返回结果时才会输出。</p>
 </blockquote>
 <p><strong>异常可能出现在try语句块中明确提到的代码中，有可能在try语句块中的代码对其他函数的调用或者嵌套调用。</strong></p>
 <blockquote>
-<p>Defining a catch Handler to Process a DivideByZeroException<br>
-Exceptions are processed by catch handlers.<br>
-At least one catch handler (lines 37–41) must immediately follow each try block.<br>
-An exception parameter should always be declared as a reference to the type of exception the catch handler can process (DivideByZeroException in this case)—this prevents copying the exception object when it’s caught and allows a catch handler to properly catch derived-class exceptions as well.<br>
-When an exception occurs in a try block, the catch handler that executes is the first one whose type matches the type of the exception that occurred (i.e., the type in the catch block matches the thrown exception type exactly or is a direct or indirect base class of it).<br>
-定义一个catch处理程序来处理一个DivideByZeroException：<br>
-异常由catch处理程序处理。<br>
-在每个try块之后必须立即执行至少一个catch处理程序(第37-41行)。<br>
-异常参数应该始终声明为catch处理程序可以处理的异常类型的引用(在本例中是DivideByZeroException)——这可以防止在捕获异常对象时复制异常对象，并允许catch处理程序正确捕获派生类异常。<br>
+<p>Defining a catch Handler to Process a DivideByZeroException
+Exceptions are processed by catch handlers. At least one catch handler
+(lines 37–41) must immediately follow each try block. An exception
+parameter should always be declared as a reference to the type of
+exception the catch handler can process (DivideByZeroException in this
+case)—this prevents copying the exception object when it’s caught and
+allows a catch handler to properly catch derived-class exceptions as
+well. When an exception occurs in a try block, the catch handler that
+executes is the first one whose type matches the type of the exception
+that occurred (i.e., the type in the catch block matches the thrown
+exception type exactly or is a direct or indirect base class of it).
+定义一个catch处理程序来处理一个DivideByZeroException：
+异常由catch处理程序处理。
+在每个try块之后必须立即执行至少一个catch处理程序(第37-41行)。
+异常参数应该始终声明为catch处理程序可以处理的异常类型的引用(在本例中是DivideByZeroException)——这可以防止在捕获异常对象时复制异常对象，并允许catch处理程序正确捕获派生类异常。
 当在try块中发生异常时，执行的catch处理程序是第一个类型与发生的异常类型匹配的处理程序(即，catch块中的类型与抛出的异常类型完全匹配，或者是它的直接或间接基类)。</p>
-<p>If an exception parameter includes an optional parameter name, the catch handler can use that parameter name to interact with the caught exception in the body of the catch handler, which is delimited by braces ({ and }).<br>
-A catch handler typically reports the error to the user, logs it to a file, terminates the program gracefully or tries an alternate strategy to accomplish the failed task.<br>
-In this example, the catch handler simply reports that the user attempted to divide by zero. Then the program prompts the user to enter two new integer values.<br>
-如果异常参数包含可选参数名，catch处理程序可以使用该参数名与catch处理程序体中捕获的异常进行交互，该处理程序体由大括号({和})分隔。<br>
-catch处理程序通常向用户报告错误，将其记录到文件中，优雅地终止程序或尝试替代策略来完成失败的任务。<br>
+<p>If an exception parameter includes an optional parameter name, the
+catch handler can use that parameter name to interact with the caught
+exception in the body of the catch handler, which is delimited by braces
+({ and }). A catch handler typically reports the error to the user, logs
+it to a file, terminates the program gracefully or tries an alternate
+strategy to accomplish the failed task. In this example, the catch
+handler simply reports that the user attempted to divide by zero. Then
+the program prompts the user to enter two new integer values.
+如果异常参数包含可选参数名，catch处理程序可以使用该参数名与catch处理程序体中捕获的异常进行交互，该处理程序体由大括号({和})分隔。
+catch处理程序通常向用户报告错误，将其记录到文件中，优雅地终止程序或尝试替代策略来完成失败的任务。
 在本例中，catch处理程序只是报告用户试图除以0。然后程序提示用户输入两个新的整数值。</p>
 </blockquote>
-<p>注意：1、<strong>try语句块和catch语句之间不能有其他的代码。</strong><br>
-2、<strong>一个catch处理器只能由一个参数。</strong><br>
+<p>注意：1、<strong>try语句块和catch语句之间不能有其他的代码。</strong>
+2、<strong>一个catch处理器只能由一个参数。</strong>
 3、<strong>不同的catch处理器捕获的异常必须是不同的，否则会编译错误。</strong></p>
 <blockquote>
 <p><strong>Termination Model of Exception Handling</strong></p>
-<p>If an exception occurs as the result of a statement in a try block, the try block expires (i.e., terminates immediately).</p>
-<p>Next, the program searches for the first catch handler that can process the type of exception that occurred.</p>
-<p>The program locates the matching catch by comparing the thrown exception’s type to each catch’s exception-parameter type until the program finds a match.</p>
-<p>A match occurs if the types are <em>identical</em> or if the thrown exception’s type is a <em>derived class</em> of the exception-parameter type.</p>
-<p>When a match occurs, the code in the matching catch handler executes.</p>
-<p>异常处理的终止模型<br>
-如果由于try块中的语句而发生异常，则try块将过期(即立即终止)。<br>
-接下来，程序搜索第一个可以处理所发生异常类型的catch处理程序。<br>
-程序通过将抛出异常的类型与每个catch的异常参数类型进行比较，直至找到匹配的catch，从而定位匹配的catch。<br>
-如果类型相同，或者抛出异常的类型是异常参数类型的派生类，则会发生匹配。<br>
+<p>If an exception occurs as the result of a statement in a try block,
+the try block expires (i.e., terminates immediately).</p>
+<p>Next, the program searches for the first catch handler that can
+process the type of exception that occurred.</p>
+<p>The program locates the matching catch by comparing the thrown
+exception’s type to each catch’s exception-parameter type until the
+program finds a match.</p>
+<p>A match occurs if the types are <em>identical</em> or if the thrown
+exception’s type is a <em>derived class</em> of the exception-parameter
+type.</p>
+<p>When a match occurs, the code in the matching catch handler
+executes.</p>
+<p>异常处理的终止模型
+如果由于try块中的语句而发生异常，则try块将过期(即立即终止)。
+接下来，程序搜索第一个可以处理所发生异常类型的catch处理程序。
+程序通过将抛出异常的类型与每个catch的异常参数类型进行比较，直至找到匹配的catch，从而定位匹配的catch。
+如果类型相同，或者抛出异常的类型是异常参数类型的派生类，则会发生匹配。
 当出现匹配时，执行匹配catch处理程序中的代码。</p>
-<p>When a catch handler finishes processing by reaching its closing right brace (}), the exception is considered handled and the local variables defined within the catch handler (including the catch parameter) go out of scope.</p>
-<p>Program control does <em>not</em> return to the point at which the exception occurred (known as the throw point), because the try block has <em>expired</em>.</p>
-<p>Rather, control resumes with the first statement after the last catch handler following the try block.</p>
+<p>When a catch handler finishes processing by reaching its closing
+right brace (}), the exception is considered handled and the local
+variables defined within the catch handler (including the catch
+parameter) go out of scope.</p>
+<p>Program control does <em>not</em> return to the point at which the
+exception occurred (known as the throw point), because the try block has
+<em>expired</em>.</p>
+<p>Rather, control resumes with the first statement after the last catch
+handler following the try block.</p>
 <p>This is known as the termination model of exception handling.</p>
-<p>As with any other block of code, <em>when a</em> <em>try</em> <em>block terminates, local variables defined in the block go out of scope</em>.</p>
-<p>当catch处理程序通过到达右括号(})结束处理时，认为异常已处理，并且在catch处理程序中定义的局部变量(包括catch形参)超出了作用域。<br>
-程序控制不会返回到发生异常的点(称为抛出点)，因为try块已经过期。<br>
-相反，控制在try块后面的最后一个catch处理程序之后的第一个语句中恢复。<br>
-这被称为异常处理的终止模型。<br>
+<p>As with any other block of code, <em>when a</em> <em>try</em>
+<em>block terminates, local variables defined in the block go out of
+scope</em>.</p>
+<p>当catch处理程序通过到达右括号(})结束处理时，认为异常已处理，并且在catch处理程序中定义的局部变量(包括catch形参)超出了作用域。
+程序控制不会返回到发生异常的点(称为抛出点)，因为try块已经过期。
+相反，控制在try块后面的最后一个catch处理程序之后的第一个语句中恢复。
+这被称为异常处理的终止模型。
 与任何其他代码块一样，当try块终止时，块中定义的局部变量将超出作用域。</p>
 <p>还有另外一种模式：恢复模式，控制将在异常抛出后重新开始。</p>
 <p>异常处理可以让程序在解决问题后，能够继续运行，保证了程序的健壮性。</p>
 </blockquote>
 <blockquote>
-<p>Flow of Program Control When the User Enters a Denominator of Zero<br>
-As part of throwing an exception, the throw operand is created and used to initialize the parameter in the catch handler, which we discuss momentarily.<br>
-Central characteristic of exception handling: If your program explicitly throws an exception, it should do so before the error has an opportunity to occur.<br>
-In general, when an exception is thrown within a try block, the exception is caught by a catch handler that specifies the type matching the thrown exception.<br>
-当用户输入分母为零时的程序控制流程<br>
-作为抛出异常的一部分，将创建throw操作数，并使用该操作数初始化catch处理程序中的参数，稍后将对此进行讨论。<br>
-异常处理的核心特征：如果程序显式抛出异常，它应该在错误有机会发生之前抛出异常。<br>
+<p>Flow of Program Control When the User Enters a Denominator of Zero As
+part of throwing an exception, the throw operand is created and used to
+initialize the parameter in the catch handler, which we discuss
+momentarily. Central characteristic of exception handling: If your
+program explicitly throws an exception, it should do so before the error
+has an opportunity to occur. In general, when an exception is thrown
+within a try block, the exception is caught by a catch handler that
+specifies the type matching the thrown exception.
+当用户输入分母为零时的程序控制流程
+作为抛出异常的一部分，将创建throw操作数，并使用该操作数初始化catch处理程序中的参数，稍后将对此进行讨论。
+异常处理的核心特征：如果程序显式抛出异常，它应该在错误有机会发生之前抛出异常。
 通常，当在try块中抛出异常时，该异常由catch处理程序捕获，该处理程序指定与所抛出异常匹配的类型。</p>
-<p>throw语句用于指定一个抛出的操作数<br>
-In this program, the catch handler specifies that it catches DivideByZeroException objects—this type matches the object type thrown in function quotient.<br>
-Actually, the catch handler catches a reference to the DivideByZeroException object created by function quotient’s throw statement.<br>
-The exception object is maintained by the exception-handling mechanism.<br>
-在这个程序中，catch处理程序指定它捕获DivideByZeroException对象——该类型与函数quotient中抛出的对象类型匹配。<br>
-实际上，catch处理程序捕获对DivideByZeroException对象的引用，该对象是由function quotient的throw语句创建的。<br>
-异常对象由异常处理机制维护。</p>
+<p>throw语句用于指定一个抛出的操作数 In this program, the catch handler
+specifies that it catches DivideByZeroException objects—this type
+matches the object type thrown in function quotient. Actually, the catch
+handler catches a reference to the DivideByZeroException object created
+by function quotient’s throw statement. The exception object is
+maintained by the exception-handling mechanism.
+在这个程序中，catch处理程序指定它捕获DivideByZeroException对象——该类型与函数quotient中抛出的对象类型匹配。
+实际上，catch处理程序捕获对DivideByZeroException对象的引用，该对象是由function
+quotient的throw语句创建的。 异常对象由异常处理机制维护。</p>
 </blockquote>
 <p><strong>将每种运行时的错误与一个有相应名称的异常类型结合，可以提高程序的清晰度。</strong></p>
 <p><strong>重新抛出异常，就是由异常处理器接受到异常后，再次抛出一个异常进行处理。</strong></p>
 <p><strong>在处理器外部更进一步处理而重新抛出异常，外层的try语句将检测这个重新抛出的异常，其之后的catch语句负责捕捉处理异常。</strong></p>
 <p>参考以下例子：</p>
 <p>这里不需要用到异常参数，所以直接使用&amp;即可，不需要参数名</p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608162505808.png" alt="image-20240608162505808"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608162513292.png" alt="image-20240608162513292"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608162526819.png" alt="image-20240608162526819"></p>
-<p>堆栈展开：一般用于函数嵌套调用，如果在某一个函数中抛出异常，但是没有try…catch语句块来捕获，那么当前函数中所有在该函数体内初始化的局部变量都将被销毁，并且返回上一级函数，查看有没有try…catch语句，如果有，则捕获抛出异常并且处理，否则按照上面的内容类推。可以具体查看以下例子：</p>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608162505808.png"
+alt="image-20240608162505808" />
+<figcaption aria-hidden="true">image-20240608162505808</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608162513292.png"
+alt="image-20240608162513292" />
+<figcaption aria-hidden="true">image-20240608162513292</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608162526819.png"
+alt="image-20240608162526819" />
+<figcaption aria-hidden="true">image-20240608162526819</figcaption>
+</figure>
+<p>堆栈展开：一般用于函数嵌套调用，如果在某一个函数中抛出异常，但是没有try...catch语句块来捕获，那么当前函数中所有在该函数体内初始化的局部变量都将被销毁，并且返回上一级函数，查看有没有try...catch语句，如果有，则捕获抛出异常并且处理，否则按照上面的内容类推。可以具体查看以下例子：</p>
 <blockquote>
-<p>When an exception is thrown but not caught in a particular scope, the function call stack is “unwound,” and an attempt is made to catch the exception in the next outer try…catch block.<br>
-Unwinding the function call stack means that the function in which the exception was not caught terminates, all local variables that have completed intitialization in that function are destroyed and control returns to the statement that originally invoked that function.<br>
-If a try block encloses that statement, an attempt is made to catch the exception.<br>
-If a try block does not enclose that statement, stack unwinding occurs again.<br>
-If no catch handler ever catches this exception, the program terminates.<br>
-The program of Fig. 17.4 demonstrates stack unwinding.<br>
-当抛出异常但未在特定范围内捕获异常时，将“展开”函数调用堆栈，并尝试在下一个外部try…catch块中捕获异常。<br>
-展开函数调用堆栈意味着未捕获异常的函数终止，该函数中已完成初始化的所有局部变量将被销毁，控制返回到最初调用该函数的语句。<br>
-如果try块包含该语句，则尝试捕获异常。<br>
-如果try块没有包含该语句，则再次执行堆栈展开。<br>
-如果没有捕获处理程序捕获此异常，则程序终止。<br>
+<p>When an exception is thrown but not caught in a particular scope, the
+function call stack is “unwound,” and an attempt is made to catch the
+exception in the next outer try…catch block. Unwinding the function call
+stack means that the function in which the exception was not caught
+terminates, all local variables that have completed intitialization in
+that function are destroyed and control returns to the statement that
+originally invoked that function. If a try block encloses that
+statement, an attempt is made to catch the exception. If a try block
+does not enclose that statement, stack unwinding occurs again. If no
+catch handler ever catches this exception, the program terminates. The
+program of Fig. 17.4 demonstrates stack unwinding.
+当抛出异常但未在特定范围内捕获异常时，将“展开”函数调用堆栈，并尝试在下一个外部try…catch块中捕获异常。
+展开函数调用堆栈意味着未捕获异常的函数终止，该函数中已完成初始化的所有局部变量将被销毁，控制返回到最初调用该函数的语句。
+如果try块包含该语句，则尝试捕获异常。
+如果try块没有包含该语句，则再次执行堆栈展开。
+如果没有捕获处理程序捕获此异常，则程序终止。
 图17.4的程序演示了堆栈展开。</p>
 </blockquote>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608163916400.png" alt="image-20240608163916400"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608163923105.png" alt="image-20240608163923105"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608163932020.png" alt="image-20240608163932020"></p>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608163916400.png"
+alt="image-20240608163916400" />
+<figcaption aria-hidden="true">image-20240608163916400</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608163923105.png"
+alt="image-20240608163923105" />
+<figcaption aria-hidden="true">image-20240608163923105</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608163932020.png"
+alt="image-20240608163932020" />
+<figcaption aria-hidden="true">image-20240608163932020</figcaption>
+</figure>
 <blockquote>
-<p>Exception handling is designed to process synchronous errors, which occur when a statement executes, such as out-of-range array subscripts, arithmetic overflow (i.e., a value outside the representable range of values), division by zero, invalid function parameters and unsuccessful memory allocation (due to lack of memory).<br>
-Exception handling is not designed to process errors associated with asynchronous events (e.g., disk I/O completions, network message arrivals, mouse clicks and keystrokes), which occur in parallel with, and independent of, the program’s flow of control.<br>
-异常处理的设计目的是处理同步错误，这种错误在语句执行时发生，例如超出范围的数组下标、算术溢出(即值超出可表示范围)、除零、无效的函数参数和不成功的内存分配(由于缺乏内存)。<br>
+<p>Exception handling is designed to process synchronous errors, which
+occur when a statement executes, such as out-of-range array subscripts,
+arithmetic overflow (i.e., a value outside the representable range of
+values), division by zero, invalid function parameters and unsuccessful
+memory allocation (due to lack of memory). Exception handling is not
+designed to process errors associated with asynchronous events (e.g.,
+disk I/O completions, network message arrivals, mouse clicks and
+keystrokes), which occur in parallel with, and independent of, the
+program’s flow of control.
+异常处理的设计目的是处理同步错误，这种错误在语句执行时发生，例如超出范围的数组下标、算术溢出(即值超出可表示范围)、除零、无效的函数参数和不成功的内存分配(由于缺乏内存)。
 异常处理不是设计用来处理与异步事件(例如，磁盘I/O完成、网络消息到达、鼠标点击和击键)相关的错误的，这些错误与程序的控制流并行发生，并且独立于程序的控制流。</p>
 </blockquote>
 <p><strong>异常处理有助于在同一个大型项目中的程序员相互了解各自的错误处理代码。</strong></p>
 <p><strong>带有常见错误情况的函数应该返回nullptr，0或者其他合适的值，而不是抛出异常，这样就可以让调用函数的程序通过检查返回值来确定函数调用是否成功。</strong></p>
 <p>异常问题可以解决预定义组件和由预定义组件构成的特定组件的问题，当预定义组件遇到问题时，可以通过异常处理来与特定组件进行沟通。（预定义组件一开始就是定义好的，无法预知接下来可能会出现的问题）</p>
 <blockquote>
-<p>C++11: Declaring Functions That Do Not Throw Exceptions<br>
-As of C++11, if a function does not throw any exceptions and does not call any functions that throw exceptions, you should explicitly state that a function does not throw exceptions.<br>
-This indicates to client-code programmers that there’s no need to place calls to the function in a try block.<br>
-Add noexcept to the right of the function’s parameter list in both the prototype and the definition.<br>
-For a const member function, place noexcept after const.<br>
-If a function that’s declared noexcept calls another function that throws an exception or executes a throw statement, the program terminates.<br>
-c++ 11:声明不抛出异常的函数<br>
-从c++ 11开始，如果函数不抛出任何异常，也不调用任何抛出异常的函数，则应该显式声明函数不抛出异常。<br>
-这向客户端代码程序员表明，不需要将对函数的调用放在try块中。<br>
-在原型和定义的函数参数列表的右侧添加noexcept。<br>
-对于const成员函数，在const之后放置noexcept。<br>
+<p>C++11: Declaring Functions That Do Not Throw Exceptions As of C++11,
+if a function does not throw any exceptions and does not call any
+functions that throw exceptions, you should explicitly state that a
+function does not throw exceptions. This indicates to client-code
+programmers that there’s no need to place calls to the function in a try
+block. Add noexcept to the right of the function’s parameter list in
+both the prototype and the definition. For a const member function,
+place noexcept after const. If a function that’s declared noexcept calls
+another function that throws an exception or executes a throw statement,
+the program terminates. c++ 11:声明不抛出异常的函数 从c++
+11开始，如果函数不抛出任何异常，也不调用任何抛出异常的函数，则应该显式声明函数不抛出异常。
+这向客户端代码程序员表明，不需要将对函数的调用放在try块中。
+在原型和定义的函数参数列表的右侧添加noexcept。
+对于const成员函数，在const之后放置noexcept。
 如果声明为noexcept的函数调用另一个抛出异常或执行throw语句的函数，则程序终止。</p>
 </blockquote>
 <p>下面的内容和上面的内容可能有点割裂，耐心看。</p>
 <blockquote>
-<p>The preferred alternative is to require the constructor to throw an exception that contains the error information, thus offering an opportunity for the program to handle the failure.<br>
-Before an exception is thrown by a constructor, destructors are called for any member objects whose constructors have run to completion as part of the object being constructed.<br>
-Destructors are called for every automatic object constructed in a try block before the exception is caught.<br>
-Stack unwinding is guaranteed to have been completed at the point that an exception handler begins executing.<br>
-If a destructor invoked as a result of stack unwinding throws an exception, the program terminates.<br>
-This has been linked to various security attacks.<br>
+<p>The preferred alternative is to require the constructor to throw an
+exception that contains the error information, thus offering an
+opportunity for the program to handle the failure. Before an exception
+is thrown by a constructor, destructors are called for any member
+objects whose constructors have run to completion as part of the object
+being constructed. Destructors are called for every automatic object
+constructed in a try block before the exception is caught. Stack
+unwinding is guaranteed to have been completed at the point that an
+exception handler begins executing. If a destructor invoked as a result
+of stack unwinding throws an exception, the program terminates. This has
+been linked to various security attacks.
 首选的替代方法是要求构造函数抛出包含错误信息的异常，从而为程序提供处理故障的机会。</p>
-<p><strong>在构造函数抛出异常之前，对其构造函数作为正在构造的对象的一部分运行到完成的任何成员对象调用析构函数。</strong><br>
-<strong>在捕获异常之前，对在try块中构造的每个自动对象调用析构函数。</strong><br>
+<p><strong>在构造函数抛出异常之前，对其构造函数作为正在构造的对象的一部分运行到完成的任何成员对象调用析构函数。</strong>
+<strong>在捕获异常之前，对在try块中构造的每个自动对象调用析构函数。</strong>
 <strong>栈展开保证在异常处理程序开始执行时完成。</strong></p>
 <p>如果由于堆栈展开而调用的析构函数抛出异常，则程序终止。这与各种安全攻击有关。</p>
 </blockquote>
 <p>注意：析构函数应该是捕捉异常，而不是抛出异常。</p>
 <blockquote>
 <p>在C++中，如果在异常传播过程中（即堆栈展开期间）一个析构函数抛出异常，将会导致程序调用<code>std::terminate</code>并立即终止。这是因为在C++中，异常的处理机制设计为在同一时间只能有一个活动异常。如果一个异常正在传播，而另一个异常在此过程中被抛出，系统将不知道如何处理多个同时存在的异常，因而选择终止程序。</p>
-<h3 id="为什么在析构函数中抛出异常会导致程序终止">为什么在析构函数中抛出异常会导致程序终止</h3>
+<h3
+id="为什么在析构函数中抛出异常会导致程序终止">为什么在析构函数中抛出异常会导致程序终止</h3>
 <p>堆栈展开期间，程序需要释放资源和调用栈上的所有对象的析构函数。如果析构函数在释放资源时抛出异常，这将会导致程序在处理中出现两个活动异常（一个是原本正在处理的异常，另一个是析构函数抛出的新异常）。这会导致无法正确管理异常的控制流。</p>
 <p>以下是一个示例，展示了在堆栈展开期间析构函数抛出异常的情况：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;exception&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Resource</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> ~<span class="built_in">Resource</span>() &#123;</span><br><span class="line">     std::cout &lt;&lt; <span class="string">&quot;Resource destructor called\n&quot;</span>;</span><br><span class="line">     <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;Destructor exception&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mightGoWrong</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> Resource res;</span><br><span class="line"> <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;Original exception&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="keyword">try</span> &#123;</span><br><span class="line">     <span class="built_in">mightGoWrong</span>();</span><br><span class="line"> &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::runtime_error&amp; e) &#123;</span><br><span class="line">     std::cerr &lt;&lt; <span class="string">&quot;Caught an exception: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; std::endl;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，当 <code>mightGoWrong</code> 函数抛出“Original exception”异常时，程序会进入堆栈展开过程，调用<code>Resource</code>对象的析构函数。而在析构函数中抛出了另一个异常“Destructor exception”，这会导致程序调用<code>std::terminate</code>并立即终止。</p>
+<p>在这个例子中，当 <code>mightGoWrong</code> 函数抛出“Original
+exception”异常时，程序会进入堆栈展开过程，调用<code>Resource</code>对象的析构函数。而在析构函数中抛出了另一个异常“Destructor
+exception”，这会导致程序调用<code>std::terminate</code>并立即终止。</p>
 <h3 id="与安全攻击的关系">与安全攻击的关系</h3>
 <p>这种情况不仅仅是技术细节问题，还与安全性有关。在安全攻击中，攻击者可能会试图利用程序的不当行为或未处理的异常来执行恶意代码。如下几种情况：</p>
-<ol>
+<ol type="1">
 <li><strong>资源泄漏</strong>：如果在堆栈展开过程中，析构函数抛出异常，资源可能无法正确释放。这可能导致资源泄漏，攻击者可能利用这一点耗尽系统资源。</li>
 <li><strong>不确定行为</strong>：未处理的异常可能导致程序以不确定的方式行为，攻击者可以利用这种不确定性来破坏程序的正常执行流程。</li>
 <li><strong>崩溃利用</strong>：攻击者可能通过故意触发异常并利用程序崩溃的行为来获得对系统的控制。</li>
@@ -404,33 +534,49 @@ This has been linked to various security attacks.<br>
 <h3 id="如何防止析构函数抛出异常">如何防止析构函数抛出异常</h3>
 <p>为了避免这些问题，通常的做法是在析构函数中捕获并处理所有可能的异常，确保析构函数不会抛出异常。以下是一个示例：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;exception&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Resource</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ~<span class="built_in">Resource</span>() &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 可能抛出异常的代码</span></span><br><span class="line">            <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;Destructor exception&quot;</span>);</span><br><span class="line">        &#125; <span class="built_in">catch</span> (...) &#123;</span><br><span class="line">            std::cerr &lt;&lt; <span class="string">&quot;Exception caught in destructor&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">            <span class="comment">// 处理异常（例如，记录日志、释放资源等），确保不抛出</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mightGoWrong</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Resource res;</span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;Original exception&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="built_in">mightGoWrong</span>();</span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::runtime_error&amp; e) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Caught an exception: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="总结">总结</h3>
+<h3 id="总结-1">总结</h3>
 <p>在析构函数中抛出异常会导致程序终止，这与异常处理机制设计有关，也是为了防止出现未处理的多个异常导致程序行为不确定或资源泄漏等问题。为了保证程序的健壮性和安全性，应该确保析构函数不会抛出异常，通常通过在析构函数中捕获并处理所有可能的异常来实现。这样可以确保在堆栈展开期间正确释放资源，避免程序因未处理的异常而崩溃。</p>
 </blockquote>
 <blockquote>
-<p>If an object has member objects, and if an exception is thrown before the outer object is fully constructed, then destructors will be executed for the member objects that have been constructed prior to the occurrence of the exception.<br>
-If an array of objects has been partially constructed when an exception occurs, only the destructors for the constructed objects in the array will be called.<br>
-如果对象具有成员对象，并且在外部对象完全构造之前抛出异常，则将对在异常发生之前构造的成员对象执行析构函数。<br>
+<p>If an object has member objects, and if an exception is thrown before
+the outer object is fully constructed, then destructors will be executed
+for the member objects that have been constructed prior to the
+occurrence of the exception. If an array of objects has been partially
+constructed when an exception occurs, only the destructors for the
+constructed objects in the array will be called.
+如果对象具有成员对象，并且在外部对象完全构造之前抛出异常，则将对在异常发生之前构造的成员对象执行析构函数。
 如果在发生异常时已经部分构造了对象数组，则只调用数组中构造对象的析构函数。</p>
 </blockquote>
 <blockquote>
-<p>在 C++ 中，正确地管理资源（如内存、文件句柄、网络连接等）是非常重要的。一个常见的模式是使用局部对象的构造函数和析构函数来管理资源的分配和释放。这种模式被称为 RAII（Resource Acquisition Is Initialization，资源获取即初始化）。</p>
+<p>在 C++
+中，正确地管理资源（如内存、文件句柄、网络连接等）是非常重要的。一个常见的模式是使用局部对象的构造函数和析构函数来管理资源的分配和释放。这种模式被称为
+RAII（Resource Acquisition Is Initialization，资源获取即初始化）。</p>
 <h3 id="raii-模式">RAII 模式</h3>
-<p>RAII 的核心思想是将资源的分配和释放绑定到对象的生命周期。在对象的构造函数中获取资源，在对象的析构函数中释放资源。这样可以确保在异常情况下资源也能得到正确释放。</p>
-<h3 id="示例：文件资源管理">示例：文件资源管理</h3>
+<p>RAII
+的核心思想是将资源的分配和释放绑定到对象的生命周期。在对象的构造函数中获取资源，在对象的析构函数中释放资源。这样可以确保在异常情况下资源也能得到正确释放。</p>
+<h3 id="示例文件资源管理">示例：文件资源管理</h3>
 <p>下面是一个简单的示例，展示如何使用 RAII 模式管理文件资源：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FileWrapper</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> <span class="comment">// 构造函数中打开文件</span></span><br><span class="line"> <span class="built_in">FileWrapper</span>(<span class="type">const</span> std::string&amp; filename) : <span class="built_in">file</span>(filename) &#123;</span><br><span class="line">     <span class="keyword">if</span> (!file.<span class="built_in">is_open</span>()) &#123;</span><br><span class="line">         <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;Could not open file&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 析构函数中关闭文件</span></span><br><span class="line"> ~<span class="built_in">FileWrapper</span>() &#123;</span><br><span class="line">     <span class="keyword">if</span> (file.<span class="built_in">is_open</span>()) &#123;</span><br><span class="line">         file.<span class="built_in">close</span>();</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 提供接口操作文件</span></span><br><span class="line"> <span class="function"><span class="type">void</span> <span class="title">write</span><span class="params">(<span class="type">const</span> std::string&amp; data)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (file.<span class="built_in">is_open</span>()) &#123;</span><br><span class="line">         file &lt;&lt; data;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"> std::ofstream file;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">writeToFile</span><span class="params">(<span class="type">const</span> std::string&amp; filename, <span class="type">const</span> std::string&amp; data)</span> </span>&#123;</span><br><span class="line"> <span class="function">FileWrapper <span class="title">fileWrapper</span><span class="params">(filename)</span></span>;</span><br><span class="line"> fileWrapper.<span class="built_in">write</span>(data);</span><br><span class="line"> <span class="comment">// FileWrapper 对象离开作用域时，析构函数会自动关闭文件</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="keyword">try</span> &#123;</span><br><span class="line">     <span class="built_in">writeToFile</span>(<span class="string">&quot;example.txt&quot;</span>, <span class="string">&quot;Hello, RAII!&quot;</span>);</span><br><span class="line"> &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::exception&amp; e) &#123;</span><br><span class="line">     std::cerr &lt;&lt; <span class="string">&quot;Exception: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; std::endl;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，<code>FileWrapper</code> 类管理一个文件对象。它在构造函数中打开文件，在析构函数中关闭文件。即使在 <code>writeToFile</code> 函数中抛出异常，<code>FileWrapper</code> 的析构函数也会被调用，从而确保文件被正确关闭。</p>
+<p>在这个例子中，<code>FileWrapper</code>
+类管理一个文件对象。它在构造函数中打开文件，在析构函数中关闭文件。即使在
+<code>writeToFile</code> 函数中抛出异常，<code>FileWrapper</code>
+的析构函数也会被调用，从而确保文件被正确关闭。</p>
 <h3 id="使用智能指针管理动态内存">使用智能指针管理动态内存</h3>
-<p>除了文件资源，RAII 模式还可以用于管理动态内存。C++11 引入了智能指针，提供了一种简单而安全的方式来管理动态分配的内存。</p>
+<p>除了文件资源，RAII 模式还可以用于管理动态内存。C++11
+引入了智能指针，提供了一种简单而安全的方式来管理动态分配的内存。</p>
 <ul>
 <li><code>std::unique_ptr</code>：独占所有权的智能指针。</li>
 <li><code>std::shared_ptr</code>：共享所有权的智能指针。</li>
-<li><code>std::weak_ptr</code>：与 <code>std::shared_ptr</code> 搭配使用，防止循环引用。</li>
+<li><code>std::weak_ptr</code>：与 <code>std::shared_ptr</code>
+搭配使用，防止循环引用。</li>
 </ul>
-<h4 id="示例：使用-std-unique-ptr">示例：使用 <code>std::unique_ptr</code></h4>
+<h4 id="示例使用-stdunique_ptr">示例：使用
+<code>std::unique_ptr</code></h4>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Resource</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Resource</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Resource acquired\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Resource</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Resource released\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Doing something with resource\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">useResource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::unique_ptr&lt;Resource&gt; resource = std::<span class="built_in">make_unique</span>&lt;Resource&gt;();</span><br><span class="line">    resource-&gt;<span class="built_in">doSomething</span>();</span><br><span class="line">    <span class="comment">// Resource 对象会在函数结束时自动释放</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">useResource</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，<code>std::unique_ptr</code> 管理一个 <code>Resource</code> 对象。当 <code>useResource</code> 函数结束时，<code>std::unique_ptr</code> 会自动释放 <code>Resource</code> 对象的内存。</p>
+<p>在这个例子中，<code>std::unique_ptr</code> 管理一个
+<code>Resource</code> 对象。当 <code>useResource</code>
+函数结束时，<code>std::unique_ptr</code> 会自动释放
+<code>Resource</code> 对象的内存。</p>
 <h3 id="其他资源管理">其他资源管理</h3>
 <p>RAII 可以用于管理任何需要显式释放的资源，例如：</p>
 <ul>
@@ -438,245 +584,373 @@ If an array of objects has been partially constructed when an exception occurs, 
 <li>互斥锁</li>
 <li>网络连接</li>
 </ul>
-<h4 id="示例：使用-std-lock-guard-管理互斥锁">示例：使用 <code>std::lock_guard</code> 管理互斥锁</h4>
+<h4 id="示例使用-stdlock_guard-管理互斥锁">示例：使用
+<code>std::lock_guard</code> 管理互斥锁</h4>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;mutex&gt;</span></span></span><br><span class="line"></span><br><span class="line">std::mutex mtx;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printThreadId</span><span class="params">(<span class="type">int</span> id)</span> </span>&#123;</span><br><span class="line">    <span class="function">std::lock_guard&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mtx)</span></span>;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Thread &quot;</span> &lt;&lt; id &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// mtx 会在 lock 离开作用域时自动释放</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::thread <span class="title">t1</span><span class="params">(printThreadId, <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="function">std::thread <span class="title">t2</span><span class="params">(printThreadId, <span class="number">2</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    t1.<span class="built_in">join</span>();</span><br><span class="line">    t2.<span class="built_in">join</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，<code>std::lock_guard</code> 自动管理 <code>std::mutex</code> 的锁定和解锁操作，确保互斥锁在函数退出时被正确释放。</p>
-<h3 id="总结">总结</h3>
-<p>RAII 是 C++ 中一种重要的资源管理模式，它将资源的分配和释放绑定到对象的生命周期中，利用构造函数和析构函数确保资源在正常和异常情况下都能被正确释放。通过使用智能指针和其他 RAII 工具类（如 <code>std::lock_guard</code>），可以更安全、方便地管理各种资源，避免资源泄漏和其他潜在问题。</p>
+<p>在这个例子中，<code>std::lock_guard</code> 自动管理
+<code>std::mutex</code>
+的锁定和解锁操作，确保互斥锁在函数退出时被正确释放。</p>
+<h3 id="总结-2">总结</h3>
+<p>RAII 是 C++
+中一种重要的资源管理模式，它将资源的分配和释放绑定到对象的生命周期中，利用构造函数和析构函数确保资源在正常和异常情况下都能被正确释放。通过使用智能指针和其他
+RAII 工具类（如
+<code>std::lock_guard</code>），可以更安全、方便地管理各种资源，避免资源泄漏和其他潜在问题。</p>
 </blockquote>
 <blockquote>
-<p>Various exception classes can be derived from a common base class, as we discussed in Section 17.2, when we created class DivideByZeroException as a derived class of class exception.<br>
-If a catch handler catches a reference to an exception object of a base-class type, it also can catch a reference to all objects of classes publicly derived from that base class—this allows for polymorphic processing of related exceptions.<br>
-正如我们在第17.2节中所讨论的，可以从公共基类派生出各种异常类，当时我们创建了类DivideByZeroException作为类exception的派生类。<br>
+<p>Various exception classes can be derived from a common base class, as
+we discussed in Section 17.2, when we created class
+DivideByZeroException as a derived class of class exception. If a catch
+handler catches a reference to an exception object of a base-class type,
+it also can catch a reference to all objects of classes publicly derived
+from that base class—this allows for polymorphic processing of related
+exceptions.
+正如我们在第17.2节中所讨论的，可以从公共基类派生出各种异常类，当时我们创建了类DivideByZeroException作为类exception的派生类。
 如果catch处理程序捕获对基类类型的异常对象的引用，那么它也可以捕获对从该基类公开派生的类的所有对象的引用——这允许对相关异常进行多态处理。</p>
 </blockquote>
 <p><strong>异常处理器：一种方法是分别捕获每一个派生类异常对象的每种引用，另一种是捕获基类异常对象的指针和引用，更高效。</strong></p>
 <blockquote>
-<p>When operator new fails, it throws a bad_alloc exception (defined in header file <new>).<br>
-In this section, we present two examples of new failing.<br>
-The first uses the version of new that throws a bad_alloc exception when new fails.<br>
-The second uses function set_new_handler to handle new failures.<br>
-[Note: The examples in Figs. 17.5–17.6 allocate large amounts of dynamic memory, which could cause your computer to become sluggish.]<br>
-当operator new失败时，它抛出一个bad_alloc异常(在头文件<new>中定义)。<br>
-在本节中，我们将介绍两个新故障的示例。<br>
-第一个使用new的版本，当new失败时抛出bad_alloc异常。<br>
-第二个使用set_new_handler函数来处理新的故障。<br>
+<p>When operator new fails, it throws a bad_alloc exception (defined in
+header file <new>). In this section, we present two examples of new
+failing. The first uses the version of new that throws a bad_alloc
+exception when new fails. The second uses function set_new_handler to
+handle new failures. [Note: The examples in Figs. 17.5–17.6 allocate
+large amounts of dynamic memory, which could cause your computer to
+become sluggish.] 当operator
+new失败时，它抛出一个bad_alloc异常(在头文件<new>中定义)。
+在本节中，我们将介绍两个新故障的示例。
+第一个使用new的版本，当new失败时抛出bad_alloc异常。
+第二个使用set_new_handler函数来处理新的故障。
 [注意:图17.5-17.6中的例子分配了大量的动态内存，这可能会导致您的计算机变得迟钝。]</p>
 </blockquote>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608182753828.png" alt="image-20240608182753828"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608182801972.png" alt="image-20240608182801972"></p>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608182753828.png"
+alt="image-20240608182753828" />
+<figcaption aria-hidden="true">image-20240608182753828</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608182801972.png"
+alt="image-20240608182801972" />
+<figcaption aria-hidden="true">image-20240608182801972</figcaption>
+</figure>
 <p>这些异常的输出取决于内存和编译器等原因。</p>
 <blockquote>
-<p>new Returning nullptr on Failure<br>
-The C++ standard specifies that programmers can use an older version of new that returns nullptr upon failure.<br>
-For this purpose, header <new> defines object nothrow (of type nothrow_t), which is used as follows:<br>
-double *ptr = new( nothrow ) double[ 50000000 ];<br>
-The preceding statement uses the version of new that does not throw bad_alloc exceptions (i.e., nothrow) to allocate an array of 50,000,000 doubles.</p>
-<p>new失败返回nullptr<br>
-c++标准规定程序员可以使用旧版本的new，在失败时返回nullptr。<br>
-为此，header <new>定义了nothrow对象(nothrow_t类型)，使用方法如下:<br>
-Double *ptr = new(nothrow) Double [50000000];<br>
-前面的语句使用不抛出bad_alloc异常(即nothrow)的new版本来分配一个包含50,000,000个double类型的数组。<br>
+<p>new Returning nullptr on Failure The C++ standard specifies that
+programmers can use an older version of new that returns nullptr upon
+failure. For this purpose, header <new> defines object nothrow (of type
+nothrow_t), which is used as follows: double *ptr = new( nothrow )
+double[ 50000000 ]; The preceding statement uses the version of new that
+does not throw bad_alloc exceptions (i.e., nothrow) to allocate an array
+of 50,000,000 doubles.</p>
+<p>new失败返回nullptr
+c++标准规定程序员可以使用旧版本的new，在失败时返回nullptr。 为此，header
+<new>定义了nothrow对象(nothrow_t类型)，使用方法如下: Double *ptr =
+new(nothrow) Double [50000000];
+前面的语句使用不抛出bad_alloc异常(即nothrow)的new版本来分配一个包含50,000,000个double类型的数组。
 推荐使用这种方法，使得代码更具有健壮性。</p>
 </blockquote>
 <blockquote>
-<p>Handling new Failures Using Function set_new_handler<br>
-Function set_new_handler (prototyped in standard header file <new>) takes as its argument a pointer to a function that takes no arguments and returns void.<br>
-This pointer points to the function that will be called if new fails.<br>
-This provides you with a uniform approach to handling all new failures, regardless of where a failure occurs in the program.<br>
-Once set_new_handler registers a new handler in the program, operator new does not throw bad_alloc on failure; rather, it defers the error handling to the new-handler function.<br>
-If new fails to allocate memory and set_new_handler did not register a new-handler function, new throws a bad_alloc exception.<br>
-If new fails to allocate memory and a new-handler function has been registered, the new-handler function is called.<br>
-使用set_new_handler函数处理新的故障：<br>
-函数set_new_handler(原型在标准头文件<new>中)接受一个指针作为参数，该指针指向一个不接受参数并返回void的函数。<br>
-这个指针指向如果new失败将被调用的函数。<br>
-这为您提供了处理所有新故障的统一方法，而不管故障发生在程序中的哪个位置。<br>
-一旦set_new_handler在程序中注册了一个新的处理程序，operator new就不会抛出bad_alloc;相反，它将错误处理延迟到new-handler函数。<br>
-如果new分配内存失败，并且set_new_handler没有注册一个new-handler函数，new抛出一个bad_alloc异常。<br>
+<p>Handling new Failures Using Function set_new_handler Function
+set_new_handler (prototyped in standard header file <new>) takes as its
+argument a pointer to a function that takes no arguments and returns
+void. This pointer points to the function that will be called if new
+fails. This provides you with a uniform approach to handling all new
+failures, regardless of where a failure occurs in the program. Once
+set_new_handler registers a new handler in the program, operator new
+does not throw bad_alloc on failure; rather, it defers the error
+handling to the new-handler function. If new fails to allocate memory
+and set_new_handler did not register a new-handler function, new throws
+a bad_alloc exception. If new fails to allocate memory and a new-handler
+function has been registered, the new-handler function is called.
+使用set_new_handler函数处理新的故障：
+函数set_new_handler(原型在标准头文件<new>中)接受一个指针作为参数，该指针指向一个不接受参数并返回void的函数。
+这个指针指向如果new失败将被调用的函数。
+这为您提供了处理所有新故障的统一方法，而不管故障发生在程序中的哪个位置。
+一旦set_new_handler在程序中注册了一个新的处理程序，operator
+new就不会抛出bad_alloc;相反，它将错误处理延迟到new-handler函数。
+如果new分配内存失败，并且set_new_handler没有注册一个new-handler函数，new抛出一个bad_alloc异常。
 如果new分配内存失败，并且注册了new-handler函数，则调用new-handler函数。</p>
 </blockquote>
 <blockquote>
-<p>The new-handler function should perform one of the following tasks:<br>
-Make more memory available by deleting other dynamically allocated memory (or telling the user to close other applications) and return to operator new to attempt to allocate memory again.<br>
-Throw an exception of type bad_alloc.<br>
-Call function abort or exit (both found in header file <cstdlib>) to terminate the program. These were introduced in Section 9.7.<br>
-Figure 17.6 demonstrates set_new_handler.<br>
-Function customNewHandler (lines 9–13) prints an error message (line 11), then calls abort (line 12) to terminate the program.<br>
-The output shows that the loop iterated four times before new failed and invoked function customNewHandler.</p>
-<p>new-handler函数应该执行以下任务之一:<br>
-通过删除其他动态分配的内存(或告诉用户关闭其他应用程序)来获得更多可用内存，并返回到operator new以尝试再次分配内存。<br>
-抛出类型为bad_alloc的异常。<br>
-调用函数abort或exit(都在头文件<cstdlib>中找到)来终止程序。第9.7节介绍了这些特性。<br>
-图17.6演示了set_new_handler。<br>
-函数customNewHandler(第9-13行)打印一条错误消息(第11行)，然后调用abort(第12行)终止程序。<br>
-输出显示，在new失败并调用函数customNewHandler之前，循环迭代了四次。<br>
+<p>The new-handler function should perform one of the following tasks:
+Make more memory available by deleting other dynamically allocated
+memory (or telling the user to close other applications) and return to
+operator new to attempt to allocate memory again. Throw an exception of
+type bad_alloc. Call function abort or exit (both found in header file
+<cstdlib>) to terminate the program. These were introduced in Section
+9.7. Figure 17.6 demonstrates set_new_handler. Function customNewHandler
+(lines 9–13) prints an error message (line 11), then calls abort (line
+12) to terminate the program. The output shows that the loop iterated
+four times before new failed and invoked function customNewHandler.</p>
+<p>new-handler函数应该执行以下任务之一:
+通过删除其他动态分配的内存(或告诉用户关闭其他应用程序)来获得更多可用内存，并返回到operator
+new以尝试再次分配内存。 抛出类型为bad_alloc的异常。
+调用函数abort或exit(都在头文件<cstdlib>中找到)来终止程序。第9.7节介绍了这些特性。
+图17.6演示了set_new_handler。
+函数customNewHandler(第9-13行)打印一条错误消息(第11行)，然后调用abort(第12行)终止程序。
+输出显示，在new失败并调用函数customNewHandler之前，循环迭代了四次。
 课本的例子这里不再展示 和下面的基本一样</p>
 </blockquote>
 <blockquote>
-<p>在 C++ 中，<code>set_new_handler</code> 是一个非常有用的工具，用于在内存分配失败时自定义处理行为。默认情况下，如果 <code>new</code> 运算符无法分配足够的内存，会抛出 <code>std::bad_alloc</code> 异常。但是，通过使用 <code>set_new_handler</code>，你可以指定一个函数，当 <code>new</code> 无法分配内存时调用该函数，而不是直接抛出异常。</p>
-<h3 id="set-new-handler-的用法"><code>set_new_handler</code> 的用法</h3>
+<p>在 C++ 中，<code>set_new_handler</code>
+是一个非常有用的工具，用于在内存分配失败时自定义处理行为。默认情况下，如果
+<code>new</code> 运算符无法分配足够的内存，会抛出
+<code>std::bad_alloc</code> 异常。但是，通过使用
+<code>set_new_handler</code>，你可以指定一个函数，当 <code>new</code>
+无法分配内存时调用该函数，而不是直接抛出异常。</p>
+<h3 id="set_new_handler-的用法"><code>set_new_handler</code> 的用法</h3>
 <p>以下是如何使用 <code>set_new_handler</code> 的示例：</p>
-<ol>
-<li><strong>定义一个处理函数</strong>：<br>
-这个函数将在 <code>new</code> 运算符分配内存失败时调用。这个函数必须是无参的，并且返回类型为 <code>void</code>。</li>
+<ol type="1">
+<li><strong>定义一个处理函数</strong>： 这个函数将在 <code>new</code>
+运算符分配内存失败时调用。这个函数必须是无参的，并且返回类型为
+<code>void</code>。</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;new&gt;</span> <span class="comment">// 包含 std::set_new_handler</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">myNewHandler</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cerr &lt;&lt; <span class="string">&quot;Memory allocation failed. Terminating.\n&quot;</span>;</span><br><span class="line">    std::<span class="built_in">abort</span>(); <span class="comment">// 终止程序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><strong>设置处理函数</strong>：<br>
-使用 <code>std::set_new_handler</code> 函数设置你自定义的处理函数。</li>
+<ol start="2" type="1">
+<li><strong>设置处理函数</strong>： 使用
+<code>std::set_new_handler</code> 函数设置你自定义的处理函数。</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::<span class="built_in">set_new_handler</span>(myNewHandler); <span class="comment">// 设置新的内存分配失败处理函数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 尝试分配大量内存以触发内存分配失败</span></span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="type">char</span>[<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">1024</span>]; <span class="comment">// 分配1GB内存块</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::bad_alloc&amp; e) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Caught std::bad_alloc: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，<code>myNewHandler</code> 是一个处理函数，当 <code>new</code> 运算符无法分配内存时，它会被调用，输出错误信息并终止程序。</p>
+<p>在这个例子中，<code>myNewHandler</code> 是一个处理函数，当
+<code>new</code>
+运算符无法分配内存时，它会被调用，输出错误信息并终止程序。</p>
 <h3 id="处理函数的作用">处理函数的作用</h3>
-<p>处理函数在 <code>new</code> 运算符分配内存失败时调用，你可以在处理函数中执行以下操作：</p>
+<p>处理函数在 <code>new</code>
+运算符分配内存失败时调用，你可以在处理函数中执行以下操作：</p>
 <ul>
 <li>记录日志或输出错误信息。</li>
 <li>尝试释放一些内存，然后返回以重试内存分配。</li>
-<li>调用 <code>std::abort</code> 或 <code>std::exit</code> 终止程序。</li>
+<li>调用 <code>std::abort</code> 或 <code>std::exit</code>
+终止程序。</li>
 </ul>
-<h3 id="示例：尝试释放内存">示例：尝试释放内存</h3>
+<h3 id="示例尝试释放内存">示例：尝试释放内存</h3>
 <p>假设你有一些可以释放的全局资源，可以在内存分配失败时释放这些资源并重试分配：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;new&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line">std::vector&lt;<span class="type">char</span>*&gt; allocatedMemory;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">myNewHandler</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cerr &lt;&lt; <span class="string">&quot;Memory allocation failed. Freeing allocated memory.\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 释放一些已分配的内存</span></span><br><span class="line">    <span class="keyword">if</span> (!allocatedMemory.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] allocatedMemory.<span class="built_in">back</span>();</span><br><span class="line">        allocatedMemory.<span class="built_in">pop_back</span>();</span><br><span class="line">        <span class="keyword">return</span>; <span class="comment">// 尝试再次分配内存</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    std::<span class="built_in">abort</span>(); <span class="comment">// 如果没有可释放的内存，则终止程序</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::<span class="built_in">set_new_handler</span>(myNewHandler);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="type">char</span>* ptr = <span class="keyword">new</span> <span class="type">char</span>[<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">10</span>]; <span class="comment">// 分配10MB内存块</span></span><br><span class="line">            allocatedMemory.<span class="built_in">push_back</span>(ptr); <span class="comment">// 记录分配的内存</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::bad_alloc&amp; e) &#123;</span><br><span class="line">        std::cerr &lt;&lt; <span class="string">&quot;Caught std::bad_alloc: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 释放所有已分配的内存</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">char</span>* ptr : allocatedMemory) &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] ptr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，当 <code>new</code> 运算符无法分配内存时，<code>myNewHandler</code> 释放一些已分配的内存，然后返回以重试内存分配。如果没有更多的内存可以释放，它将调用 <code>std::abort</code> 终止程序。</p>
+<p>在这个例子中，当 <code>new</code>
+运算符无法分配内存时，<code>myNewHandler</code>
+释放一些已分配的内存，然后返回以重试内存分配。如果没有更多的内存可以释放，它将调用
+<code>std::abort</code> 终止程序。</p>
 <h3 id="注意事项">注意事项</h3>
-<ol>
-<li><strong><code>set_new_handler</code> 是全局性的</strong>：当你设置一个新的处理函数时，它会覆盖任何先前设置的处理函数，并且对整个程序有效。</li>
-<li><strong>线程安全</strong>：C++11 及以后的标准中，<code>set_new_handler</code> 是线程安全的。不同线程可以有各自的处理函数。</li>
+<ol type="1">
+<li><strong><code>set_new_handler</code>
+是全局性的</strong>：当你设置一个新的处理函数时，它会覆盖任何先前设置的处理函数，并且对整个程序有效。</li>
+<li><strong>线程安全</strong>：C++11
+及以后的标准中，<code>set_new_handler</code>
+是线程安全的。不同线程可以有各自的处理函数。</li>
 <li><strong>处理函数不应抛出异常</strong>：在处理函数中抛出异常是不明智的，因为这可能会导致未定义行为。处理函数应该确保完成它的任务并返回，或者终止程序。</li>
 </ol>
-<p>通过使用 <code>set_new_handler</code>，你可以更灵活地处理内存分配失败的情况，确保程序在资源紧张时能够有更好的应对措施。</p>
+<p>通过使用
+<code>set_new_handler</code>，你可以更灵活地处理内存分配失败的情况，确保程序在资源紧张时能够有更好的应对措施。</p>
 </blockquote>
 <blockquote>
-<p>A common programming practice is to allocate dynamic memory, assign the address of that memory to a pointer, use the pointer to manipulate the memory and deallocate the memory with delete when the memory is no longer needed.<br>
-If an exception occurs after successful memory allocation but before the delete statement executes, a memory leak could occur.<br>
-C++ 11 provides class template unique_ptr in header file <memory> to deal with this situation.<br>
-一种常见的编程做法是分配动态内存，将该内存的地址分配给指针，使用指针操作内存，并在不再需要内存时使用delete释放内存。<br>
-如果在成功分配内存之后但在执行delete语句之前发生异常，则可能发生内存泄漏。<br>
+<p>A common programming practice is to allocate dynamic memory, assign
+the address of that memory to a pointer, use the pointer to manipulate
+the memory and deallocate the memory with delete when the memory is no
+longer needed. If an exception occurs after successful memory allocation
+but before the delete statement executes, a memory leak could occur. C++
+11 provides class template unique_ptr in header file <memory> to deal
+with this situation.
+一种常见的编程做法是分配动态内存，将该内存的地址分配给指针，使用指针操作内存，并在不再需要内存时使用delete释放内存。
+如果在成功分配内存之后但在执行delete语句之前发生异常，则可能发生内存泄漏。
 c++ 11在头文件<memory>中提供了类模板unique_ptr来处理这种情况。</p>
 </blockquote>
 <blockquote>
-<p>An object of class unique_ptr maintains a pointer to dynamically allocated memory.<br>
-When an unique_ptr object destructor is called (for example, when an unique_ptr object goes out of scope), it performs a delete operation on its pointer data member.<br>
-Class template unique_ptr provides overloaded operators * and -&gt; so that an unique_ptr object can be used just as a regular pointer variable is.<br>
-Figure 17.9 demonstrates an unique_ptr object that points to a dynamically allocated object of class Integer (Figs. 17.7–17.8).</p>
-<p>unique_ptr类的对象维护一个指向动态分配内存的指针。<br>
-当调用unique_ptr对象析构函数时(例如，当unique_ptr对象超出作用域时)，它对其指针数据成员执行delete操作。<br>
-类模板unique_ptr提供了重载操作符*和-&gt;，这样unique_ptr对象就可以像普通指针变量一样使用。<br>
+<p>An object of class unique_ptr maintains a pointer to dynamically
+allocated memory. When an unique_ptr object destructor is called (for
+example, when an unique_ptr object goes out of scope), it performs a
+delete operation on its pointer data member. Class template unique_ptr
+provides overloaded operators * and -&gt; so that an unique_ptr object
+can be used just as a regular pointer variable is. Figure 17.9
+demonstrates an unique_ptr object that points to a dynamically allocated
+object of class Integer (Figs. 17.7–17.8).</p>
+<p>unique_ptr类的对象维护一个指向动态分配内存的指针。
+当调用unique_ptr对象析构函数时(例如，当unique_ptr对象超出作用域时)，它对其指针数据成员执行delete操作。
+类模板unique_ptr提供了重载操作符*和-&gt;，这样unique_ptr对象就可以像普通指针变量一样使用。
 图17.9演示了一个unique_ptr对象，它指向一个动态分配的Integer类对象(图17.7-17.8)。</p>
 </blockquote>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608185945944.png" alt="image-20240608185945944"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608185954422.png" alt="image-20240608185954422"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608190002234.png" alt="image-20240608190002234"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608190010125.png" alt="image-20240608190010125"></p>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608190016231.png" alt="image-20240608190016231"></p>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608185945944.png"
+alt="image-20240608185945944" />
+<figcaption aria-hidden="true">image-20240608185945944</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608185954422.png"
+alt="image-20240608185954422" />
+<figcaption aria-hidden="true">image-20240608185954422</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608190002234.png"
+alt="image-20240608190002234" />
+<figcaption aria-hidden="true">image-20240608190002234</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608190010125.png"
+alt="image-20240608190010125" />
+<figcaption aria-hidden="true">image-20240608190010125</figcaption>
+</figure>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608190016231.png"
+alt="image-20240608190016231" />
+<figcaption aria-hidden="true">image-20240608190016231</figcaption>
+</figure>
 <blockquote>
-<p>Because ptrToInteger is a local automatic variable in main, ptrToInteger is destroyed when main terminates.<br>
-The unique_ptr destructor forces a delete of the Integer object pointed to by ptrToInteger, which in turn calls the Integer class destructor.<br>
-The memory that Integer occupies is released, regardless of how control leaves the block (e.g., by a return statement or by an exception).<br>
-Most importantly, using this technique can prevent memory leaks.</p>
-<p>因为ptrToInteger是main中的一个局部自动变量，所以当main终止时ptrToInteger将被销毁。<br>
-unique_ptr析构函数强制删除ptrToInteger所指向的Integer对象，而ptrToInteger又调用Integer类析构函数。<br>
-Integer占用的内存被释放，无论控制如何离开块(例如，通过返回语句或异常)。<br>
+<p>Because ptrToInteger is a local automatic variable in main,
+ptrToInteger is destroyed when main terminates. The unique_ptr
+destructor forces a delete of the Integer object pointed to by
+ptrToInteger, which in turn calls the Integer class destructor. The
+memory that Integer occupies is released, regardless of how control
+leaves the block (e.g., by a return statement or by an exception). Most
+importantly, using this technique can prevent memory leaks.</p>
+<p>因为ptrToInteger是main中的一个局部自动变量，所以当main终止时ptrToInteger将被销毁。
+unique_ptr析构函数强制删除ptrToInteger所指向的Integer对象，而ptrToInteger又调用Integer类析构函数。
+Integer占用的内存被释放，无论控制如何离开块(例如，通过返回语句或异常)。
 最重要的是，使用这种技术可以防止内存泄漏。</p>
 </blockquote>
 <blockquote>
-<p>unique_ptr Notes<br>
-The class is called unique_ptr because only one unique_ptr at a time can own a dynamically allocated object.<br>
-By using its overloaded assignment operator or copy constructor, an unique_ptr can transfer ownership of the dynamic memory it manages.<br>
-unique_ptr笔记<br>
-这个类被称为unique_ptr，因为一次只能有一个unique_ptr拥有一个动态分配的对象。<br>
+<p>unique_ptr Notes The class is called unique_ptr because only one
+unique_ptr at a time can own a dynamically allocated object. By using
+its overloaded assignment operator or copy constructor, an unique_ptr
+can transfer ownership of the dynamic memory it manages. unique_ptr笔记
+这个类被称为unique_ptr，因为一次只能有一个unique_ptr拥有一个动态分配的对象。
 通过使用它的重载赋值操作符或复制构造函数，unique_ptr可以转移它所管理的动态内存的所有权。</p>
-<p>The last unique_ptr object that maintains the pointer to the dynamic memory will delete the memory.<br>
-This makes unique_ptr an ideal mechanism for returning dynamically allocated memory to client code.<br>
-When the unique_ptr goes out of scope in the client code, the unique_ptr’s destructor destroys the dynamically allocated object and deletes its memory.<br>
-最后一个维护动态内存指针的unique_ptr对象将删除该内存。<br>
-这使得unique_ptr成为将动态分配的内存返回给客户端代码的理想机制。<br>
+<p>The last unique_ptr object that maintains the pointer to the dynamic
+memory will delete the memory. This makes unique_ptr an ideal mechanism
+for returning dynamically allocated memory to client code. When the
+unique_ptr goes out of scope in the client code, the unique_ptr’s
+destructor destroys the dynamically allocated object and deletes its
+memory. 最后一个维护动态内存指针的unique_ptr对象将删除该内存。
+这使得unique_ptr成为将动态分配的内存返回给客户端代码的理想机制。
 当unique_ptr在客户端代码中超出作用域时，unique_ptr的析构函数会销毁动态分配的对象并删除其内存。</p>
 </blockquote>
 <blockquote>
-<p>unique_ptr to a Built-In Array<br>
-You can also use a unique_ptr to manage a dynamically allocated built-in array.<br>
-For example, consider the statement<br>
-unique_ptr&lt; string[] &gt; ptr( new string[ 10 ] );<br>
-which dynamically allocates an array of 10 strings managed by ptr.<br>
-The type string[] indicates that the managed memory is a built-in array containing strings.<br>
-unique_ptr转换为内置数组<br>
-您还可以使用unique_ptr来管理动态分配的内置数组。<br>
-例如，考虑这个语句<br>
-unque_ptr &lt; string[] &gt; ptr(new string[10]);<br>
-它动态地分配一个由ptr管理的包含10个字符串的数组。<br>
+<p>unique_ptr to a Built-In Array You can also use a unique_ptr to
+manage a dynamically allocated built-in array. For example, consider the
+statement unique_ptr&lt; string[] &gt; ptr( new string[ 10 ] ); which
+dynamically allocates an array of 10 strings managed by ptr. The type
+string[] indicates that the managed memory is a built-in array
+containing strings. unique_ptr转换为内置数组
+您还可以使用unique_ptr来管理动态分配的内置数组。 例如，考虑这个语句
+unque_ptr &lt; string[] &gt; ptr(new string[10]);
+它动态地分配一个由ptr管理的包含10个字符串的数组。
 string[]类型表示托管内存是包含字符串的内置数组。</p>
-<p>unique_ptr to a Built-In Array<br>
-You can also use a unique_ptr to manage a dynamically allocated built-in array.<br>
-For example, consider the statement<br>
-unique_ptr&lt; string[] &gt; ptr( new string[ 10 ] );<br>
-which dynamically allocates an array of 10 strings managed by ptr.<br>
-The type string[] indicates that the managed memory is a built-in array containing strings.<br>
-unique_ptr转换为内置数组<br>
-您还可以使用unique_ptr来管理动态分配的内置数组。<br>
-例如，考虑这个语句<br>
-unque_ptr &lt; string[] &gt; ptr(new string[10]);<br>
-它动态地分配一个由ptr管理的包含10个字符串的数组。<br>
+<p>unique_ptr to a Built-In Array You can also use a unique_ptr to
+manage a dynamically allocated built-in array. For example, consider the
+statement unique_ptr&lt; string[] &gt; ptr( new string[ 10 ] ); which
+dynamically allocates an array of 10 strings managed by ptr. The type
+string[] indicates that the managed memory is a built-in array
+containing strings. unique_ptr转换为内置数组
+您还可以使用unique_ptr来管理动态分配的内置数组。 例如，考虑这个语句
+unque_ptr &lt; string[] &gt; ptr(new string[10]);
+它动态地分配一个由ptr管理的包含10个字符串的数组。
 string[]类型表示托管内存是包含字符串的内置数组。</p>
 </blockquote>
 <blockquote>
-<p>Experience has shown that exceptions fall nicely into a number of categories.<br>
-The C++ Standard Library includes a hierarchy of exception classes, some of which are shown in Fig. 17.10.<br>
-As we first discussed in Section 17.2, this hierarchy is headed by base-class exception (defined in header file <exception>), which contains virtual function what that derived classes can override to issue appropriate error messages.<br>
-经验表明，例外情况可以很好地分为几类。<br>
-c++标准库包括异常类的层次结构，其中一些异常类如图17.10所示。<br>
+<p>Experience has shown that exceptions fall nicely into a number of
+categories. The C++ Standard Library includes a hierarchy of exception
+classes, some of which are shown in Fig. 17.10. As we first discussed in
+Section 17.2, this hierarchy is headed by base-class exception (defined
+in header file <exception>), which contains virtual function what that
+derived classes can override to issue appropriate error messages.
+经验表明，例外情况可以很好地分为几类。
+c++标准库包括异常类的层次结构，其中一些异常类如图17.10所示。
 正如我们在第17.2节中首先讨论的那样，这个层次结构以基类异常(在头文件<exception>中定义)为首，它包含虚函数，派生类可以覆盖该虚函数以发出适当的错误消息。</p>
 </blockquote>
-<p><img src="/img/94421005_p0_master1200.jpg" data-original="C:%5CUsers%5C22635%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240608191200111.png" alt="image-20240608191200111"></p>
+<figure>
+<img
+src="C:\Users\22635\AppData\Roaming\Typora\typora-user-images\image-20240608191200111.png"
+alt="image-20240608191200111" />
+<figcaption aria-hidden="true">image-20240608191200111</figcaption>
+</figure>
 <blockquote>
-<p>Immediate derived classes of base-class exception include runtime_error and logic_error (both defined in header <stdexcept>), each of which has several derived classes.<br>
-Also derived from exception are the exceptions thrown by C++ operators—for example, bad_alloc is thrown by new (Section 17.8), bad_cast is thrown by dynamic_cast (Chapter 12) and bad_typeid is thrown by typeid (Chapter 12).<br>
-基类异常的直接派生类包括runtime_error和logic_error(两者都定义在头文件<stdexcept>中)，它们每个都有几个派生类。<br>
+<p>Immediate derived classes of base-class exception include
+runtime_error and logic_error (both defined in header <stdexcept>), each
+of which has several derived classes. Also derived from exception are
+the exceptions thrown by C++ operators—for example, bad_alloc is thrown
+by new (Section 17.8), bad_cast is thrown by dynamic_cast (Chapter 12)
+and bad_typeid is thrown by typeid (Chapter 12).
+基类异常的直接派生类包括runtime_error和logic_error(两者都定义在头文件<stdexcept>中)，它们每个都有几个派生类。
 c++操作符抛出的异常也派生自exception——例如，new抛出bad_alloc(第17.8节)，dynamic_cast抛出bad_cast(第12章)，typeid抛出bad_typeid(第12章)。</p>
 </blockquote>
 <blockquote>
-<p>在 C++ 中，<code>std::bad_typeid</code> 是一个异常类，它在使用 <code>typeid</code> 运算符时出现问题时被抛出。特别地，当使用 <code>typeid</code> 运算符对一个空指针进行操作时，会抛出 <code>std::bad_typeid</code> 异常。</p>
+<p>在 C++ 中，<code>std::bad_typeid</code> 是一个异常类，它在使用
+<code>typeid</code> 运算符时出现问题时被抛出。特别地，当使用
+<code>typeid</code> 运算符对一个空指针进行操作时，会抛出
+<code>std::bad_typeid</code> 异常。</p>
 <h3 id="typeid-运算符"><code>typeid</code> 运算符</h3>
-<p><code>typeid</code> 运算符用于获取对象的类型信息，它返回一个 <code>std::type_info</code> 对象，该对象包含了类型的信息。通常情况下，<code>typeid</code> 运算符可以用来获取变量或对象的类型信息：</p>
+<p><code>typeid</code> 运算符用于获取对象的类型信息，它返回一个
+<code>std::type_info</code>
+对象，该对象包含了类型的信息。通常情况下，<code>typeid</code>
+运算符可以用来获取变量或对象的类型信息：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"> <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">dummy</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> Base* pbase = <span class="keyword">new</span> Derived;</span><br><span class="line"> std::cout &lt;&lt; <span class="string">&quot;Type of pbase: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(*pbase).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line"> <span class="keyword">delete</span> pbase;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="std-bad-typeid-异常"><code>std::bad_typeid</code> 异常</h3>
-<p>当 <code>typeid</code> 运算符对一个空指针进行操作时，就会抛出 <code>std::bad_typeid</code> 异常。例如：</p>
+<h3 id="stdbad_typeid-异常"><code>std::bad_typeid</code> 异常</h3>
+<p>当 <code>typeid</code> 运算符对一个空指针进行操作时，就会抛出
+<code>std::bad_typeid</code> 异常。例如：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"> <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">dummy</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> Base* pbase = <span class="literal">nullptr</span>;</span><br><span class="line"> <span class="keyword">try</span> &#123;</span><br><span class="line">     std::cout &lt;&lt; <span class="string">&quot;Type of pbase: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(*pbase).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line"> &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::bad_typeid&amp; e) &#123;</span><br><span class="line">     std::cerr &lt;&lt; <span class="string">&quot;Caught std::bad_typeid: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; std::endl;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，<code>pbase</code> 是一个空指针，当对 <code>*pbase</code> 使用 <code>typeid</code> 运算符时，会抛出 <code>std::bad_typeid</code> 异常。</p>
-<h3 id="捕获-std-bad-typeid-异常">捕获 <code>std::bad_typeid</code> 异常</h3>
-<p>当你在程序中使用 <code>typeid</code> 运算符时，应当考虑到可能会出现的空指针问题，并捕获 <code>std::bad_typeid</code> 异常以避免程序崩溃：</p>
+<p>在这个例子中，<code>pbase</code> 是一个空指针，当对
+<code>*pbase</code> 使用 <code>typeid</code> 运算符时，会抛出
+<code>std::bad_typeid</code> 异常。</p>
+<h3 id="捕获-stdbad_typeid-异常">捕获 <code>std::bad_typeid</code>
+异常</h3>
+<p>当你在程序中使用 <code>typeid</code>
+运算符时，应当考虑到可能会出现的空指针问题，并捕获
+<code>std::bad_typeid</code> 异常以避免程序崩溃：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;typeinfo&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"> <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">dummy</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printType</span><span class="params">(Base* pbase)</span> </span>&#123;</span><br><span class="line"> <span class="keyword">try</span> &#123;</span><br><span class="line">     std::cout &lt;&lt; <span class="string">&quot;Type: &quot;</span> &lt;&lt; <span class="built_in">typeid</span>(*pbase).<span class="built_in">name</span>() &lt;&lt; std::endl;</span><br><span class="line"> &#125; <span class="built_in">catch</span> (<span class="type">const</span> std::bad_typeid&amp; e) &#123;</span><br><span class="line">     std::cerr &lt;&lt; <span class="string">&quot;Caught std::bad_typeid: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; std::endl;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> Base* pbase = <span class="literal">nullptr</span>;</span><br><span class="line"> <span class="built_in">printType</span>(pbase);</span><br><span class="line"></span><br><span class="line"> pbase = <span class="keyword">new</span> Derived;</span><br><span class="line"> <span class="built_in">printType</span>(pbase);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">delete</span> pbase;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个示例中，函数 <code>printType</code> 尝试打印对象的类型信息。如果指针为空，会捕获 <code>std::bad_typeid</code> 异常，并输出相应的错误信息。</p>
-<h3 id="总结">总结</h3>
+<p>在这个示例中，函数 <code>printType</code>
+尝试打印对象的类型信息。如果指针为空，会捕获
+<code>std::bad_typeid</code> 异常，并输出相应的错误信息。</p>
+<h3 id="总结-3">总结</h3>
 <ul>
-<li><code>std::bad_typeid</code> 是在使用 <code>typeid</code> 运算符对空指针操作时抛出的异常。</li>
-<li>使用 <code>typeid</code> 运算符时，特别是对指针解引用进行类型查询时，应当考虑并处理可能出现的空指针情况。</li>
-<li>捕获 <code>std::bad_typeid</code> 异常可以防止程序因空指针操作而崩溃，并提供适当的错误处理机制。</li>
+<li><code>std::bad_typeid</code> 是在使用 <code>typeid</code>
+运算符对空指针操作时抛出的异常。</li>
+<li>使用 <code>typeid</code>
+运算符时，特别是对指针解引用进行类型查询时，应当考虑并处理可能出现的空指针情况。</li>
+<li>捕获 <code>std::bad_typeid</code>
+异常可以防止程序因空指针操作而崩溃，并提供适当的错误处理机制。</li>
 </ul>
-<p>通过理解和正确处理 <code>std::bad_typeid</code> 异常，可以提高程序的健壮性，确保在类型查询操作中能够有效处理空指针情况。</p>
+<p>通过理解和正确处理 <code>std::bad_typeid</code>
+异常，可以提高程序的健壮性，确保在类型查询操作中能够有效处理空指针情况。</p>
 </blockquote>
 <blockquote>
-<p>Class logic_error is the base class of several standard exception classes that indicate errors in program logic.<br>
-For example, class invalid_argument indicates that a function received an invalid argument.<br>
-Proper coding can, of course, prevent invalid arguments from reaching a function.<br>
-Class length_error indicates that a length larger than the maximum size allowed for the object being manipulated was used for that object.<br>
-Class out_of_range indicates that a value, such as a subscript into an array, exceeded its allowed range of values.</p>
-<p>类logic_error是几个标准异常类的基类，用于指示程序逻辑中的错误。<br>
-例如，invalid_argument类表示函数收到了无效参数。<br>
-当然，正确的编码可以防止无效参数到达函数。<br>
-类length_error表示该对象使用的长度大于被操作对象所允许的最大长度。<br>
+<p>Class logic_error is the base class of several standard exception
+classes that indicate errors in program logic. For example, class
+invalid_argument indicates that a function received an invalid argument.
+Proper coding can, of course, prevent invalid arguments from reaching a
+function. Class length_error indicates that a length larger than the
+maximum size allowed for the object being manipulated was used for that
+object. Class out_of_range indicates that a value, such as a subscript
+into an array, exceeded its allowed range of values.</p>
+<p>类logic_error是几个标准异常类的基类，用于指示程序逻辑中的错误。
+例如，invalid_argument类表示函数收到了无效参数。
+当然，正确的编码可以防止无效参数到达函数。
+类length_error表示该对象使用的长度大于被操作对象所允许的最大长度。
 类out_of_range表示一个值(例如数组的下标)超出了其允许的值范围。</p>
 </blockquote>
 <blockquote>
-<p>Class runtime_error, which we used briefly in Section 17.4, is the base class of several other standard exception classes that indicate execution-time errors.<br>
-For example, class overflow_error describes an arithmetic overflow error (i.e., the result of an arithmetic operation is larger than the largest number that can be stored in the computer) and class underflow_error describes an arithmetic underflow error (i.e., the result of an arithmetic operation is smaller than the smallest number that can be stored in the computer).</p>
-<p>类runtime_error(我们在第17.4节中简要使用过)是其他几个指示执行时错误的标准异常类的基类。<br>
+<p>Class runtime_error, which we used briefly in Section 17.4, is the
+base class of several other standard exception classes that indicate
+execution-time errors. For example, class overflow_error describes an
+arithmetic overflow error (i.e., the result of an arithmetic operation
+is larger than the largest number that can be stored in the computer)
+and class underflow_error describes an arithmetic underflow error (i.e.,
+the result of an arithmetic operation is smaller than the smallest
+number that can be stored in the computer).</p>
+<p>类runtime_error(我们在第17.4节中简要使用过)是其他几个指示执行时错误的标准异常类的基类。
 例如，类overflow_error描述了一个算术溢出错误(即，算术运算的结果大于计算机可存储的最大数字)，类underflow_error描述了一个算术下溢错误(即，算术运算的结果小于计算机可存储的最小数字)。</p>
 </blockquote>
 <p><strong>异常类可以不继承自exception类，所以当捕获类型为exception时，不能保证能够程序捕获到所有可能的异常。</strong></p>
-<p><strong>为了捕获一个try语句中的所有异常，可以使用catch(…)语句，但是无法确定类型，也无法获得参数名，因此无法引用。</strong></p>
-<p><strong>catch(…)语句可以用来不依赖于异常类型的恢复操作（eg：释放公有资源），异常可以被重新抛出，让其他特定的catch处理器捕获处理。</strong></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0/">http://example.com/2024/06/09/CPP复习 第十七章/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="https://npm.elemecdn.com/ushio-api-img-moe@5.0.17/img_175_1000x636_299.999389648438_null_normal.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0/" title="CPP复习 第十八章"><img class="cover" src="/img/94421005_p0_master1200.jpg" data-original="https://npm.elemecdn.com/ushio-api-img-moe@5.0.40/img_404_1800x1200_350_null_normal.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CPP复习 第十八章</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0/" title="CPP复习 第十四章"><img class="cover" src="/img/94421005_p0_master1200.jpg" data-original="https://npm.elemecdn.com/ushio-api-img-moe@5.0.88/img_887_2000x956_96_null_normal.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CPP复习 第十四章</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cpp%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">Cpp复习 第十七章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c-%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86-exception-handling"><span class="toc-number">1.0.1.</span> <span class="toc-text">C++ 中的异常处理 (Exception Handling)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="toc-number">1.0.2.</span> <span class="toc-text">异常类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">自定义异常类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88%E5%B1%95%E5%BC%80-stack-unwinding"><span class="toc-number">1.0.3.</span> <span class="toc-text">栈展开 (Stack Unwinding)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.0.4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E4%B8%AD%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E4%BC%9A%E5%AF%BC%E8%87%B4%E7%A8%8B%E5%BA%8F%E7%BB%88%E6%AD%A2"><span class="toc-number">1.0.5.</span> <span class="toc-text">为什么在析构函数中抛出异常会导致程序终止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E5%AE%89%E5%85%A8%E6%94%BB%E5%87%BB%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.0.6.</span> <span class="toc-text">与安全攻击的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-number">1.0.7.</span> <span class="toc-text">如何防止析构函数抛出异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.0.8.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#raii-%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.0.9.</span> <span class="toc-text">RAII 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%96%87%E4%BB%B6%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86"><span class="toc-number">1.0.10.</span> <span class="toc-text">示例：文件资源管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E7%AE%A1%E7%90%86%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98"><span class="toc-number">1.0.11.</span> <span class="toc-text">使用智能指针管理动态内存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BD%BF%E7%94%A8-std-unique-ptr"><span class="toc-number">1.0.11.1.</span> <span class="toc-text">示例：使用 std::unique_ptr</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86"><span class="toc-number">1.0.12.</span> <span class="toc-text">其他资源管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E4%BD%BF%E7%94%A8-std-lock-guard-%E7%AE%A1%E7%90%86%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-number">1.0.12.1.</span> <span class="toc-text">示例：使用 std::lock_guard 管理互斥锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.0.13.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-new-handler-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-number">1.0.14.</span> <span class="toc-text">set_new_handler 的用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.0.15.</span> <span class="toc-text">处理函数的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A%E5%B0%9D%E8%AF%95%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98"><span class="toc-number">1.0.16.</span> <span class="toc-text">示例：尝试释放内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.0.17.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#typeid-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.0.18.</span> <span class="toc-text">typeid 运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-bad-typeid-%E5%BC%82%E5%B8%B8"><span class="toc-number">1.0.19.</span> <span class="toc-text">std::bad_typeid 异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7-std-bad-typeid-%E5%BC%82%E5%B8%B8"><span class="toc-number">1.0.20.</span> <span class="toc-text">捕获 std::bad_typeid 异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.0.21.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<p><strong>为了捕获一个try语句中的所有异常，可以使用catch(...)语句，但是无法确定类型，也无法获得参数名，因此无法引用。</strong></p>
+<p><strong>catch(...)语句可以用来不依赖于异常类型的恢复操作（eg：释放公有资源），异常可以被重新抛出，让其他特定的catch处理器捕获处理。</strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0/">http://example.com/2024/06/09/CPP复习 第十七章/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="https://npm.elemecdn.com/ushio-api-img-moe@5.0.17/img_175_1000x636_299.999389648438_null_normal.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0/" title="CPP复习 第十八章"><img class="cover" src="/img/94421005_p0_master1200.jpg" data-original="https://npm.elemecdn.com/ushio-api-img-moe@5.0.40/img_404_1800x1200_350_null_normal.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CPP复习 第十八章</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0/" title="CPP复习 第十四章"><img class="cover" src="/img/94421005_p0_master1200.jpg" data-original="https://npm.elemecdn.com/ushio-api-img-moe@5.0.88/img_887_2000x956_96_null_normal.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CPP复习 第十四章</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cpp%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">Cpp复习 第十七章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c-%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86-exception-handling"><span class="toc-number">1.0.1.</span> <span class="toc-text">C++ 中的异常处理 (Exception
+Handling)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="toc-number">1.0.2.</span> <span class="toc-text">异常类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">自定义异常类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88%E5%B1%95%E5%BC%80-stack-unwinding"><span class="toc-number">1.0.3.</span> <span class="toc-text">栈展开 (Stack Unwinding)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.0.4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E4%B8%AD%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E4%BC%9A%E5%AF%BC%E8%87%B4%E7%A8%8B%E5%BA%8F%E7%BB%88%E6%AD%A2"><span class="toc-number">1.0.5.</span> <span class="toc-text">为什么在析构函数中抛出异常会导致程序终止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E5%AE%89%E5%85%A8%E6%94%BB%E5%87%BB%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.0.6.</span> <span class="toc-text">与安全攻击的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-number">1.0.7.</span> <span class="toc-text">如何防止析构函数抛出异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">1.0.8.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#raii-%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.0.9.</span> <span class="toc-text">RAII 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E6%96%87%E4%BB%B6%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86"><span class="toc-number">1.0.10.</span> <span class="toc-text">示例：文件资源管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E7%AE%A1%E7%90%86%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98"><span class="toc-number">1.0.11.</span> <span class="toc-text">使用智能指针管理动态内存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BD%BF%E7%94%A8-stdunique_ptr"><span class="toc-number">1.0.11.1.</span> <span class="toc-text">示例：使用
+std::unique_ptr</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86"><span class="toc-number">1.0.12.</span> <span class="toc-text">其他资源管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BD%BF%E7%94%A8-stdlock_guard-%E7%AE%A1%E7%90%86%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-number">1.0.12.1.</span> <span class="toc-text">示例：使用
+std::lock_guard 管理互斥锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">1.0.13.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set_new_handler-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-number">1.0.14.</span> <span class="toc-text">set_new_handler 的用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.0.15.</span> <span class="toc-text">处理函数的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E5%B0%9D%E8%AF%95%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98"><span class="toc-number">1.0.16.</span> <span class="toc-text">示例：尝试释放内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.0.17.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#typeid-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.0.18.</span> <span class="toc-text">typeid 运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stdbad_typeid-%E5%BC%82%E5%B8%B8"><span class="toc-number">1.0.19.</span> <span class="toc-text">std::bad_typeid 异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7-stdbad_typeid-%E5%BC%82%E5%B8%B8"><span class="toc-number">1.0.20.</span> <span class="toc-text">捕获 std::bad_typeid
+异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-3"><span class="toc-number">1.0.21.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
