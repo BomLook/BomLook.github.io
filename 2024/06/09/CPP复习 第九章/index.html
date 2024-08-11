@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CPP复习 第九章 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="CPP复习 第九章  Coverage includes (cont.): How default arguments can be used in constructors. Destructors that perform “termination housekeeping” on objects before they’re destroyed. The order in which">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CPP复习 第九章 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="CPP复习 第九章  Coverage includes (cont.): How default arguments can be used in constructors. Destructors that perform “termination housekeeping” on objects before they’re destroyed. The order in which con">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CPP复习 第九章">
 <meta property="og:url" content="http://example.com/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E4%B9%9D%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Heavenhold">
-<meta property="og:description" content="CPP复习 第九章  Coverage includes (cont.): How default arguments can be used in constructors. Destructors that perform “termination housekeeping” on objects before they’re destroyed. The order in which">
+<meta property="og:description" content="CPP复习 第九章  Coverage includes (cont.): How default arguments can be used in constructors. Destructors that perform “termination housekeeping” on objects before they’re destroyed. The order in which con">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.horosama.com/api/image_all/anime/1080p/pc/f0F03b5c42d43DDd976E63d49804062c.jpg">
 <meta property="article:published_time" content="2024-06-09T11:12:00.000Z">
@@ -177,426 +177,352 @@
   white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202408110110536.jpg" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202408110114782.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://www.horosama.com/api/image_all/anime/1080p/pc/f0F03b5c42d43DDd976E63d49804062c.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Heavenhold"><span class="site-name">Heavenhold</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CPP复习 第九章</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-09T11:12:00.000Z" title="发表于 2024-06-09 19:12:00">2024-06-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-13T08:13:05.021Z" title="更新于 2024-06-13 16:13:05">2024-06-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>28分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CPP复习 第九章"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="cpp复习-第九章">CPP复习 第九章</h1>
 <blockquote>
-<p>Coverage includes (cont.): How default arguments can be used in
-constructors. Destructors that perform “termination housekeeping” on
-objects before they’re destroyed. The order in which constructors and
-destructors are called. We show that returning a reference or pointer to
-private data breaks the encapsulation of a class, allowing client code
-to directly access an object’s data. We use default memberwise
-assignment to assign an object of a class to another object of the same
-class. 承保范围包括(续): 如何在构造函数中使用默认实参。
-在对象被销毁之前对其执行“终止管理”的析构函数。
-调用构造函数和析构函数的顺序。
-我们展示了返回私有数据的引用或指针打破了类的封装，允许客户端代码直接访问对象的数据。
+<p>Coverage includes (cont.):<br>
+How default arguments can be used in constructors.<br>
+Destructors that perform “termination housekeeping” on objects before they’re destroyed.<br>
+The order in which constructors and destructors are called.<br>
+We show that returning a reference or pointer to private data breaks the encapsulation of a class, allowing client code to directly access an object’s data.<br>
+We use default memberwise assignment to assign an object of a class to another object of the same class.<br>
+承保范围包括(续):<br>
+如何在构造函数中使用默认实参。<br>
+在对象被销毁之前对其执行“终止管理”的析构函数。<br>
+调用构造函数和析构函数的顺序。<br>
+我们展示了返回私有数据的引用或指针打破了类的封装，允许客户端代码直接访问对象的数据。<br>
 使用默认的成员赋值将类的一个对象赋值给同一类的另一个对象。</p>
 </blockquote>
 <blockquote>
-<p>Coverage includes (cont.): const objects and const member functions
-to prevent modifications of objects and enforce the principle of least
-privilege. Composition—a form of reuse in which a class can have objects
-of other classes as members. Friendship to specify that a nonmember
-function can also access a class’s non-public members—a technique that’s
-often used in operator overloading for performance reasons. this
-pointer, which is an implicit argument in all calls to a class’s
-non-static member functions, allowing them to access the correct
-object’s data members and non-static member functions. 承保范围包括(续):
-Const对象和Const成员函数，以防止对对象的修改并执行最小权限原则。
-组合——一种重用形式，其中一个类可以拥有其他类的对象作为成员。
-指定非成员函数也可以访问类的非公共成员——出于性能原因，在操作符重载中经常使用这种技术。
+<p>Coverage includes (cont.):<br>
+const objects and const member functions to prevent modifications of objects and enforce the principle of least privilege.<br>
+Composition—a form of reuse in which a class can have objects of other classes as members.<br>
+Friendship to specify that a nonmember function can also access a class’s non-public members—a technique that’s often used in operator overloading for performance reasons.<br>
+this pointer, which is an implicit argument in all calls to a class’s non-static member functions, allowing them to access the correct object’s data members and non-static member functions.<br>
+承保范围包括(续):<br>
+Const对象和Const成员函数，以防止对对象的修改并执行最小权限原则。<br>
+组合——一种重用形式，其中一个类可以拥有其他类的对象作为成员。<br>
+指定非成员函数也可以访问类的非公共成员——出于性能原因，在操作符重载中经常使用这种技术。<br>
 这个指针是所有调用类的非静态成员函数的隐式参数，允许它们访问正确对象的数据成员和非静态成员函数。</p>
 </blockquote>
 <blockquote>
-<p>Prevents the code between #ifndef and #endif from being included if
-the name TIME_H has been defined. If the header has not been included
-previously in a file, the name TIME_H is defined by the #define
-directive and the header file statements are included. If the header has
-been included previously, TIME_H is defined already and the header file
-is not included again.
-如果已经定义了名称TIME_H，则防止包含#ifndef和#endif之间的代码。
-如果头文件之前没有包含在文件中，则名称TIME_H由#define指令定义，并包含头文件语句。
+<p>Prevents the code between #ifndef and #endif from being included if the name TIME_H has been defined.<br>
+If the header has not been included previously in a file, the name TIME_H is defined by the #define directive and the header file statements are included.<br>
+If the header has been included previously, TIME_H is defined already and the header file is not included again.<br>
+如果已经定义了名称TIME_H，则防止包含#ifndef和#endif之间的代码。<br>
+如果头文件之前没有包含在文件中，则名称TIME_H由#define指令定义，并包含头文件语句。<br>
 如果头文件之前已经包含，TIME_H已经被定义，并且头文件不再被包含。</p>
 </blockquote>
 <blockquote>
-<p>Before C++11, only static const int data members (which you saw in
-Chapter 7) could be initialized where they were declared in the class
-body. For this reason, data members typically should be initialized by
-the class’s constructor as there is no default initialization for
-fundamental-type data members. As of C++11, you can now use an in-class
-initializer to initialize any data member where it’s declared in the
-class definition.</p>
-<p>在c++11之前，只有静态const
-int数据成员(你在第7章看到过)可以在类体中声明的地方初始化。
-由于这个原因，数据成员通常应该由类的构造函数初始化，因为基本类型数据成员没有默认初始化。
+<p>Before C++11, only static const int data members (which you saw in Chapter 7) could be initialized where they were declared in the class body.<br>
+For this reason, data members typically should be initialized by the class’s constructor as there is no default initialization for fundamental-type data members.<br>
+As of C++11, you can now use an in-class initializer to initialize any data member where it’s declared in the class definition.</p>
+<p>在c++11之前，只有静态const int数据成员(你在第7章看到过)可以在类体中声明的地方初始化。<br>
+由于这个原因，数据成员通常应该由类的构造函数初始化，因为基本类型数据成员没有默认初始化。<br>
 从c++11开始，您现在可以使用类内初始化器来初始化在类定义中声明的任何数据成员。</p>
 </blockquote>
 <blockquote>
-<p>Parameterized stream manipulator setfill specifies the fill character
-that is displayed when an integer is output in a field wider than the
-number of digits in the value. The fill characters appear to the left of
-the digits in the number, because the number is right aligned by
-default—for left aligned values, the fill characters would appear to the
-right. If the number being output fills the specified field, the fill
-character will not be displayed. Once the fill character is specified
-with setfill, it applies for all subsequent values that are displayed in
-fields wider than the value being displayed.
-参数化流操纵符setfill指定当在大于值中位数的字段中输出整数时显示的填充字符。
-填充字符出现在数字中数字的左边，因为默认情况下数字是右对齐的——对于左对齐的值，填充字符将出现在右边。
-如果正在输出的数字填充了指定的字段，则不显示填充字符。
-一旦用setfill指定了填充字符，它就应用于显示在比所显示的值更宽的字段中的所有后续值。
+<p>Parameterized stream manipulator setfill specifies the fill character that is displayed when an integer is output in a field wider than the number of digits in the value.<br>
+The fill characters appear to the left of the digits in the number, because the number is right aligned by default—for left aligned values, the fill characters would appear to the right.<br>
+If the number being output fills the specified field, the fill character will not be displayed.<br>
+Once the fill character is specified with setfill, it applies for all subsequent values that are displayed in fields wider than the value being displayed.<br>
+参数化流操纵符setfill指定当在大于值中位数的字段中输出整数时显示的填充字符。<br>
+填充字符出现在数字中数字的左边，因为默认情况下数字是右对齐的——对于左对齐的值，填充字符将出现在右边。<br>
+如果正在输出的数字填充了指定的字段，则不显示填充字符。<br>
+一旦用setfill指定了填充字符，它就应用于显示在比所显示的值更宽的字段中的所有后续值。<br>
 即setfill是黏性设置，注意setw不是黏性设置。</p>
 </blockquote>
 <blockquote>
-<p>Defining Member Functions Outside the Class Definition; Class Scope
-Even though a member function declared in a class definition may be
-defined outside that class definition, that member function is still
-within that class’s scope. If a member function is defined in the
-class’s body, the compiler attempts to inline calls to the member
-function. 在类定义之外定义成员函数;类作用域
-即使在类定义中声明的成员函数可以在该类定义之外定义，该成员函数仍然在该类的作用域中。
+<p>Defining Member Functions Outside the Class Definition; Class Scope<br>
+Even though a member function declared in a class definition may be defined outside that class definition, that member function is still within that class’s scope.<br>
+If a member function is defined in the class’s body, the compiler attempts to inline calls to the member function.<br>
+在类定义之外定义成员函数;类作用域<br>
+即使在类定义中声明的成员函数可以在该类定义之外定义，该成员函数仍然在该类的作用域中。<br>
 如果在类的主体中定义了成员函数，则编译器会尝试内联调用该成员函数。</p>
 </blockquote>
 <blockquote>
-<p>A class’s data members and member functions belong to that class’s
-scope. Nonmember functions are defined at global namespace scope, by
-default. Within a class’s scope, class members are immediately
-accessible by all of that class’s member functions and can be referenced
-by name. Outside a class’s scope, public class members are referenced
-through one of the handles on an object—an object name, a reference to
-an object or a pointer to an object.
-类的数据成员和成员函数属于该类的作用域。
-默认情况下，非成员函数在全局命名空间范围内定义。
-在类的作用域中，类的所有成员函数都可以立即访问类成员，并且可以通过名称引用类成员。
+<p>A class’s data members and member functions belong to that class’s scope.<br>
+Nonmember functions are defined at global namespace scope, by default.<br>
+Within a class’s scope, class members are immediately accessible by all of that class’s member functions and can be referenced by name.<br>
+Outside a class’s scope, public class members are referenced through one of the handles on an object—an object name, a reference to an object or a pointer to an object.<br>
+类的数据成员和成员函数属于该类的作用域。<br>
+默认情况下，非成员函数在全局命名空间范围内定义。<br>
+在类的作用域中，类的所有成员函数都可以立即访问类成员，并且可以通过名称引用类成员。<br>
 在类的作用域之外，通过对象的句柄之一(对象名称、对象引用或对象指针)引用公共类成员。</p>
 </blockquote>
 <blockquote>
-<p>Class Scope and Block Scope If a member function defines a variable
-with the same name as a variable with class scope, the class-scope
-variable is hidden in the function by the block-scope variable. Such a
-hidden variable can be accessed by preceding the variable name with the
-class name followed by the scope resolution operator (::).
-类作用域和块作用域
-如果成员函数定义了与具有类作用域的变量同名的变量，则类作用域变量被块作用域变量隐藏在函数中。
+<p>Class Scope and Block Scope<br>
+If a member function defines a variable with the same name as a variable with class scope, the class-scope variable is hidden in the function by the block-scope variable.<br>
+Such a hidden variable can be accessed by preceding the variable name with the class name followed by the scope resolution operator (::).<br>
+类作用域和块作用域<br>
+如果成员函数定义了与具有类作用域的变量同名的变量，则类作用域变量被块作用域变量隐藏在函数中。<br>
 可以通过在变量名前面加上类名和作用域解析操作符(::)来访问这样的隐藏变量</p>
 </blockquote>
 <blockquote>
-<p>Dot (.) and Arrow (-&gt;) Member Selection Operators The dot member
-selection operator (.) is preceded by an object’s name or with a
-reference to an object to access the object’s members. The arrow member
-selection operator (-&gt;) is preceded by a pointer to an object to
-access the object’s members. 点(.)和箭头(-&gt;)成员选择操作符
-点成员选择运算符(.)前面是对象的名称或对象的引用，以访问对象的成员。
+<p>Dot (.) and Arrow (-&gt;) Member Selection Operators<br>
+The dot member selection operator (.) is preceded by an object’s name or with a reference to an object to access the object’s members.<br>
+The arrow member selection operator (-&gt;) is preceded by a pointer to an object to access the object’s members.<br>
+点(.)和箭头(-&gt;)成员选择操作符<br>
+点成员选择运算符(.)前面是对象的名称或对象的引用，以访问对象的成员。<br>
 箭头成员选择操作符(-&gt;)前面有一个指向对象的指针，用于访问对象的成员。</p>
 </blockquote>
 <blockquote>
-<p>Access Functions Access functions can read or display data. A common
-use for access functions is to test the truth or falsity of
-conditions—such functions are often called predicate functions. Utility
-Functions A utility function (also called a helper function) is a
-private member function that supports the operation of the class’s other
-member functions. 访问函数 访问函数可以读取或显示数据。
-访问函数的一个常见用途是测试条件的真假——这类函数通常称为谓词函数。
-效用函数
+<p>Access Functions<br>
+Access functions can read or display data.<br>
+A common use for access functions is to test the truth or falsity of conditions—such functions are often called predicate functions.<br>
+Utility Functions<br>
+A utility function (also called a helper function) is a private member function that supports the operation of the class’s other member functions.<br>
+访问函数<br>
+访问函数可以读取或显示数据。<br>
+访问函数的一个常见用途是测试条件的真假——这类函数通常称为谓词函数。<br>
+效用函数<br>
 实用函数(也称为辅助函数)是一个私有成员函数，它支持类的其他成员函数的操作</p>
 </blockquote>
 <blockquote>
-<p>C++11: Using List Initializers to Call Constructors C++11 now
-provides a uniform initialization syntax called list initializers that
-can be used to initialize any variable. Lines 11–13 of Fig. 9.6 can be
-written using list initializers as follows:</p>
+<p>C++11: Using List Initializers to Call Constructors<br>
+C++11 now provides a uniform initialization syntax called list initializers that can be used to initialize any variable. Lines 11–13 of Fig. 9.6 can be written using list initializers as follows:</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Time t2&#123; <span class="number">2</span> &#125;; <span class="comment">// hour specified; minute and second defaulted     </span></span><br><span class="line">Time t3&#123; <span class="number">21</span>, <span class="number">34</span> &#125;; <span class="comment">// hour and minute specified; second defaulted</span></span><br><span class="line">Time t4&#123; <span class="number">12</span>, <span class="number">25</span>, <span class="number">42</span> &#125;; <span class="comment">// hour, minute and second specified </span></span><br><span class="line"><span class="keyword">or</span></span><br><span class="line">Time t2 = &#123; <span class="number">2</span> &#125;; <span class="comment">// hour specified; minute and second defaulted     </span></span><br><span class="line">Time t3 = &#123; <span class="number">21</span>, <span class="number">34</span> &#125;; <span class="comment">// hour and minute specified; second defaulted</span></span><br><span class="line">Time t4 = &#123; <span class="number">12</span>, <span class="number">25</span>, <span class="number">42</span> &#125;; <span class="comment">// hour, minute and second specified </span></span><br></pre></td></tr></table></figure>
-<p>c++ 11:使用列表初始化式调用构造函数 c++
-11现在提供了一种统一的初始化语法，称为列表初始化器，可用于初始化任何变量。图9.6中的第11-13行可以使用列表初始化式编写如下:</p>
+<p>c++ 11:使用列表初始化式调用构造函数<br>
+c++ 11现在提供了一种统一的初始化语法，称为列表初始化器，可用于初始化任何变量。图9.6中的第11-13行可以使用列表初始化式编写如下:</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Time t2&#123; <span class="number">2</span> &#125;; <span class="comment">// hour specified; minute and second defaulted     </span></span><br><span class="line">Time t3&#123; <span class="number">21</span>, <span class="number">34</span> &#125;; <span class="comment">// hour and minute specified; second defaulted</span></span><br><span class="line">Time t4&#123; <span class="number">12</span>, <span class="number">25</span>, <span class="number">42</span> &#125;; <span class="comment">// hour, minute and second specified </span></span><br><span class="line"><span class="keyword">or</span></span><br><span class="line">Time t2 = &#123; <span class="number">2</span> &#125;; <span class="comment">// hour specified; minute and second defaulted     </span></span><br><span class="line">Time t3 = &#123; <span class="number">21</span>, <span class="number">34</span> &#125;; <span class="comment">// hour and minute specified; second defaulted</span></span><br><span class="line">Time t4 = &#123; <span class="number">12</span>, <span class="number">25</span>, <span class="number">42</span> &#125;; <span class="comment">// hour, minute and second specified </span></span><br></pre></td></tr></table></figure>
 <p>不带=的形式是首选的。</p>
 </blockquote>
 <blockquote>
-<p>C++11: Overloaded Constructors and Delegating Constructors A class’s
-constructors and member functions can also be overloaded. Overloaded
-constructors typically allow objects to be initialized with different
-types and/or numbers of arguments. To overload a constructor, provide in
-the class definition a prototype for each version of the constructor,
-and provide a separate constructor definition for each overloaded
-version. This also applies to the class’s member functions.</p>
-<p>c++ 11:重载构造函数和委托构造函数
-类的构造函数和成员函数也可以被重载。
-重载构造函数通常允许使用不同类型和/或数量的参数初始化对象。
-要重载构造函数，请在类定义中为每个版本的构造函数提供原型，并为每个重载版本提供单独的构造函数定义。
+<p>C++11: Overloaded Constructors and Delegating Constructors<br>
+A class’s constructors and member functions can also be overloaded.<br>
+Overloaded constructors typically allow objects to be initialized with different types and/or numbers of arguments.<br>
+To overload a constructor, provide in the class definition a prototype for each version of the constructor, and provide a separate constructor definition for each overloaded version.<br>
+This also applies to the class’s member functions.</p>
+<p>c++ 11:重载构造函数和委托构造函数<br>
+类的构造函数和成员函数也可以被重载。<br>
+重载构造函数通常允许使用不同类型和/或数量的参数初始化对象。<br>
+要重载构造函数，请在类定义中为每个版本的构造函数提供原型，并为每个重载版本提供单独的构造函数定义。<br>
 这也适用于类的成员函数。</p>
 </blockquote>
 <blockquote>
-<p>In Figs. 9.4–9.6, the Time constructor with three parameters had a
-default argument for each parameter. We could have defined that
-constructor instead as four overloaded constructors with the following
-prototypes: Time(); // default hour, minute and second to 0 Time( int );
-// initialize hour; default minute and second to 0 Time( int, int); //
-initialize hour and minute; default second to 0 Time( int, int, int );
-// initialize hour, minute and second C++11 now allows constructors to
-call other constructors in the same class. The calling constructor is
-known as a delegating constructor—it delegates its work to another
-constructor.</p>
+<p>In Figs. 9.4–9.6, the Time constructor with three parameters had a default argument for each parameter. We could have defined that constructor instead as four overloaded constructors with the following prototypes:<br>
+Time(); // default hour, minute and second to 0<br>
+Time( int ); // initialize hour; default minute and second to 0<br>
+Time( int, int); // initialize hour and minute; default second to 0<br>
+Time( int, int, int ); // initialize hour, minute and second<br>
+C++11 now allows constructors to call other constructors in the same class.<br>
+The calling constructor is known as a delegating constructor—it delegates its work to another constructor.</p>
 <p>在图9.4-9.6中，带有三个形参的Time构造函数对每个形参都有一个默认实参。我们可以将该构造函数定义为四个重载构造函数，并使用以下原型:</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Time</span>(); <span class="comment">// default hour, minute and second to 0</span></span><br><span class="line"><span class="built_in">Time</span>( <span class="type">int</span> ); <span class="comment">// initialize hour; default minute and second to 0</span></span><br><span class="line"><span class="built_in">Time</span>( <span class="type">int</span>, <span class="type">int</span>); <span class="comment">// initialize hour and minute; default second to 0</span></span><br><span class="line"><span class="built_in">Time</span>( <span class="type">int</span>, <span class="type">int</span>, <span class="type">int</span> ); <span class="comment">// initialize hour, minute and second</span></span><br></pre></td></tr></table></figure>
-<p>c++ 11现在允许构造函数调用同一类中的其他构造函数。
+<p>c++ 11现在允许构造函数调用同一类中的其他构造函数。<br>
 调用构造函数称为委托构造函数——它将自己的工作委托给另一个构造函数。</p>
-<p>The first three of the four Time constructors declared on the
-previous slide can delegate work to one with three int arguments,
-passing 0 as the default value for the extra parameters. Use a member
-initializer with the name of the class as follows:</p>
+<p>The first three of the four Time constructors declared on the previous slide can delegate work to one with three int arguments, passing 0 as the default value for the extra parameters.<br>
+Use a member initializer with the name of the class as follows:</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Time::<span class="built_in">Time</span>()</span><br><span class="line"><span class="built_in">Time</span>( <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span> ) <span class="comment">//delegate to Time( int, int, int )</span></span><br><span class="line">&#123;</span><br><span class="line">&#125; <span class="comment">// end constructor with no arguments</span></span><br><span class="line"></span><br><span class="line">Time::<span class="built_in">Time</span>( <span class="type">int</span> hour )</span><br><span class="line"><span class="built_in">Time</span>( hour, <span class="number">0</span>, <span class="number">0</span> ) <span class="comment">//delegate to Time( int, int, int )   </span></span><br><span class="line">&#123;</span><br><span class="line">&#125; <span class="comment">// end constructor with one argument</span></span><br><span class="line">Time::<span class="built_in">Time</span>( <span class="type">int</span> hour, <span class="type">int</span> minute )</span><br><span class="line"><span class="built_in">Time</span>( hour, minute, <span class="number">0</span> ) <span class="comment">//delegate to Time( int, int, int )</span></span><br><span class="line">&#123;</span><br><span class="line">&#125; <span class="comment">// end constructor with two arguments</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
-<p>The name of the destructor for a class is the tilde character (~)
-followed by the class name. Called implicitly when an object is
-destroyed. The destructor itself does not actually release the object’s
-memory—it performs termination housekeeping before the object’s memory
-is reclaimed, so the memory may be reused to hold new objects. Receives
-no parameters and returns no value. May not specify a return type—not
-even void. A class has one destructor. A destructor must be public. If
-you do not explicitly define a destructor, the compiler defines an
-“empty” destructor. 类的析构函数的名称是类名后面的波浪字符(~)。
-当对象被销毁时隐式调用。
-析构函数本身实际上并不释放对象的内存——它在回收对象的内存之前执行终止管理，因此可以重用内存来保存新对象。
-不接收参数也不返回值。 不能指定返回类型——甚至不能指定void。
-一个类有一个析构函数。 析构函数必须是公共的。
+<p>The name of the destructor for a class is the tilde character (~) followed by the class name.<br>
+Called implicitly when an object is destroyed.<br>
+The destructor itself does not actually release the object’s memory—it performs termination housekeeping before the object’s memory is reclaimed, so the memory may be reused to hold new objects.<br>
+Receives no parameters and returns no value.<br>
+May not specify a return type—not even void.<br>
+A class has one destructor.<br>
+A destructor must be public.<br>
+If you do not explicitly define a destructor, the compiler defines an “empty” destructor.<br>
+类的析构函数的名称是类名后面的波浪字符(~)。<br>
+当对象被销毁时隐式调用。<br>
+析构函数本身实际上并不释放对象的内存——它在回收对象的内存之前执行终止管理，因此可以重用内存来保存新对象。<br>
+不接收参数也不返回值。<br>
+不能指定返回类型——甚至不能指定void。<br>
+一个类有一个析构函数。<br>
+析构函数必须是公共的。<br>
 如果没有显式定义析构函数，编译器将定义一个“空”析构函数。</p>
 </blockquote>
 <blockquote>
-<p>Constructors and destructors are called implicitly. The order in
-which these function calls occur depends on the order in which execution
-enters and leaves the scopes where the objects are instantiated.
-Generally, destructor calls are made in the reverse order of the
-corresponding constructor calls The storage classes of objects can alter
-the order in which destructors are called. 隐式调用构造函数和析构函数。
-这些函数调用发生的顺序取决于执行进入和离开对象实例化的作用域的顺序。
-通常，析构函数调用的顺序与相应的构造函数调用的顺序相反
+<p>Constructors and destructors are called implicitly.<br>
+The order in which these function calls occur depends on the order in which execution enters and leaves the scopes where the objects are instantiated.<br>
+Generally, destructor calls are made in the reverse order of the corresponding constructor calls<br>
+The storage classes of objects can alter the order in which destructors are called.<br>
+隐式调用构造函数和析构函数。<br>
+这些函数调用发生的顺序取决于执行进入和离开对象实例化的作用域的顺序。<br>
+通常，析构函数调用的顺序与相应的构造函数调用的顺序相反<br>
 对象的存储类可以改变调用析构函数的顺序。</p>
 </blockquote>
 <blockquote>
-<p>Constructors and destructors are called implicitly. The order in
-which these function calls occur depends on the order in which execution
-enters and leaves the scopes where the objects are instantiated.
-Generally, destructor calls are made in the reverse order of the
-corresponding constructor calls The storage classes of objects can alter
-the order in which destructors are called. 隐式调用构造函数和析构函数。
-这些函数调用发生的顺序取决于执行进入和离开对象实例化的作用域的顺序。
-通常，析构函数调用的顺序与相应的构造函数调用的顺序相反
+<p>Constructors and destructors are called implicitly.<br>
+The order in which these function calls occur depends on the order in which execution enters and leaves the scopes where the objects are instantiated.<br>
+Generally, destructor calls are made in the reverse order of the corresponding constructor calls<br>
+The storage classes of objects can alter the order in which destructors are called.<br>
+隐式调用构造函数和析构函数。<br>
+这些函数调用发生的顺序取决于执行进入和离开对象实例化的作用域的顺序。<br>
+通常，析构函数调用的顺序与相应的构造函数调用的顺序相反<br>
 对象的存储类可以改变调用析构函数的顺序。</p>
 </blockquote>
 <blockquote>
-<p>Constructors and Destructors for Local Objects Constructors and
-destructors for local objects are called each time execution enters and
-leaves the scope of the object. Destructors are not called for local
-objects if the program terminates with a call to function exit or
-function abort. 局部对象的构造函数和析构函数
-每次执行进入和离开对象的作用域时，都会调用局部对象的构造函数和析构函数。
+<p>Constructors and Destructors for Local Objects<br>
+Constructors and destructors for local objects are called each time execution enters and leaves the scope of the object.<br>
+Destructors are not called for local objects if the program terminates with a call to function exit or function abort.<br>
+局部对象的构造函数和析构函数<br>
+每次执行进入和离开对象的作用域时，都会调用局部对象的构造函数和析构函数。<br>
 如果程序因调用函数exit或函数abort而终止，则不会调用局部对象的析构函数。</p>
 </blockquote>
 <blockquote>
-<p>A reference to an object is an alias for the name of the object and,
-hence, may be used on the left side of an assignment statement. In this
-context, the reference makes a perfectly acceptable lvalue that can
-receive a value. Unfortunately a public member function of a class can
-return a reference to a private data member of that class. Such a
-reference return actually makes a call to that member function an alias
-for the private data member! The function call can be used in any way
-that the private data member can be used, including as an lvalue in an
-assignment statement The same problem would occur if a pointer to the
-private data were to be returned by the function. If a function returns
-a reference that’s declared const, the reference is a non-modifiable
-lvalue and cannot be used to modify the data.
-对对象的引用是该对象名称的别名，因此可以在赋值语句的左侧使用。
-在这个上下文中，引用创建了一个完全可以接受的左值，它可以接收值。
-不幸的是，类的公共成员函数可以返回对该类私有数据成员的引用。
-这样的引用返回实际上使对该成员函数的调用成为私有数据成员的别名！
-函数调用可以以私有数据成员的任何方式使用，包括作为赋值语句中的左值
-如果函数返回指向私有数据的指针，也会出现同样的问题。
+<p>A reference to an object is an alias for the name of the object and, hence, may be used on the left side of an assignment statement.<br>
+In this context, the reference makes a perfectly acceptable lvalue that can receive a value.<br>
+Unfortunately a public member function of a class can return a reference to a private data member of that class.<br>
+Such a reference return actually makes a call to that member function an alias for the private data member!<br>
+The function call can be used in any way that the private data member can be used, including as an lvalue in an assignment statement<br>
+The same problem would occur if a pointer to the private data were to be returned by the function.<br>
+If a function returns a reference that’s declared const, the reference is a non-modifiable lvalue and cannot be used to modify the data.<br>
+对对象的引用是该对象名称的别名，因此可以在赋值语句的左侧使用。<br>
+在这个上下文中，引用创建了一个完全可以接受的左值，它可以接收值。<br>
+不幸的是，类的公共成员函数可以返回对该类私有数据成员的引用。<br>
+这样的引用返回实际上使对该成员函数的调用成为私有数据成员的别名！<br>
+函数调用可以以私有数据成员的任何方式使用，包括作为赋值语句中的左值<br>
+如果函数返回指向私有数据的指针，也会出现同样的问题。<br>
 如果函数返回声明为const的引用，则该引用是不可修改的左值，不能用于修改数据。</p>
 </blockquote>
 <blockquote>
-<p>The assignment operator (=) can be used to assign an object to
-another object of the same type. By default, such assignment is
-performed by memberwise assignment (also called copy assignment). Each
-data member of the object on the right of the assignment operator is
-assigned individually to the same data member in the object on the left
-of the assignment operator. [Caution: Memberwise assignment can cause
-serious problems when used with a class whose data members contain
-pointers to dynamically allocated memory; we discuss these problems in
-Chapter 10 and show how to deal with them.]
-赋值操作符(=)可用于将一个对象赋值给同一类型的另一个对象。
-默认情况下，这种赋值是通过成员赋值(也称为拷贝赋值)执行的。
-赋值操作符右侧对象的每个数据成员分别赋值给赋值操作符左侧对象中的相同数据成员。
+<p>The assignment operator (=) can be used to assign an object to another object of the same type.<br>
+By default, such assignment is performed by memberwise assignment (also called copy assignment).<br>
+Each data member of the object on the right of the assignment operator is assigned individually to the same data member in the object on the left of the assignment operator.<br>
+[Caution: Memberwise assignment can cause serious problems when used with a class whose data members contain pointers to dynamically allocated memory; we discuss these problems in Chapter 10 and show how to deal with them.]<br>
+赋值操作符(=)可用于将一个对象赋值给同一类型的另一个对象。<br>
+默认情况下，这种赋值是通过成员赋值(也称为拷贝赋值)执行的。<br>
+赋值操作符右侧对象的每个数据成员分别赋值给赋值操作符左侧对象中的相同数据成员。<br>
 注意:如果类的数据成员包含指向动态分配内存的指针，则按成员赋值可能会导致严重的问题。我们将在第10章讨论这些问题，并说明如何处理它们。</p>
 </blockquote>
 <blockquote>
-<p>Objects may be passed as function arguments and may be returned from
-functions. Such passing and returning is performed using pass-by-value
-by default—a copy of the object is passed or returned. C++ creates a new
-object and uses a copy constructor to copy the original object’s values
-into the new object. For each class, the compiler provides a default
-copy constructor that copies each member of the original object into the
-corresponding member of the new object. Copy constructors can cause
-serious problems when used with a class whose data members contain
-pointers to dynamically allocated memory. Chapter 10 discusses
-customized copy constructors.
-对象可以作为函数参数传递，也可以从函数返回。
-默认情况下，这种传递和返回是使用按值传递来执行的——传递或返回对象的副本。
-c++创建一个新对象，并使用复制构造函数将原始对象的值复制到新对象中。
-对于每个类，编译器提供默认的复制构造函数，将原始对象的每个成员复制到新对象的相应成员中。
-当将复制构造函数用于数据成员包含指向动态分配内存的指针的类时，可能会导致严重的问题。
+<p>Objects may be passed as function arguments and may be returned from functions.<br>
+Such passing and returning is performed using pass-by-value by default—a copy of the object is passed or returned.<br>
+C++ creates a new object and uses a copy constructor to copy the original object’s values into the new object.<br>
+For each class, the compiler provides a default copy constructor that copies each member of the original object into the corresponding member of the new object.<br>
+Copy constructors can cause serious problems when used with a class whose data members contain pointers to dynamically allocated memory.<br>
+Chapter 10 discusses customized copy constructors.<br>
+对象可以作为函数参数传递，也可以从函数返回。<br>
+默认情况下，这种传递和返回是使用按值传递来执行的——传递或返回对象的副本。<br>
+c++创建一个新对象，并使用复制构造函数将原始对象的值复制到新对象中。<br>
+对于每个类，编译器提供默认的复制构造函数，将原始对象的每个成员复制到新对象的相应成员中。<br>
+当将复制构造函数用于数据成员包含指向动态分配内存的指针的类时，可能会导致严重的问题。<br>
 第10章讨论自定义复制构造函数。</p>
 </blockquote>
 <blockquote>
-<p>C++ disallows member function calls for const objects unless the
-member functions themselves are also declared const. This is true even
-for get member functions that do not modify the object. This is also a
-key reason that we’ve declared as const all member-functions that do not
-modify the objects on which they’re called. A member function is
-specified as const both in its prototype by inserting the keyword const
-after the function’s parameter list and, in the case of the function
-definition, before the left brace that begins the function body.</p>
-<p>c++不允许对const对象调用成员函数，除非成员函数本身也声明为const。
-即使对于不修改对象的get成员函数也是如此。
-这也是我们将所有成员函数声明为const的一个关键原因，这些成员函数不会修改调用它们的对象。
+<p>C++ disallows member function calls for const objects unless the member functions themselves are also declared const.<br>
+This is true even for get member functions that do not modify the object.<br>
+This is also a key reason that we’ve declared as const all member-functions that do not modify the objects on which they’re called.<br>
+A member function is specified as const both in its prototype by inserting the keyword const after the function’s parameter list and, in the case of the function definition, before the left brace that begins the function body.</p>
+<p>c++不允许对const对象调用成员函数，除非成员函数本身也声明为const。<br>
+即使对于不修改对象的get成员函数也是如此。<br>
+这也是我们将所有成员函数声明为const的一个关键原因，这些成员函数不会修改调用它们的对象。<br>
 成员函数在原型中被指定为const，方法是在函数的形参列表之后插入关键字const，在函数定义中，在函数体开始的左大括号之前插入关键字const。</p>
 </blockquote>
 <blockquote>
-<p>A constructor must be allowed to modify an object so that the object
-can be initialized properly. A destructor must be able to perform its
-termination housekeeping chores before an object’s memory is reclaimed
-by the system. Attempting to declare a constructor or destructor const
-is a compilation error. The “constness” of a const object is enforced
-from the time the constructor completes initialization of the object
-until that object’s destructor is called.
-必须允许构造函数修改对象，以便正确初始化对象。
-析构函数必须能够在系统回收对象的内存之前执行其终止家务。
-试图声明构造函数或析构函数const是编译错误。
+<p>A constructor must be allowed to modify an object so that the object can be initialized properly.<br>
+A destructor must be able to perform its termination housekeeping chores before an object’s memory is reclaimed by the system.<br>
+Attempting to declare a constructor or destructor const is a compilation error.<br>
+The “constness” of a const object is enforced from the time the constructor completes initialization of the object until that object’s destructor is called.<br>
+必须允许构造函数修改对象，以便正确初始化对象。<br>
+析构函数必须能够在系统回收对象的内存之前执行其终止家务。<br>
+试图声明构造函数或析构函数const是编译错误。<br>
 从构造函数完成对象初始化到调用该对象的析构函数，const对象的“constness”被强制执行。</p>
 </blockquote>
 <blockquote>
-<p>What Happens When You Do Not Use the Member Initializer List? If a
-member object is not initialized through a member initializer, the
-member object’s default constructor will be called implicitly. Values,
-if any, established by the default constructor can be overridden by set
-functions. However, for complex initialization, this approach may
-require significant additional work and time.
-当不使用成员初始化列表时会发生什么?
-如果成员对象没有通过成员初始化器初始化，则将隐式调用成员对象的默认构造函数。
-默认构造函数建立的值(如果有)可以被set函数覆盖。
+<p>What Happens When You Do Not Use the Member Initializer List?<br>
+If a member object is not initialized through a member initializer, the member object’s default constructor will be called implicitly.<br>
+Values, if any, established by the default constructor can be overridden by set functions.<br>
+However, for complex initialization, this approach may require significant additional work and time.<br>
+当不使用成员初始化列表时会发生什么?<br>
+如果成员对象没有通过成员初始化器初始化，则将隐式调用成员对象的默认构造函数。<br>
+默认构造函数建立的值(如果有)可以被set函数覆盖。<br>
 然而，对于复杂的初始化，这种方法可能需要大量的额外工作和时间。</p>
 </blockquote>
 <blockquote>
-<p>A friend function of a class is a non-member function that has the
-right to access the public and non-public class members. Standalone
-functions, entire classes or member functions of other classes may be
-declared to be friends of another class.
-类的友元函数是具有访问公共和非公共类成员权限的非成员函数。
+<p>A friend function of a class is a non-member function that has the right to access the public and non-public class members.<br>
+Standalone functions, entire classes or member functions of other classes may be declared to be friends of another class.<br>
+类的友元函数是具有访问公共和非公共类成员权限的非成员函数。<br>
 可以将独立函数、整个类或其他类的成员函数声明为另一个类的友元。</p>
 </blockquote>
 <blockquote>
-<p>Declaring a friend To declare a function as a friend of a class,
-precede the function prototype in the class definition with keyword
-friend. To declare all member functions of class ClassTwo as friends of
-class ClassOne, place a declaration of the form friend class ClassTwo;
-in the definition of class ClassOne. Friendship is granted, not
-taken—for class B to be a friend of class A, class A must explicitly
-declare that class B is its friend. Friendship is not symmetric—if class
-A is a friend of class B, you cannot infer that class B is a friend of
-class A. Friendship is not transitive—if class A is a friend of class B
-and class B is a friend of class C, you cannot infer that class A is a
-friend of class C. 宣布成为朋友
-要将函数声明为类的友元，可以在类定义中的函数原型前面加上关键字friend。
-要将类ClassTwo的所有成员函数声明为类ClassOne的友元，请放置一个窗体声明
-朋友班班二; 在ClassOne类的定义中。
-友谊是授予的，而不是索取的——类B要成为类a的朋友，类a必须明确声明类B是它的朋友。
-友谊不是对称的——如果A类是B类的朋友，你就不能推断B类是A类的朋友。
+<p>Declaring a friend<br>
+To declare a function as a friend of a class, precede the function prototype in the class definition with keyword friend.<br>
+To declare all member functions of class ClassTwo as friends of class ClassOne, place a declaration of the form<br>
+friend class ClassTwo;<br>
+in the definition of class ClassOne.<br>
+Friendship is granted, not taken—for class B to be a friend of class A, class A must explicitly declare that class B is its friend.<br>
+Friendship is not symmetric—if class A is a friend of class B, you cannot infer that class B is a friend of class A.<br>
+Friendship is not transitive—if class A is a friend of class B and class B is a friend of class C, you cannot infer that class A is a friend of class C.<br>
+宣布成为朋友<br>
+要将函数声明为类的友元，可以在类定义中的函数原型前面加上关键字friend。<br>
+要将类ClassTwo的所有成员函数声明为类ClassOne的友元，请放置一个窗体声明<br>
+朋友班班二;<br>
+在ClassOne类的定义中。<br>
+友谊是授予的，而不是索取的——类B要成为类a的朋友，类a必须明确声明类B是它的朋友。<br>
+友谊不是对称的——如果A类是B类的朋友，你就不能推断B类是A类的朋友。<br>
 友谊是不可传递的——如果类A是类B的朋友，类B是类C的朋友，你不能推断类A是类C的朋友。</p>
 </blockquote>
 <blockquote>
-<p>Overloaded friend Functions It’s possible to specify overloaded
-functions as friends of a class. Each function intended to be a friend
-must be explicitly declared in the class definition as a friend of the
-class. 重载友元函数 可以将重载函数指定为类的友元。
+<p>Overloaded friend Functions<br>
+It’s possible to specify overloaded functions as friends of a class.<br>
+Each function intended to be a friend must be explicitly declared in the class definition as a friend of the class.<br>
+重载友元函数<br>
+可以将重载函数指定为类的友元。<br>
 每个想要成为友元的函数都必须在类定义中显式声明为类的友元。</p>
 </blockquote>
 <blockquote>
-<p>Every object has access to its own address through a pointer called
-this (a C++ keyword). The this pointer is not part of the object
-itself—i.e., the memory occupied by the this pointer is not reflected in
-the result of a sizeof operation on the object. Rather, the this pointer
-is passed (by the compiler) as an implicit argument to each of the
-object’s non-static member functions.
-每个对象都可以通过一个名为this的指针(c++关键字)访问自己的地址。
-this指针不是对象本身的一部分。，
-this指针占用的内存不会反映在对对象进行sizeof操作的结果中。
+<p>Every object has access to its own address through a pointer called this (a C++ keyword).<br>
+The this pointer is not part of the object itself—i.e., the memory occupied by the this pointer is not reflected in the result of a sizeof operation on the object.<br>
+Rather, the this pointer is passed (by the compiler) as an implicit argument to each of the object’s non-static member functions.<br>
+每个对象都可以通过一个名为this的指针(c++关键字)访问自己的地址。<br>
+this指针不是对象本身的一部分。， this指针占用的内存不会反映在对对象进行sizeof操作的结果中。<br>
 相反，this指针(由编译器)作为隐式参数传递给对象的每个非静态成员函数。</p>
 </blockquote>
 <blockquote>
-<p>Using the this Pointer to Avoid Naming Collisions Member functions
-use the this pointer implicitly (as we’ve done so far) or explicitly to
-reference an object’s data members and other member functions. A common
-explicit use of the this pointer is to avoid naming conflicts between a
-class’s data members and member-function parameters (or other local
-variables). 使用this指针避免命名冲突
-成员函数隐式或显式地使用this指针来引用对象的数据成员和其他成员函数。
+<p>Using the this Pointer to Avoid Naming Collisions<br>
+Member functions use the this pointer implicitly (as we’ve done so far) or explicitly to reference an object’s data members and other member functions.<br>
+A common explicit use of the this pointer is to avoid naming conflicts between a class’s data members and member-function parameters (or other local variables).<br>
+使用this指针避免命名冲突<br>
+成员函数隐式或显式地使用this指针来引用对象的数据成员和其他成员函数。<br>
 this指针的一个常见显式用法是避免类的数据成员和成员函数参数(或其他局部变量)之间的命名冲突。</p>
 </blockquote>
 <blockquote>
-<p>Type of the this Pointer The type of the this pointer depends on the
-type of the object and whether the member function in which this is used
-is declared const. For example, in a non-const member function of class
-Employee, the this pointer has the type Employee <em>. In a const member
-function, the this pointer has the type const Employee </em>.
-this指针的类型：
-this指针的类型取决于对象的类型以及使用this的成员函数是否声明为const。
-例如，在Employee类的非const成员函数中，this指针的类型是Employee
-<em>。在const成员函数中，this指针的类型为const Employee </em>。</p>
+<p>Type of the this Pointer<br>
+The type of the this pointer depends on the type of the object and whether the member function in which this is used is declared const.<br>
+For example, in a non-const member function of class Employee, the this pointer has the type Employee *. In a const member function, the this pointer has the type const Employee *.<br>
+this指针的类型：<br>
+this指针的类型取决于对象的类型以及使用this的成员函数是否声明为const。<br>
+例如，在Employee类的非const成员函数中，this指针的类型是Employee *。在const成员函数中，this指针的类型为const Employee *。</p>
 </blockquote>
 <p><strong>.圆点运算符具有比-&gt;箭头运算符更高的优先级</strong></p>
 <blockquote>
-<p>In certain cases, only one copy of a variable should be shared by all
-objects of a class. A static data member is used for these and other
-reasons. Such a variable represents “class-wide” information, i.e., data
-that is shared by all instances and is not specific to any one object of
-the class. 在某些情况下，一个类的所有对象只能共享一个变量的副本。
-静态数据成员用于这些和其他原因。
+<p>In certain cases, only one copy of a variable should be shared by all objects of a class.<br>
+A static data member is used for these and other reasons.<br>
+Such a variable represents “class-wide” information, i.e., data that is shared by all instances and is not specific to any one object of the class.<br>
+在某些情况下，一个类的所有对象只能共享一个变量的副本。<br>
+静态数据成员用于这些和其他原因。<br>
 这样的变量表示“类范围”信息，即由所有实例共享的数据，而不是特定于类的任何一个对象。</p>
 </blockquote>
 <blockquote>
-<p>Scope and Initialization of static Data Members static data members
-have class scope. A static data member must be initialized exactly once.
-Fundamental-type static data members are initialized by default to 0.
-Prior to C++11, a static const data member of int or enum type could be
-initialized in its declaration in the class definition and all other
-static data members had to be defined and initialized at global
-namespace scope (i.e., outside the body of the class definition). Again,
-C++11’s in-class initializers also allow you to initialize these
-variables where they’re declared in the class definition.
-静态数据成员的作用域和初始化 静态数据成员具有类作用域。
-静态数据成员必须只初始化一次。 基本类型静态数据成员默认初始化为0。
-在c++11之前，int或enum类型的静态const数据成员可以在类定义的声明中初始化，而所有其他静态数据成员必须在全局命名空间范围内定义和初始化(即，在类定义的主体之外)。
+<p>Scope and Initialization of static Data Members<br>
+static data members have class scope.<br>
+A static data member must be initialized exactly once.<br>
+Fundamental-type static data members are initialized by default to 0.<br>
+Prior to C++11, a static const data member of int or enum type could be initialized in its declaration in the class definition and all other static data members had to be defined and initialized at global namespace scope (i.e., outside the body of the class definition).<br>
+Again, C++11’s in-class initializers also allow you to initialize these variables where they’re declared in the class definition.<br>
+静态数据成员的作用域和初始化<br>
+静态数据成员具有类作用域。<br>
+静态数据成员必须只初始化一次。<br>
+基本类型静态数据成员默认初始化为0。<br>
+在c++11之前，int或enum类型的静态const数据成员可以在类定义的声明中初始化，而所有其他静态数据成员必须在全局命名空间范围内定义和初始化(即，在类定义的主体之外)。<br>
 同样，c++11的类内初始化器还允许您在类定义中声明这些变量的地方初始化它们。</p>
 </blockquote>
 <blockquote>
-<p>Accessing static Data Members A class’s private and protected static
-members are normally accessed through the class’s public member
-functions or friends. A class’s static members exist even when no
-objects of that class exist. To access a public static class member when
-no objects of the class exist, simply prefix the class name and the
-scope resolution operator (::) to the name of the data member. To access
-a private or protected static class member when no objects of the class
-exist, provide a public static member function and call the function by
-prefixing its name with the class name and scope resolution operator. A
-static member function is a service of the class, not of a specific
-object of the class. 访问静态数据成员：
-类的私有和受保护的静态成员通常通过类的公共成员函数或友元来访问。
-即使类的对象不存在，类的静态成员仍然存在。
-要在不存在类的对象时访问公共静态类成员，只需在数据成员的名称前加上类名和范围解析操作符(::)。
-若要在不存在类的对象时访问私有或受保护的静态类成员，请提供一个公共静态成员函数，并在函数名前加上类名和作用域解析操作符来调用该函数。
+<p>Accessing static Data Members<br>
+A class’s private and protected static members are normally accessed through the class’s public member functions or friends.<br>
+A class’s static members exist even when no objects of that class exist.<br>
+To access a public static class member when no objects of the class exist, simply prefix the class name and the scope resolution operator (::) to the name of the data member.<br>
+To access a private or protected static class member when no objects of the class exist, provide a public static member function and call the function by prefixing its name with the class name and scope resolution operator.<br>
+A static member function is a service of the class, not of a specific object of the class.<br>
+访问静态数据成员：<br>
+类的私有和受保护的静态成员通常通过类的公共成员函数或友元来访问。<br>
+即使类的对象不存在，类的静态成员仍然存在。<br>
+要在不存在类的对象时访问公共静态类成员，只需在数据成员的名称前加上类名和范围解析操作符(::)。<br>
+若要在不存在类的对象时访问私有或受保护的静态类成员，请提供一个公共静态成员函数，并在函数名前加上类名和作用域解析操作符来调用该函数。<br>
 静态成员函数是类的服务，而不是类的特定对象的服务。</p>
-<p>局部变量在他们定义的作用域结束时被销毁：
-static成员函数没有this指针，因为static数据成员和函数都是独立于对象存在的
-将static成员函数定义为const是一个编译错误
-因为static函数需要对数据进行修改</p>
+<p>局部变量在他们定义的作用域结束时被销毁：<br>
+static成员函数没有this指针，因为static数据成员和函数都是独立于对象存在的<br>
+将static成员函数定义为const是一个编译错误 因为static函数需要对数据进行修改</p>
 </blockquote>
 </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E4%B9%9D%E7%AB%A0/">http://example.com/2024/06/09/CPP复习 第九章/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="https://www.horosama.com/api/image_all/anime/1080p/pc/f0F03b5c42d43DDd976E63d49804062c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E5%8D%81%E7%AB%A0/" title="CPP复习 第十章"><img class="cover" src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202408110110536.jpg" data-original="https://www.horosama.com/api/image_all/anime/1080p/pc/EaE495A7102C3De491e6bEF9909fc56B.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CPP复习 第十章</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/09/CPP%E5%A4%8D%E4%B9%A0%20%E7%AC%AC%E4%B8%83%E7%AB%A0/" title="CPP复习 第七章"><img class="cover" src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202408110110536.jpg" data-original="https://npm.elemecdn.com/ushio-api-img-moe@5.0.18/img_184_1600x945_71.9835968017578_null_normal.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CPP复习 第七章</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cpp%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%B9%9D%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">CPP复习 第九章</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
