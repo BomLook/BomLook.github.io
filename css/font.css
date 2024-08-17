@@ -1,0 +1,8 @@
+@font-face{
+    font-family: 'Fira code';
+    font-display: swap;
+    src: url('../font/FiraCode-Medium.ttf') format("truetype");
+}
+body {
+    font-family: 'Fira code';
+}
