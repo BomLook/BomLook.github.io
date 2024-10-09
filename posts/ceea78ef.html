@@ -1,9 +1,17 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>lab整理 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="lab整理 刚开始上手确实很懵逼，渐渐搞懂了。 lab00 只需要直接返回2024即可。 def twenty_twenty_four():    &quot;&quot;&quot;Come up with the most creative expression that evaluates to 2024    using only numbers and the +, *, and - o">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>lab整理 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="lab整理
+ 刚开始上手确实很懵逼，渐渐搞懂了。
+ lab00
+ 只需要直接返回2024即可。
+ def twenty_twenty_four():    &quot;&quot;&quot;Come up with the most creative expression that evaluates to 2024    using only numbers and the +, *, and">
 <meta property="og:type" content="article">
 <meta property="og:title" content="lab整理">
 <meta property="og:url" content="https://www.heavenhold.cn/posts/ceea78ef.html">
 <meta property="og:site_name" content="Heavenhold">
-<meta property="og:description" content="lab整理 刚开始上手确实很懵逼，渐渐搞懂了。 lab00 只需要直接返回2024即可。 def twenty_twenty_four():    &quot;&quot;&quot;Come up with the most creative expression that evaluates to 2024    using only numbers and the +, *, and - o">
+<meta property="og:description" content="lab整理
+ 刚开始上手确实很懵逼，渐渐搞懂了。
+ lab00
+ 只需要直接返回2024即可。
+ def twenty_twenty_four():    &quot;&quot;&quot;Come up with the most creative expression that evaluates to 2024    using only numbers and the +, *, and">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202410072125538.webp">
 <meta property="article:published_time" content="2024-10-08T12:08:00.000Z">
@@ -187,123 +195,158 @@
 <h3 id="总结">总结</h3>
 <p>简单总结一下：</p>
 <ul>
-<li><code>pow(x,y)</code>：表示$x^y$。</li>
+<li><code>pow(x,y)</code>：表示<span class="math inline">\(x^y\)</span>。</li>
 <li><code>middle</code>这个比较有意思，直接返回表达式。在python中<code>max</code>函数可以不止两个参数。</li>
 </ul>
 <h2 id="lab02">lab02</h2>
 <p>有趣，了解了一下闭包的概念。</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> gcd</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">composite_identity</span>(<span class="params">f, g</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return a function with one parameter x that returns True if f(g(x)) is</span></span><br><span class="line"><span class="string">    equal to g(f(x)). You can assume the result of g(x) is a valid input for f</span></span><br><span class="line"><span class="string">    and vice versa.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; add_one = lambda x: x + 1        # adds one to x</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; square = lambda x: x**2          # squares x [returns x^2]</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; b1 = composite_identity(square, add_one)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; b1(0)                            # (0 + 1) ** 2 == 0 ** 2 + 1</span></span><br><span class="line"><span class="string">    True</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; b1(4)                            # (4 + 1) ** 2 != 4 ** 2 + 1</span></span><br><span class="line"><span class="string">    False</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> x: f(g(x)) == g(f(x))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_digits</span>(<span class="params">y</span>):</span><br><span class="line">    <span class="string">"""Return the sum of the digits of non-negative integer y."""</span></span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> y &gt; <span class="number">0</span>:</span><br><span class="line">        total, y = total + y % <span class="number">10</span>, y // <span class="number">10</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_prime</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="string">"""Return whether positive integer n is prime."""</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    k = <span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> k &lt; n:</span><br><span class="line">        <span class="keyword">if</span> n % k == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count_cond</span>(<span class="params">condition</span>):</span><br><span class="line">    <span class="string">"""Returns a function with one parameter N that counts all the numbers from</span></span><br><span class="line"><span class="string">    1 to N that satisfy the two-argument predicate function Condition, where</span></span><br><span class="line"><span class="string">    the first argument for Condition is N and the second argument is the</span></span><br><span class="line"><span class="string">    number from 1 to N.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_fives = count_cond(lambda n, i: sum_digits(n * i) == 5)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_fives(10)   # 50 (10 * 5)</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_fives(50)   # 50 (50 * 1), 500 (50 * 10), 1400 (50 * 28), 2300 (50 * 46)</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; is_i_prime = lambda n, i: is_prime(i) # need to pass 2-argument function into count_cond</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_primes = count_cond(is_i_prime)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_primes(2)    # 2</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_primes(3)    # 2, 3</span></span><br><span class="line"><span class="string">    2</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_primes(4)    # 2, 3</span></span><br><span class="line"><span class="string">    2</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_primes(5)    # 2, 3, 5</span></span><br><span class="line"><span class="string">    3</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; count_primes(20)   # 2, 3, 5, 7, 11, 13, 17, 19</span></span><br><span class="line"><span class="string">    8</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="string">"*** YOUR CODE HERE ***"</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">counter</span>(<span class="params">n</span>):</span><br><span class="line">        i = <span class="number">1</span></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt;= n:</span><br><span class="line">            <span class="keyword">if</span>(condition(n, i)):</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line">    <span class="keyword">return</span> counter</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">multiple</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="string">"""Return the smallest number n that is a multiple of both a and b.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; multiple(3, 4)</span></span><br><span class="line"><span class="string">    12</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; multiple(14, 21)</span></span><br><span class="line"><span class="string">    42</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="string">"*** YOUR CODE HERE ***"</span></span><br><span class="line">    <span class="keyword">return</span> a * b // gcd(a, b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cycle</span>(<span class="params">f1, f2, f3</span>):</span><br><span class="line">    <span class="string">"""Returns a function that is itself a higher-order function.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; def add1(x):</span></span><br><span class="line"><span class="string">    ...     return x + 1</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; def times2(x):</span></span><br><span class="line"><span class="string">    ...     return x * 2</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; def add3(x):</span></span><br><span class="line"><span class="string">    ...     return x + 3</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; my_cycle = cycle(add1, times2, add3)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; identity = my_cycle(0)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; identity(5)</span></span><br><span class="line"><span class="string">    5</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; add_one_then_double = my_cycle(2)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; add_one_then_double(1)</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; do_all_functions = my_cycle(3)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; do_all_functions(2)</span></span><br><span class="line"><span class="string">    9</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; do_more_than_a_cycle = my_cycle(4)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; do_more_than_a_cycle(2)</span></span><br><span class="line"><span class="string">    10</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; do_two_cycles = my_cycle(6)</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; do_two_cycles(1)</span></span><br><span class="line"><span class="string">    19</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">g</span>(<span class="params">n</span>):</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">h</span>(<span class="params">x</span>):</span><br><span class="line">            <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> x</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> cycle(f2, f3, f1)(n - <span class="number">1</span>)(f1(x))</span><br><span class="line">        <span class="keyword">return</span> h</span><br><span class="line">    <span class="keyword">return</span> g</span><br></pre></td></tr></tbody></table></figure>
-<h3 id="总结-2">总结</h3>
+<h3 id="总结-1">总结</h3>
 <ul>
-<li>
-<p>解释一下最后的<code>cycle</code>：</p>
+<li><p>解释一下最后的<code>cycle</code>：</p>
 <blockquote>
-<p>这段代码实现了一个 <strong>高阶函数</strong>，它可以按照指定的次数，依次调用三个函数 <code>f1</code>、<code>f2</code> 和 <code>f3</code>，形成一个“函数循环”。具体来说，它通过递归来实现这个循环，每次调用时，将函数的顺序轮换，并逐步减少剩余的执行次数。我们来逐步分析这个递归结构：</p>
+<p>这段代码实现了一个
+<strong>高阶函数</strong>，它可以按照指定的次数，依次调用三个函数
+<code>f1</code>、<code>f2</code> 和
+<code>f3</code>，形成一个“函数循环”。具体来说，它通过递归来实现这个循环，每次调用时，将函数的顺序轮换，并逐步减少剩余的执行次数。我们来逐步分析这个递归结构：</p>
 <h3 id="函数结构">函数结构</h3>
-<ol>
-<li>
-<p><strong><code>cycle(f1, f2, f3)</code></strong>:</p>
+<ol type="1">
+<li><strong><code>cycle(f1, f2, f3)</code></strong>:
 <ul>
-<li><code>cycle</code> 是最外层函数，它接受三个单参数函数 <code>f1</code>, <code>f2</code>, 和 <code>f3</code> 作为输入。</li>
-<li>它返回一个函数 <code>g(n)</code>，其中 <code>n</code> 表示将依次执行 <code>f1</code>, <code>f2</code>, <code>f3</code> 几次的组合操作。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>g(n)</code></strong>:</p>
+<li><code>cycle</code> 是最外层函数，它接受三个单参数函数
+<code>f1</code>, <code>f2</code>, 和 <code>f3</code> 作为输入。</li>
+<li>它返回一个函数 <code>g(n)</code>，其中 <code>n</code> 表示将依次执行
+<code>f1</code>, <code>f2</code>, <code>f3</code> 几次的组合操作。</li>
+</ul></li>
+<li><strong><code>g(n)</code></strong>:
 <ul>
-<li><code>g</code> 是一个函数，接受一个参数 <code>n</code>。<code>n</code> 表示在输入上要进行几次函数的组合调用。</li>
-<li>它返回一个函数 <code>h(x)</code>，其中 <code>x</code> 是对哪个数执行函数的组合。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>h(x)</code></strong>:</p>
+<li><code>g</code> 是一个函数，接受一个参数
+<code>n</code>。<code>n</code>
+表示在输入上要进行几次函数的组合调用。</li>
+<li>它返回一个函数 <code>h(x)</code>，其中 <code>x</code>
+是对哪个数执行函数的组合。</li>
+</ul></li>
+<li><strong><code>h(x)</code></strong>:
 <ul>
-<li><code>h</code> 是最终的函数，它接受参数 <code>x</code>，并在此参数上按照 <code>f1</code>, <code>f2</code>, <code>f3</code> 的顺序执行操作。</li>
+<li><code>h</code> 是最终的函数，它接受参数
+<code>x</code>，并在此参数上按照 <code>f1</code>, <code>f2</code>,
+<code>f3</code> 的顺序执行操作。</li>
 <li>递归通过 <code>n</code> 来决定执行多少次。</li>
-</ul>
-</li>
+</ul></li>
 </ol>
 <h3 id="递归逻辑分析">递归逻辑分析</h3>
 <p>让我们特别关注递归的部分：</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">h</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> cycle(f2, f3, f1)(n - <span class="number">1</span>)(f1(x))</span><br></pre></td></tr></tbody></table></figure>
-<p>这个函数 <code>h(x)</code> 是用来在输入 <code>x</code> 上应用函数组合的。</p>
+<p>这个函数 <code>h(x)</code> 是用来在输入 <code>x</code>
+上应用函数组合的。</p>
 <ul>
-<li>
-<p><strong><code>if n == 0:</code></strong><br>
-当 <code>n == 0</code> 时，表示没有函数要执行了，因此 <code>h(x)</code> 直接返回 <code>x</code>，即输入什么输出什么。这是递归的基线条件，防止无限递归。</p>
-</li>
-<li>
-<p><strong>递归的else部分：</strong></p>
+<li><p><strong><code>if n == 0:</code></strong><br>
+当 <code>n == 0</code> 时，表示没有函数要执行了，因此 <code>h(x)</code>
+直接返回
+<code>x</code>，即输入什么输出什么。这是递归的基线条件，防止无限递归。</p></li>
+<li><p><strong>递归的else部分：</strong></p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> cycle(f2, f3, f1)(n - <span class="number">1</span>)(f1(x))</span><br></pre></td></tr></tbody></table></figure>
 <p>这行代码非常关键。让我们逐步理解：</p>
 <ul>
-<li><code>f1(x)</code>：首先调用 <code>f1</code>，对 <code>x</code> 执行函数 <code>f1</code> 的操作。这个结果将作为递归调用的输入。</li>
-<li><code>cycle(f2, f3, f1)</code>：然后调用 <code>cycle</code> 函数，传入 <code>f2, f3, f1</code>，也就是说，下一轮的函数顺序变成了 <code>f2, f3, f1</code>，实现了函数的“轮换”。</li>
-<li><code>(n - 1)</code>：将剩余执行次数 <code>n</code> 减 1，递归调用时，会在 <code>n-1</code> 次的基础上继续。</li>
-<li>最后，通过递归调用 <code>h(x)</code>，对 <code>x</code>（已经经过 <code>f1</code> 处理的值）继续调用下一轮的函数组合。</li>
-</ul>
-</li>
+<li><code>f1(x)</code>：首先调用 <code>f1</code>，对 <code>x</code>
+执行函数 <code>f1</code> 的操作。这个结果将作为递归调用的输入。</li>
+<li><code>cycle(f2, f3, f1)</code>：然后调用 <code>cycle</code>
+函数，传入 <code>f2, f3, f1</code>，也就是说，下一轮的函数顺序变成了
+<code>f2, f3, f1</code>，实现了函数的“轮换”。</li>
+<li><code>(n - 1)</code>：将剩余执行次数 <code>n</code> 减
+1，递归调用时，会在 <code>n-1</code> 次的基础上继续。</li>
+<li>最后，通过递归调用 <code>h(x)</code>，对 <code>x</code>（已经经过
+<code>f1</code> 处理的值）继续调用下一轮的函数组合。</li>
+</ul></li>
 </ul>
 <h3 id="例子解析">例子解析</h3>
 <p>让我们通过一个例子来理解：</p>
-<h4 id="my-cycle-cycle-add1-times2-add3"><code>my_cycle = cycle(add1, times2, add3)</code></h4>
-<p>创建了一个循环函数 <code>my_cycle</code>，其中 <code>add1</code>, <code>times2</code>, <code>add3</code> 按顺序执行。</p>
-<h4 id="my-cycle-3-2-的计算过程："><code>my_cycle(3)(2)</code> 的计算过程：</h4>
-<ol>
-<li><code>n = 3</code>，调用 <code>add1(2)</code>，结果是 <code>3</code>。</li>
+<h4 id="my_cycle-cycleadd1-times2-add3"><code>my_cycle = cycle(add1, times2, add3)</code></h4>
+<p>创建了一个循环函数 <code>my_cycle</code>，其中 <code>add1</code>,
+<code>times2</code>, <code>add3</code> 按顺序执行。</p>
+<h4 id="my_cycle32-的计算过程"><code>my_cycle(3)(2)</code>
+的计算过程：</h4>
+<ol type="1">
+<li><code>n = 3</code>，调用 <code>add1(2)</code>，结果是
+<code>3</code>。</li>
 <li>递归调用 <code>cycle(times2, add3, add1)(2)(3)</code>：
 <ul>
-<li><code>n = 2</code>，调用 <code>times2(3)</code>，结果是 <code>6</code>。</li>
-</ul>
-</li>
+<li><code>n = 2</code>，调用 <code>times2(3)</code>，结果是
+<code>6</code>。</li>
+</ul></li>
 <li>递归调用 <code>cycle(add3, add1, times2)(1)(6)</code>：
 <ul>
-<li><code>n = 1</code>，调用 <code>add3(6)</code>，结果是 <code>9</code>。</li>
-</ul>
-</li>
+<li><code>n = 1</code>，调用 <code>add3(6)</code>，结果是
+<code>9</code>。</li>
+</ul></li>
 <li>递归调用 <code>cycle(add1, times2, add3)(0)(9)</code>：
 <ul>
 <li><code>n = 0</code>，直接返回 <code>9</code>。</li>
-</ul>
-</li>
+</ul></li>
 </ol>
-<p>最终，结果为 <code>9</code>，这表明三个函数 <code>add1 -&gt; times2 -&gt; add3</code> 被依次应用在 <code>2</code> 上，得到的最终结果是 <code>9</code>。</p>
-<h3 id="总结-3">总结</h3>
+<p>最终，结果为 <code>9</code>，这表明三个函数
+<code>add1 -&gt; times2 -&gt; add3</code> 被依次应用在 <code>2</code>
+上，得到的最终结果是 <code>9</code>。</p>
+<h3 id="总结-2">总结</h3>
 <p>递归部分的关键点在于：</p>
-<ol>
-<li>按照函数顺序 <code>f1 -&gt; f2 -&gt; f3</code> 应用它们，但顺序会在递归调用中每次向前轮换。</li>
-<li>递归基线是 <code>n == 0</code>，防止无限递归，并确保函数最终返回结果。</li>
+<ol type="1">
+<li>按照函数顺序 <code>f1 -&gt; f2 -&gt; f3</code>
+应用它们，但顺序会在递归调用中每次向前轮换。</li>
+<li>递归基线是
+<code>n == 0</code>，防止无限递归，并确保函数最终返回结果。</li>
 </ol>
-</blockquote>
-</li>
-<li>
-<p>闭包的解释</p>
+</blockquote></li>
+<li><p>闭包的解释</p>
 <blockquote>
-<p><code>counter</code> 能够捕获变量 <code>n</code> 的原因在于 <strong>闭包</strong> 的概念。Python 支持闭包，允许内部函数（如 <code>counter</code>）捕获并使用外部函数作用域中的变量（如 <code>n</code>）。</p>
+<p><code>counter</code> 能够捕获变量 <code>n</code> 的原因在于
+<strong>闭包</strong> 的概念。Python 支持闭包，允许内部函数（如
+<code>counter</code>）捕获并使用外部函数作用域中的变量（如
+<code>n</code>）。</p>
 <h3 id="闭包的解释">闭包的解释</h3>
-<p>在 Python 中，当一个函数定义在另一个函数的内部时，内部函数会记住它所处的外部函数中的变量，即使外部函数已经返回，内部函数仍然可以访问这些变量。</p>
+<p>在 Python
+中，当一个函数定义在另一个函数的内部时，内部函数会记住它所处的外部函数中的变量，即使外部函数已经返回，内部函数仍然可以访问这些变量。</p>
 <p>在你的代码中：</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">count_cond</span>(<span class="params">condition</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">counter</span>(<span class="params">n</span>):</span><br><span class="line">        i = <span class="number">1</span></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt;= n:</span><br><span class="line">            <span class="keyword">if</span> condition(n, i):</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line">    <span class="keyword">return</span> counter</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>count_cond</code> 函数返回 <code>counter</code> 函数。</li>
-<li>当 <code>count_cond</code> 被调用时，比如 <code>count_fives = count_cond(lambda n, i: sum_digits(n * i) == 5)</code>，Python 创建并返回了 <code>counter</code> 函数。</li>
-<li>尽管 <code>count_cond</code> 函数结束并返回了 <code>counter</code>，但 <code>counter</code> 仍然能够访问它在调用时的 <code>n</code> 参数，这是因为 <code>counter</code> 形成了一个闭包。</li>
+<li>当 <code>count_cond</code> 被调用时，比如
+<code>count_fives = count_cond(lambda n, i: sum_digits(n * i) == 5)</code>，Python
+创建并返回了 <code>counter</code> 函数。</li>
+<li>尽管 <code>count_cond</code> 函数结束并返回了
+<code>counter</code>，但 <code>counter</code> 仍然能够访问它在调用时的
+<code>n</code> 参数，这是因为 <code>counter</code> 形成了一个闭包。</li>
 </ul>
-<h3 id="为什么-counter-能捕获-n">为什么 <code>counter</code> 能捕获 <code>n</code></h3>
-<p>当你调用 <code>count_fives(10)</code> 时，<code>counter(10)</code> 被调用：</p>
+<h3 id="为什么-counter-能捕获-n">为什么 <code>counter</code> 能捕获
+<code>n</code></h3>
+<p>当你调用 <code>count_fives(10)</code> 时，<code>counter(10)</code>
+被调用：</p>
 <ul>
-<li><code>n = 10</code> 被传递给 <code>counter</code> 函数，<code>n</code> 成为 <code>counter</code> 的局部变量。</li>
-<li>在 <code>counter</code> 中，每次调用 <code>condition(n, i)</code>，<code>n</code> 这个局部变量会传递给 <code>condition</code>。</li>
+<li><code>n = 10</code> 被传递给 <code>counter</code>
+函数，<code>n</code> 成为 <code>counter</code> 的局部变量。</li>
+<li>在 <code>counter</code> 中，每次调用
+<code>condition(n, i)</code>，<code>n</code> 这个局部变量会传递给
+<code>condition</code>。</li>
 </ul>
-<p>由于 <code>n</code> 是 <code>counter</code> 函数的参数，Python 将它视为 <code>counter</code> 的局部变量，因此它可以被随时捕获和使用。也就是说，<code>counter</code> 捕获并使用了传递给它的 <code>n</code>，这就是为什么 <code>n</code> 在内部函数中是可见并可用的。</p>
+<p>由于 <code>n</code> 是 <code>counter</code> 函数的参数，Python
+将它视为 <code>counter</code>
+的局部变量，因此它可以被随时捕获和使用。也就是说，<code>counter</code>
+捕获并使用了传递给它的 <code>n</code>，这就是为什么 <code>n</code>
+在内部函数中是可见并可用的。</p>
 <h3 id="闭包示例">闭包示例</h3>
 <p>一个简单的闭包示例：</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">outer_function</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner_function</span>(<span class="params">y</span>):</span><br><span class="line">        <span class="keyword">return</span> x + y</span><br><span class="line">    <span class="keyword">return</span> inner_function</span><br><span class="line"></span><br><span class="line">closure = outer_function(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(closure(<span class="number">10</span>))  <span class="comment"># 输出 15</span></span><br></pre></td></tr></tbody></table></figure>
-<p>在这个例子中，<code>outer_function</code> 返回了 <code>inner_function</code>，并且 <code>inner_function</code> 捕获了 <code>x</code>，即使 <code>outer_function</code> 已经结束。<code>closure(10)</code> 调用时，<code>inner_function</code> 仍然能够访问并使用 <code>x = 5</code>。类似地，在你的代码中，<code>counter</code> 捕获并使用了传入的 <code>n</code>。</p>
-</blockquote>
-</li>
+<p>在这个例子中，<code>outer_function</code> 返回了
+<code>inner_function</code>，并且 <code>inner_function</code> 捕获了
+<code>x</code>，即使 <code>outer_function</code>
+已经结束。<code>closure(10)</code> 调用时，<code>inner_function</code>
+仍然能够访问并使用
+<code>x = 5</code>。类似地，在你的代码中，<code>counter</code>
+捕获并使用了传入的 <code>n</code>。</p>
+</blockquote></li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn/posts/ceea78ef.html">https://www.heavenhold.cn/posts/ceea78ef.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.heavenhold.cn" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Computer-Science/">Computer Science</a><a class="post-meta__tags" href="/tags/CS61A/">CS61A</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202410072125538.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/8c0262e2.html" title="20241008"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202408111410689.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">20241008</div></div></a></div><div class="next-post pull-right"><a href="/posts/dd3f69da.html" title="hw整理"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202410072127465.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hw整理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/af5eaed1.html" title="CS61A Summary"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202410072124299.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-08</div><div class="title">CS61A Summary</div></div></a></div><div><a href="/posts/dd3f69da.html" title="hw整理"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202410072127465.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-08</div><div class="title">hw整理</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lab%E6%95%B4%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">lab整理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lab00"><span class="toc-number">1.1.</span> <span class="toc-text">lab00</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lab01"><span class="toc-number">1.2.</span> <span class="toc-text">lab01</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.2.1.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lab02"><span class="toc-number">1.3.</span> <span class="toc-text">lab02</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.2.</span> <span class="toc-text">函数结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90"><span class="toc-number">1.3.3.</span> <span class="toc-text">递归逻辑分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%E8%A7%A3%E6%9E%90"><span class="toc-number">1.3.4.</span> <span class="toc-text">例子解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#my-cycle-cycle-add1-times2-add3"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">my_cycle = cycle(add1, times2, add3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#my-cycle-3-2-%E7%9A%84%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">my_cycle(3)(2) 的计算过程：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-3"><span class="toc-number">1.3.5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E7%9A%84%E8%A7%A3%E9%87%8A"><span class="toc-number">1.3.6.</span> <span class="toc-text">闭包的解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-counter-%E8%83%BD%E6%8D%95%E8%8E%B7-n"><span class="toc-number">1.3.7.</span> <span class="toc-text">为什么 counter 能捕获 n</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.3.8.</span> <span class="toc-text">闭包示例</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn/posts/ceea78ef.html">https://www.heavenhold.cn/posts/ceea78ef.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.heavenhold.cn" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Computer-Science/">Computer Science</a><a class="post-meta__tags" href="/tags/CS61A/">CS61A</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202410072125538.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/8c0262e2.html" title="20241008"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202410072129189.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">20241008</div></div></a></div><div class="next-post pull-right"><a href="/posts/dd3f69da.html" title="hw整理"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202410072127465.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hw整理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/af5eaed1.html" title="CS61A Summary"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202410072124299.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-08</div><div class="title">CS61A Summary</div></div></a></div><div><a href="/posts/dd3f69da.html" title="hw整理"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202410072127465.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-08</div><div class="title">hw整理</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lab%E6%95%B4%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">lab整理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lab00"><span class="toc-number">1.1.</span> <span class="toc-text">lab00</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lab01"><span class="toc-number">1.2.</span> <span class="toc-text">lab01</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.2.1.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lab02"><span class="toc-number">1.3.</span> <span class="toc-text">lab02</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.2.</span> <span class="toc-text">函数结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E9%80%BB%E8%BE%91%E5%88%86%E6%9E%90"><span class="toc-number">1.3.3.</span> <span class="toc-text">递归逻辑分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%E8%A7%A3%E6%9E%90"><span class="toc-number">1.3.4.</span> <span class="toc-text">例子解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#my_cycle-cycleadd1-times2-add3"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">my_cycle = cycle(add1, times2, add3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#my_cycle32-%E7%9A%84%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">my_cycle(3)(2)
+的计算过程：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-2"><span class="toc-number">1.3.5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E7%9A%84%E8%A7%A3%E9%87%8A"><span class="toc-number">1.3.6.</span> <span class="toc-text">闭包的解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-counter-%E8%83%BD%E6%8D%95%E8%8E%B7-n"><span class="toc-number">1.3.7.</span> <span class="toc-text">为什么 counter 能捕获
+n</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.3.8.</span> <span class="toc-text">闭包示例</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
