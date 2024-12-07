@@ -1,29 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SCUT2008 Data Structure | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="SCUT2008
- 由于部分内容与 SCUT2007 重复，所以部分题目省略。
- 1. Select the correct
- choice. 
- 
- Which is the realization of a data type as a software component: ( a
- )
- 
- 
- An abstract data type (B) A real data type
- A t">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SCUT2008 Data Structure | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="SCUT2008 由于部分内容与 SCUT2007 重复，所以部分题目省略。 **1. Select the correct choice. ** (4) Which is the realization of a data type as a software component: ( a ) (A) An abstract data type (B) A real data type © A">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SCUT2008 Data Structure">
 <meta property="og:url" content="https://www.heavenhold.cn/posts/2257fed7.html">
 <meta property="og:site_name" content="Heavenhold">
-<meta property="og:description" content="SCUT2008
- 由于部分内容与 SCUT2007 重复，所以部分题目省略。
- 1. Select the correct
- choice. 
- 
- Which is the realization of a data type as a software component: ( a
- )
- 
- 
- An abstract data type (B) A real data type
- A t">
+<meta property="og:description" content="SCUT2008 由于部分内容与 SCUT2007 重复，所以部分题目省略。 **1. Select the correct choice. ** (4) Which is the realization of a data type as a software component: ( a ) (A) An abstract data type (B) A real data type © A">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419480.webp">
 <meta property="article:published_time" content="2024-12-03T06:35:00.000Z">
@@ -196,330 +176,163 @@
     })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiperstyle.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css">
 <style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
   white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202408111411832.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">178</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419480.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Heavenhold"><span class="site-name">Heavenhold</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SCUT2008 Data Structure</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-03T06:35:00.000Z" title="发表于 2024-12-03 14:35:00">2024-12-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-03T06:51:49.094Z" title="更新于 2024-12-03 14:51:49">2024-12-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">期末复习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SCUT2008 Data Structure"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="scut2008">SCUT2008</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202408111411832.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">184</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">33</div></a></div><hr class="custom-hr"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419480.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Heavenhold"><span class="site-name">Heavenhold</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SCUT2008 Data Structure</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-03T06:35:00.000Z" title="发表于 2024-12-03 14:35:00">2024-12-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-03T06:51:49.094Z" title="更新于 2024-12-03 14:51:49">2024-12-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">期末复习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SCUT2008 Data Structure"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="SCUT2008">SCUT2008</h1>
 <p>由于部分内容与 SCUT2007 重复，所以部分题目省略。</p>
-<h2 id="select-the-correct-choice."><strong>1. Select the correct
-choice. </strong></h2>
-<ol start="4" type="1">
-<li>Which is the realization of a data type as a software component: ( a
-)</li>
-</ol>
-<ol type="A">
-<li><p>An abstract data type (B) A real data type</p></li>
-<li><p>A type (D)A data structure</p></li>
-</ol>
+<h2 id="1-Select-the-correct-choice">**1. Select the correct choice. **</h2>
+<p>(4) Which is the realization of a data type as a software component: ( a )</p>
+<p>(A) An abstract data type (B) A real data type</p>
+<p>© A type (D)A data structure</p>
 <p><strong>答案解释</strong>：</p>
 <ul>
-<li><strong>选项 A</strong>：抽象数据类型（Abstract Data Type，简称
-ADT）是对数据类型从逻辑层面进行定义和描述，它规定了数据的操作以及这些操作所遵循的规则等，但不涉及具体的实现细节，是一种将数据类型以软件组件形式进行抽象表示的概念，通过接口等方式对外呈现其功能，便于在软件设计中实现模块化和信息隐藏等，所以它体现了数据类型作为软件组件的一种实现方式，本题选
-A。</li>
-<li><strong>选项
-B</strong>：“真实数据类型”并不是一个标准的专业术语用于描述数据类型在软件组件方面的体现，不符合题意。</li>
-<li><strong>选项
-C</strong>：“类型”是一个比较宽泛的概念，没有明确指出在软件组件层面如何实现和体现，太笼统了，不能准确回答问题。</li>
-<li><strong>选项
-D</strong>：数据结构侧重于数据的组织和存储方式，比如数组、链表、树等是不同的数据结构，它主要关注数据元素之间的关系以及存储布局等，而不是从数据类型作为软件组件这个角度来说的，与题意不符。</li>
+<li><strong>选项 A</strong>：抽象数据类型（Abstract Data Type，简称 ADT）是对数据类型从逻辑层面进行定义和描述，它规定了数据的操作以及这些操作所遵循的规则等，但不涉及具体的实现细节，是一种将数据类型以软件组件形式进行抽象表示的概念，通过接口等方式对外呈现其功能，便于在软件设计中实现模块化和信息隐藏等，所以它体现了数据类型作为软件组件的一种实现方式，本题选 A。</li>
+<li><strong>选项 B</strong>：“真实数据类型”并不是一个标准的专业术语用于描述数据类型在软件组件方面的体现，不符合题意。</li>
+<li><strong>选项 C</strong>：“类型”是一个比较宽泛的概念，没有明确指出在软件组件层面如何实现和体现，太笼统了，不能准确回答问题。</li>
+<li><strong>选项 D</strong>：数据结构侧重于数据的组织和存储方式，比如数组、链表、树等是不同的数据结构，它主要关注数据元素之间的关系以及存储布局等，而不是从数据类型作为软件组件这个角度来说的，与题意不符。</li>
 </ul>
-<ol start="5" type="1">
-<li>We use the parent pointer representation for general trees to solve
-(b ) problem?</li>
-</ol>
-<ol type="A">
-<li><p>Shortest paths (B) General tree traversal</p></li>
-<li><p>Equivalence classes (D) Exact-match query</p></li>
-</ol>
+<p>(5) We use the parent pointer representation for general trees to solve (b ) problem?</p>
+<p>(A) Shortest paths (B) General tree traversal</p>
+<p>© Equivalence classes (D) Exact-match query</p>
 <p><strong>答案解释</strong>：</p>
 <ul>
-<li><strong>选项
-A</strong>：最短路径问题通常是通过特定的图算法来解决，比如 Dijkstra
-算法、Floyd
-算法等，和一般树使用父指针表示法并没有直接关联，所以该选项不符合。</li>
-<li><strong>选项
-B</strong>：对于一般树采用父指针表示法时，利用父指针可以方便地实现树的遍历操作，例如可以通过从节点不断回溯到根节点（借助父指针）以及按一定顺序访问节点的方式来进行先序、中序、后序等遍历，所以它主要是为了解决一般树的遍历问题，本题选
-B。</li>
-<li><strong>选项
-C</strong>：等价类相关问题常涉及到并查集等数据结构和算法来处理，和一般树的父指针表示法没有直接联系，不符合题意。</li>
-<li><strong>选项
-D</strong>：精确匹配查询更多地会在查找特定元素的场景中出现，比如在有序数据结构中进行二分查找等操作来实现精确匹配某个元素，与一般树的父指针表示法解决的问题不一致，所以该选项不对。</li>
+<li><strong>选项 A</strong>：最短路径问题通常是通过特定的图算法来解决，比如 Dijkstra 算法、Floyd 算法等，和一般树使用父指针表示法并没有直接关联，所以该选项不符合。</li>
+<li><strong>选项 B</strong>：对于一般树采用父指针表示法时，利用父指针可以方便地实现树的遍历操作，例如可以通过从节点不断回溯到根节点（借助父指针）以及按一定顺序访问节点的方式来进行先序、中序、后序等遍历，所以它主要是为了解决一般树的遍历问题，本题选 B。</li>
+<li><strong>选项 C</strong>：等价类相关问题常涉及到并查集等数据结构和算法来处理，和一般树的父指针表示法没有直接联系，不符合题意。</li>
+<li><strong>选项 D</strong>：精确匹配查询更多地会在查找特定元素的场景中出现，比如在有序数据结构中进行二分查找等操作来实现精确匹配某个元素，与一般树的父指针表示法解决的问题不一致，所以该选项不对。</li>
 </ul>
-<ol start="7" type="1">
-<li>In the hash function, collision refers to ( b ).</li>
-</ol>
-<ol type="A">
-<li><p>Two elements have the same sequence number.</p></li>
-<li><p>Different keys are mapped to the same address of hash
-table.</p></li>
-<li><p>Two records have the same key. (D) Data elements are too
-much.</p></li>
-</ol>
+<p>(7) In the hash function, collision refers to ( b ).</p>
+<p>(A) Two elements have the same sequence number.</p>
+<p>(B) Different keys are mapped to the same address of hash table.</p>
+<p>© Two records have the same key. (D) Data elements are too much.</p>
 <p><strong>答案解释</strong>：</p>
 <ul>
-<li><strong>选项
-A</strong>：“元素有相同的序号”这种说法不符合哈希函数中关于冲突概念的定义，序号不是哈希函数关注的关键所在，所以该选项不正确。</li>
-<li><strong>选项
-B</strong>：哈希函数的目的是将不同的键尽可能均匀地映射到哈希表的不同地址，但当不同的键经过哈希函数计算后得到了相同的地址时，就发生了所谓的冲突（Collision），这正是哈希函数中冲突的准确含义，本题选
-B。</li>
-<li><strong>选项
-C</strong>：“两个记录有相同的键”这是关于记录中键值重复的情况，和哈希函数里由于不同键映射到相同地址的冲突概念不一样，不符合题意。</li>
-<li><strong>选项
-D</strong>：“数据元素太多”只是说明了数据量的情况，与哈希函数中因为映射导致的冲突现象没有直接关联，所以该选项错误。</li>
+<li><strong>选项 A</strong>：“元素有相同的序号”这种说法不符合哈希函数中关于冲突概念的定义，序号不是哈希函数关注的关键所在，所以该选项不正确。</li>
+<li><strong>选项 B</strong>：哈希函数的目的是将不同的键尽可能均匀地映射到哈希表的不同地址，但当不同的键经过哈希函数计算后得到了相同的地址时，就发生了所谓的冲突（Collision），这正是哈希函数中冲突的准确含义，本题选 B。</li>
+<li><strong>选项 C</strong>：“两个记录有相同的键”这是关于记录中键值重复的情况，和哈希函数里由于不同键映射到相同地址的冲突概念不一样，不符合题意。</li>
+<li><strong>选项 D</strong>：“数据元素太多”只是说明了数据量的情况，与哈希函数中因为映射导致的冲突现象没有直接关联，所以该选项错误。</li>
 </ul>
-<ol start="8" type="1">
-<li>Given an array as <code>A[m][n]</code>. Supposed that
-<code>A[0][0]</code>is located at 644(10) and <code>A[2][2]</code>is
-stored at 676(10), and every element occupies one space. “(10)” means
-that the number is presented in decimals. Then the element
-<code>A[3][3]</code>(10) is at position: ( a )</li>
-</ol>
-<ol type="A">
-<li>692 (B) 695 (C) 650 (D) 708</li>
-</ol>
+<p>(8) Given an array as <code>A[m][n]</code>. Supposed that <code>A[0][0]</code>is located at 644(10) and <code>A[2][2]</code>is stored at 676(10), and every element occupies one space. “(10)” means that the number is presented in decimals. Then the element <code>A[3][3]</code>(10) is at position: ( a )</p>
+<p>(A) 692 (B) 695 © 650 (D) 708</p>
 <p><strong>答案解释</strong>：</p>
 <p>首先，我们知道在二维数组中存储是按行优先或者列优先的方式进行的，这里默认按行优先来计算（因为常规多数情况如此，且题中未明确说明按列优先）。</p>
-<p>从 <code>A[0][0]</code> 到 <code>A[2][2]</code>
-，一共经过的元素个数计算如下： 前面完整的两行元素个数为 <span class="math inline">\(2 \times n\)</span> 个（假设每行有 <span class="math inline">\(n\)</span> 个元素），然后在第三行又经过了 <span class="math inline">\(2\)</span> 个元素（到
-<code>A[2][2]</code>），总共经过的元素个数就是 <span class="math inline">\(2n + 2\)</span> 个。</p>
-<p>已知 <code>A[0][0]</code> 的地址是 <span class="math inline">\(644\)</span> ，<code>A[2][2]</code> 的地址是 <span class="math inline">\(676\)</span>
-，它们的地址差值就是经过的元素个数所对应的存储空间，即 <span class="math inline">\(676 - 644 = 32\)</span> ，也就是 <span class="math inline">\(2n + 2 = 32\)</span>，解方程可得：</p>
-<p><span class="math display">\[
-\begin{align*}
-2n + 2 &amp;= 32\\
-2n &amp;= 30\\
-n &amp;= 15
-\end{align*}
-\]</span></p>
-<p>那么到 <code>A[3][3]</code> 时，前面完整的三行元素个数为 <span class="math inline">\(3 \times n\)</span> 个，然后在第四行又经过了 <span class="math inline">\(3\)</span> 个元素，总共经过的元素个数就是 <span class="math inline">\(3n + 3\)</span> 个。</p>
-<p>将 <span class="math inline">\(n = 15\)</span>
-代入可得经过的元素个数为 <span class="math inline">\(3 \times 15 + 3 =
-48\)</span> 个。</p>
-<p>因为每个元素占一个空间，且 <code>A[0][0]</code> 起始地址是 <span class="math inline">\(644\)</span> ，所以 <code>A[3][3]</code>
-的地址就是 <span class="math inline">\(644 + 48 = 692\)</span>，本题选
-A。</p>
+<p>从 <code>A[0][0]</code> 到 <code>A[2][2]</code> ，一共经过的元素个数计算如下：<br>
+前面完整的两行元素个数为 $2 \times n$ 个（假设每行有 $n$ 个元素），然后在第三行又经过了 $2$ 个元素（到 <code>A[2][2]</code>），总共经过的元素个数就是 $2n + 2$ 个。</p>
+<p>已知 <code>A[0][0]</code> 的地址是 $644$ ，<code>A[2][2]</code> 的地址是 $676$ ，它们的地址差值就是经过的元素个数所对应的存储空间，即 $676 - 644 = 32$ ，也就是 $2n + 2 = 32$，解方程可得：</p>
+<p>$$<br>
+\begin{align*}<br>
+2n + 2 &amp;= 32\<br>
+2n &amp;= 30\<br>
+n &amp;= 15<br>
+\end{align*}<br>
+$$</p>
+<p>那么到 <code>A[3][3]</code> 时，前面完整的三行元素个数为 $3 \times n$ 个，然后在第四行又经过了 $3$ 个元素，总共经过的元素个数就是 $3n + 3$ 个。</p>
+<p>将 $n = 15$ 代入可得经过的元素个数为 $3 \times 15 + 3 = 48$ 个。</p>
+<p>因为每个元素占一个空间，且 <code>A[0][0]</code> 起始地址是 $644$ ，所以 <code>A[3][3]</code> 的地址就是 $644 + 48 = 692$，本题选 A。</p>
 <hr>
-<h2 id="fill-the-blank-with-correct-c-codes"><strong>Fill the blank with
-correct C++ codes</strong></h2>
-<p>The height of the shortest tree and the tallest tree with both n
-nodes is respectively __</p>
-<p><strong>答案</strong>：<span class="math inline">\(\left\lfloor\log_{2}n\right\rfloor + 1\)</span>
-and <span class="math inline">\(n - 1\)</span></p>
+<h2 id="Fill-the-blank-with-correct-C-codes"><strong>Fill the blank with correct C++ codes</strong></h2>
+<p>The height of the shortest tree and the tallest tree with both n nodes is respectively __</p>
+<p><strong>答案</strong>：$\left\lfloor\log_{2}n\right\rfloor + 1$ and $n - 1$</p>
 <p><strong>答案解释</strong>：</p>
-<h3 id="最短树高度分析以二叉树为例对于平衡的多路树思路类似且更易满足此特性">1.
-最短树高度分析（以二叉树为例，对于平衡的多路树思路类似且更易满足此特性）</h3>
+<h3 id="1-最短树高度分析（以二叉树为例，对于平衡的多路树思路类似且更易满足此特性）">1. 最短树高度分析（以二叉树为例，对于平衡的多路树思路类似且更易满足此特性）</h3>
 <ul>
-<li><p><strong>对于具有 <span class="math inline">\(n\)</span>
-个节点的树来说，要使其高度最短，往往是接近满二叉树（或者平衡的多路树）的形态</strong>。
-在二叉树中，满二叉树的节点数与高度有明确的关系。高度为 <span class="math inline">\(h\)</span> 的满二叉树，其节点数 <span class="math inline">\(N\)</span> 满足 <span class="math inline">\(N =
-2^{h} - 1\)</span>（可以通过等比数列求和公式推导得出，每层节点数是以
-<span class="math inline">\(1\)</span> 为首项， <span class="math inline">\(2\)</span> 为公比的等比数列）。</p></li>
-<li><p><strong>求解高度 <span class="math inline">\(h\)</span>
-关于节点数 <span class="math inline">\(n\)</span> 的表达式</strong>：
-当我们已知节点数 <span class="math inline">\(n\)</span>
-，想求对应的最短树高度（也就是尽可能平衡时的高度），对 <span class="math inline">\(N = 2^{h} - 1\)</span> 进行变形，可得 <span class="math inline">\(h = \log_{2}(N + 1)\)</span> 。对于有 <span class="math inline">\(n\)</span> 个节点的情况，此时高度 <span class="math inline">\(h\)</span> 为 <span class="math inline">\(\log_{2}(n + 1)\)</span>
-，又因为高度是整数且向下取整后再加 <span class="math inline">\(1\)</span> 才符合树高度从 <span class="math inline">\(1\)</span> 开始计数的常规设定（比如只有 <span class="math inline">\(1\)</span> 个节点时，高度为 <span class="math inline">\(1\)</span> ，而 <span class="math inline">\(\log_{2}(1 + 1) = 1\)</span>
-，但实际树高表述习惯是 <span class="math inline">\(1\)</span> 层，所以是
-<span class="math inline">\(\left\lfloor\log_{2}n\right\rfloor +
-1\)</span> ），所以最短树高度是 <span class="math inline">\(\left\lfloor\log_{2}n\right\rfloor + 1\)</span>
-。</p></li>
+<li>
+<p><strong>对于具有 $n$ 个节点的树来说，要使其高度最短，往往是接近满二叉树（或者平衡的多路树）的形态</strong>。<br>
+在二叉树中，满二叉树的节点数与高度有明确的关系。高度为 $h$ 的满二叉树，其节点数 $N$ 满足 $N = 2^{h} - 1$（可以通过等比数列求和公式推导得出，每层节点数是以 $1$ 为首项， $2$ 为公比的等比数列）。</p>
+</li>
+<li>
+<p><strong>求解高度 $h$ 关于节点数 $n$ 的表达式</strong>：<br>
+当我们已知节点数 $n$ ，想求对应的最短树高度（也就是尽可能平衡时的高度），对 $N = 2^{h} - 1$ 进行变形，可得 $h = \log_{2}(N + 1)$ 。对于有 $n$ 个节点的情况，此时高度 $h$ 为 $\log_{2}(n + 1)$ ，又因为高度是整数且向下取整后再加 $1$ 才符合树高度从 $1$ 开始计数的常规设定（比如只有 $1$ 个节点时，高度为 $1$ ，而 $\log_{2}(1 + 1) = 1$ ，但实际树高表述习惯是 $1$ 层，所以是 $\left\lfloor\log_{2}n\right\rfloor + 1$ ），所以最短树高度是 $\left\lfloor\log_{2}n\right\rfloor + 1$ 。</p>
+</li>
 </ul>
-<p>例如，当 <span class="math inline">\(n = 7\)</span> 时，<span class="math inline">\(\left\lfloor\log_{2}7\right\rfloor + 1 =
-\left\lfloor2.807\right\rfloor + 1 = 3\)</span> ，对应的就是高度为 <span class="math inline">\(3\)</span>
-的满二叉树或者接近满二叉树这种比较平衡的形态，节点数正好是 <span class="math inline">\(7\)</span> 个（ <span class="math inline">\(1 + 2
-+ 4 = 7\)</span> ），能保证树的高度相对最短。</p>
-<h3 id="最高树高度分析">2. 最高树高度分析</h3>
+<p>例如，当 $n = 7$ 时，$\left\lfloor\log_{2}7\right\rfloor + 1 = \left\lfloor2.807\right\rfloor + 1 = 3$ ，对应的就是高度为 $3$ 的满二叉树或者接近满二叉树这种比较平衡的形态，节点数正好是 $7$ 个（ $1 + 2 + 4 = 7$ ），能保证树的高度相对最短。</p>
+<h3 id="2-最高树高度分析">2. 最高树高度分析</h3>
 <ul>
-<li><p><strong>要使树的高度最高，那就是让树尽可能地“瘦长”，也就是每层只有
-<span class="math inline">\(1\)</span>
-个节点（除了叶子节点）的情况</strong>。
-例如，像一个链表结构的树（可以理解为特殊的树形态），第一个节点作为根节点，然后依次每个节点只有一个子节点往下延伸，这样就形成了一个高度很高但节点分布很稀疏的树。</p></li>
-<li><p><strong>计算这种情况下的高度与节点数关系</strong>： 对于 <span class="math inline">\(n\)</span> 个节点，因为除了叶子节点外每层只有
-<span class="math inline">\(1\)</span>
-个节点，那么从根节点开始到倒数第二层一共就有 <span class="math inline">\(n - 1\)</span>
-个节点（最后一层是叶子节点），也就意味着树的高度是 <span class="math inline">\(n - 1\)</span> 。比如有 <span class="math inline">\(3\)</span> 个节点，高度就是 <span class="math inline">\(2\)</span>
-（根节点一层，下面连着一个子节点一层），正好符合 <span class="math inline">\(n - 1\)</span> 的关系（ <span class="math inline">\(3 - 1 = 2\)</span> ）。</p></li>
+<li>
+<p><strong>要使树的高度最高，那就是让树尽可能地“瘦长”，也就是每层只有 $1$ 个节点（除了叶子节点）的情况</strong>。<br>
+例如，像一个链表结构的树（可以理解为特殊的树形态），第一个节点作为根节点，然后依次每个节点只有一个子节点往下延伸，这样就形成了一个高度很高但节点分布很稀疏的树。</p>
+</li>
+<li>
+<p><strong>计算这种情况下的高度与节点数关系</strong>：<br>
+对于 $n$ 个节点，因为除了叶子节点外每层只有 $1$ 个节点，那么从根节点开始到倒数第二层一共就有 $n - 1$ 个节点（最后一层是叶子节点），也就意味着树的高度是 $n - 1$ 。比如有 $3$ 个节点，高度就是 $2$ （根节点一层，下面连着一个子节点一层），正好符合 $n - 1$ 的关系（ $3 - 1 = 2$ ）。</p>
+</li>
 </ul>
-<p>所以，具有 <span class="math inline">\(n\)</span>
-个节点的树，其最短树高度是 <span class="math inline">\(\left\lfloor\log_{2}n\right\rfloor + 1\)</span>
-，最高树高度是 <span class="math inline">\(n - 1\)</span> 。</p>
+<p>所以，具有 $n$ 个节点的树，其最短树高度是 $\left\lfloor\log_{2}n\right\rfloor + 1$ ，最高树高度是 $n - 1$ 。</p>
 <hr>
-<h2 id="please-calculate-the-number-of-binary-trees-in-different-shape-with-3-nodes-in-total-and-4-nodes-4-scores">Please
-calculate the number of binary trees in different shape with 3 nodes in
-total, and 4 nodes? (4 scores)</h2>
+<h2 id="Please-calculate-the-number-of-binary-trees-in-different-shape-with-3-nodes-in-total-and-4-nodes-4-scores">Please calculate the number of binary trees in different shape with 3 nodes in total, and 4 nodes? (4 scores)</h2>
 <p><strong>答案</strong>：</p>
 <ul>
 <li>当总共有 3 个节点时，不同形态的二叉树有 5 种。</li>
 <li>当总共有 4 个节点时，不同形态的二叉树有 14 种。</li>
 </ul>
 <p><strong>答案解释</strong>：</p>
-<h3 id="计算有-3-个节点时不同形态二叉树的数量">1. 计算有 3
-个节点时不同形态二叉树的数量</h3>
-<p>我们可以通过卡特兰数（Catalan number）的公式来计算具有 <span class="math inline">\(n\)</span>
-个节点的不同形态二叉树的数量，卡特兰数的计算公式为 <span class="math inline">\(C_n = \frac{C(2n, n)}{n + 1}\)</span>（其中 <span class="math inline">\(C(2n, n)\)</span> 表示从 <span class="math inline">\(2n\)</span> 个元素中选取 <span class="math inline">\(n\)</span>
-个元素的组合数），也可以通过手动分析不同结构的情况来计算。</p>
-<p>对于 <span class="math inline">\(n = 3\)</span>
-的情况，手动分析如下：</p>
+<h3 id="1-计算有-3-个节点时不同形态二叉树的数量">1. 计算有 3 个节点时不同形态二叉树的数量</h3>
+<p>我们可以通过卡特兰数（Catalan number）的公式来计算具有 $n$ 个节点的不同形态二叉树的数量，卡特兰数的计算公式为 $C_n = \frac{C(2n, n)}{n + 1}$（其中 $C(2n, n)$ 表示从 $2n$ 个元素中选取 $n$ 个元素的组合数），也可以通过手动分析不同结构的情况来计算。</p>
+<p>对于 $n = 3$ 的情况，手动分析如下：</p>
 <ul>
-<li><strong>情况一</strong>：根节点有左子树和右子树，左子树有 1
-个节点，右子树有 1 个节点。此时只有 1 种形态，因为左右子树各 1
-个节点，它们的排列方式只有 1 种。</li>
-<li><strong>情况二</strong>：根节点只有左子树，左子树有 2 个节点（这 2
-个节点又可以构成不同的二叉树形态）。对于 2 个节点构成二叉树有 2
-种形态（可以是左节点为根，右节点为子树；或者右节点为根，左节点为子树），所以这种情况共
-2 种不同形态。</li>
-<li><strong>情况三</strong>：根节点只有右子树，右子树有 2
-个节点，同理也有 2 种不同形态（和情况二对称）。</li>
+<li><strong>情况一</strong>：根节点有左子树和右子树，左子树有 1 个节点，右子树有 1 个节点。此时只有 1 种形态，因为左右子树各 1 个节点，它们的排列方式只有 1 种。</li>
+<li><strong>情况二</strong>：根节点只有左子树，左子树有 2 个节点（这 2 个节点又可以构成不同的二叉树形态）。对于 2 个节点构成二叉树有 2 种形态（可以是左节点为根，右节点为子树；或者右节点为根，左节点为子树），所以这种情况共 2 种不同形态。</li>
+<li><strong>情况三</strong>：根节点只有右子树，右子树有 2 个节点，同理也有 2 种不同形态（和情况二对称）。</li>
 </ul>
-<p>将上述三种情况的形态数量相加：<span class="math inline">\(1 + 2 + 2 =
-5\)</span> 种，所以 3 个节点的不同形态二叉树有 5 种。</p>
-<p>若用卡特兰数公式计算，<span class="math inline">\(C_3 = \frac{C(6,
-3)}{4}\)</span>，先计算组合数 <span class="math inline">\(C(6, 3) =
-\frac{6!}{3!(6 - 3)!} = \frac{6 \times 5 \times 4}{3 \times 2 \times 1}
-= 20\)</span>，再计算 <span class="math inline">\(C_3 = \frac{20}{4} =
-5\)</span>，结果一致。</p>
-<h3 id="计算有-4-个节点时不同形态二叉树的数量">2. 计算有 4
-个节点时不同形态二叉树的数量</h3>
+<p>将上述三种情况的形态数量相加：$1 + 2 + 2 = 5$ 种，所以 3 个节点的不同形态二叉树有 5 种。</p>
+<p>若用卡特兰数公式计算，$C_3 = \frac{C(6, 3)}{4}$，先计算组合数 $C(6, 3) = \frac{6!}{3!(6 - 3)!} = \frac{6 \times 5 \times 4}{3 \times 2 \times 1} = 20$，再计算 $C_3 = \frac{20}{4} = 5$，结果一致。</p>
+<h3 id="2-计算有-4-个节点时不同形态二叉树的数量">2. 计算有 4 个节点时不同形态二叉树的数量</h3>
 <p>同样可以用卡特兰数公式或者通过详细分析结构来计算。</p>
-<p>用卡特兰数公式，<span class="math inline">\(n = 4\)</span> 时，<span class="math inline">\(C_4 = \frac{C(8, 4)}{5}\)</span>，先求组合数 <span class="math inline">\(C(8, 4) = \frac{8!}{4!(8 - 4)!} = \frac{8 \times 7
-\times 6 \times 5}{4 \times 3 \times 2 \times 1} = 70\)</span>，则 <span class="math inline">\(C_4 = \frac{70}{5} = 14\)</span>。</p>
+<p>用卡特兰数公式，$n = 4$ 时，$C_4 = \frac{C(8, 4)}{5}$，先求组合数 $C(8, 4) = \frac{8!}{4!(8 - 4)!} = \frac{8 \times 7 \times 6 \times 5}{4 \times 3 \times 2 \times 1} = 70$，则 $C_4 = \frac{70}{5} = 14$。</p>
 <p>手动分析结构情况（过程相对复杂些）大致如下：</p>
 <ul>
-<li><strong>情况一</strong>：根节点左右子树各有 1 个或者 2
-个节点。对应四种情况，在原来高度为 1
-的满二叉树再依次在四个位置插入一个节点。</li>
-<li><strong>情况二</strong>：根节点左子树有 0 个节点，右子树有 3
-个节点。3 个节点的二叉树有 5 种不同形态（前面已算出），所以这种情况有 5
-种不同形态。</li>
-<li><strong>情况三</strong>：根节点右子树有 0 个节点，左子树有 3
-个节点，同理也有 5 种不同形态（和情况二对称）。</li>
+<li><strong>情况一</strong>：根节点左右子树各有 1 个或者 2 个节点。对应四种情况，在原来高度为 1 的满二叉树再依次在四个位置插入一个节点。</li>
+<li><strong>情况二</strong>：根节点左子树有 0 个节点，右子树有 3 个节点。3 个节点的二叉树有 5 种不同形态（前面已算出），所以这种情况有 5 种不同形态。</li>
+<li><strong>情况三</strong>：根节点右子树有 0 个节点，左子树有 3 个节点，同理也有 5 种不同形态（和情况二对称）。</li>
 </ul>
-<p>将这些情况的形态数量相加可得 <span class="math inline">\(4 + 5 + 5 =
-14\)</span> 种不同形态的二叉树。</p>
-<p>综上，3 个节点的不同形态二叉树有 5 种，4 个节点的不同形态二叉树有 14
-种。</p>
+<p>将这些情况的形态数量相加可得 $4 + 5 + 5 = 14$ 种不同形态的二叉树。</p>
+<p>综上，3 个节点的不同形态二叉树有 5 种，4 个节点的不同形态二叉树有 14 种。</p>
 <hr>
-<h2 id="trace-by-hand-the-execution-of-quicksort-algorithm-on-the-array-int-a-44-77-55-99-66-33-22-88-79-the-pivot-is-66-in-the-first-pass-the-second-is-55-and-88-the-third-is-33-and-77-the-fourth-is-22-and-so-on-till-the-algorithm-is-finished.">Trace
-by hand the execution of Quicksort algorithm on the array: int a[] =
-{44, 77, 55, 99, 66, 33, 22, 88, 79} The pivot is 66 in the first pass,
-the second is 55 and 88, the third is 33 and 77, the fourth is 22, and
-so on till the algorithm is finished.</h2>
+<h2 id="Trace-by-hand-the-execution-of-Quicksort-algorithm-on-the-array-int-a-44-77-55-99-66-33-22-88-79-The-pivot-is-66-in-the-first-pass-the-second-is-55-and-88-the-third-is-33-and-77-the-fourth-is-22-and-so-on-till-the-algorithm-is-finished">Trace by hand the execution of Quicksort algorithm on the array: int a[] = {44, 77, 55, 99, 66, 33, 22, 88, 79} The pivot is 66 in the first pass, the second is 55 and 88, the third is 33 and 77, the fourth is 22, and so on till the algorithm is finished.</h2>
 <figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">initial:  <span class="number">44</span>, <span class="number">77</span>, <span class="number">55</span>, <span class="number">99</span>, <span class="number">66</span>, <span class="number">33</span>, <span class="number">22</span>, <span class="number">88</span>, <span class="number">79</span></span><br><span class="line">pass <span class="number">1</span>:  <span class="number">44</span> <span class="number">22</span> <span class="number">55</span> <span class="number">33</span> <span class="number">66</span> <span class="number">99</span> <span class="number">77</span> <span class="number">88</span> <span class="number">79</span></span><br><span class="line">pass <span class="number">2</span>:  <span class="number">44</span> <span class="number">22</span> <span class="number">33</span> <span class="number">55</span> <span class="number">66</span> <span class="number">79</span> <span class="number">77</span> <span class="number">88</span> <span class="number">99</span></span><br><span class="line">pass <span class="number">3</span>:  <span class="number">33</span> <span class="number">22</span> <span class="number">44</span> <span class="number">55</span> <span class="number">66</span> <span class="number">77</span> <span class="number">79</span> <span class="number">88</span> <span class="number">99</span></span><br><span class="line">pass <span class="number">4</span>:  <span class="number">22</span> <span class="number">33</span> <span class="number">44</span> <span class="number">55</span> <span class="number">66</span> <span class="number">77</span> <span class="number">79</span> <span class="number">88</span> <span class="number">99</span></span><br><span class="line"><span class="keyword">final</span> sorted array:</span><br><span class="line">        <span class="number">22</span> <span class="number">33</span> <span class="number">44</span> <span class="number">55</span> <span class="number">66</span> <span class="number">77</span> <span class="number">79</span> <span class="number">88</span> <span class="number">99</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="答案展示">答案展示</h3>
 <h4 id="快速排序原理回顾">快速排序原理回顾</h4>
 <p>快速排序（Quicksort）是一种基于分治策略的排序算法。它的基本思想是选择一个元素作为枢轴（pivot），通过一趟排序将待排序序列分割成两部分，使得左边部分的所有元素都小于等于枢轴，右边部分的所有元素都大于等于枢轴，然后再分别对这两部分递归地应用快速排序算法，直到整个序列有序。</p>
 <h4 id="各轮具体执行过程">各轮具体执行过程</h4>
 <ul>
-<li><strong>第一轮（以 66 为枢轴）</strong>： 设置两个指针
-<code>i</code>（初始指向数组最左边元素）和
-<code>j</code>（初始指向数组最右边元素），从数组两端开始扫描，比较元素与枢轴
-<code>66</code>
-的大小关系，把小于枢轴的元素移到左边，大于枢轴的元素移到右边。
+<li><strong>第一轮（以 66 为枢轴）</strong>：<br>
+设置两个指针 <code>i</code>（初始指向数组最左边元素）和 <code>j</code>（初始指向数组最右边元素），从数组两端开始扫描，比较元素与枢轴 <code>66</code> 的大小关系，把小于枢轴的元素移到左边，大于枢轴的元素移到右边。
 <ul>
-<li>首先，<code>i</code> 从左向右移动，找到第一个大于等于
-<code>66</code> 的元素，此时 <code>i</code> 指向
-<code>77</code>；同时，<code>j</code> 从右向左移动，找到第一个小于等于
-<code>66</code> 的元素，此时 <code>j</code> 指向 <code>22</code>。交换
-<code>i</code> 和 <code>j</code> 所指向的元素，数组变为
-<code>{44, 22, 55, 99, 66, 33, 77, 88, 79}</code>。</li>
-<li>接着，<code>i</code> 继续向右移动，此时 <code>i</code> 指向
-<code>99</code>；<code>j</code> 继续向左移动，指向
-<code>33</code>，交换它们，数组变为
-<code>{44, 22, 55, 33, 66, 99, 77, 88, 79}</code>。</li>
-<li>然后，<code>i</code> 继续向右移动，指向
-<code>99</code>；<code>j</code> 继续向左移动，指向
-<code>55</code>，交换它们，数组变为
-<code>{44, 22, 55, 33, 66, 99, 77, 88, 79}</code>（这次交换后数组状态和上一步一样，只是继续按流程操作）。</li>
-<li>继续移动指针，<code>i</code> 指向 <code>99</code>，<code>j</code>
-指向 <code>55</code>，此时 <code>i</code> 和 <code>j</code>
-相遇（<code>i</code> 大于 <code>j</code> 了），将枢轴 <code>66</code>
-放置到 <code>i</code>（此时也是
-<code>j</code>）的位置，数组被划分为两部分：左边部分是
-<code>{44, 22, 55, 33}</code>，右边部分是
-<code>{99, 77, 88, 79}</code>，此时枢轴 <code>66</code>
-已经处于最终排序后的正确位置了，得到 <code>pass 1</code>
-的结果：<code>44 22 55 33 66 99 77 88 79</code>。</li>
+<li>首先，<code>i</code> 从左向右移动，找到第一个大于等于 <code>66</code> 的元素，此时 <code>i</code> 指向 <code>77</code>；同时，<code>j</code> 从右向左移动，找到第一个小于等于 <code>66</code> 的元素，此时 <code>j</code> 指向 <code>22</code>。交换 <code>i</code> 和 <code>j</code> 所指向的元素，数组变为 <code>{44, 22, 55, 99, 66, 33, 77, 88, 79}</code>。</li>
+<li>接着，<code>i</code> 继续向右移动，此时 <code>i</code> 指向 <code>99</code>；<code>j</code> 继续向左移动，指向 <code>33</code>，交换它们，数组变为 <code>{44, 22, 55, 33, 66, 99, 77, 88, 79}</code>。</li>
+<li>然后，<code>i</code> 继续向右移动，指向 <code>99</code>；<code>j</code> 继续向左移动，指向 <code>55</code>，交换它们，数组变为 <code>{44, 22, 55, 33, 66, 99, 77, 88, 79}</code>（这次交换后数组状态和上一步一样，只是继续按流程操作）。</li>
+<li>继续移动指针，<code>i</code> 指向 <code>99</code>，<code>j</code> 指向 <code>55</code>，此时 <code>i</code> 和 <code>j</code> 相遇（<code>i</code> 大于 <code>j</code> 了），将枢轴 <code>66</code> 放置到 <code>i</code>（此时也是 <code>j</code>）的位置，数组被划分为两部分：左边部分是 <code>{44, 22, 55, 33}</code>，右边部分是 <code>{99, 77, 88, 79}</code>，此时枢轴 <code>66</code> 已经处于最终排序后的正确位置了，得到 <code>pass 1</code> 的结果：<code>44 22 55 33 66 99 77 88 79</code>。</li>
 <li>结果为<code>{ 44 22 55 33 66 99 77 88 79}</code></li>
-</ul></li>
-<li><strong>第二轮（以 55 和 88
-为枢轴，分别对两个子数组操作）</strong>：
+</ul>
+</li>
+<li><strong>第二轮（以 55 和 88 为枢轴，分别对两个子数组操作）</strong>：
 <ul>
-<li><strong>对左子数组 <code>{44, 22, 55, 33}</code> 以 55
-为枢轴进行划分</strong>： 同样设置指针 <code>i</code> 和 <code>j</code>
-来进行操作。 <code>i</code> 从左向右移动，找到第一个大于等于
-<code>55</code> 的元素，此时 <code>i</code> 指向 <code>55</code>
-本身；<code>j</code> 从右向左移动，找到第一个小于等于 <code>55</code>
-的元素，此时 <code>j</code> 指向 <code>33</code>。交换 <code>i</code> 和
-<code>j</code> 所指向的元素，数组变为
-<code>{44, 22, 33, 55}</code>。接着，<code>i</code> 继续向右移动（此时
-<code>i</code> 已经在 <code>55</code>
-位置了，无需再移动），<code>j</code> 继续向左移动，指向
-<code>22</code>，交换它们，数组变为
-<code>{44, 22, 33, 55}</code>（这次交换后数组状态和上一步一样，只是继续按流程操作）。继续移动，<code>i</code>
-指向 <code>55</code>，<code>j</code> 指向 <code>22</code>，此时
-<code>i</code> 和 <code>j</code> 相遇，将枢轴 <code>55</code>
-放置到该位置，这样就把左子数组划分为 <code>{44, 22, 33}</code> 和
-<code>{}</code>（空数组）两部分，<code>55</code>
-处于其正确的排序位置了。</li>
-<li><strong>对右子数组 <code>{99, 77, 88, 79}</code> 以 88
-为枢轴进行划分</strong>： 利用指针 <code>i</code> 和 <code>j</code>
-进行操作。<code>i</code> 从左向右移动，找到第一个大于等于
-<code>88</code> 的元素，此时 <code>i</code> 指向
-<code>99</code>；<code>j</code> 从右向左移动，找到第一个小于等于
-<code>88</code> 的元素，此时 <code>j</code> 指向 <code>79</code>。交换
-<code>i</code> 和 <code>j</code> 所指向的元素，数组变为
-<code>{99, 77, 79, 88}</code>。然后，<code>i</code> 继续向右移动（此时
-<code>i</code> 在 <code>99</code> 位置了，无需移动），<code>j</code>
-继续向左移动，指向 <code>77</code>，此时 <code>i</code> 和
-<code>j</code> 相遇，将枢轴 <code>88</code>
-放置到该位置，把右子数组划分为 <code>{99, 77, 79}</code> 和
-<code>{}</code>（空数组）两部分，<code>88</code> 处于正确的排序位置了。
-经过上述对两个子数组的操作，数组变为
-<code>44 22 33 55 66 79 77 88 99</code>，即 <code>pass 2</code>
-的结果。</li>
-</ul></li>
-<li><strong>第三轮（以 33 和 77
-为枢轴，分别对相应子数组操作）</strong>：
+<li><strong>对左子数组 <code>{44, 22, 55, 33}</code> 以 55 为枢轴进行划分</strong>：<br>
+同样设置指针 <code>i</code> 和 <code>j</code> 来进行操作。<br>
+<code>i</code> 从左向右移动，找到第一个大于等于 <code>55</code> 的元素，此时 <code>i</code> 指向 <code>55</code> 本身；<code>j</code> 从右向左移动，找到第一个小于等于 <code>55</code> 的元素，此时 <code>j</code> 指向 <code>33</code>。交换 <code>i</code> 和 <code>j</code> 所指向的元素，数组变为 <code>{44, 22, 33, 55}</code>。接着，<code>i</code> 继续向右移动（此时 <code>i</code> 已经在 <code>55</code> 位置了，无需再移动），<code>j</code> 继续向左移动，指向 <code>22</code>，交换它们，数组变为 <code>{44, 22, 33, 55}</code>（这次交换后数组状态和上一步一样，只是继续按流程操作）。继续移动，<code>i</code> 指向 <code>55</code>，<code>j</code> 指向 <code>22</code>，此时 <code>i</code> 和 <code>j</code> 相遇，将枢轴 <code>55</code> 放置到该位置，这样就把左子数组划分为 <code>{44, 22, 33}</code> 和 <code>{}</code>（空数组）两部分，<code>55</code> 处于其正确的排序位置了。</li>
+<li><strong>对右子数组 <code>{99, 77, 88, 79}</code> 以 88 为枢轴进行划分</strong>：<br>
+利用指针 <code>i</code> 和 <code>j</code> 进行操作。<code>i</code> 从左向右移动，找到第一个大于等于 <code>88</code> 的元素，此时 <code>i</code> 指向 <code>99</code>；<code>j</code> 从右向左移动，找到第一个小于等于 <code>88</code> 的元素，此时 <code>j</code> 指向 <code>79</code>。交换 <code>i</code> 和 <code>j</code> 所指向的元素，数组变为 <code>{99, 77, 79, 88}</code>。然后，<code>i</code> 继续向右移动（此时 <code>i</code> 在 <code>99</code> 位置了，无需移动），<code>j</code> 继续向左移动，指向 <code>77</code>，此时 <code>i</code> 和 <code>j</code> 相遇，将枢轴 <code>88</code> 放置到该位置，把右子数组划分为 <code>{99, 77, 79}</code> 和 <code>{}</code>（空数组）两部分，<code>88</code> 处于正确的排序位置了。<br>
+经过上述对两个子数组的操作，数组变为 <code>44 22 33 55 66 79 77 88 99</code>，即 <code>pass 2</code> 的结果。</li>
+</ul>
+</li>
+<li><strong>第三轮（以 33 和 77 为枢轴，分别对相应子数组操作）</strong>：
 <ul>
-<li><strong>对左子数组 <code>{44, 22, 33}</code> 以 33
-为枢轴进行划分</strong>： 设置指针 <code>i</code> 和 <code>j</code>
-操作。<code>i</code> 从左向右移动，找到第一个大于等于 <code>33</code>
-的元素，此时 <code>i</code> 指向 <code>44</code>；<code>j</code>
-从右向左移动，找到第一个小于等于 <code>33</code> 的元素，此时
-<code>j</code> 指向 <code>33</code>。交换 <code>i</code> 和
-<code>j</code> 所指向的元素，数组变为
-<code>{33, 22, 44}</code>。接着，<code>i</code>
-继续向右移动，<code>j</code> 继续向左移动，指向 <code>22</code>，此时
-<code>i</code> 和 <code>j</code> 相遇，停止操作。</li>
-<li><strong>对右子数组 <code>{79, 77, 99}</code> 以 77
-为枢轴进行划分</strong>： 使用指针 <code>i</code> 和 <code>j</code>
-进行操作，由于 <code>79</code> 大于
-<code>77</code>，交换元素，变为<code>{77, 79, 88, 99}</code>
-经过这一轮操作，数组变为 <code>33 22 44 55 66 77 79 88 99</code>，也就是
-<code>pass 3</code> 的结果。</li>
-</ul></li>
-<li><strong>第四轮（以 22 为枢轴，对 <code>{22}</code>
-这个子数组操作）</strong>：
+<li><strong>对左子数组 <code>{44, 22, 33}</code> 以 33 为枢轴进行划分</strong>：<br>
+设置指针 <code>i</code> 和 <code>j</code> 操作。<code>i</code> 从左向右移动，找到第一个大于等于 <code>33</code> 的元素，此时 <code>i</code> 指向 <code>44</code>；<code>j</code> 从右向左移动，找到第一个小于等于 <code>33</code> 的元素，此时 <code>j</code> 指向 <code>33</code>。交换 <code>i</code> 和 <code>j</code> 所指向的元素，数组变为 <code>{33, 22, 44}</code>。接着，<code>i</code> 继续向右移动，<code>j</code> 继续向左移动，指向 <code>22</code>，此时 <code>i</code> 和 <code>j</code> 相遇，停止操作。</li>
+<li><strong>对右子数组 <code>{79, 77, 99}</code> 以 77 为枢轴进行划分</strong>：<br>
+使用指针 <code>i</code> 和 <code>j</code> 进行操作，由于 <code>79</code> 大于 <code>77</code>，交换元素，变为<code>{77, 79, 88, 99}</code><br>
+经过这一轮操作，数组变为 <code>33 22 44 55 66 77 79 88 99</code>，也就是 <code>pass 3</code> 的结果。</li>
+</ul>
+</li>
+<li><strong>第四轮（以 22 为枢轴，对 <code>{22}</code> 这个子数组操作）</strong>：
 <ul>
 <li>交换<code>{22}</code>与<code>{33}</code>，变成<code>{22, 33, 44, 55}</code>，执行完毕。</li>
 <li>最终结果为<code>{22 33 44 55 66 77 79 88 99}</code></li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <h3 id="答案解释">答案解释</h3>
-<p>整个快速排序过程就是不断地选择枢轴、划分子数组，并对划分后的子数组递归地重复这个过程，每一轮都依据枢轴将数组分成两部分，让元素逐渐移动到它们最终正确排序的位置上。按照题目给定的每轮特定枢轴以及相应操作步骤，一步步实现了对原始数组的排序，最终得到有序的数组。这种分治思想使得快速排序在平均情况下具有较好的时间复杂度，通常接近
-<span class="math inline">\(O(n \log
-n)\)</span>，不过在最坏情况下（比如每次选择的枢轴都是最大或最小元素时）时间复杂度会退化为
-<span class="math inline">\(O(n^2)\)</span>。</p>
+<p>整个快速排序过程就是不断地选择枢轴、划分子数组，并对划分后的子数组递归地重复这个过程，每一轮都依据枢轴将数组分成两部分，让元素逐渐移动到它们最终正确排序的位置上。按照题目给定的每轮特定枢轴以及相应操作步骤，一步步实现了对原始数组的排序，最终得到有序的数组。这种分治思想使得快速排序在平均情况下具有较好的时间复杂度，通常接近 $O(n \log n)$，不过在最坏情况下（比如每次选择的枢轴都是最大或最小元素时）时间复杂度会退化为 $O(n^2)$。</p>
 <p>希望这样详细的解释能让你清晰理解快速排序算法在这个具体数组上的执行过程，如果还有疑问，请随时问我哦。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn/posts/2257fed7.html">https://www.heavenhold.cn/posts/2257fed7.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.heavenhold.cn" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><a class="post-meta__tags" href="/tags/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">期末复习</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419480.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/8c3f6f46.html" title="SCUT2009 Data Structure"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419055.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SCUT2009 Data Structure</div></div></a></div><div class="next-post pull-right"><a href="/posts/acbd99ed.html" title="SCUT2007 Data Structure"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419038.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SCUT2007 Data Structure</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/c2cbe395.html" title="SCUT Unknown Paper A and B"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419893.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT Unknown Paper A and B</div></div></a></div><div><a href="/posts/b560ae6a.html" title="SCUT Unknown Paper"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031420301.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT Unknown Paper</div></div></a></div><div><a href="/posts/788cd56a.html" title="SCUT2003 Data Structure"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031418798.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT2003 Data Structure</div></div></a></div><div><a href="/posts/ff2cf009.html" title="SCUT2001 Data Structure"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031418576.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT2001 Data Structure</div></div></a></div><div><a href="/posts/f3bfb2b8.html" title="SCUT2005 Data Sturcture"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031418914.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT2005 Data Sturcture</div></div></a></div><div><a href="/posts/2d5087c.html" title="SCUT2006 Data Structure"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031418506.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT2006 Data Structure</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#scut2008"><span class="toc-number">1.</span> <span class="toc-text">SCUT2008</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#select-the-correct-choice."><span class="toc-number">1.1.</span> <span class="toc-text">1. Select the correct
-choice. </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fill-the-blank-with-correct-c-codes"><span class="toc-number">1.2.</span> <span class="toc-text">Fill the blank with
-correct C++ codes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E6%A0%91%E9%AB%98%E5%BA%A6%E5%88%86%E6%9E%90%E4%BB%A5%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%BA%E4%BE%8B%E5%AF%B9%E4%BA%8E%E5%B9%B3%E8%A1%A1%E7%9A%84%E5%A4%9A%E8%B7%AF%E6%A0%91%E6%80%9D%E8%B7%AF%E7%B1%BB%E4%BC%BC%E4%B8%94%E6%9B%B4%E6%98%93%E6%BB%A1%E8%B6%B3%E6%AD%A4%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.
-最短树高度分析（以二叉树为例，对于平衡的多路树思路类似且更易满足此特性）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%AB%98%E6%A0%91%E9%AB%98%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 最高树高度分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#please-calculate-the-number-of-binary-trees-in-different-shape-with-3-nodes-in-total-and-4-nodes-4-scores"><span class="toc-number">1.3.</span> <span class="toc-text">Please
-calculate the number of binary trees in different shape with 3 nodes in
-total, and 4 nodes? (4 scores)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%89-3-%E4%B8%AA%E8%8A%82%E7%82%B9%E6%97%B6%E4%B8%8D%E5%90%8C%E5%BD%A2%E6%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%95%B0%E9%87%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 计算有 3
-个节点时不同形态二叉树的数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%89-4-%E4%B8%AA%E8%8A%82%E7%82%B9%E6%97%B6%E4%B8%8D%E5%90%8C%E5%BD%A2%E6%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%95%B0%E9%87%8F"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 计算有 4
-个节点时不同形态二叉树的数量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#trace-by-hand-the-execution-of-quicksort-algorithm-on-the-array-int-a-44-77-55-99-66-33-22-88-79-the-pivot-is-66-in-the-first-pass-the-second-is-55-and-88-the-third-is-33-and-77-the-fourth-is-22-and-so-on-till-the-algorithm-is-finished."><span class="toc-number">1.4.</span> <span class="toc-text">Trace
-by hand the execution of Quicksort algorithm on the array: int a[] =
-{44, 77, 55, 99, 66, 33, 22, 88, 79} The pivot is 66 in the first pass,
-the second is 55 and 88, the third is 33 and 77, the fourth is 22, and
-so on till the algorithm is finished.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%94%E6%A1%88%E5%B1%95%E7%A4%BA"><span class="toc-number">1.4.1.</span> <span class="toc-text">答案展示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86%E5%9B%9E%E9%A1%BE"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">快速排序原理回顾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%84%E8%BD%AE%E5%85%B7%E4%BD%93%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">各轮具体执行过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%94%E6%A1%88%E8%A7%A3%E9%87%8A"><span class="toc-number">1.4.2.</span> <span class="toc-text">答案解释</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn/posts/2257fed7.html">https://www.heavenhold.cn/posts/2257fed7.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.heavenhold.cn" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><a class="post-meta__tags" href="/tags/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">期末复习</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419480.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/8c3f6f46.html" title="SCUT2009 Data Structure"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419055.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SCUT2009 Data Structure</div></div></a></div><div class="next-post pull-right"><a href="/posts/acbd99ed.html" title="SCUT2007 Data Structure"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419038.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SCUT2007 Data Structure</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/c2cbe395.html" title="SCUT Unknown Paper A and B"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419893.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT Unknown Paper A and B</div></div></a></div><div><a href="/posts/b560ae6a.html" title="SCUT Unknown Paper"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031420301.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT Unknown Paper</div></div></a></div><div><a href="/posts/ff2cf009.html" title="SCUT2001 Data Structure"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031418576.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT2001 Data Structure</div></div></a></div><div><a href="/posts/788cd56a.html" title="SCUT2003 Data Structure"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031418798.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT2003 Data Structure</div></div></a></div><div><a href="/posts/2d5087c.html" title="SCUT2006 Data Structure"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031418506.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT2006 Data Structure</div></div></a></div><div><a href="/posts/acbd99ed.html" title="SCUT2007 Data Structure"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419038.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="title">SCUT2007 Data Structure</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SCUT2008"><span class="toc-number">1.</span> <span class="toc-text">SCUT2008</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Select-the-correct-choice"><span class="toc-number">1.1.</span> <span class="toc-text">**1. Select the correct choice. **</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fill-the-blank-with-correct-C-codes"><span class="toc-number">1.2.</span> <span class="toc-text">Fill the blank with correct C++ codes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9C%80%E7%9F%AD%E6%A0%91%E9%AB%98%E5%BA%A6%E5%88%86%E6%9E%90%EF%BC%88%E4%BB%A5%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%BA%E4%BE%8B%EF%BC%8C%E5%AF%B9%E4%BA%8E%E5%B9%B3%E8%A1%A1%E7%9A%84%E5%A4%9A%E8%B7%AF%E6%A0%91%E6%80%9D%E8%B7%AF%E7%B1%BB%E4%BC%BC%E4%B8%94%E6%9B%B4%E6%98%93%E6%BB%A1%E8%B6%B3%E6%AD%A4%E7%89%B9%E6%80%A7%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 最短树高度分析（以二叉树为例，对于平衡的多路树思路类似且更易满足此特性）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9C%80%E9%AB%98%E6%A0%91%E9%AB%98%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 最高树高度分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Please-calculate-the-number-of-binary-trees-in-different-shape-with-3-nodes-in-total-and-4-nodes-4-scores"><span class="toc-number">1.3.</span> <span class="toc-text">Please calculate the number of binary trees in different shape with 3 nodes in total, and 4 nodes? (4 scores)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AE%A1%E7%AE%97%E6%9C%89-3-%E4%B8%AA%E8%8A%82%E7%82%B9%E6%97%B6%E4%B8%8D%E5%90%8C%E5%BD%A2%E6%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%95%B0%E9%87%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 计算有 3 个节点时不同形态二叉树的数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AE%A1%E7%AE%97%E6%9C%89-4-%E4%B8%AA%E8%8A%82%E7%82%B9%E6%97%B6%E4%B8%8D%E5%90%8C%E5%BD%A2%E6%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%95%B0%E9%87%8F"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 计算有 4 个节点时不同形态二叉树的数量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trace-by-hand-the-execution-of-Quicksort-algorithm-on-the-array-int-a-44-77-55-99-66-33-22-88-79-The-pivot-is-66-in-the-first-pass-the-second-is-55-and-88-the-third-is-33-and-77-the-fourth-is-22-and-so-on-till-the-algorithm-is-finished"><span class="toc-number">1.4.</span> <span class="toc-text">Trace by hand the execution of Quicksort algorithm on the array: int a[] = {44, 77, 55, 99, 66, 33, 22, 88, 79} The pivot is 66 in the first pass, the second is 55 and 88, the third is 33 and 77, the fourth is 22, and so on till the algorithm is finished.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%94%E6%A1%88%E5%B1%95%E7%A4%BA"><span class="toc-number">1.4.1.</span> <span class="toc-text">答案展示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86%E5%9B%9E%E9%A1%BE"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">快速排序原理回顾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%84%E8%BD%AE%E5%85%B7%E4%BD%93%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">各轮具体执行过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%94%E6%A1%88%E8%A7%A3%E9%87%8A"><span class="toc-number">1.4.2.</span> <span class="toc-text">答案解释</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
