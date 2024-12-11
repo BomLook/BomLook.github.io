@@ -1,33 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Ch6 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="Ch6
- Summary
- 
- 流水线并没有改善指令的延迟，每条指令仍然需要相同的时间才能完成。
- 流水线减少了每条指令的平均执行时间。
- 流水线实际上提高了整体吞吐量。
- 
- outline
- 
- Basic Concept of Pipelining（流水线基础概念）
- Pipelining Organization（流水线组织）
- Pipelining Issues
- Data Depend">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Ch6 | Heavenhold</title><meta name="author" content="马洛"><meta name="copyright" content="马洛"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=""><meta name="description" content="Ch6 Summary  流水线并没有改善指令的延迟，每条指令仍然需要相同的时间才能完成。 流水线减少了每条指令的平均执行时间。 流水线实际上提高了整体吞吐量。  outline  Basic Concept of Pipelining（流水线基础概念） Pipelining Organization（流水线组织） Pipelining Issues Data Dependencies（数据依赖）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ch6">
 <meta property="og:url" content="https://www.heavenhold.cn/posts/ef039ebd.html">
 <meta property="og:site_name" content="Heavenhold">
-<meta property="og:description" content="Ch6
- Summary
- 
- 流水线并没有改善指令的延迟，每条指令仍然需要相同的时间才能完成。
- 流水线减少了每条指令的平均执行时间。
- 流水线实际上提高了整体吞吐量。
- 
- outline
- 
- Basic Concept of Pipelining（流水线基础概念）
- Pipelining Organization（流水线组织）
- Pipelining Issues
- Data Depend">
+<meta property="og:description" content="Ch6 Summary  流水线并没有改善指令的延迟，每条指令仍然需要相同的时间才能完成。 流水线减少了每条指令的平均执行时间。 流水线实际上提高了整体吞吐量。  outline  Basic Concept of Pipelining（流水线基础概念） Pipelining Organization（流水线组织） Pipelining Issues Data Dependencies（数据依赖）">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031421169.webp">
 <meta property="article:published_time" content="2024-12-07T13:25:00.000Z">
@@ -220,19 +196,21 @@
 <p>上一章讲述了处理器的实现原理，这一章重点是提高处理器的性能，<strong>重点是让程序的执行更快</strong>。</p>
 <p>为了实现这个目标：有以下两个方法：</p>
 <ul>
-<li><p>使用更快，更先进的芯片技术实现处理器和存储器。</p></li>
-<li><p>对硬件组件进行重新安排，使得在同一个时间点，可以有多条指令被同时执行。通过这种方法，执行任何一个操作所需要的时间没有改变，但是每秒执行的操作数会增加，从而提高性能。</p>
+<li>
+<p>使用更快，更先进的芯片技术实现处理器和存储器。</p>
+</li>
+<li>
+<p>对硬件组件进行重新安排，使得在同一个时间点，可以有多条指令被同时执行。通过这种方法，执行任何一个操作所需要的时间没有改变，但是每秒执行的操作数会增加，从而提高性能。</p>
 <blockquote>
-<p>In the this way, the number of operations performed per second is
-increased even though the elapsed time needed to perform any one
-operation is not changed.</p>
-</blockquote></li>
+<p>In the this way, the number of operations performed per second is increased even though the elapsed time needed to perform any one operation is not changed.</p>
+</blockquote>
+</li>
 </ul>
 <p>这一章重点介绍第二种方法，以及一种具体实现技术：流水线。</p>
 <p>流水线的核心在于：<strong>能够重叠多条指令，使得他们同时进行</strong>。</p>
 <p>本质上：在执行完当前指令前，开始执行另外一条新指令。</p>
 <p>可以借助汽车生产流水线来理解：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051605322.webp"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051605322.webp" alt=""></p>
 <p>由此可以类比处理器：</p>
 <ul>
 <li>指令获取：Instruction Fetch</li>
@@ -241,7 +219,7 @@ operation is not changed.</p>
 <li>存储器访问：Memory access</li>
 <li>将结果写回到寄存器中：Write result into register。</li>
 </ul>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051618620.webp"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051618620.webp" alt=""></p>
 <p>上面是没有使用流水线的情况（对应的时间周期图）。</p>
 <p>下面是使用流水线的情况：</p>
 <ul>
@@ -250,298 +228,239 @@ operation is not changed.</p>
 <li>指令被逐条传递，分阶段处理。</li>
 <li>多条指令在一些时间段被同时执行。</li>
 </ul>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412080023392.webp"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412080023392.webp" alt=""></p>
 <p>一些专业术语：</p>
 <ul>
-<li><strong>Pipe Stage / Pipe Segment</strong>：A step in the pipeline
-to complete the instruction</li>
-<li><strong>Pipeline Depth</strong>：Number of stages in a
-pipeline.</li>
-<li><strong>Latency</strong>：How long does it take to execute a single
-instruction in a pipeline.</li>
-<li><strong>Throughput</strong>：The number of instructions completed
-per second.</li>
+<li><strong>Pipe Stage / Pipe Segment</strong>：A step in the pipeline to complete the instruction</li>
+<li><strong>Pipeline Depth</strong>：Number of stages in a pipeline.</li>
+<li><strong>Latency</strong>：How long does it take to execute a single instruction in a pipeline.</li>
+<li><strong>Throughput</strong>：The number of instructions completed per second.</li>
 </ul>
 <h3 id="pipelining-organization">Pipelining Organization</h3>
 <ul>
-<li><p>使用 PC 来获取指令</p></li>
-<li><p>每一个时间周期都有一条新指令进入到流水线中</p></li>
-<li><p>随着指令在不同阶段间的流动，该指令特有的相关信息也被随其记载携带。<strong>这些信息一般是存储在阶段间缓冲区中，</strong>包括上一章提到的
-RA, RB, RZ, RY, RM, IR, PC-Temp
-以及其他辅助寄存器。<strong>此外还负责保持控制信号的设置</strong>。</p></li>
-<li><p>简单介绍各种缓冲区中的内容：</p>
+<li>
+<p>使用 PC 来获取指令</p>
+</li>
+<li>
+<p>每一个时间周期都有一条新指令进入到流水线中</p>
+</li>
+<li>
+<p>随着指令在不同阶段间的流动，该指令特有的相关信息也被随其记载携带。**这些信息一般是存储在阶段间缓冲区中，**包括上一章提到的 RA, RB, RZ, RY, RM, IR, PC-Temp 以及其他辅助寄存器。<strong>此外还负责保持控制信号的设置</strong>。</p>
+</li>
+<li>
+<p>简单介绍各种缓冲区中的内容：</p>
 <ul>
-<li><p>B1：提取新指令</p></li>
-<li><p>B2：</p>
+<li>
+<p>B1：提取新指令</p>
+</li>
+<li>
+<p>B2：</p>
 <ul>
 <li>提取两个操作数，源/目标寄存器</li>
 <li>立即值</li>
 <li>返回地址递增后自增的 PC</li>
 <li><strong>控制信号设置值</strong></li>
-</ul></li>
-<li><p>B3：</p>
+</ul>
+</li>
+<li>
+<p>B3：</p>
 <ul>
 <li>写入到存储器中的数据</li>
 <li>目标存储器的地址</li>
 <li><strong>递增后 PC 值，可能作为子程序调用的返回地址</strong></li>
-</ul></li>
-<li><p>B4：</p>
+</ul>
+</li>
+<li>
+<p>B4：</p>
 <ul>
 <li>ALU 计算结果</li>
 <li>子程序调用返回指令后自增的 PC 值</li>
 <li>存储器中读取到的结果</li>
-</ul></li>
-</ul></li>
 </ul>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051647576.webp"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051647576.webp" alt=""></p>
 <h3 id="pipeline-issues">Pipeline Issues</h3>
 <p>在实际的流水线操作中会存在一些问题，如：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051658701.webp"></p>
-<p>考虑一种情况：<span class="math inline">\(I_j\)</span>的目标寄存器是<span class="math inline">\(I_{j + 1}\)</span>的源寄存器。因为<span class="math inline">\(I_j\)</span>中目标寄存器的内容在第五个阶段才被写入，而<span class="math inline">\(I_{j+1}\)</span>需要在第 3
-个阶段就读取源寄存器中的内容，所以<span class="math inline">\(I_{j+1}\)</span>不得不暂停，直到<span class="math inline">\(I_j\)</span>完成再继续，也就是在第六个周期，<span class="math inline">\(I_{j+1}\)</span>才可以进行 Decode
-操作。当然后续的一系列指令也需要延迟。新的指令不能进行流水线，总的执行时间也会增加。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051658701.webp" alt=""></p>
+<p>考虑一种情况：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">I_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>的目标寄存器是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">I_{j + 1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>的源寄存器。因为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">I_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>中目标寄存器的内容在第五个阶段才被写入，而<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">I_{j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>需要在第 3 个阶段就读取源寄存器中的内容，所以<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">I_{j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>不得不暂停，直到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">I_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>完成再继续，也就是在第六个周期，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">I_{j+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>才可以进行 Decode 操作。当然后续的一系列指令也需要延迟。新的指令不能进行流水线，总的执行时间也会增加。</p>
 <p>将会引起流水线暂停的情况成为冲突(hazard)，主要三种：</p>
 <ul>
-<li><p>数据冲突：因为数据的依赖性。</p>
+<li>
+<p>数据冲突：因为数据的依赖性。</p>
 <blockquote>
 <p>指令的源操作数或目标操作数在管道中预期的时间不可用的任何条件。所以一些操作不得不推迟，管道停止。</p>
-</blockquote></li>
-<li><p>指令（控制）冲突</p>
+</blockquote>
+</li>
+<li>
+<p>指令（控制）冲突</p>
 <blockquote>
 <p>指令可用性的延迟导致管道停止。</p>
-</blockquote></li>
-<li><p>结构冲突：</p>
+</blockquote>
+</li>
+<li>
+<p>结构冲突：</p>
 <blockquote>
 <p>两个指令同时需要使用给定硬件资源的情况</p>
-</blockquote></li>
+</blockquote>
+</li>
 </ul>
 <p>接下来依次介绍几个例子。</p>
 <h3 id="data-dependency">Data Dependency</h3>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Add R2, R3, #100</span><br><span class="line">Substract R9, R2, #30</span><br></pre></td></tr></tbody></table></figure>
-<p>Add 中的 R2 是 Sub 中的源寄存器，这两者存在数据依赖性（因为需要将 R2
-中的数据从 Add 转移到 Sub）。</p>
-<p>如果不使用流水线技术，R2 在 Sub 中能够被访问，因为 Add
-指令已经执行完毕。</p>
+<p>Add 中的 R2 是 Sub 中的源寄存器，这两者存在数据依赖性（因为需要将 R2 中的数据从 Add 转移到 Sub）。</p>
+<p>如果不使用流水线技术，R2 在 Sub 中能够被访问，因为 Add 指令已经执行完毕。</p>
 <p>如果使用流水线，有多种解决方法：</p>
 <p><strong>停止流水线：</strong></p>
 <ul>
-<li><p>由于在 Sub 指令进行解码时，旧值还在 R2 中，所以对 Sub
-指令进行暂停。</p></li>
-<li><p>暂停时长为三个周期：因为新值是在第五个时间周期写入的，所以解码完成最快也得在第六个周期。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051902990.webp"></p></li>
-<li><p>具体细节：</p>
+<li>
+<p>由于在 Sub 指令进行解码时，旧值还在 R2 中，所以对 Sub 指令进行暂停。</p>
+</li>
+<li>
+<p>暂停时长为三个周期：因为新值是在第五个时间周期写入的，所以解码完成最快也得在第六个周期。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051902990.webp" alt=""></p>
+</li>
+<li>
+<p>具体细节：</p>
 <ul>
-<li>控制回路需要在 cycle 3
-判断数据之间是否具有依赖性。（也就是遇到才确定依赖性）</li>
+<li>控制回路需要在 cycle 3 判断数据之间是否具有依赖性。（也就是遇到才确定依赖性）</li>
 <li>阶段间缓冲区携带指令源和目标的寄存器标识符。</li>
-<li>在 cycle 3，会在译码时，<strong>比较 Compute Stage 的目标和
-Destination Stage
-的源</strong>。（简单来说就是判断是不是发生了冲突）</li>
+<li>在 cycle 3，会在译码时，<strong>比较 Compute Stage 的目标和 Destination Stage 的源</strong>。（简单来说就是判断是不是发生了冲突）</li>
 <li>如果 R2 匹配，继续解码 Sub，Add 正常进行。</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p><strong>操作数转发</strong>：</p>
 <ul>
-<li><p>可以解决数据之间的依赖性，并且不用停止流水线。</p></li>
-<li><p>在前面的指令序列中，R2 中的新值实际上在 cycle 3
-结束时就可以使用，所以在 cycle 4 时可以将新值转移到目标位置。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051917142.webp"></p></li>
-<li><p>具体细节：</p>
+<li>
+<p>可以解决数据之间的依赖性，并且不用停止流水线。</p>
+</li>
+<li>
+<p>在前面的指令序列中，R2 中的新值实际上在 cycle 3 结束时就可以使用，所以在 cycle 4 时可以将新值转移到目标位置。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051917142.webp" alt=""></p>
+</li>
+<li>
+<p>具体细节：</p>
 <ul>
-<li><blockquote>
-<p>Introduce multiplexers before ALU inputs to use contents of register
-RZ as forwarded value</p>
+<li>
+<blockquote>
+<p>Introduce multiplexers before ALU inputs to use contents of register RZ as forwarded value</p>
 <p>在 ALU 输入前引入多路复用器，使用寄存器 RZ 的内容作为转发值</p>
-</blockquote></li>
-<li><p>控制回路此时是在阶段四进行识别，不像上面的是在 cycle 3。此时 Sub
-是 Compute Stage</p></li>
-<li><p>对应的，阶段间缓冲仍然携带寄存器标识符。</p></li>
-<li><p>并且在 cycle 4，会比较 Add 的目标（在 Memory Stage）和 Sub
-的源（在 Compute Stage）。</p></li>
-<li><p>多路复用的控制是基于两者之间的比较。</p></li>
-</ul></li>
+</blockquote>
+</li>
+<li>
+<p>控制回路此时是在阶段四进行识别，不像上面的是在 cycle 3。此时 Sub 是 Compute Stage</p>
+</li>
+<li>
+<p>对应的，阶段间缓冲仍然携带寄存器标识符。</p>
+</li>
+<li>
+<p>并且在 cycle 4，会比较 Add 的目标（在 Memory Stage）和 Sub 的源（在 Compute Stage）。</p>
+</li>
+<li>
+<p>多路复用的控制是基于两者之间的比较。</p>
+</li>
 </ul>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051929038.webp"></p>
+</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051929038.webp" alt=""></p>
 <ul>
-<li><p>扩展：实际上 RY 中的内容也可以用于转发，例子如下：</p>
+<li>
+<p>扩展：实际上 RY 中的内容也可以用于转发，例子如下：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Add			R2, R3, #100</span><br><span class="line">Or  		R4, R5, R6</span><br><span class="line">Substract 	R9, R2, #30</span><br></pre></td></tr></tbody></table></figure>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051935345.webp"></p></li>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051935345.webp" alt=""></p>
+</li>
 </ul>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051936878.webp"></p>
-<p><strong>注意：转移只能从第一条指令的 C（也就是[RZ]转移到
-MuxA）到第二条指令的 C，或者第一条指令的 M（也就是[RY]到
-InA）到第三条指令的 C。</strong>确切的讲：就是前者的 C 或者 M 和后者的 C
-在时间周期上是相邻的。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412051936878.webp" alt=""></p>
+<p>**注意：转移只能从第一条指令的 C（也就是[RZ]转移到 MuxA）到第二条指令的 C，或者第一条指令的 M（也就是[RY]到 InA）到第三条指令的 C。**确切的讲：就是前者的 C 或者 M 和后者的 C 在时间周期上是相邻的。</p>
 <p><strong>软件处理数据依赖性</strong>：使用编译器</p>
 <ul>
-<li>编译器可以产生和分析指令，由于寄存器中的数据依赖性是明显的，所以编译器可以通过在<strong>存在数据依赖性的指令间显式插入多条
-NOP 指令。</strong></li>
+<li>编译器可以产生和分析指令，由于寄存器中的数据依赖性是明显的，所以编译器可以通过在<strong>存在数据依赖性的指令间显式插入多条 NOP 指令。</strong></li>
 <li>这样可以确定寄存器中的新值是可以被访问的，但是这会导致总执行时间的增加。</li>
-<li>为了解决这个问题，编译器可以尝试优化，通过将指令移入到 NOP
-槽中来减少代码长度（需要考虑数据之间的依赖性，并且可能需要对指令进行重新排序）</li>
+<li>为了解决这个问题，编译器可以尝试优化，通过将指令移入到 NOP 槽中来减少代码长度（需要考虑数据之间的依赖性，并且可能需要对指令进行重新排序）</li>
 </ul>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052016705.webp"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052016705.webp" alt=""></p>
 <h3 id="memory-delay">Memory Delay</h3>
 <p>存储器延迟可能导致流水线暂停。</p>
 <p>一般情况下，如果数据和指令在缓存中可以之间访问获取，那么只需要一个时间周期，否则，需要花费多个时间周期进行访问存储器。在流水线中，一条指令的存储器延迟将会导致后续指令的延迟。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052019113.webp"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052019113.webp" alt=""></p>
 <p>即使缓存命中，由于数据之间的依赖性，也可能需要暂停一个时间周期，这样才能读取到需要的数据并进行计算。</p>
-<p>可以在其中插入有用的指令进行优化，可以参考上面的<strong>拓展操作数转发</strong>，如果找不到就会引入一个周期的停顿，或者是一条显式的
-NOP 指令。</p>
-<p>为什么是 cycle
-4，联系硬件组成，<strong>转发主要是从[RZ]或[RY]进行，对应的分别是阶段 3
-和阶段 4</strong>。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052027938.webp"></p>
+<p>可以在其中插入有用的指令进行优化，可以参考上面的<strong>拓展操作数转发</strong>，如果找不到就会引入一个周期的停顿，或者是一条显式的 NOP 指令。</p>
+<p>为什么是 cycle 4，联系硬件组成，<strong>转发主要是从[RZ]或[RY]进行，对应的分别是阶段 3 和阶段 4</strong>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052027938.webp" alt=""></p>
 <h3 id="resource-limitations">Resource Limitations</h3>
 <p>可能两条指令需要在同一个时间周期访问一样的资源，可能一条指令暂停，一条进行。可以通过额外的硬件组成解决这个问题。</p>
 <p>一个典型的例子是：Fetch 和 Memory 阶段都和 cache 有关。</p>
 <ul>
 <li>一般情况下，Fetch 总是在每一个时间周期内访问缓存。</li>
-<li>当 Load/Store 指令在 Memory
-阶段需要访问缓存时，会导致一个时间周期的暂停。</li>
-<li>解决方法：将缓存分开为<strong>数据和指令</strong>，这样就可以同时进行
-Fetch 和 Memory 阶段。</li>
+<li>当 Load/Store 指令在 Memory 阶段需要访问缓存时，会导致一个时间周期的暂停。</li>
+<li>解决方法：将缓存分开为<strong>数据和指令</strong>，这样就可以同时进行 Fetch 和 Memory 阶段。</li>
 </ul>
 <h3 id="branch-delays">Branch Delays</h3>
 <p><strong>理想流水线</strong>：在当前指令进行译码时，获取一条新指令。</p>
 <p>Branch 指令会改变指令的执行顺序，需要确认：是否分支，分支到哪里。</p>
 <p><strong>无条件分支</strong>：</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052107272.webp"></p>
-<p>考虑以上情况，在第五章中，我们知道在 cycle 3
-计算得到转移指令的递增，并且更新 PC。所以在 cycle 4 我们才能够 Fetch
-<span class="math inline">\(I_k\)</span>，但是<span class="math inline">\(I_{j+1},I_{j+2}\)</span>已经被
-Fetch，不得不丢弃，由此产生了两个周期的转移代价。</p>
-<p><strong>为了减少转移代价</strong>，需要目标地址被更早的计算得到，可能在解码
-Decode 阶段进行解码，然后更新 PC，而不是在 C
-阶段。所以这样只有一个周期的转移代价，一条指令被丢弃。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052114103.webp"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052107272.webp" alt=""></p>
+<p>考虑以上情况，在第五章中，我们知道在 cycle 3 计算得到转移指令的递增，并且更新 PC。所以在 cycle 4 我们才能够 Fetch <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">I_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，但是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>I</mi><mrow><mi>j</mi><mo>+</mo><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">I_{j+1},I_{j+2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">+</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>已经被 Fetch，不得不丢弃，由此产生了两个周期的转移代价。</p>
+<p><strong>为了减少转移代价</strong>，需要目标地址被更早的计算得到，可能在解码 Decode 阶段进行解码，然后更新 PC，而不是在 C 阶段。所以这样只有一个周期的转移代价，一条指令被丢弃。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052114103.webp" alt=""></p>
 <p><strong>条件分支</strong>：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Branch_if_[R5]=[R6] LOOP</span><br></pre></td></tr></tbody></table></figure>
-<p>这里除了需要计算转移地址，还需要进行条件判断，还是在 Decode
-阶段计算转移地址，再引入一个比较器在 Decode
-阶段进行比较（条件判断）。</p>
+<p>这里除了需要计算转移地址，还需要进行条件判断，还是在 Decode 阶段计算转移地址，再引入一个比较器在 Decode 阶段进行比较（条件判断）。</p>
 <p><strong>转移延迟槽：</strong></p>
 <p>上面的方法还是有一个周期的转移代价，<strong>可以采用一种减少转移代价的技术</strong>。</p>
-<p>如果条件成立，指令被丢弃，否则继续执行。我们将位于转移指令后的单元称为转移延迟槽，我们可以在这里插入一条新指令（称为转移指令，只需要满足数据依赖性的限制即可，否则只能插入
-NOP，无法消除代价）。</p>
+<p>如果条件成立，指令被丢弃，否则继续执行。我们将位于转移指令后的单元称为转移延迟槽，我们可以在这里插入一条新指令（称为转移指令，只需要满足数据依赖性的限制即可，否则只能插入 NOP，无法消除代价）。</p>
 <p>这条新指令是一直要执行的，所以我们可以从分支前面找，并将其转移到槽中，这样就彻底消除了转移代价。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052148851.webp"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052148851.webp" alt=""></p>
 <p>可以发现，这样彻底消除了转移延迟的周期代价。</p>
 <h2 id="练习">练习</h2>
-<h3 id="what-is-the-first-stage-in-a-typical-five-stage-cpu-pipeline">What
-is the first stage in a typical five-stage CPU pipeline?</h3>
+<h3 id="what-is-the-first-stage-in-a-typical-five-stage-cpu-pipeline">What is the first stage in a typical five-stage CPU pipeline?</h3>
 <p>A. Fetch B. Decode C. Compute D. Write</p>
 <p><strong>答案</strong>：A。</p>
-<h3 id="when-multiple-instructions-are-overlapped-during-execution-of-program-then-function-performed-is-called-.">When
-multiple-instructions are overlapped during execution of program, then
-function performed is called .</h3>
+<h3 id="when-multiple-instructions-are-overlapped-during-execution-of-program-then-function-performed-is-called">When multiple-instructions are overlapped during execution of program, then function performed is called .</h3>
 <p>A. Multitasking</p>
 <p>C. Hardwired control</p>
 <p>B. Multiprogramming</p>
 <p>D. Pipelining</p>
 <p><strong>答案</strong>：D。</p>
-<h3 id="ture-or-false-pipelining-increases-processor-performance-by-decreasing-the-execution-time-of-an-instruction.">Ture
-or False? Pipelining increases processor performance by decreasing the
-execution time of an instruction.</h3>
-<p><strong>答案：</strong>False。</p>
+<h3 id="ture-or-false-pipelining-increases-processor-performance-by-decreasing-the-execution-time-of-an-instruction">Ture or False? Pipelining increases processor performance by decreasing the execution time of an instruction.</h3>
+<p>**答案：**False。</p>
 <p>实际上，流水线没有缩短每一条指令的执行时间，但是缩短了每条指令的平均执行时间。并且提高了整体吞吐量。</p>
-<h3 id="an-_-is-a-situation-in-which-the-pipeline-is-stalled-because-the-data-to-be-operated-on-are-delayed-for-some-reason.">A(n)
-_ is a situation in which the pipeline is stalled because the data to be
-operated on are delayed for some reason.</h3>
-<h3 id="or-_-is-any-condition-in-which-either-the-source-or-the-destination-operands-of-an-instruction-are-not-available-at-the-time-expected-in-the-pipeline.">or
-<strong>_</strong> is any condition in which either the source or the
-destination operands of an instruction are not available at the time
-expected in the pipeline.</h3>
-<p>A. control hazard B. data hazard C. structural hazard D. instruction
-hazard</p>
-<p><strong>答案：</strong>B。</p>
-<h3 id="about-the-data-dependency-in-a-pipeline-which-is-not-true-in-the-following">About
-the data dependency in a pipeline, which is not true in the
-following?</h3>
-<p>A. Operand forwarding can handle all data dependencies without the
-penalty of stalling the pipeline.</p>
-<p>B. Compiler can detect data dependencies and deal with them by
-analyzing instructions.</p>
-<p>C. Compiler puts explicit NOP instructions between instructions
-having a dependency.</p>
-<p>D. Even with a cache hit and operand forwarding, the data dependency
-between “Load R2, (R3)” and “Subtract R9, R2, #30” will also cause
-onecycle stall.</p>
+<h3 id="a-n-is-a-situation-in-which-the-pipeline-is-stalled-because-the-data-to-be-operated-on-are-delayed-for-some-reason">A(n) _ is a situation in which the pipeline is stalled because the data to be operated on are delayed for some reason.</h3>
+<h3 id="or-is-any-condition-in-which-either-the-source-or-the-destination-operands-of-an-instruction-are-not-available-at-the-time-expected-in-the-pipeline">or <strong>_</strong> is any condition in which either the source or the destination operands of an instruction are not available at the time expected in the pipeline.</h3>
+<p>A. control hazard B. data hazard C. structural hazard D. instruction hazard</p>
+<p>**答案：**B。</p>
+<h3 id="about-the-data-dependency-in-a-pipeline-which-is-not-true-in-the-following">About the data dependency in a pipeline, which is not true in the following?</h3>
+<p>A. Operand forwarding can handle all data dependencies without the penalty of stalling the pipeline.</p>
+<p>B. Compiler can detect data dependencies and deal with them by analyzing instructions.</p>
+<p>C. Compiler puts explicit NOP instructions between instructions having a dependency.</p>
+<p>D. Even with a cache hit and operand forwarding, the data dependency between “Load R2, (R3)” and “Subtract R9, R2, #30” will also cause onecycle stall.</p>
 <p><strong>答案</strong>：A。</p>
-<h3 id="consider-the-following-sequence-of-instructions-being-processed-on-the-pipelined-5-stage-risc-processor">Consider
-the following sequence of instructions being processed on the pipelined
-5-stage RISC processor:</h3>
+<h3 id="consider-the-following-sequence-of-instructions-being-processed-on-the-pipelined-5-stage-risc-processor">Consider the following sequence of instructions being processed on the pipelined 5-stage RISC processor:</h3>
 <figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Load R1, 4(R2)</span><br><span class="line">Sub R4, R1, R5</span><br><span class="line">And R6, R1, R7</span><br><span class="line">Or R8, R3, R4</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="identify-all-the-data-dependencies-in-the-above-instruction-sequence.-for-each-dependency-indicate-the-two-instructions-and-the-register-that-causes-the-dependency.识别上述指令序列中的所有数据依赖项对于每个依赖项指示两个指令和导致依赖项的寄存器">(1)
-Identify all the data dependencies in the above instruction sequence.
-For each dependency, indicate the two instructions and the register that
-causes the
-dependency.（识别上述指令序列中的所有数据依赖项。对于每个依赖项，指示两个指令和导致依赖项的寄存器。）</h4>
+<h4 id="1-identify-all-the-data-dependencies-in-the-above-instruction-sequence-for-each-dependency-indicate-the-two-instructions-and-the-register-that-causes-the-dependency-识别上述指令序列中的所有数据依赖项-对于每个依赖项-指示两个指令和导致依赖项的寄存器">(1) Identify all the data dependencies in the above instruction sequence. For each dependency, indicate the two instructions and the register that causes the dependency.（识别上述指令序列中的所有数据依赖项。对于每个依赖项，指示两个指令和导致依赖项的寄存器。）</h4>
 <p><strong>答案</strong>：</p>
 <ul>
-<li><p>Sub 指令依赖于 Load 指令中的 R1</p></li>
-<li><p>And 指令依赖于 Load 指令中的 R1</p></li>
-<li><p>Or 指令依赖于 Sub 指令中的 R4</p></li>
+<li>
+<p>Sub 指令依赖于 Load 指令中的 R1</p>
+</li>
+<li>
+<p>And 指令依赖于 Load 指令中的 R1</p>
+</li>
+<li>
+<p>Or 指令依赖于 Sub 指令中的 R4</p>
+</li>
 </ul>
-<h4 id="assume-that-the-pipeline-does-not-use-operand-forwarding.-also-assume-that-the-only-sources-of-pipeline-stalls-are-the-data-hazards.-draw-a-diagram-that-represents-instruction-flow-through-the-pipeline-during-each-clock-cycle.假设流水线不使用操作数转发还要假设导致流水线失效的唯一原因是数据丢弃绘制一个表示在每个时钟周期内通过流水线的指令流的图表">(2)
-Assume that the pipeline does not use operand forwarding. Also assume
-that the only sources of pipeline stalls are the data hazards. Draw a
-diagram that represents instruction flow through the pipeline during
-each clock
-cycle.（假设流水线不使用操作数转发。还要假设导致流水线失效的唯一原因是数据丢弃。绘制一个表示在每个时钟周期内通过流水线的指令流的图表。）</h4>
+<h4 id="2-assume-that-the-pipeline-does-not-use-operand-forwarding-also-assume-that-the-only-sources-of-pipeline-stalls-are-the-data-hazards-draw-a-diagram-that-represents-instruction-flow-through-the-pipeline-during-each-clock-cycle-假设流水线不使用操作数转发-还要假设导致流水线失效的唯一原因是数据丢弃-绘制一个表示在每个时钟周期内通过流水线的指令流的图表">(2) Assume that the pipeline does not use operand forwarding. Also assume that the only sources of pipeline stalls are the data hazards. Draw a diagram that represents instruction flow through the pipeline during each clock cycle.（假设流水线不使用操作数转发。还要假设导致流水线失效的唯一原因是数据丢弃。绘制一个表示在每个时钟周期内通过流水线的指令流的图表。）</h4>
 <p><strong>答案</strong>：</p>
-<p>这里注意 Sub
-停止，导致了后续一系列指令停止。注意一点，<strong>在同一个时间周期下，不同指令执行的阶段是不同的，必须前一条指令执行完毕后，后续的指令才可以继续执行</strong>。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052234992.webp"></p>
-<h4 id="assume-that-the-pipeline-uses-operand-forwarding.-the-pipeline-hardware-is-similar-to-figure-2-above-but-add-separate-forwarding-paths-from-the-outputs-of-stage-3-and-stage-4-to-the-input-of-stage-3.-draw-a-diagram-that-represents-the-flow-of-instructions-through-the-pipeline-during-each-clock-cycle.-indicate-operand-forwarding-by-arrows.假设流水线使用操作数转发流水线硬件类似于上面的图-2但是从阶段-3-和阶段-4-的输出向阶段-3-的输入添加单独的转发路径绘制一个表示每个时钟周期内通过流水线的指令流的图表用箭头表示操作数转发">(3)
-Assume that the pipeline uses operand forwarding. The pipeline hardware
-is similar to figure 2 above, but add separate forwarding paths from the
-outputs of stage-3 and stage-4 to the input of stage-3. Draw a diagram
-that represents the flow of instructions through the pipeline during
-each clock cycle. Indicate operand forwarding by
-arrows.（假设流水线使用操作数转发。流水线硬件类似于上面的图
-2，但是从阶段 3 和阶段 4 的输出向阶段 3
-的输入添加单独的转发路径。绘制一个表示每个时钟周期内通过流水线的指令流的图表。用箭头表示操作数转发。）</h4>
-<p>解释一下：Load 指令的 M 通过 RY 转载到 Sub 的 C 中，由于是在 M
-阶段得到数据，所以 Sub 指令在 D 需要暂停一个时间周期。后续 And
-指令执行，重点在于 D
-需要延迟一个时间周期，因为如果还是正常一个时间周期的话，那么 And 指令的
-D 在 5，C 在 6，而 Load 的 M 在
-4，不是相邻的，无法进行转移，所以只能等到 Load 的 W 完成后，继续 Decode
-获取寄存器中的内容。后续也是以此类推。</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052239197.webp"></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn/posts/ef039ebd.html">https://www.heavenhold.cn/posts/ef039ebd.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.heavenhold.cn" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031421169.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/8bbb3ba.html" title="Ch8"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412072132490.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Ch8</div></div></a></div><div class="next-post pull-right"><a href="/posts/9f696a32.html" title="Ch3"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031421115.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Ch3</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/6cc3adc6.html" title="Ch0 and Ch1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://www.horosama.com/api/image_all/anime/1080p/pc/5891b38CFe3f381b9dfeE0718f37ca92.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-04</div><div class="title">Ch0 and Ch1</div></div></a></div><div><a href="/posts/9f696a32.html" title="Ch3"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031421115.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-07</div><div class="title">Ch3</div></div></a></div><div><a href="/posts/e86e5aa4.html" title="Ch2"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419294.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-05</div><div class="title">Ch2</div></div></a></div><div><a href="/posts/86474016.html" title="Ch8 Part3"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412072132211.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-07</div><div class="title">Ch8 Part3</div></div></a></div><div><a href="/posts/760acf07.html" title="Ch5"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031420351.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-05</div><div class="title">Ch5</div></div></a></div><div><a href="/posts/8bbb3ba.html" title="Ch8"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412072132490.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-07</div><div class="title">Ch8</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ch6"><span class="toc-number">1.</span> <span class="toc-text">Ch6</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#summary"><span class="toc-number">1.1.</span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#outline"><span class="toc-number">1.2.</span> <span class="toc-text">outline</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#basic-concept"><span class="toc-number">1.2.1.</span> <span class="toc-text">Basic Concept</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipelining-organization"><span class="toc-number">1.2.2.</span> <span class="toc-text">Pipelining Organization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeline-issues"><span class="toc-number">1.2.3.</span> <span class="toc-text">Pipeline Issues</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-dependency"><span class="toc-number">1.2.4.</span> <span class="toc-text">Data Dependency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#memory-delay"><span class="toc-number">1.2.5.</span> <span class="toc-text">Memory Delay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#resource-limitations"><span class="toc-number">1.2.6.</span> <span class="toc-text">Resource Limitations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#branch-delays"><span class="toc-number">1.2.7.</span> <span class="toc-text">Branch Delays</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">1.3.</span> <span class="toc-text">练习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#what-is-the-first-stage-in-a-typical-five-stage-cpu-pipeline"><span class="toc-number">1.3.1.</span> <span class="toc-text">What
-is the first stage in a typical five-stage CPU pipeline?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#when-multiple-instructions-are-overlapped-during-execution-of-program-then-function-performed-is-called-."><span class="toc-number">1.3.2.</span> <span class="toc-text">When
-multiple-instructions are overlapped during execution of program, then
-function performed is called .</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ture-or-false-pipelining-increases-processor-performance-by-decreasing-the-execution-time-of-an-instruction."><span class="toc-number">1.3.3.</span> <span class="toc-text">Ture
-or False? Pipelining increases processor performance by decreasing the
-execution time of an instruction.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#an-_-is-a-situation-in-which-the-pipeline-is-stalled-because-the-data-to-be-operated-on-are-delayed-for-some-reason."><span class="toc-number">1.3.4.</span> <span class="toc-text">A(n)
-_ is a situation in which the pipeline is stalled because the data to be
-operated on are delayed for some reason.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#or-_-is-any-condition-in-which-either-the-source-or-the-destination-operands-of-an-instruction-are-not-available-at-the-time-expected-in-the-pipeline."><span class="toc-number">1.3.5.</span> <span class="toc-text">or
-_ is any condition in which either the source or the
-destination operands of an instruction are not available at the time
-expected in the pipeline.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#about-the-data-dependency-in-a-pipeline-which-is-not-true-in-the-following"><span class="toc-number">1.3.6.</span> <span class="toc-text">About
-the data dependency in a pipeline, which is not true in the
-following?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#consider-the-following-sequence-of-instructions-being-processed-on-the-pipelined-5-stage-risc-processor"><span class="toc-number">1.3.7.</span> <span class="toc-text">Consider
-the following sequence of instructions being processed on the pipelined
-5-stage RISC processor:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#identify-all-the-data-dependencies-in-the-above-instruction-sequence.-for-each-dependency-indicate-the-two-instructions-and-the-register-that-causes-the-dependency.%E8%AF%86%E5%88%AB%E4%B8%8A%E8%BF%B0%E6%8C%87%E4%BB%A4%E5%BA%8F%E5%88%97%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%AA%E4%BE%9D%E8%B5%96%E9%A1%B9%E6%8C%87%E7%A4%BA%E4%B8%A4%E4%B8%AA%E6%8C%87%E4%BB%A4%E5%92%8C%E5%AF%BC%E8%87%B4%E4%BE%9D%E8%B5%96%E9%A1%B9%E7%9A%84%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">1.3.7.1.</span> <span class="toc-text">(1)
-Identify all the data dependencies in the above instruction sequence.
-For each dependency, indicate the two instructions and the register that
-causes the
-dependency.（识别上述指令序列中的所有数据依赖项。对于每个依赖项，指示两个指令和导致依赖项的寄存器。）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#assume-that-the-pipeline-does-not-use-operand-forwarding.-also-assume-that-the-only-sources-of-pipeline-stalls-are-the-data-hazards.-draw-a-diagram-that-represents-instruction-flow-through-the-pipeline-during-each-clock-cycle.%E5%81%87%E8%AE%BE%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%B0%E8%BD%AC%E5%8F%91%E8%BF%98%E8%A6%81%E5%81%87%E8%AE%BE%E5%AF%BC%E8%87%B4%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%A4%B1%E6%95%88%E7%9A%84%E5%94%AF%E4%B8%80%E5%8E%9F%E5%9B%A0%E6%98%AF%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%BC%83%E7%BB%98%E5%88%B6%E4%B8%80%E4%B8%AA%E8%A1%A8%E7%A4%BA%E5%9C%A8%E6%AF%8F%E4%B8%AA%E6%97%B6%E9%92%9F%E5%91%A8%E6%9C%9F%E5%86%85%E9%80%9A%E8%BF%87%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E6%8C%87%E4%BB%A4%E6%B5%81%E7%9A%84%E5%9B%BE%E8%A1%A8"><span class="toc-number">1.3.7.2.</span> <span class="toc-text">(2)
-Assume that the pipeline does not use operand forwarding. Also assume
-that the only sources of pipeline stalls are the data hazards. Draw a
-diagram that represents instruction flow through the pipeline during
-each clock
-cycle.（假设流水线不使用操作数转发。还要假设导致流水线失效的唯一原因是数据丢弃。绘制一个表示在每个时钟周期内通过流水线的指令流的图表。）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#assume-that-the-pipeline-uses-operand-forwarding.-the-pipeline-hardware-is-similar-to-figure-2-above-but-add-separate-forwarding-paths-from-the-outputs-of-stage-3-and-stage-4-to-the-input-of-stage-3.-draw-a-diagram-that-represents-the-flow-of-instructions-through-the-pipeline-during-each-clock-cycle.-indicate-operand-forwarding-by-arrows.%E5%81%87%E8%AE%BE%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%B0%E8%BD%AC%E5%8F%91%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%A1%AC%E4%BB%B6%E7%B1%BB%E4%BC%BC%E4%BA%8E%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%9B%BE-2%E4%BD%86%E6%98%AF%E4%BB%8E%E9%98%B6%E6%AE%B5-3-%E5%92%8C%E9%98%B6%E6%AE%B5-4-%E7%9A%84%E8%BE%93%E5%87%BA%E5%90%91%E9%98%B6%E6%AE%B5-3-%E7%9A%84%E8%BE%93%E5%85%A5%E6%B7%BB%E5%8A%A0%E5%8D%95%E7%8B%AC%E7%9A%84%E8%BD%AC%E5%8F%91%E8%B7%AF%E5%BE%84%E7%BB%98%E5%88%B6%E4%B8%80%E4%B8%AA%E8%A1%A8%E7%A4%BA%E6%AF%8F%E4%B8%AA%E6%97%B6%E9%92%9F%E5%91%A8%E6%9C%9F%E5%86%85%E9%80%9A%E8%BF%87%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E6%8C%87%E4%BB%A4%E6%B5%81%E7%9A%84%E5%9B%BE%E8%A1%A8%E7%94%A8%E7%AE%AD%E5%A4%B4%E8%A1%A8%E7%A4%BA%E6%93%8D%E4%BD%9C%E6%95%B0%E8%BD%AC%E5%8F%91"><span class="toc-number">1.3.7.3.</span> <span class="toc-text">(3)
-Assume that the pipeline uses operand forwarding. The pipeline hardware
-is similar to figure 2 above, but add separate forwarding paths from the
-outputs of stage-3 and stage-4 to the input of stage-3. Draw a diagram
-that represents the flow of instructions through the pipeline during
-each clock cycle. Indicate operand forwarding by
-arrows.（假设流水线使用操作数转发。流水线硬件类似于上面的图
-2，但是从阶段 3 和阶段 4 的输出向阶段 3
-的输入添加单独的转发路径。绘制一个表示每个时钟周期内通过流水线的指令流的图表。用箭头表示操作数转发。）</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<p>这里注意 Sub 停止，导致了后续一系列指令停止。注意一点，<strong>在同一个时间周期下，不同指令执行的阶段是不同的，必须前一条指令执行完毕后，后续的指令才可以继续执行</strong>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052234992.webp" alt=""></p>
+<h4 id="3-assume-that-the-pipeline-uses-operand-forwarding-the-pipeline-hardware-is-similar-to-figure-2-above-but-add-separate-forwarding-paths-from-the-outputs-of-stage-3-and-stage-4-to-the-input-of-stage-3-draw-a-diagram-that-represents-the-flow-of-instructions-through-the-pipeline-during-each-clock-cycle-indicate-operand-forwarding-by-arrows-假设流水线使用操作数转发-流水线硬件类似于上面的图-2-但是从阶段-3-和阶段-4-的输出向阶段-3-的输入添加单独的转发路径-绘制一个表示每个时钟周期内通过流水线的指令流的图表-用箭头表示操作数转发">(3) Assume that the pipeline uses operand forwarding. The pipeline hardware is similar to figure 2 above, but add separate forwarding paths from the outputs of stage-3 and stage-4 to the input of stage-3. Draw a diagram that represents the flow of instructions through the pipeline during each clock cycle. Indicate operand forwarding by arrows.（假设流水线使用操作数转发。流水线硬件类似于上面的图 2，但是从阶段 3 和阶段 4 的输出向阶段 3 的输入添加单独的转发路径。绘制一个表示每个时钟周期内通过流水线的指令流的图表。用箭头表示操作数转发。）</h4>
+<p>解释一下：Load 指令的 M 通过 RY 转载到 Sub 的 C 中，由于是在 M 阶段得到数据，所以 Sub 指令在 D 需要暂停一个时间周期。后续 And 指令执行，重点在于 D 需要延迟一个时间周期，因为如果还是正常一个时间周期的话，那么 And 指令的 D 在 5，C 在 6，而 Load 的 M 在 4，不是相邻的，无法进行转移，所以只能等到 Load 的 W 完成后，继续 Decode 获取寄存器中的内容。后续也是以此类推。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/blog-pic@main/img/202412052239197.webp" alt=""></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn">马洛</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.heavenhold.cn/posts/ef039ebd.html">https://www.heavenhold.cn/posts/ef039ebd.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.heavenhold.cn" target="_blank">Heavenhold</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031421169.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer=""></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/8bbb3ba.html" title="Ch8"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412072132490.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Ch8</div></div></a></div><div class="next-post pull-right"><a href="/posts/9f696a32.html" title="Ch3"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031421115.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Ch3</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/6cc3adc6.html" title="Ch0 and Ch1"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://www.horosama.com/api/image_all/anime/1080p/pc/5891b38CFe3f381b9dfeE0718f37ca92.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-04</div><div class="title">Ch0 and Ch1</div></div></a></div><div><a href="/posts/9f696a32.html" title="Ch3"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031421115.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-07</div><div class="title">Ch3</div></div></a></div><div><a href="/posts/e86e5aa4.html" title="Ch2"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031419294.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-05</div><div class="title">Ch2</div></div></a></div><div><a href="/posts/760acf07.html" title="Ch5"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412031420351.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-05</div><div class="title">Ch5</div></div></a></div><div><a href="/posts/8bbb3ba.html" title="Ch8"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412072132490.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-07</div><div class="title">Ch8</div></div></a></div><div><a href="/posts/f1407080.html" title="Ch8 Part2"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="https://cdn.jsdelivr.net/gh/BomLook/cartoon@main/img/202412072132848.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-07</div><div class="title">Ch8 Part2</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ch6"><span class="toc-number">1.</span> <span class="toc-text">Ch6</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#summary"><span class="toc-number">1.1.</span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#outline"><span class="toc-number">1.2.</span> <span class="toc-text">outline</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#basic-concept"><span class="toc-number">1.2.1.</span> <span class="toc-text">Basic Concept</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipelining-organization"><span class="toc-number">1.2.2.</span> <span class="toc-text">Pipelining Organization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeline-issues"><span class="toc-number">1.2.3.</span> <span class="toc-text">Pipeline Issues</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-dependency"><span class="toc-number">1.2.4.</span> <span class="toc-text">Data Dependency</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#memory-delay"><span class="toc-number">1.2.5.</span> <span class="toc-text">Memory Delay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#resource-limitations"><span class="toc-number">1.2.6.</span> <span class="toc-text">Resource Limitations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#branch-delays"><span class="toc-number">1.2.7.</span> <span class="toc-text">Branch Delays</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">1.3.</span> <span class="toc-text">练习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#what-is-the-first-stage-in-a-typical-five-stage-cpu-pipeline"><span class="toc-number">1.3.1.</span> <span class="toc-text">What is the first stage in a typical five-stage CPU pipeline?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#when-multiple-instructions-are-overlapped-during-execution-of-program-then-function-performed-is-called"><span class="toc-number">1.3.2.</span> <span class="toc-text">When multiple-instructions are overlapped during execution of program, then function performed is called .</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ture-or-false-pipelining-increases-processor-performance-by-decreasing-the-execution-time-of-an-instruction"><span class="toc-number">1.3.3.</span> <span class="toc-text">Ture or False? Pipelining increases processor performance by decreasing the execution time of an instruction.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a-n-is-a-situation-in-which-the-pipeline-is-stalled-because-the-data-to-be-operated-on-are-delayed-for-some-reason"><span class="toc-number">1.3.4.</span> <span class="toc-text">A(n) _ is a situation in which the pipeline is stalled because the data to be operated on are delayed for some reason.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#or-is-any-condition-in-which-either-the-source-or-the-destination-operands-of-an-instruction-are-not-available-at-the-time-expected-in-the-pipeline"><span class="toc-number">1.3.5.</span> <span class="toc-text">or _ is any condition in which either the source or the destination operands of an instruction are not available at the time expected in the pipeline.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#about-the-data-dependency-in-a-pipeline-which-is-not-true-in-the-following"><span class="toc-number">1.3.6.</span> <span class="toc-text">About the data dependency in a pipeline, which is not true in the following?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#consider-the-following-sequence-of-instructions-being-processed-on-the-pipelined-5-stage-risc-processor"><span class="toc-number">1.3.7.</span> <span class="toc-text">Consider the following sequence of instructions being processed on the pipelined 5-stage RISC processor:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-identify-all-the-data-dependencies-in-the-above-instruction-sequence-for-each-dependency-indicate-the-two-instructions-and-the-register-that-causes-the-dependency-%E8%AF%86%E5%88%AB%E4%B8%8A%E8%BF%B0%E6%8C%87%E4%BB%A4%E5%BA%8F%E5%88%97%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96%E9%A1%B9-%E5%AF%B9%E4%BA%8E%E6%AF%8F%E4%B8%AA%E4%BE%9D%E8%B5%96%E9%A1%B9-%E6%8C%87%E7%A4%BA%E4%B8%A4%E4%B8%AA%E6%8C%87%E4%BB%A4%E5%92%8C%E5%AF%BC%E8%87%B4%E4%BE%9D%E8%B5%96%E9%A1%B9%E7%9A%84%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">1.3.7.1.</span> <span class="toc-text">(1) Identify all the data dependencies in the above instruction sequence. For each dependency, indicate the two instructions and the register that causes the dependency.（识别上述指令序列中的所有数据依赖项。对于每个依赖项，指示两个指令和导致依赖项的寄存器。）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-assume-that-the-pipeline-does-not-use-operand-forwarding-also-assume-that-the-only-sources-of-pipeline-stalls-are-the-data-hazards-draw-a-diagram-that-represents-instruction-flow-through-the-pipeline-during-each-clock-cycle-%E5%81%87%E8%AE%BE%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%B0%E8%BD%AC%E5%8F%91-%E8%BF%98%E8%A6%81%E5%81%87%E8%AE%BE%E5%AF%BC%E8%87%B4%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%A4%B1%E6%95%88%E7%9A%84%E5%94%AF%E4%B8%80%E5%8E%9F%E5%9B%A0%E6%98%AF%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%BC%83-%E7%BB%98%E5%88%B6%E4%B8%80%E4%B8%AA%E8%A1%A8%E7%A4%BA%E5%9C%A8%E6%AF%8F%E4%B8%AA%E6%97%B6%E9%92%9F%E5%91%A8%E6%9C%9F%E5%86%85%E9%80%9A%E8%BF%87%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E6%8C%87%E4%BB%A4%E6%B5%81%E7%9A%84%E5%9B%BE%E8%A1%A8"><span class="toc-number">1.3.7.2.</span> <span class="toc-text">(2) Assume that the pipeline does not use operand forwarding. Also assume that the only sources of pipeline stalls are the data hazards. Draw a diagram that represents instruction flow through the pipeline during each clock cycle.（假设流水线不使用操作数转发。还要假设导致流水线失效的唯一原因是数据丢弃。绘制一个表示在每个时钟周期内通过流水线的指令流的图表。）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-assume-that-the-pipeline-uses-operand-forwarding-the-pipeline-hardware-is-similar-to-figure-2-above-but-add-separate-forwarding-paths-from-the-outputs-of-stage-3-and-stage-4-to-the-input-of-stage-3-draw-a-diagram-that-represents-the-flow-of-instructions-through-the-pipeline-during-each-clock-cycle-indicate-operand-forwarding-by-arrows-%E5%81%87%E8%AE%BE%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%B0%E8%BD%AC%E5%8F%91-%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%A1%AC%E4%BB%B6%E7%B1%BB%E4%BC%BC%E4%BA%8E%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%9B%BE-2-%E4%BD%86%E6%98%AF%E4%BB%8E%E9%98%B6%E6%AE%B5-3-%E5%92%8C%E9%98%B6%E6%AE%B5-4-%E7%9A%84%E8%BE%93%E5%87%BA%E5%90%91%E9%98%B6%E6%AE%B5-3-%E7%9A%84%E8%BE%93%E5%85%A5%E6%B7%BB%E5%8A%A0%E5%8D%95%E7%8B%AC%E7%9A%84%E8%BD%AC%E5%8F%91%E8%B7%AF%E5%BE%84-%E7%BB%98%E5%88%B6%E4%B8%80%E4%B8%AA%E8%A1%A8%E7%A4%BA%E6%AF%8F%E4%B8%AA%E6%97%B6%E9%92%9F%E5%91%A8%E6%9C%9F%E5%86%85%E9%80%9A%E8%BF%87%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E6%8C%87%E4%BB%A4%E6%B5%81%E7%9A%84%E5%9B%BE%E8%A1%A8-%E7%94%A8%E7%AE%AD%E5%A4%B4%E8%A1%A8%E7%A4%BA%E6%93%8D%E4%BD%9C%E6%95%B0%E8%BD%AC%E5%8F%91"><span class="toc-number">1.3.7.3.</span> <span class="toc-text">(3) Assume that the pipeline uses operand forwarding. The pipeline hardware is similar to figure 2 above, but add separate forwarding paths from the outputs of stage-3 and stage-4 to the input of stage-3. Draw a diagram that represents the flow of instructions through the pipeline during each clock cycle. Indicate operand forwarding by arrows.（假设流水线使用操作数转发。流水线硬件类似于上面的图 2，但是从阶段 3 和阶段 4 的输出向阶段 3 的输入添加单独的转发路径。绘制一个表示每个时钟周期内通过流水线的指令流的图表。用箭头表示操作数转发。）</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">©2024 By 马洛</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
